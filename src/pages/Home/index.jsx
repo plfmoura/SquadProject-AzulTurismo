@@ -14,6 +14,9 @@ export default function Home() {
         <p>com nossos</p>
         <span>Roteiros</span>
       </div>
+      <div className={style.creativeContainer}>
+        <img src="/src/assets/home/men.png" alt="" />
+      </div>
     </div>
       <h1>Pagina de Home</h1>
       {products.map((producto) => (

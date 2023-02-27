@@ -1,10 +1,24 @@
 .alignContent {
     width: 100vw;
     height: 4rem;
-    background-color: #33333340;
-    position: relative;
+    background-color: #91919130;
+    position: sticky;
     z-index: 999;
     top: 0;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 8px;
+}
+
+.alignContent:hover {
+    animation: hoverBar 200ms linear both;
+}
+
+@keyframes hoverBar {
+    from {
+        background-color: #33333350;
+    }
+    to {
+        background-color: #333333aa;
+    }    
 }
 
 .navBarContainer {
@@ -32,13 +46,14 @@
     font-size: 1.3rem;
     font-weight: bolder;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #2ea9ff;
+    color: #fff;
 }
 
 /* Animação do Logo */
 @keyframes title {
     from {
         transform: translateX(-1rem);
+        color: #2ea9ff;
         opacity: 0;
     }
     to {
