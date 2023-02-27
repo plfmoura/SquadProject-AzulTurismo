@@ -1,7 +1,7 @@
 .alignContent {
     width: 100vw;
     height: 4rem;
-    background-color: #33333320;
+    background-color: #33333340;
 }
 
 .navBarContainer {
@@ -23,7 +23,7 @@
 
 .navBarContainer div:first-child span {
     padding: 0 1rem 0 .5rem;
-    animation: title 2s ease;
+    animation: title 1.5s ease-in;
     position: relative;
     z-index: 4;
     font-size: 1.3rem;
@@ -35,7 +35,7 @@
 /* Animação do Logo */
 @keyframes title {
     from {
-        transform: translateX(-4.2rem);
+        transform: translateX(-1rem);
         opacity: 0;
     }
     to {
@@ -47,17 +47,30 @@
     height: 3rem;
     position: relative;
     z-index: 5;
-    animation: rotate 2s ease;
+    /* animation: rotate 3s cubic-bezier(0.165, 0.84, 0.44, 1) infinite; */
+    animation: transform 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.25) normal;
+    display: block;
 }
 
 @keyframes rotate {
     from {
         transform: rotateZ(-360deg);
-        opacity: 0;
     }
     to {
         transform: rotateZ(0deg);
     }
+}
+
+@keyframes transform {
+   from {
+        transform: translateX(8rem) rotateZ(360deg);
+        opacity: 0;
+    };
+  
+    to {
+        transform: translateX(0rem) rotateZ(0deg);
+    }
+
 }
 
 /* Listas de Navegação */
