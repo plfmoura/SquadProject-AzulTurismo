@@ -45,7 +45,6 @@
     z-index: 4;
     font-size: 1.3rem;
     font-weight: bolder;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #fff;
 }
 
@@ -125,7 +124,11 @@
 }
 
 .userPicture {
-    width: 2.5rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 100%;
+    border: .18rem solid #fff;
+    object-fit: cover;
 }
 
 .notificationIcon {
