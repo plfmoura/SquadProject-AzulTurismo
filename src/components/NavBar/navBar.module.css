@@ -1,7 +1,10 @@
 .alignContent {
     width: 100vw;
     height: 4rem;
-    background-color: #33333320;
+    background-color: #33333340;
+    position: relative;
+    z-index: 999;
+    top: 0;
 }
 
 .navBarContainer {
@@ -23,7 +26,7 @@
 
 .navBarContainer div:first-child span {
     padding: 0 1rem 0 .5rem;
-    animation: title 2s ease;
+    animation: title 1.5s ease-in;
     position: relative;
     z-index: 4;
     font-size: 1.3rem;
@@ -35,7 +38,7 @@
 /* Animação do Logo */
 @keyframes title {
     from {
-        transform: translateX(-4.2rem);
+        transform: translateX(-1rem);
         opacity: 0;
     }
     to {
@@ -47,17 +50,30 @@
     height: 3rem;
     position: relative;
     z-index: 5;
-    animation: rotate 2s ease;
+    /* animation: rotate 3s cubic-bezier(0.165, 0.84, 0.44, 1) infinite; */
+    animation: transform 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.25) normal;
+    display: block;
 }
 
 @keyframes rotate {
     from {
         transform: rotateZ(-360deg);
-        opacity: 0;
     }
     to {
         transform: rotateZ(0deg);
     }
+}
+
+@keyframes transform {
+   from {
+        transform: translateX(8rem) rotateZ(360deg);
+        opacity: 0;
+    };
+  
+    to {
+        transform: translateX(0rem) rotateZ(0deg);
+    }
+
 }
 
 /* Listas de Navegação */
@@ -82,10 +98,13 @@
 }
 
 /* Área do usuário */
+.userContainer .menuContent {
+    white-space: nowrap;
+}
 
 .menuContent div {
     display: flex;
-    width: 5rem;
+    width: 25%;
     justify-content: space-between;
     align-items: center;
 }
@@ -97,4 +116,87 @@
 .notificationIcon {
     transform: scale(1.5);
     color: #fff;
+}
+
+@media screen and (min-width: 320px){
+    .navBarContainer {
+        width: 100%;
+    }
+    .menuContent {
+        display: none;
+    }
+    .navBarContainer div:first-child {
+        transform: scale(0.7);
+    }
+    .navBarContainer div:first-child span {
+        display: none;
+    }
+    .userContainer .menuContent {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 580px){
+    .navBarContainer {
+        width: 95%;
+    }
+    .navBarContainer div:first-child {
+        transform: scale(0.8);
+    }
+    .menuContent {
+        display: flex;
+        font-size: 14px;
+        width: 60%;
+    }
+    .userContainer .menuContent li {
+        display: none;
+    }
+    
+}
+
+@media screen and (min-width: 740px){
+    .navBarContainer {
+        width: 90%;
+    }
+    .menuContent {
+        width: 25rem;
+        font-size: 1rem;
+    }
+    .navBarContainer div:first-child {
+        transform: scale(1);
+    }
+    .navBarContainer div:first-child span {
+        display: block;
+    }
+    .notificationIcon {
+        display: block;
+    }
+    .userContainer .menuContent {
+        white-space: nowrap;
+        display: flex;
+        width: 4.5rem;
+    }
+    .userContainer .menuContent div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1040px){
+    .navBarContainer {
+        width: 80%;
+    }
+    .userContainer .menuContent li {
+        display: inline-block;
+    }
+    .userContainer .menuContent {
+        display: flex;
+        width: 20rem;
+    }
+    .userContainer .menuContent div {
+        display: flex;
+        justify-content: space-between;
+        width: 25%;
+    }
 }
