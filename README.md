@@ -7,12 +7,12 @@ estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não
 
 #### Organização do Projeto:
 
-*assets* = imagens, videos, criativos em geral. / separar por pastas para cada página que for utilizar /
-*components* = para components que serão utilizados mais de uma vez numa página, exemplo: botões
-*context* = para organizar os contextos
-*hooks* = para organizar as custom hooks
-*pages* = onde ficarão as páginas da aplicação; dentro da pasta de cada página se vão os componentes únicos para aquela página.
-*services* = para organizar as API's, funções de requisições via axios com seus endpoints, etc.
-*store* = para organizar o REDUX
+*assets* = imagens, videos, criativos em geral. / separar por pastas para cada página que for utilizar <br>
+*components* = para components que serão utilizados mais de uma vez numa página, exemplo: botões<br>
+*context* = para organizar os contextos<br>
+*hooks* = para organizar as custom hooks<br>
+*pages* = onde ficarão as páginas da aplicação; dentro da pasta de cada página se vão os componentes únicos para aquela página.<br>
+*services* = para organizar as API's, funções de requisições via axios com seus endpoints, etc.<br>
+*store* = para organizar o REDUX<br>
 
 *routes.jsx* = arquivo onde ficam as rotas da aplicação. (SPA)
