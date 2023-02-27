@@ -82,10 +82,13 @@
 }
 
 /* Área do usuário */
+.userContainer .menuContent {
+    white-space: nowrap;
+}
 
 .menuContent div {
     display: flex;
-    width: 5rem;
+    width: 25%;
     justify-content: space-between;
     align-items: center;
 }
@@ -97,4 +100,87 @@
 .notificationIcon {
     transform: scale(1.5);
     color: #fff;
+}
+
+@media screen and (min-width: 320px){
+    .navBarContainer {
+        width: 100%;
+    }
+    .menuContent {
+        display: none;
+    }
+    .navBarContainer div:first-child {
+        transform: scale(0.7);
+    }
+    .navBarContainer div:first-child span {
+        display: none;
+    }
+    .userContainer .menuContent {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 580px){
+    .navBarContainer {
+        width: 95%;
+    }
+    .navBarContainer div:first-child {
+        transform: scale(0.8);
+    }
+    .menuContent {
+        display: flex;
+        font-size: 14px;
+        width: 60%;
+    }
+    .userContainer .menuContent li {
+        display: none;
+    }
+    
+}
+
+@media screen and (min-width: 740px){
+    .navBarContainer {
+        width: 90%;
+    }
+    .menuContent {
+        width: 25rem;
+        font-size: 1rem;
+    }
+    .navBarContainer div:first-child {
+        transform: scale(1);
+    }
+    .navBarContainer div:first-child span {
+        display: block;
+    }
+    .notificationIcon {
+        display: block;
+    }
+    .userContainer .menuContent {
+        white-space: nowrap;
+        display: flex;
+        width: 4.5rem;
+    }
+    .userContainer .menuContent div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1040px){
+    .navBarContainer {
+        width: 80%;
+    }
+    .userContainer .menuContent li {
+        display: inline-block;
+    }
+    .userContainer .menuContent {
+        display: flex;
+        width: 20rem;
+    }
+    .userContainer .menuContent div {
+        display: flex;
+        justify-content: space-between;
+        width: 25%;
+    }
 }
