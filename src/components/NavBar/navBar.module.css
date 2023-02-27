@@ -2,6 +2,9 @@
     width: 100vw;
     height: 4rem;
     background-color: #33333340;
+    position: relative;
+    z-index: 999;
+    top: 0;
 }
 
 .navBarContainer {
