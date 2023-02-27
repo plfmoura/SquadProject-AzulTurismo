@@ -1,0 +1,100 @@
+.alignContent {
+    width: 100vw;
+    height: 4rem;
+    background-color: #33333320;
+}
+
+.navBarContainer {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilização da div do logo e Logo */
+.navBarContainer div:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.navBarContainer div:first-child span {
+    padding: 0 1rem 0 .5rem;
+    animation: title 2s ease;
+    position: relative;
+    z-index: 4;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #2ea9ff;
+}
+
+/* Animação do Logo */
+@keyframes title {
+    from {
+        transform: translateX(-4.2rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0rem);
+    }
+}
+
+.navBarLogo {
+    height: 3rem;
+    position: relative;
+    z-index: 5;
+    animation: rotate 2s ease;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateZ(-360deg);
+        opacity: 0;
+    }
+    to {
+        transform: rotateZ(0deg);
+    }
+}
+
+/* Listas de Navegação */
+.menuContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.menuContent {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 20rem;
+    list-style: none;
+    text-decoration: none;
+}
+
+.menuContent a {
+    color: #fff;
+}
+
+/* Área do usuário */
+
+.menuContent div {
+    display: flex;
+    width: 5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.userPicture {
+    width: 2.5rem;
+}
+
+.notificationIcon {
+    transform: scale(1.5);
+    color: #fff;
+}
