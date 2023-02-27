@@ -1,11 +1,14 @@
 .background {
     width: 100%;
-    height: 40rem;
-    background: url('/src/assets/home/rio-beach.jpg') center;
+    height: 35rem;
+    background: url('/src/assets/home/rio-beach-day.jpg') center;
     background-position-y: 30%;
     background-size: cover;
     position: relative;
     bottom: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .titleContainer {
@@ -41,6 +44,16 @@
     font-weight: 600;
 }
 
+.creativeContainer {
+    position: relative;
+    top: 3.5rem;
+    opacity: 0;
+}
+
+.creativeContainer img {
+    filter: drop-shadow(.8rem .8rem 1rem #000)
+}
+
 @media screen and (min-width: 320px) {
     .background {
         display: flex;
@@ -55,46 +68,70 @@
         background-color: transparent;
         position: inherit;
     }
+    .creativeContainer {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 580px) {
     .background {
         display: block;
     }
-
     .titleContainer {
-        transform: scale(0.7);
+        transform: scale(0.6);
         position: relative;
-        top: 18%;
+        top: 10%;
         left: -1.5rem;
         color: #fff;
     }
 }
 
 @media screen and (min-width: 720px) {
+    .background {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     .titleContainer {
-        transform: scale(0.8);
-        top: 18%;
+        transform: scale(0.7);
+        top: 0;
         left: -1%;
         color: #fff;
     }
 }
 
+@media screen and (min-width: 900px){
+    .background {
+        justify-content: space-between;
+    }
+    .creativeContainer {
+        display: block;
+        transform: scale(0.9);
+        opacity: 1;
+    }
+}
+
 @media screen and (min-width: 1024px) {
     .titleContainer {
-        transform: scale(1);
-        top: 18%;
+        transform: scale(0.9);
         left: 8%;
         color: #fff;
+    }
+    .creativeContainer {
+        transform: scale(1);
+        position: relative;
+        right: 5%;
     }
 }
 
 
 @media screen and (min-width: 1440px) {
     .titleContainer {
-        transform: scale(1.2);
-        top: 18%;
+        transform: scale(1.05);
         left: 11%;
         color: #fff;
+    }
+    .creativeContainer {
+        transform: scale(100%);
     }
 }
