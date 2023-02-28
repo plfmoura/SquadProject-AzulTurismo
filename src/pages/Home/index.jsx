@@ -18,7 +18,7 @@ export default function Home() {
           <span>Roteiros</span>
         </div>
         <div className={style.creativeContainer}>
-          <img src="src/assets/home/men.png" alt="" />
+          <img src="../src/assets/home/men.png" alt="Criatvo Homem Rasgando a Tela" />
         </div>
       </header>
       <section className={style.searchInputContainer}>
