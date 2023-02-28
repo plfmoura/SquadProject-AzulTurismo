@@ -19,6 +19,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
 /* alinhamento do conteudo */
 .selectAlign {
     display: flex;
@@ -64,4 +65,51 @@
 
 .inputContainer button .iconSearch {
     transform: rotateZ(90deg);
+}
+
+@media screen and (min-width: 320px) {
+    .inputContainer {
+        width: 80%;
+    }
+
+    .inputContainer button {
+        margin-left: .2rem;
+        width: 5rem;
+    }
+
+    .selectAlign div:nth-of-type(3) {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 580px) {
+    .inputContainer {
+        width: 80%;
+    }
+    .selectAlign div:nth-of-type(3) {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .inputContainer {
+        width: 65%;
+    }
+
+    .inputContainer button {
+        margin-left: 1rem;
+        width: 5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .inputContainer {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .inputContainer {
+        width: 50%;
+    }
 }

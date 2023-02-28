@@ -5,7 +5,6 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import { actualizarProductos } from "./reducer/shoopingReducer";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const dispatch = useDispatch();

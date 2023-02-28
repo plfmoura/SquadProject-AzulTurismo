@@ -25,7 +25,7 @@ export default function Home() {
       </section>
       <section className={style.servicesContainer}>
         <h3>Passeios mais Populares</h3>
-        <div className={style.servicesSlider}>
+        {/* <div className={style.servicesSlider}>
           {products.map((tour) => (
             <TourCard 
               key={tour.id} 
@@ -36,7 +36,7 @@ export default function Home() {
               />
             ))
           }
-        </div>
+        </div> */}
       </section>
     </div>
   );

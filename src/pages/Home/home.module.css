@@ -1,5 +1,5 @@
 .background {
-    width: 100%;
+    width: 100vw;
     height: 35rem;
     background: url('/src/assets/home/rio-beach-day.jpg') center;
     background-position-y: 30%;

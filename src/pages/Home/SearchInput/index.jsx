@@ -4,7 +4,7 @@ import { IoSearch } from 'react-icons/io5'
 
 export default function SearchInput() {
 
-  let data = ['Região dos Lagos', 'Região Serrana', 'Região Oceânica', 'Região Metropolitana', 'Todas as Regiões']
+  let data = ['Região dos Lagos', 'Região Serrana', 'Região Oceânica', 'Região Metropolitana']
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -20,10 +20,10 @@ export default function SearchInput() {
               <option value="default">Rio de Janeiro</option>
             </select>
           </div>
-          <div>
+          <div> 
             <label htmlFor="regiao">Região</label>
             <select name="regiao" id="">
-              <option value="default">Selecione</option>
+              <option value="default">Todas as Reuniões</option>
               {
                 data.map((item, key) => <option value={key} key={key}>{item}</option>)
               }
