@@ -31,7 +31,8 @@ export default function Home() {
         <div className={style.servicesSlider}>
           {products.map((tour) => (
             <TourCard 
-              key={tour.id} 
+              key={tour.id}
+              id={tour.id} 
               title={tour.name} 
               location={tour.located} 
               price={tour.price} 
