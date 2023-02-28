@@ -84,7 +84,8 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     flex-direction: column;
-    padding-top: 20px;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
 }
 
 .textoFinal a{
