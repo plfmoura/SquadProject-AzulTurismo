@@ -1,0 +1,93 @@
+.estiloRodapé{
+    background-color: rgb(253, 253, 255);
+    color: rgb(12, 1, 1);
+    width: 100%;
+    height: 50%;
+    position: relative;
+}
+
+
+
+.textoFinal p{
+    font-size: 15px;
+    text-align: center;
+}
+
+.rodapéList{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-right: 1rem;
+}
+
+.rodapéList ul{
+    list-style: none;
+}
+.estiloRodapé h1{
+    display: flex;
+    justify-content: flex-start;
+    padding-top:2rem ;
+    padding-left: 2rem;
+    font-size:1rem;
+    color: black;
+    padding-bottom: 1rem;
+}
+
+.rodapéItem a{
+    color: rgb(17, 17, 17);
+    text-decoration: none;
+    font-size: 15px;
+    padding: 2rem;
+    padding-bottom: 2rem;
+}
+.rodapéItem li{
+    padding: 5px;
+}
+
+.rodapéItem a:hover{
+    color: rgb(91, 173, 240);
+    transition: all 500ms ease-in-out;
+}
+.redeSociais{
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+   
+}
+
+.tituloRede{
+    font-size: 17px;
+}
+.redeSociaisItens{
+    padding-top:4rem;
+    font-size: 20px;
+    padding: 1rem;
+   
+}
+
+.redeSociaisItens a{
+    color: rgba(11, 119, 151, 0.856);
+}
+
+.redeSociaisItens a:hover{
+    color: black;
+    transition: all 500ms ease-in-out;
+}
+
+
+.textoFinal{
+    color: rgb(8, 8, 8);
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.textoFinal a{
+    color: black;
+    text-decoration: underline;
+    padding: 2px;
+}

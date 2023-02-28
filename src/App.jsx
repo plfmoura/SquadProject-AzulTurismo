@@ -5,6 +5,8 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import { actualizarProductos } from "./reducer/shoopingReducer";
+import Footer from "./components/Rodape/Footer";
+import RodaPe from "./components/Rodape/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Outlet />
+    <Footer />
     </div>
   );
 }
