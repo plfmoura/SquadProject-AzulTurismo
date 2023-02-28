@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import TourCard from "../../components/TourCard";
 import style from "./home.module.css";
 import SearchInput from "./SearchInput";
+import Men from '../../assets/home/men.png'
+
 
 export default function Home() {
   const state = useSelector((state) => state);
@@ -18,7 +20,7 @@ export default function Home() {
           <span>Roteiros</span>
         </div>
         <div className={style.creativeContainer}>
-          <img src="/src/assets/home/men.png" alt="" />
+          <img src={Men} alt="Criatvo Homem Rasgando a Tela" />
         </div>
       </header>
       <section className={style.searchInputContainer}>
@@ -48,6 +50,16 @@ export default function Home() {
               price={tour.price} 
               image={tour.imagens[0]}
               />
+            ))
+          }
+          {products.map((tour) => (
+              <TourCard 
+                key={tour.id} 
+                title={tour.name} 
+                location={tour.located} 
+                price={tour.price} 
+                image={tour.imagens[0]}
+                />
             ))
           }
         </div>
