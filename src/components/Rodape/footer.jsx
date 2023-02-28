@@ -1,5 +1,5 @@
 import styles from '../../components/Rodape/footer.module.css';
-import { FaFacebookF, FaInstagramSquare, FaYoutube, FaTwitter } from "react-icons/fa";
+//import { FaFacebookF, FaInstagramSquare, FaYoutube, FaTwitter } from "react-icons/fa";
 
 
 function rodaPe(){
