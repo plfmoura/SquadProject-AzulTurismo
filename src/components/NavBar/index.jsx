@@ -24,7 +24,7 @@ export default function NavBar() {
             <li><Link to='/'>Sair</Link></li>
             <div>
               <Link to='/profile'><IoNotifications className={style.notificationIcon}/></Link>
-              <Link to='/profile'><img src="azul.png" alt="" className={style.userPicture} /></Link>
+              <Link to='/profile'><img src="/src/assets/profile/user.jpg" alt="" className={style.userPicture} /></Link>
             </div>
           </ul>
         </div>
