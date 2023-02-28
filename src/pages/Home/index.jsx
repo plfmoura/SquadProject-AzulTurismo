@@ -7,6 +7,7 @@ import SearchInput from "./SearchInput";
 export default function Home() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
+
   return (
     <div className="Home">
       <header className={style.background}>
@@ -25,7 +26,7 @@ export default function Home() {
       </section>
       <section className={style.servicesContainer}>
         <h3>Passeios mais Populares</h3>
-        {/* <div className={style.servicesSlider}>
+        <div className={style.servicesSlider}>
           {products.map((tour) => (
             <TourCard 
               key={tour.id} 
@@ -36,7 +37,20 @@ export default function Home() {
               />
             ))
           }
-        </div> */}
+        </div>
+        <h3>Passeios em Nome da Região</h3>
+        <div className={style.servicesSlider}>
+          {products.map((tour) => (
+            <TourCard 
+              key={tour.id} 
+              title={tour.name} 
+              location={tour.located} 
+              price={tour.price} 
+              image={tour.imagens[0]}
+              />
+            ))
+          }
+        </div>
       </section>
     </div>
   );

@@ -1,14 +1,15 @@
-import Card from 'react-bootstrap/Card';
+import React from "react";
+import style from './tourCard.module.css'
 
 function TourCard({ title, location, image, price }) {
   return (
-    <div style={{ width: '18rem', marginInline: 5, border: 'none' }}>
-      <Card.Img variant="center" src={image} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>{location}</Card.Text>
-        <Card.Text>R${price} /pessoa</Card.Text>
-      </Card.Body>
+    <div className={style.cardContainer}>
+      <img src={image} alt={title}/>
+      <div>
+        <p>{title}</p>
+        <p>{location}</p>
+        <p>R${price} /pessoa</p>
+      </div>
     </div>
   );
 }
