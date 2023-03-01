@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import { actualizarProductos } from "./reducer/shoopingReducer";
-import Footer from "./components/Rodape/Footer";
+import Rodape from "./components/Rodape";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Outlet />
-    <Footer />
+    <Rodape />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import styles from '../../components/Rodape/rodape.module.css';
 function Rodape(){
     return(
         <>
-<footer className={styles.estiloRodape}>
+<footer className={styles.estiloFooter}>
 <h1>Explore outras opções em Rio de Janeiro</h1>
 <div className={styles.rodaList}>
 <div className={styles.rodaItem}>
@@ -49,7 +49,16 @@ function Rodape(){
 </div>
 
    <div className={styles.textoFinal}>
-  <p>&copy;Azul Tour, inc. <a href="">Privacidade</a> <a href="">Termos</a> <a href="">Mapa do site</a> <a href="">Informações da Empresa</a></p> 
+  <p>&copy;2023Azul Tour, inc.</p> 
+  <div className={styles.textoLink}>
+<li><a href="">Privacidade</a></li>
+<li><a href="">Termos</a></li> 
+<li><a href="">Mapa do site</a></li>  
+<li><a href="">Informações da Empresa</a></li> 
+  </div>
+  <div className={styles.socialFinal}>
+<h5></h5>
+  </div>
   </div>
     
 </footer>
