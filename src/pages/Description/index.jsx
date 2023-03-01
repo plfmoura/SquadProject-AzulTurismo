@@ -33,7 +33,7 @@ export default function Description() {
           <h1>{tour.name}</h1>
           <p>{tour.located}</p>
           <div>
-            {tour.included.map((item, key) => <p key={key}>{item}</p>)}
+            {/* {tour.included.map((item, key) => <p key={key}>{item}</p>)} */}
           </div>
           <p>{tour.description}</p>
         </div>
