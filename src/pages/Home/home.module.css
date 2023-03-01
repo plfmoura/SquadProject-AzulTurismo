@@ -68,8 +68,9 @@
 
 .servicesSlider {
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-evenly;
 }
 
 @media screen and (min-width: 320px) {

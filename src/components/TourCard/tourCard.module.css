@@ -6,6 +6,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     margin: 1rem auto;
+    cursor: pointer;
 }
 
 .cardContainer img {

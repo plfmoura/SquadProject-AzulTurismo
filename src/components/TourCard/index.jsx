@@ -1,9 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import style from './tourCard.module.css'
 
-function TourCard({ title, location, image, price }) {
+function TourCard({ id, title, location, image, price }) {
+  const navigate = useNavigate();
   return (
-    <div className={style.cardContainer}>
+    <div className={style.cardContainer} onClick={()=>{
+navigate(`/tour:${id}`)
+    }}>
       <img src={image} alt={title}/>
       <div>
         <p>{title}</p>
