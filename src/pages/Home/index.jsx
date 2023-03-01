@@ -10,6 +10,8 @@ export default function Home() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
 
+  console.log(products)
+
   return (
     <div className="Home">
       <header className={style.background}>

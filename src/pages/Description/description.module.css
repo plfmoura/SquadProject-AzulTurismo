@@ -1,0 +1,91 @@
+.singleServiceContainer {
+    width: 100vw;
+}
+
+.serviceMedia {
+    height: 65vh;
+    width: 80%;
+    margin: 2rem auto 1rem auto;
+    padding: .5rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.serviceMedia img {
+    object-fit: cover;
+}
+
+.serviceMedia img:nth-of-type(1) {
+    width: 60%;
+}
+
+.serviceMedia div {
+    width: 40%;
+    place-items: center;
+    display: grid;
+    grid-template-areas: 
+        "a a"
+        "b c";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.serviceMedia div img:nth-of-type(1) {
+    width: 100%;
+    height: 100%;
+    grid-area: a;
+}
+
+.serviceMedia div img:nth-of-type(2) {
+    width: 100%;
+    height: 100%;
+    grid-area: b;
+}
+
+.serviceMedia div img:nth-of-type(3) {
+    width: 100%;
+    height: 100%;
+    grid-area: c;
+}
+
+/* Descrição do Serviço */
+.serviceDescription {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.serviceDescription .serviceOverView {
+    background-color: red;
+    width: 55%;
+}
+
+.serviceDescription .servicePrice{
+    background-color: green;
+    width: 45%;
+}
+
+/* Dentro das Divisões */
+.serviceOverView div {
+    display: flex;
+    background-color: yellow;
+    justify-content: space-between;
+}
+
+.servicePrice div {
+    display: flex;
+    align-items: baseline;
+}
+
+.servicePrice div h2,
+.servicePrice div span {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.servicePrice div p{
+    margin-left: .2rem;
+}
