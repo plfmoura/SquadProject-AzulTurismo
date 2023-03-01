@@ -1,4 +1,4 @@
-.estiloRodapé{
+.estiloFooter{
     margin-top: 2rem;
     background-color: rgb(253, 253, 255);
     color: rgb(12, 1, 1);
@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-.rodapéList{
+.rodaList{
     padding-top: 2rem;
     display: flex;
     justify-content: space-evenly;
@@ -22,10 +22,10 @@
     padding-right: 1rem;
 }
 
-.rodapéList ul{
+.rodaList ul{
     list-style: none;
 }
-.estiloRodapé h1{
+.estiloRodape h1{
     display: flex;
     justify-content: flex-start;
     padding-top:2rem ;
@@ -35,7 +35,7 @@
     padding-bottom: 1rem;
 }
 
-.rodapéItem a{
+.rodaItem a{
     color: rgb(17, 17, 17);
     text-decoration: none;
     font-size: 15px;

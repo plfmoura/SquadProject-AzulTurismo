@@ -1,14 +1,14 @@
-import styles from '../../components/Rodape/footer.module.css';
+import styles from '../../components/Rodape/rodape.module.css';
 //import { FaFacebookF, FaInstagramSquare, FaYoutube, FaTwitter } from "react-icons/fa";
 
 
-function rodaPe(){
+function Rodape(){
     return(
         <>
-<footer className={styles.estiloRodapé}>
+<footer className={styles.estiloRodape}>
 <h1>Explore outras opções em Rio de Janeiro</h1>
-<div className={styles.rodapéList}>
-<div className={styles.rodapéItem}>
+<div className={styles.rodaList}>
+<div className={styles.rodaItem}>
 <ul>
 <li><a href="">Angra dos Reis</a></li>
 <li><a href="">Paraty</a></li>
@@ -17,7 +17,7 @@ function rodaPe(){
 </ul>
  </div>
 
- <div className={styles.rodapéItem}>
+ <div className={styles.rodaItem}>
 <ul>
 <li><a href="">Angra dos Reis</a></li>
 <li><a href="">Paraty</a></li>
@@ -26,7 +26,7 @@ function rodaPe(){
 </ul>
  </div>
 
- <div className={styles.rodapéItem}>
+ <div className={styles.rodaItem}>
 <ul>
 <li><a href="">Angra dos Reis</a></li>
 <li><a href="">Paraty</a></li>
@@ -36,7 +36,7 @@ function rodaPe(){
  </div>
 
 
- <div className={styles.rodapéItem}>
+ <div className={styles.rodaItem}>
 <ul>
 <li><a href="">Angra dos Reis</a></li>
 <li><a href="">Paraty</a></li>
@@ -57,4 +57,4 @@ function rodaPe(){
     )
 }
 
-export default rodaPe
+export default Rodape
