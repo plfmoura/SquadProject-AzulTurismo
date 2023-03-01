@@ -6,20 +6,22 @@ import UserPicture from "../../assets/profile/user.jpg";
 
 export default function Description() {
   let id = useParams();
-  const [tour, setTour] = useState([]);
+  const [tour, setTour] = useState();
   const state = useSelector((state) => state);
   const { products } = state.shopping;
 
   useEffect(() => {
-    let selected_id = Number(id.id.replace("tour:", ""));
+    let selected_id = Number(id.id.replace(":",""));
     let selected_tour = products.find((product) => product.id === selected_id);
     setTour(selected_tour);
-  }, []);
-
-  // console.log(tour.included.map(item => item))
+    console.log(selected_tour)
+  }, [products]);
 
   return (
+ 
     <div className={style.singleServiceContainer}>
+   {tour&&(
+       <>
       <section className={style.serviceMedia}>
         <img src={UserPicture} alt="" />
         <div>
@@ -33,7 +35,7 @@ export default function Description() {
           <h1>{tour.name}</h1>
           <p>{tour.located}</p>
           <div>
-            {/* {tour.included.map((item, key) => <p key={key}>{item}</p>)} */}
+            {tour.included.map((item, key) => <p key={key}>{item}</p>)}
           </div>
           <p>{tour.description}</p>
         </div>
@@ -41,8 +43,10 @@ export default function Description() {
           <div>
             <h2>R$<span>{tour.price}</span></h2><p>/pessoa</p>
           </div>
-        </div>
+          </div>
       </section>
+      </>
+    )}
     </div>
   );
 }

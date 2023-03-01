@@ -10,16 +10,18 @@ function App() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
   const { user } = state.user;
+  
 
   useEffect(() => {
     //Actualizando productos
     axios
       .get("https://tourismapi.herokuapp.com/products")
       .then((respuesta) => {
-        console.log(respuesta.data);
-        dispatch(actualizarProductos(respuesta.data));
+     dispatch(actualizarProductos(respuesta.data)); 
       })
       .catch();
+
+      
   }, []);
 
   return (

@@ -1,12 +1,12 @@
 import React from "react";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, createHashRouter } from "react-router-dom";
 import Description from "./pages/Description";
 import Home from "./pages/Home";
 import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import Profile from "./pages/Profile";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <App />,
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: ":id",
+        path: "tour/:id",
         element: <Description />,
       },
       {

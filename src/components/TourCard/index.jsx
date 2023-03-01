@@ -6,7 +6,7 @@ function TourCard({ id, title, location, image, price }) {
   const navigate = useNavigate();
   return (
     <div className={style.cardContainer} onClick={()=>{
-navigate(`/tour:${id}`)
+navigate(`/tour/:${id}`)
     }}>
       <img src={image} alt={title}/>
       <div>
