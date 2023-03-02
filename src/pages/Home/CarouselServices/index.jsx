@@ -2,29 +2,27 @@ import React from 'react'
 import Slider from "react-slick";
 import { CiCircleChevLeft } from "react-icons/ci";
 
-function SampleNextArrow(props) {
-  const { className, onClick } = props;
+function SampleNextArrow({ className, onClick }) {
   return (
     <CiCircleChevLeft
       className={className}
-      style={{color: "#000", transform: 'scale(2.5) rotate(180deg)'}}
+      style={{color: "#2eaaff", transform: 'scale(2.5) rotate(180deg)'}}
       onClick={onClick}
     />
   );
 }
 
-function SamplePrevArrow(props) {
-  const { className, onClick } = props;
+function SamplePrevArrow({ className, onClick }) {
   return (
     <CiCircleChevLeft
       className={className}
-      style={{color: "#000", transform: 'scale(2.5)'}}
+      style={{color: "#2eaaff", transform: 'scale(2.5)'}}
       onClick={onClick}
     />
   );
 }
 
-export default function CarouselHome({ children, setClass }) {
+export default function CarouselServices({ children, setClass }) {
   const settings = {
     className: "center",
     infinite: true,

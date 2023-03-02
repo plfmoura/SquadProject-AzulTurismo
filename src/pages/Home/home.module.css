@@ -83,12 +83,81 @@
     margin: 0 auto;
 }
 
+.servicesSlider ul {
+    position: relative;
+    bottom: 21.5rem;
+    text-align: right;
+}
+
+.servicesSlider ul li {
+    transform: scale(2);
+}
+
 .servicesColumns {
     display: flex;
     flex-wrap: wrap;
     width: 80%;
     margin: 0 auto;
     justify-content: space-evenly;
+}
+
+/* Area de avaliações dos usuários */
+.customerContainer {
+    width: 100%;
+    min-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.customerContainer h2 {
+    margin-top: 1rem;
+}
+
+.customerContent {
+    width: 90vw;
+    margin-top: 1rem;
+}
+
+.customerContainer ul {
+    position: relative;
+    bottom: 27rem;
+}
+
+.singInCreativeContainer {
+    width: 80%;
+    height: 30rem;
+}
+
+.singInCreativeContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(var(--value, 0.6));
+    position: relative;
+    z-index: 1;
+}
+
+.singInCreativeContainer div {
+    position: relative;
+    z-index: 2;
+    bottom: 20rem;
+    left: 4rem;
+    color: #fff;
+}
+
+.singInCreativeContainer h2 {
+    font-size: 40px;
+    user-select: none;
+}
+
+.singInCreativeContainer button {
+    margin-top: 1rem;
+    width: 22rem;
+    height: 100%;
+    font-size: 22px;
 }
 
 @media screen and (min-width: 320px) {
