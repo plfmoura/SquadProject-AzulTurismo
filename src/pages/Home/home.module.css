@@ -23,6 +23,7 @@
     width: 22rem;
     text-transform: uppercase;
     transform: scale(1.2);
+    user-select: none;
 }
 
 /* Primeiro paragrafo 'CONHEÇA O'  */

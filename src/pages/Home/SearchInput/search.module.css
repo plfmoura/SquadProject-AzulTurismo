@@ -10,6 +10,7 @@
     position: absolute;
     top: 31rem;
     transform: scale(1.1);
+    user-select: none;
 }
 
 .inputContainer form {
