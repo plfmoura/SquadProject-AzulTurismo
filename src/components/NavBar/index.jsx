@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './navBar.module.css'
 import { IoNotifications } from "react-icons/io5"
+import ProfilePicture from '../../assets/profile/user.jpg'
 
 export default function NavBar() {
   return (
@@ -24,7 +25,7 @@ export default function NavBar() {
             <li><Link to='/'>Sair</Link></li>
             <div>
               <Link to='/profile'><IoNotifications className={style.notificationIcon}/></Link>
-              <Link to='/profile'><img src="azul.png" alt="" className={style.userPicture} /></Link>
+              <Link to='/profile'><img src={ProfilePicture} alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
             </div>
           </ul>
         </div>

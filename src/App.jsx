@@ -27,9 +27,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Outlet />
-    <Rodape />
+      <Rodape />
     </div>
   );
 }
-
-export default App;
