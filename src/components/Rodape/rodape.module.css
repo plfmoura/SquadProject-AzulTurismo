@@ -1,3 +1,6 @@
+
+
+/*Nomeação do Footer*/
 .estiloFooter{
   margin-top: 2rem ;
     background-color: white;
@@ -50,33 +53,32 @@
     padding: 5px;
 }
 
-
-.redeSociais{
-    padding-top: 2rem;
+.socialFinal{
     display: flex;
-    justify-content: center;
     text-align: center;
+    padding-top:0.4rem;
+    padding-left: 8rem;
    
 }
 
+.socialItem a{
+  padding: 9px;
 
-.redeSociaisItens{
-    padding-top:4rem;
-    font-size: 20px;
-    padding: 1rem;
-   
 }
 
-.redeSociaisItens a{
-    color: rgba(11, 119, 151, 0.856);
-}
-
-.redeSociaisItens a:hover{
+.redeUm a{
     color: black;
-    transition: all 500ms ease-in-out;
+    font-size: 18px;
+}
+.redeDois a{
+    color: aqua;
+    font-size: 18px;
 }
 
 
+
+
+/*diV do paragrafo final*/
 .textoFinal{
     color: rgb(8, 8, 8);
     margin-top: 3rem;

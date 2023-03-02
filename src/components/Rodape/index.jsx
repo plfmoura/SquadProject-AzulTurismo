@@ -1,5 +1,5 @@
 import styles from '../../components/Rodape/rodape.module.css';
-//import { FaFacebookF, FaInstagramSquare, FaYoutube, FaTwitter } from "react-icons/fa";
+import {  FaFacebookSquare, FaInstagram} from "react-icons/fa";
 
 
 function Rodape(){
@@ -57,7 +57,13 @@ function Rodape(){
 <li><a href="">Informações da Empresa</a></li> 
   </div>
   <div className={styles.socialFinal}>
-<h5></h5>
+<p className={styles.txtFim}>Portugues(BR) R$BRL</p>
+<div className={styles.socialItem}>
+<p className={styles.redeUm}><a href=""><FaFacebookSquare /></a></p>
+</div>
+<div className={styles.socialItem}>
+<p className={styles.redeDois}><a href=""><FaInstagram /></a></p>
+</div>
   </div>
   </div>
     
