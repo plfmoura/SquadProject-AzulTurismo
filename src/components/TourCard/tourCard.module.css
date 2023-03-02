@@ -1,14 +1,41 @@
 .cardContainer {
-    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 8px;
-    width: 14rem;
-    height: 14rem;
+    width: 20rem;
+    min-height: 18rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin: 1rem auto;
     cursor: pointer;
 }
 
 .cardContainer img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+}
 
+.cardContainer div {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    margin-top: .3rem;
+}
+
+.cardContainer p:nth-of-type(1) {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.cardContainer p:nth-of-type(2) {
+    font-size: 14px;
+}
+
+.cardContainer p:nth-of-type(3) {
+    font-size: 14px;
+}
+
+.cardContainer p:nth-of-type(3) span {
+    font-size: 22px;
+    font-weight: bold;
 }

@@ -54,6 +54,7 @@
     filter: drop-shadow(.5rem .3rem .5rem  #000)
 }
 
+/* barra de pesquisa */
 .searchInputContainer {
     width: 100%;
     display: flex;
@@ -61,14 +62,26 @@
     justify-content: center;
 }
 
+/* Seção de Passeios */
 .servicesContainer {
-    width: 70%;
+    width: 90vw;
     margin: 0 auto;
 }
 
 .servicesSlider {
     display: flex;
+    overflow: auto;
+    gap: 8rem;
+    width: 80%;
+    background-color: red;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.servicesColumns {
+    display: flex;
     flex-wrap: wrap;
+    width: 80%;
     margin: 0 auto;
     justify-content: space-evenly;
 }

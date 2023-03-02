@@ -29,7 +29,7 @@ export default function Home() {
       <section className={style.servicesContainer}>
         <h3>Passeios mais Populares</h3>
         <div className={style.servicesSlider}>
-          {products.map((tour) => (
+          {products.slice(0,10).map((tour) => (
             <TourCard 
               key={tour.id}
               id={tour.id} 
@@ -42,25 +42,16 @@ export default function Home() {
           }
         </div>
         <h3>Passeios em Nome da Região</h3>
-        <div className={style.servicesSlider}>
+        <div className={style.servicesColumns}>
           {products.map((tour) => (
             <TourCard 
               key={tour.id} 
+              id={tour.id} 
               title={tour.name} 
               location={tour.located} 
               price={tour.price} 
               image={tour.imagens[0]}
               />
-            ))
-          }
-          {products.map((tour) => (
-              <TourCard 
-                key={tour.id} 
-                title={tour.name} 
-                location={tour.located} 
-                price={tour.price} 
-                image={tour.imagens[0]}
-                />
             ))
           }
         </div>
