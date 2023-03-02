@@ -79,13 +79,8 @@
 }
 
 .servicesSlider {
-    display: flex;
-    overflow: auto;
-    gap: 8rem;
-    width: 80%;
-    background-color: red;
+    width: 85%;
     margin: 0 auto;
-    justify-content: space-evenly;
 }
 
 .servicesColumns {

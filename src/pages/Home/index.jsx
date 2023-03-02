@@ -4,6 +4,7 @@ import TourCard from "../../components/TourCard";
 import style from "./home.module.css";
 import SearchInput from "./SearchInput";
 import Men from '../../assets/home/men.png'
+import CarouselHome from "./CarouselHome";
 
 
 export default function Home() {
@@ -29,7 +30,10 @@ export default function Home() {
       <section className={style.servicesContainer}>
         <h3>Passeios mais <span>Populares</span></h3>
         <div className={style.servicesSlider}>
-          {products.slice(0,10).map((tour) => (
+          
+        </div>
+        <CarouselHome setClass={style.servicesSlider} 
+          children={products.slice(1,10).map((tour) => (
             <TourCard 
               key={tour.id}
               id={tour.id} 
@@ -39,8 +43,7 @@ export default function Home() {
               image={tour.imagens[0]}
               />
             ))
-          }
-        </div>
+          }/>
         <h3>Passeios em <span>Nome da Região</span></h3>
         <div className={style.servicesColumns}>
           {products.map((tour) => (
