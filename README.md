@@ -15,5 +15,8 @@ estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não
 *services* = para organizar as API's, preferêncialmente requisições via axios com seus endpoints, etc.<br>
 *store* = Ficam as definições de state managers, context api, zustand, redux<br>
 
-
 *routes.jsx* = arquivo onde ficam as rotas da aplicação. (SPA)
+
+Repositório da API = https://github.com/Juanpi92/tourism_api
+
+Repositório de CRIATIVOS para API = https://github.com/Juanpi92/criativos-produtos-api
