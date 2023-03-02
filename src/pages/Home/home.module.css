@@ -68,6 +68,15 @@
     margin: 0 auto;
 }
 
+.servicesContainer h3 {
+    margin-left: 11%;
+    font-weight: lighter;
+}
+
+.servicesContainer h3 span {
+    font-weight: bold;
+}
+
 .servicesSlider {
     display: flex;
     overflow: auto;

@@ -27,7 +27,7 @@ export default function Home() {
         <SearchInput />
       </section>
       <section className={style.servicesContainer}>
-        <h3>Passeios mais Populares</h3>
+        <h3>Passeios mais <span>Populares</span></h3>
         <div className={style.servicesSlider}>
           {products.slice(0,10).map((tour) => (
             <TourCard 
@@ -41,7 +41,7 @@ export default function Home() {
             ))
           }
         </div>
-        <h3>Passeios em Nome da Região</h3>
+        <h3>Passeios em <span>Nome da Região</span></h3>
         <div className={style.servicesColumns}>
           {products.map((tour) => (
             <TourCard 
