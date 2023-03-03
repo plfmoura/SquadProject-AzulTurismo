@@ -86,7 +86,6 @@ export default function Home() {
           Passeios mais <span>Populares</span>
         </h3>
         <CarouselServices
-          
           setClass={style.servicesSlider}
           children={products.slice(1, 10).map((tour) => (
             <TourCard
@@ -96,6 +95,7 @@ export default function Home() {
               location={tour.located}
               price={tour.price}
               image={tour.imagens[0]}
+              rating={tour.rating}
             />
           ))}
         />
@@ -113,6 +113,7 @@ export default function Home() {
               location={tour.located}
               price={tour.price}
               image={tour.imagens[0]}
+              rating={tour.rating}
             />
           ))}
         </div>
