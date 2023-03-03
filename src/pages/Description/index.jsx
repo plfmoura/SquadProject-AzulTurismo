@@ -23,11 +23,11 @@ export default function Description() {
    {tour&&(
        <>
       <section className={style.serviceMedia}>
-        <img src={UserPicture} alt="" />
+        <img src={tour.imagens[0]} alt="" />
         <div>
-          <img src={UserPicture} alt="" />
-          <img src={UserPicture} alt="" />
-          <img src={UserPicture} alt="" />
+          <img src={tour.imagens[1]} alt="" />
+          <img src={tour.imagens[2]} alt="" />
+          <img src={tour.imagens[3]} alt="" />
         </div>
       </section>
       <section className={style.serviceDescription}>

@@ -15,8 +15,8 @@ export default function NavBar() {
         <nav className={style.menuContainer}>
           <ul className={style.menuContent}>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/description'>Serviços</Link></li>
-            <li><Link to='/description'>Sobre nós</Link></li>
+            <li><Link to='/'>Serviços</Link></li>
+            <li><Link to='/about'>Sobre nós</Link></li>
           </ul>
         </nav>
         <div className={style.userContainer}>
