@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import Profile from "./pages/Profile";
+import About from './pages/About'
 
 export const router = createHashRouter([
   {
@@ -23,6 +24,10 @@ export const router = createHashRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },
