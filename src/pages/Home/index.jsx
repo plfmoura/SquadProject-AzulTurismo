@@ -86,6 +86,7 @@ export default function Home() {
               location={tour.located}
               price={tour.price}
               image={tour.imagens[0]}
+              rating={tour.rating}
             />
           ))}
         />
@@ -101,6 +102,7 @@ export default function Home() {
               location={tour.located}
               price={tour.price}
               image={tour.imagens[0]}
+              rating={tour.rating}
             />
           ))}
         </div>
