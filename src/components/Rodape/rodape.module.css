@@ -2,11 +2,15 @@
 
 /*Nomeação do Footer*/
 .estiloFooter{
-  margin-top: 2rem ;
-    background-color: #c1c1c1;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #f1f1f1;
     color: rgb(12, 1, 1);
     width: 100%;
-    height: 50%;
+    height: 29rem;
     position: relative;
 }
 
@@ -17,12 +21,10 @@
     text-align: center;
 }
 
-.rodaList{
-    padding-top: 2rem;
+.rodaList {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    padding-right: 1rem;
     font-size: 1.1rem;
 }
 
@@ -31,14 +33,12 @@
 }
 
 
-.estiloFooter h1{
-    display: flex;
-    justify-content: flex-start;
-    padding-top:2rem ;
-    padding-left: 2rem;
+.rodaTitle {
+    margin-left: 4rem;
+    margin-top: 1rem;
+    text-align: left;
     font-size:1.5rem;
     color: black;
-    padding-bottom: 1rem;
 }
 
 .rodaItem a{
@@ -106,8 +106,4 @@
 .textoLink a:hover{
     background-color: aqua;
     transition: 500ms ease-in-out;
-}
-
-@media screen and (max-width) {
-    
 }
