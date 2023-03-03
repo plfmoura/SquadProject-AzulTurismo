@@ -23,32 +23,20 @@
     margin-top: .3rem;
 }
 
-.cardContainer .cardTitle {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.cardContainer .cardTitle p:last-of-type {
-    margin-right: .5rem;
-    display: flex;
-}
-
-.cardContainer .cardTitle p:first-of-type {
+.cardContainer p:nth-of-type(1) {
     font-weight: bold;
     font-size: 18px;
-    white-space: nowrap;
 }
 
-.cardContainer .cardOverView p:nth-of-type(2) {
+.cardContainer p:nth-of-type(2) {
     font-size: 14px;
 }
 
-.cardContainer .cardOverView p:nth-of-type(4) {
+.cardContainer p:nth-of-type(3) {
     font-size: 14px;
 }
 
-.cardContainer .cardOverView p:nth-of-type(4) span {
+.cardContainer p:nth-of-type(3) span {
     font-size: 22px;
     font-weight: bold;
 }

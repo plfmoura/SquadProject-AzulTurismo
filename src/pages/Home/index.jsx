@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import TourCard from "../../components/TourCard";
 import style from "./home.module.css";
@@ -55,6 +55,14 @@ const data = [
 export default function Home() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
+  const[filtered,setFiltered]=useState([])
+  const[myRegion,setMyRegion]=useState("Todas as Regiões")
+  const [showTop, setShowTop] = useState('')
+
+  useEffect(()=>{
+  setFiltered(products)
+
+  },[products])
 
   return (
     <div className="Home">
@@ -70,13 +78,15 @@ export default function Home() {
         </div>
       </header>
       <section className={style.searchInputContainer}>
-        <SearchInput />
+        <SearchInput setFiltered={setFiltered} setMyRegion={setMyRegion} setShowTop={setShowTop}/>
       </section>
       <section className={style.servicesContainer}>
+        <div style={{display: `${showTop}`}}>
         <h3>
           Passeios mais <span>Populares</span>
         </h3>
         <CarouselServices
+          
           setClass={style.servicesSlider}
           children={products.slice(1, 10).map((tour) => (
             <TourCard
@@ -86,15 +96,16 @@ export default function Home() {
               location={tour.located}
               price={tour.price}
               image={tour.imagens[0]}
-              rating={tour.rating}
             />
           ))}
         />
+        </div>
         <h3>
-          Passeios em <span>Nome da Região</span>
+          Passeios em <span>{myRegion}</span>
         </h3>
+
         <div className={style.servicesColumns}>
-          {products.map((tour) => (
+          {filtered.map((tour) => (
             <TourCard
               key={tour.id}
               id={tour.id}
@@ -102,7 +113,6 @@ export default function Home() {
               location={tour.located}
               price={tour.price}
               image={tour.imagens[0]}
-              rating={tour.rating}
             />
           ))}
         </div>
