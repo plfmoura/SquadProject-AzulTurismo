@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './search.module.css'
 import { IoSearch } from 'react-icons/io5'
+import { useSelector } from "react-redux";
 
 export default function SearchInput() {
+  const state = useSelector((state) => state);
+  const { products } = state.shopping;
+  const [ region, setRegion ] = useState([])
 
-  let data = ['Região dos Lagos', 'Região Serrana', 'Região Oceânica', 'Região Metropolitana']
+  // Filtrar os itens retornados que estão retornando triplicados, verificar... por enquanto ficou através do set()
+  useEffect(() => {
+    products.map(item => region.push(item.region))
+    const filteredRegion = new Set();
+    region.forEach((region) => filteredRegion.add(region))
 
+    setRegion([...filteredRegion.values()])
+  }, [ products ])
+
+  // Função para o botão de pesquisa pegando os valores
   const handleSubmit = (e) => {
     e.preventDefault()
   }
@@ -16,16 +28,19 @@ export default function SearchInput() {
         <div className={style.selectAlign}>
           <div>
             <label htmlFor="regiao">Estado</label>
-            <select name="localizacao" id="" disabled>
+            <select name="localizacao" disabled>
               <option value="default">Rio de Janeiro</option>
             </select>
           </div>
           <div> 
             <label htmlFor="regiao">Região</label>
-            <select name="regiao" id="">
-              <option value="default">Todas as Reuniões</option>
-              {
-                data.map((item, key) => <option value={key} key={key}>{item}</option>)
+            <select name="regiao">
+              <option value="default">Todas as Regiões</option>
+              {region ? ( 
+                region.map((item, key) => (<option value={key} key={key}>{item}</option>))
+                ) : (
+                <option value="default">Aguarde</option>
+                )
               }
             </select>
           </div>
