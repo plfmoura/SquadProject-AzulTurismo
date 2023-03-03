@@ -1,23 +1,38 @@
 .aboutContainer {
-    height: 10rem;
-    width: 90%;
+    width: 85%;
     margin: 0 auto; 
     display: flex;
 }
 
 .aboutContainer section {
     display: flex;
+    margin-top: 5rem;
     
 }
 
 .aboutContainer h1 {
-    text-align: center;
-    margin-top: 3rem;
+    text-align: left;
 }
 
 
 .aboutContainer form {
-    margin-right: 5rem;
     text-align: center;
+    width: 100%;
+    border: 1px solid black;
+    padding: 1rem;
+    background-color: green;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.aboutContainer p {
+    text-align: left;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: red;
+    width: 50%;
 }
 
