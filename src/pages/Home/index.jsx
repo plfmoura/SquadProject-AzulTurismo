@@ -8,49 +8,7 @@ import CarouselServices from "./CarouselServices";
 import CarouselRatings from "./CarouselRatings";
 import CustomerCard from "./CustomerCard";
 import Button from "../../components/Button";
-
-const data = [
-  {
-    id: 1,
-    customerName: "Nome de Usuário",
-    customerProfilePicture: "",
-    servicePicture: "https://i.imgur.com/wscxD2D.jpg",
-    customerRating:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet tellus cras adipiscing enim eu. Proin libero nunc consequat interdum varius sit amet mattis. Massa sapien faucibus et molestie. Libero nunc consequat interdum varius sit amet mattis vulputate enim. Pharetra et ultrices neque ornare aenean.",
-  },
-  {
-    id: 2,
-    customerName: "Nome de Usuário",
-    customerProfilePicture: "",
-    servicePicture: "https://i.imgur.com/ikgw08O.jpeg",
-    customerRating:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet tellus cras adipiscing enim eu. Proin libero nunc consequat interdum varius sit amet mattis. Massa sapien faucibus et molestie. Libero nunc consequat interdum varius sit amet mattis vulputate enim. Pharetra et ultrices neque ornare aenean.",
-  },
-  {
-    id: 3,
-    customerName: "Nome de Usuário",
-    customerProfilePicture: "",
-    servicePicture: "https://i.imgur.com/mrDUbjD.jpg",
-    customerRating:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet tellus cras adipiscing enim eu. Proin libero nunc consequat interdum varius sit amet mattis. Massa sapien faucibus et molestie. Libero nunc consequat interdum varius sit amet mattis vulputate enim. Pharetra et ultrices neque ornare aenean.",
-  },
-  {
-    id: 4,
-    customerName: "Nome de Usuário",
-    customerProfilePicture: "",
-    servicePicture: "https://i.imgur.com/wscxD2D.jpg",
-    customerRating:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet tellus cras adipiscing enim eu. Proin libero nunc consequat interdum varius sit amet mattis. Massa sapien faucibus et molestie. Libero nunc consequat interdum varius sit amet mattis vulputate enim. Pharetra et ultrices neque ornare aenean.",
-  },
-  {
-    id: 5,
-    customerName: "Nome de Usuário",
-    customerProfilePicture: "",
-    servicePicture: "https://i.imgur.com/8nzsZKK.jpg",
-    customerRating:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet tellus cras adipiscing enim eu. Proin libero nunc consequat interdum varius sit amet mattis. Massa sapien faucibus et molestie. Libero nunc consequat interdum varius sit amet mattis vulputate enim. Pharetra et ultrices neque ornare aenean.",
-  },
-];
+import { dataCustomer } from "../../services/dataCustomer";
 
 export default function Home() {
   const state = useSelector((state) => state);
@@ -124,7 +82,7 @@ export default function Home() {
         <div className={style.customerContent}>
           <CarouselRatings
             setclass={style.servicesSlider}
-            children={data.map((item) => (
+            children={dataCustomer.map((item) => (
               <CustomerCard
                 key={item.id}
                 name={item.customerName}
