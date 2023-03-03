@@ -1,3 +1,23 @@
 .aboutContainer {
-    width: 100vw;
+    height: 10rem;
+    width: 90%;
+    margin: 0 auto; 
+    display: flex;
 }
+
+.aboutContainer section {
+    display: flex;
+    
+}
+
+.aboutContainer h1 {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+
+.aboutContainer form {
+    margin-right: 5rem;
+    text-align: center;
+}
+
