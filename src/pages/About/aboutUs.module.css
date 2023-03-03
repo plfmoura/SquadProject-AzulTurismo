@@ -6,33 +6,58 @@
 
 .aboutContainer section {
     display: flex;
-    margin-top: 5rem;
-    
+    align-items: flex-start;
+    margin-top: 3rem;
 }
 
 .aboutContainer h1 {
     text-align: left;
+    font-size: 34px;
 }
 
+.aboutContainer .description {
+    margin-top: 14px;
+    width: 90%;
+    height: 15rem;
+    overflow: hidden;
+    text-align: justify;
+}
 
-.aboutContainer form {
-    text-align: center;
-    width: 100%;
+.aboutContainer .formContainer {
+    width: 80%;
+    height: 100%;
     border: 1px solid black;
-    padding: 1rem;
-    background-color: green;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.aboutContainer p {
-    text-align: left;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    background-color: red;
-    width: 50%;
+.formContainer div {
+    display: flex;
+    flex-direction: column;
 }
 
+.formContainer div input, 
+.formContainer div select {
+    width: 17rem;
+    height: 28px;
+    border-radius: 5px;
+}
+
+.formContainer div textarea{
+    border-radius: 5px;
+    height: 10rem;
+    resize: none;
+    width: 17rem;
+}
+
+.formContainer button {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.mapsContainer {
+    width: 90%;
+}
