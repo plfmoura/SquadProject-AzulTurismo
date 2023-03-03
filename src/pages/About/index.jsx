@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import style from "./aboutUs.module.css";
+import style from "./about.module.css";
 import Button from "../../components/Button";
 import GoogleMaps from "../../components/GoogleMaps";
+import TeamCard from "./TeamCard";
 
 export default function About() {
   const [nome, setNome] = useState("");
@@ -17,7 +18,7 @@ export default function About() {
   return (
     // Detalhes da empresa parte A
     <div className={style.aboutContainer}>
-      <section className={style.primeiraSection}>
+      <section className={style.firstSection}>
         <div>
           <h1>Detalhes da empresa</h1>
           <p className={style.description}>
@@ -39,8 +40,7 @@ export default function About() {
             Nossa missão é conectar pessoas aos seus destinos para que elas
             colecionem experiências incríveis e belas recordações!
           </p>
-
-          <h3>Nosso escritório no Porto Maravalley</h3>
+          <h3>Nosso escritório no Porto Maravalley, Rio de Janeiro</h3>
           <div>
             <GoogleMaps 
               lat={-22.897052998253393} 
@@ -99,10 +99,15 @@ export default function About() {
           <Button type="submit" text="Enviar mensagem" />
         </form>
       </section>
-      <section className={style.segundaSection}>
+      <section className={style.secondSection}>
         <h2>Conheça nossa equipe de Design, Marketing e Desenvolvimento de Software.</h2>
-        <div>
-          
+        <div className={style.alignCards}>
+          <TeamCard />
+          <TeamCard />
+          <TeamCard />
+          <TeamCard />
+          <TeamCard />
+          <TeamCard />
         </div>
       </section>
     </div>

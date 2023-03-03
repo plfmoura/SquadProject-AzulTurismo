@@ -9,7 +9,7 @@ export default function GoogleMaps({lat, long, setclass}) {
 
     const containerStyle = {
         width: '100%',
-        height: '400px'
+        height: '100%'
       };
 
     const position = {

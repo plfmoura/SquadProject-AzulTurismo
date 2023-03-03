@@ -1,13 +1,15 @@
 .aboutContainer {
-    width: 85%;
-    margin: 0 auto; 
+    width: 100vw;
     display: flex;
+    flex-direction: column;
 }
 
-.aboutContainer section {
+.aboutContainer .firstSection {
+    height: 95vh;
+    width: 80%;
+    margin: 3rem auto 0 auto;
     display: flex;
     align-items: flex-start;
-    margin-top: 3rem;
 }
 
 .aboutContainer h1 {
@@ -18,12 +20,13 @@
 .aboutContainer .description {
     margin-top: 14px;
     width: 90%;
-    height: 15rem;
+    height: 10rem;
+    margin-bottom: 1rem;
     overflow: hidden;
     text-align: justify;
 }
 
-.aboutContainer .formContainer {
+.formContainer {
     width: 80%;
     height: 100%;
     border: 1px solid black;
@@ -41,15 +44,19 @@
 
 .formContainer div input, 
 .formContainer div select {
+    border: none;
     width: 17rem;
     height: 28px;
     border-radius: 5px;
+    background-color: #f1f1f1;
 }
 
 .formContainer div textarea{
+    border: none;
     border-radius: 5px;
     height: 10rem;
     resize: none;
+    background-color: #f1f1f1;
     width: 17rem;
 }
 
@@ -60,4 +67,20 @@
 
 .mapsContainer {
     width: 90%;
+    height: 22rem;
+}
+
+.secondSection {
+    margin-top: 2rem;
+    width: 80%;
+    margin: 3rem auto 0 auto;
+}
+
+.secondSection .alignCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    color: #1B71B7;
 }
