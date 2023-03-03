@@ -26,7 +26,6 @@ export default function CarouselRatings({ children, setclass }) {
   const settings = {
     className: "center",
     infinite: true,
-    centerPadding: "60px",
     slidesToShow: 3,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
@@ -44,27 +43,37 @@ export default function CarouselRatings({ children, setclass }) {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2.7,
           slidesToScroll: 1,
           infinite: true,
           dots: true
         }
       },
       {
-        breakpoint: 880,
+        breakpoint: 1150,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.3,
           slidesToScroll: 2,
           initialSlide: 1
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 980,
         settings: {
+          slidesToShow: 2,
+          initialSlide: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 880,
+        settings: {
+          centerPadding: 1.5,
+          initialSlide: 3,
           slidesToShow: 1,
           slidesToScroll: 1
         }
-      }
+      },
     ]
   };
 
