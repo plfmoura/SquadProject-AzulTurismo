@@ -11,6 +11,11 @@
     justify-content: space-between;
 }
 
+.arrowAlign {
+    background-color: red;
+    color: red;
+}
+
 .titleContainer {
     display: flex;
     flex-direction: column;
