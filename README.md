@@ -2,7 +2,8 @@
 <br/>
 
 <div align="center">
-<img src="./public/azul.png" width="10%"/>
+  <img src="./public/azul.png" width="10%"/>
+  <h1>Azul Turismo</h1>
 </div>
 
 <br/>
