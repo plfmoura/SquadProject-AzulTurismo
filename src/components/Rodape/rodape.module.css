@@ -5,12 +5,13 @@
     width: 100%;
     height: 50%;
     position: relative;
+    padding-bottom: 0;
 }
 
 .footerContainer h2{
     padding-top:2rem ;
-    padding-left: 2rem;
-    font-size:1.5rem;
+    padding-left: 5rem;
+    font-size:5rem;
     color: black;
 }
 
@@ -18,21 +19,28 @@
     width: 80%;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     align-items: center;
     font-size: 1.1rem;
 }
 
 .rodaItem {
+    margin-top: 1rem;
     display: flex;
+    justify-content: space-evenly;
     list-style: none;
     white-space: nowrap;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 
-.rodaItem li{
-    padding: 5px;
+.listItem{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .rodaItem a{
@@ -58,8 +66,6 @@
 .socialFinal{
     display: flex;
     text-align: center;
-    padding-top:0.4rem;
-    padding-left: 8rem;
 }
 
 .socialItem a{
@@ -68,11 +74,21 @@
 
 .redeUm a{
     color: black;
-    font-size: 18px;
+    font-size: 1.4rem;
 }
+
 .redeDois a{
-    color: aqua;
-    font-size: 18px;
+    color: black;
+    font-size: 1.4rem;
+}
+
+
+
+.textoFinal .textoLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
 }
 
 .textoLink a{
@@ -80,15 +96,13 @@
     text-decoration: underline;
 }
 
-.textoFinal .textoLink{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .textoLink li{
     list-style-type: none;
     margin: 8px;
+}
+
+.txtFim{
+    margin: 3px;
 }
 
 .textoLink a:hover{
@@ -97,12 +111,312 @@
 }
 
 .textoFinal p{
-    font-size: 15px;
+    font-size: 1rem;
     text-align: center;
 }
 
 @media screen and (min-width: 320px) {
+    
+    .footerContainer{
+        white-space: nowrap;
+        height: 39rem;
+    }
+
+    .footerContainer h2{
+        margin-left: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+   
+    .rodaList .rodaitem{
+        display: flex;
+       flex-direction: column;
+       margin: auto;
+    }
+
+    .rodaItem{
+        width: 15rem;
+    }
+
+    .rodaList div{
+        display:flex;
+    }
+
+    .textoFinal{
+        margin-left: 1rem;
+        flex-direction: column;
+        font-size: 13px;
+    }
+
+    .textoLink{
+        flex-wrap: wrap;
+    }
+
+    .socialFinal{
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .socialFinal div{
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 580px) {
+    
+    .footerContainer{
+        white-space: nowrap;
+        height: 40rem;
+    }
+
+    .footerContainer h2{
+        font-size: 1.2rem;
+    }
+    
+    .rodaList div{
+        display: flex;
+    }
+    
+    .rodaitem{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-left: 18rem;
+    }
+
+    .textoFinal{
+        flex-direction: column;
+        font-size: 15px;
+    }
 
 }
 
+@media screen and (min-width: 600px) {
+    
+    .footerContainer{
+        white-space: nowrap;
+        height: 40rem;
+    }
 
+    .footerContainer h2{
+        margin-left: 1rem;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+   
+    .rodaList .rodaitem{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .rodaItem{
+        width: 18rem;
+    }
+
+    .rodaList div{
+        display:flex;
+    }
+
+    .textoFinal{
+        margin-left: 1rem;
+        flex-direction: column;
+        font-size: 13px;
+    }
+
+    .textoLink{
+        flex-wrap: wrap;
+    }
+
+    .socialFinal{
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .socialFinal div{
+        display: flex;
+        
+    }
+}
+
+@media screen and (min-width: 720px){
+    
+    .footerContainer{
+        white-space: nowrap;
+        height: 25rem;
+    }
+
+    .footerContainer h2{
+        margin-left: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+   
+    .rodaList .rodaitem{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .rodaItem{
+        width: 19rem;
+    }
+
+    .rodaList div{
+        display:flex;
+    }
+
+    .textoFinal{
+        margin-left: 1rem;
+        flex-direction: column;
+        font-size: 13px;
+    }
+
+    .textoLink{
+        flex-wrap: wrap;
+    }
+
+    .socialFinal{
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .socialFinal div{
+        display: flex;
+    }
+
+}
+
+@media screen and (min-width: 763px){
+    
+    .footerContainer{
+        white-space: nowrap;
+        height: 25rem;
+    }
+
+    .footerContainer h2{
+        margin-left: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+   
+    .rodaList .rodaitem{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    .rodaItem{
+        width: 15rem;
+    }
+
+    .rodaList div{
+        display:flex;
+    }
+
+    .textoFinal{
+        margin-left: 1rem;
+        flex-direction: column;
+        font-size: 13px;
+    }
+
+    .textoLink{
+        flex-wrap: wrap;
+    }
+
+    .socialFinal{
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .socialFinal div{
+        display: flex;
+    }
+
+}
+
+@media screen and (min-width: 900px) {
+    
+    .footerContainer{
+        white-space: nowrap;
+    }
+
+    .footerContainer h2{
+        font-size: 1.5rem;
+    }
+    
+    .rodaitem{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 19rem;
+    }
+
+    .textoFinal{
+        flex-direction: column;
+        font-size: 19px;
+    }
+
+    .textoLink{
+        flex-wrap: wrap;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    
+    .footerContainer{
+        white-space: nowrap;
+    }
+
+    .footerContainer h2{
+        font-size: 1.5rem;
+    }
+
+    .rodaitem{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .textoFinal{
+        flex-direction: column;
+        font-size: 19px;
+    }
+
+    .textoLink{
+        flex-wrap: wrap;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    
+    .footerContainer{
+        white-space: nowrap;
+    }
+
+    .footerContainer h2{
+        font-size: 1.5rem;
+    }
+
+    .textoFinal{
+        flex-direction: column;
+        font-size: 19px;
+    }
+
+    .textoLink{
+        flex-wrap: wrap;
+    }
+   
+}
