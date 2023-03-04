@@ -93,3 +93,57 @@
 .servicePrice div p{
     margin-left: .2rem;
 }
+
+/* segunda seção da página, TEAM  */
+.teamContainer {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.teamContent {
+    margin-left: 1rem;
+}
+
+.teamContainer .guideContainer,
+.auxContainer, .photoContainer {
+    width: 80%;
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.guideContainer img,
+.auxContainer img, 
+.photoContainer img {
+    border-radius: 100%;
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+    border: .3rem solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px;
+}
+
+.teamContainer .teamOverview {
+    width: 50rem;
+    justify-content: space-between;
+}
+
+.guideContainer div,
+.auxContainer div, 
+.photoContainer div {
+    margin: .7rem 0 0 .5rem
+}
+
+.teamName {
+   position: relative;
+   font-weight: bold;
+   bottom: -5px;
+   left: .5rem;
+}
+
+.teamRating {
+    margin: .7rem 0 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 28%;
+    white-space: nowrap;
+}
