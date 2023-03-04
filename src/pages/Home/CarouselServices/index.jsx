@@ -44,14 +44,23 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2.3,
           slidesToScroll: 1,
           infinite: true,
           dots: true
         }
       },
       {
-        breakpoint: 880,
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2.1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -59,12 +68,34 @@ export default function CarouselServices({ children, setClass }) {
         }
       },
       {
-        breakpoint: 480,
+        breakpoint: 820,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.7,
+          initialSlide: 2,
           slidesToScroll: 1
         }
-      }
+      },
+      {
+        breakpoint: 690,
+        settings: {
+          initialSlide: 3,
+          slidesToShow: 1.5,
+        }
+      },
+      {
+        breakpoint: 610,
+        settings: {
+          initialSlide: 3,
+          slidesToShow: 1.2,
+        }
+      },
+      {
+        breakpoint: 490,
+        settings: {
+          initialSlide: 3,
+          slidesToShow: 1,
+        }
+      },
     ]
   };
 

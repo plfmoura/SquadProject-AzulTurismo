@@ -81,6 +81,18 @@
 .servicesSlider {
     width: 85%;
     margin: 0 auto;
+    animation: appears 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) normal;
+}
+
+@keyframes appears {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .servicesSlider ul {

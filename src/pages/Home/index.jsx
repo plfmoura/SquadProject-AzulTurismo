@@ -13,13 +13,12 @@ import { dataCustomer } from "../../services/dataCustomer";
 export default function Home() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
-  const[filtered,setFiltered]=useState([])
-  const[myRegion,setMyRegion]=useState("Todas as Regiões")
-  const [showTop, setShowTop] = useState('')
+  const [ filtered,setFiltered ] = useState([])
+  const [ myRegion,setMyRegion ] = useState("Todas as Regiões")
+  const [ showTop, setShowTop ] = useState('')
 
   useEffect(()=>{
-  setFiltered(products)
-
+    setFiltered(products)
   },[products])
 
   return (
@@ -40,23 +39,23 @@ export default function Home() {
       </section>
       <section className={style.servicesContainer}>
         <div style={{display: `${showTop}`}}>
-        <h3>
-          Passeios mais <span>Populares</span>
-        </h3>
-        <CarouselServices
-          setClass={style.servicesSlider}
-          children={products.slice(1, 10).map((tour) => (
-            <TourCard
-              key={tour.id}
-              id={tour.id}
-              title={tour.name}
-              location={tour.located}
-              price={tour.price}
-              image={tour.imagens[0]}
-              rating={tour.rating}
+          <h3>
+            Passeios mais <span>Populares</span>
+          </h3>
+            <CarouselServices
+              setClass={style.servicesSlider}
+              children={products.slice(1, 10).map((tour) => (
+                <TourCard
+                  key={tour.id}
+                  id={tour.id}
+                  title={tour.name}
+                  location={tour.located}
+                  price={tour.price}
+                  image={tour.imagens[0]}
+                  rating={tour.rating}
+                />
+              ))}
             />
-          ))}
-        />
         </div>
         <h3>
           Passeios em <span>{myRegion}</span>

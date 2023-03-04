@@ -17,7 +17,6 @@ function App() {
     axios
       .get("https://tourismapi.herokuapp.com/products")
       .then((respuesta) => {
-        console.log(respuesta.data);
         dispatch(actualizarProductos(respuesta.data));
       })
       .catch();
