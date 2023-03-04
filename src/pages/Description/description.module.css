@@ -14,6 +14,7 @@
 
 .serviceMedia img {
     object-fit: cover;
+    border-radius: 20px;
 }
 
 .serviceMedia img:nth-of-type(1) {
@@ -22,8 +23,9 @@
 
 .serviceMedia div {
     width: 40%;
-    place-items: center;
+    height: 100%;
     display: grid;
+    gap: 1rem;
     grid-template-areas: 
         "a a"
         "b c";
@@ -76,6 +78,20 @@
     opacity: 0.8;
 }
 
+.includedBtns {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px;
+    padding: .5rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 200px;
+}
+
+.includedBtns:hover {
+    transform: scale(1.1);
+    user-select: none;
+    transition: all 300ms ease;
+}
+
 .servicePrice div {
     display: flex;
     align-items: baseline;
@@ -84,7 +100,6 @@
 .servicePrice div h2,
 .servicePrice div span {
     font-size: 2rem;
-    font-weight: bold;
 }
 
 .servicePrice div p{

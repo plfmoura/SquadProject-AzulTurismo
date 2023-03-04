@@ -6,6 +6,7 @@ import { teamService } from "../../services/teamService";
 import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";
 import GoogleMaps from "../../components/GoogleMaps";
+import BuyForm from "./BuyForm";
 
 export default function Description() {
   let id = useParams();
@@ -52,20 +53,17 @@ export default function Description() {
               <p>{tour.located}</p>
               <div>
                 {tour.included.map((item, key) => (
-                  <p key={key}>{item}</p>
+                  <p className={style.includedBtns} key={key}>{item}</p>
                 ))}
               </div>
               <p>{tour.description}</p>
             </div>
+            {/* Area do Formulario inicial de Compra */}
             <div className={style.servicePrice}>
-              <div>
-                <h2>
-                  R$<span>{tour.price}</span>
-                </h2>
-                <p>/pessoa</p>
-              </div>
+              <BuyForm tourPrice={tour.price}/>
             </div>
           </section>
+            <hr style={{width: '80%', margin: '2rem auto'}}/>
           <section className={style.teamContainer}>
             <h2>
               Nosso time em <span>{tour.name}</span>
@@ -87,7 +85,7 @@ export default function Description() {
                         </p>
                         <p>
                           Idiomas:{" "}
-                          {guide[index].languages.map((item) => `${item}`)}
+                          {guide[index].languages.map((item) => `${item} `)}
                         </p>
                       </div>
                     </div>
@@ -121,7 +119,7 @@ export default function Description() {
                         </p>
                         <p>
                           Idiomas:{" "}
-                          {auxiliary[index].languages.map((item) => `${item}`)}
+                          {auxiliary[index].languages.map((item) => `${item} `)}
                         </p>
                       </div>
                     </div>
@@ -156,7 +154,7 @@ export default function Description() {
                         <p>
                           Idiomas:{" "}
                           {photographer[index].languages.map(
-                            (item) => `${item}`
+                            (item) => `${item} `
                           )}
                         </p>
                       </div>
@@ -168,6 +166,7 @@ export default function Description() {
           </section>
         </>
       )}
+      <hr style={{width: '80%', margin: '2rem auto'}}/>
       {/* Google Maps  */}
       {tour && (
         <section className={style.mapsContainer}>
