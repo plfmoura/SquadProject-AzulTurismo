@@ -3,44 +3,54 @@ import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 import { useSelector } from "react-redux";
 
-function Rodape(){
-  const state = useSelector((state) => state);
-  const { products } = state.shopping;
-  const [ shotcuts, setShotcuts] = useState([])
+  function Rodape(){
+    const state = useSelector((state) => state);
+    const { products } = state.shopping;
+    const [ shotcuts, setShotcuts] = useState([])
+   
+    useEffect(() => {
+      setShotcuts(products.map((item) => item.name));
+    }, [products])
 
-  useEffect(() => {
-    setShotcuts(products.map((item) => item.name))
-  }, [products])
-
-  useEffect(() => {
-    // console.log(shotcuts)
-  }, [ shotcuts ])
-  
     return(
       <footer className={styles.footerContainer}>
         <h2>Explore outras opções em Rio de Janeiro</h2>
         <div className={styles.rodaList}>
             <ul className={styles.rodaItem}>
-              {/* {
-                shotcuts && (
-                  shotcuts.map((item) =>  <li key={item.id}><a href="#">{item.name}</a></li>)
-                  )
-              } */}
+              {
+                shotcuts && 
+                  shotcuts.slice(0,5).map((item, key) =>  (<li key={key}><a href="#">{item}</a></li>))
+              }
+            </ul>
+            <ul className={styles.rodaItem}>
+              {
+                shotcuts && 
+                  shotcuts.slice(6,10).map((item, key) =>  (<li key={key}><a href="#">{item}</a></li>))
+              }
+            </ul>
+            <ul className={styles.rodaItem}>
+              {
+                shotcuts && 
+                  shotcuts.slice(11,16).map((item, key) =>  (<li key={key}><a href="#">{item}</a></li>))
+              }
             </ul>
         </div>
+        <hr style={{width: '80%', margin: '1rem auto', color: '#3333355'}}/>
         <div className={styles.textoFinal}>
-          <p>&copy;2023Azul Tour, inc.</p> 
-          <ul className={styles.textoLink}>
-            <li><a href="">Privacidade</a></li>
-            <li><a href="">Termos</a></li> 
-            <li><a href="">Mapa do site</a></li>  
-            <li><a href="">Informações da Empresa</a></li> 
-          </ul>
+          <div className={styles.alignShotcuts}>
+            <p>&copy; 2023 Azul Turismo, inc.</p> 
+            <ul className={styles.listaLink}>
+              <li><a href="#">Privacidade</a></li>
+              <li><a href="#">Termos</a></li> 
+              <li><a href="#">Mapa do site</a></li>  
+              <li><a href="#">Informações da Empresa</a></li> 
+            </ul>
+          </div>
           <div className={styles.socialFinal}>
-            <p className={styles.txtFim}>Portugues(BR) R$BRL</p>
-            <div>
-              <p className={styles.redeUm}><a href=""><FaFacebookSquare /></a></p>
-              <p className={styles.redeDois}><a href=""><FaInstagram /></a></p>
+            <p>Portugues(BR) R$BRL</p>
+            <div className={styles.socialItem}>
+              <a href="#"><FaFacebookSquare /></a>
+              <a href="#"><FaInstagram /></a>
             </div>
           </div>
         </div>
