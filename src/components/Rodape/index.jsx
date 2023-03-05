@@ -35,19 +35,22 @@ import { useSelector } from "react-redux";
               }
             </ul>
         </div>
+        <hr style={{width: '80%', margin: '1rem auto', color: '#3333355'}}/>
         <div className={styles.textoFinal}>
-          <ul className={styles.textoLink}>
-            <p>&copy;2023Azul Tour, inc.</p> 
-            <li><a href="#">Privacidade</a></li>
-            <li><a href="#">Termos</a></li> 
-            <li><a href="#">Mapa do site</a></li>  
-            <li><a href="#">Informações da Empresa</a></li> 
-          </ul>
+          <div className={styles.alignShotcuts}>
+            <p>&copy; 2023 Azul Turismo, inc.</p> 
+            <ul className={styles.listaLink}>
+              <li><a href="#">Privacidade</a></li>
+              <li><a href="#">Termos</a></li> 
+              <li><a href="#">Mapa do site</a></li>  
+              <li><a href="#">Informações da Empresa</a></li> 
+            </ul>
+          </div>
           <div className={styles.socialFinal}>
-            <p className={styles.txtFim}>Portugues(BR) R$BRL</p>
-            <div className={styles.txtLink}>
-              <p className={styles.redeUm}><a href="#"><FaFacebookSquare /></a></p>
-              <p className={styles.redeDois}><a href="#"><FaInstagram /></a></p>
+            <p>Portugues(BR) R$BRL</p>
+            <div className={styles.socialItem}>
+              <a href="#"><FaFacebookSquare /></a>
+              <a href="#"><FaInstagram /></a>
             </div>
           </div>
         </div>

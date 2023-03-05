@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import style from './navBar.module.css'
 import { IoNotifications } from "react-icons/io5"
 import ProfilePicture from '../../assets/profile/user.jpg'
 
 export default function NavBar() {
+  const [ signed, setSigned ] = useState(false)
+
   return (
     <div className={style.alignContent}>
       <div className={style.navBarContainer}>
@@ -21,12 +23,23 @@ export default function NavBar() {
         </nav>
         <div className={style.userContainer}>
           <ul className={style.menuContent}>
-            <li><Link to='/profile'>Meus Passeios</Link></li>
-            <li><Link to='/'>Sair</Link></li>
-            <div>
-              <Link to='/profile'><IoNotifications className={style.notificationIcon}/></Link>
-              <Link to='/profile'><img src={ProfilePicture} alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
-            </div>
+            {signed ? (
+              <>
+                <li><Link to='/profile'>Meus Passeios</Link></li>
+                <li onClick={() => setSigned(!signed)}><Link to='/'>Sair</Link></li>
+                <div>
+                  <Link to='/profile'><IoNotifications className={style.notificationIcon}/></Link>
+                  <Link to='/profile'><img src={ProfilePicture} alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
+                </div>
+              </>) : (
+                <>
+                  <li onClick={() => setSigned(!signed)}><Link to='/profile'>Entrar</Link></li>
+                  <div>
+                    <Link to='/profile'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU' alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
+                  </div>
+                </>
+              )
+            }
           </ul>
         </div>
       </div>

@@ -44,6 +44,7 @@ export default function Home() {
           </h3>
             <CarouselServices
               setClass={style.servicesSlider}
+              call={style.arrowAlign}
               children={products.slice(1, 10).map((tour) => (
                 <TourCard
                   key={tour.id}

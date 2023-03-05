@@ -7,6 +7,7 @@ import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";
 import GoogleMaps from "../../components/GoogleMaps";
 import BuyForm from "./BuyForm";
+import NextButton from "../../components/NextButton";
 
 export default function Description() {
   let id = useParams();
@@ -17,6 +18,53 @@ export default function Description() {
   const [index, setIndex] = useState(0);
   const state = useSelector((state) => state);
   const { products } = state.shopping;
+  const [imagensIndex, setImagensIndex] = useState([0, 1, 2, 3]);
+  const [imagens, setImagens] = useState()
+
+  const [ index1, setIndex1 ] = useState(0)
+  const [ index2, setIndex2 ] = useState(1)
+  const [ index3, setIndex3 ] = useState(2)
+  const [ index4, setIndex4 ] = useState(3)
+
+  const nextPicture = () => {
+    setIndex1(index1 + 1)
+    setIndex2(index2 + 1)
+    setIndex3(index3 + 1)
+    setIndex4(index4 + 1)
+
+    if(index1 === 3){
+      setIndex1(0)
+    } 
+    if(index2 === 3){
+      setIndex2(0)
+    } 
+    if(index3 === 3){
+      setIndex3(0)
+    } 
+    if(index4 === 3){
+      setIndex4(0)
+    } 
+  }
+
+  const prevPicture = () => {
+    setIndex1(index1 - 1)
+    setIndex2(index2 - 1)
+    setIndex3(index3 - 1)
+    setIndex4(index4 - 1)
+
+    if(index1 === 0){
+      setIndex1(3)
+    } 
+    if(index2 === 0){
+      setIndex2(3)
+    } 
+    if(index3 === 0){
+      setIndex3(3)
+    } 
+    if(index4 === 0){
+      setIndex4(3)
+    } 
+  }
 
   useEffect(() => {
     let selected_id = Number(id.id.replace(":", ""));
@@ -37,11 +85,17 @@ export default function Description() {
       {tour && (
         <>
           <section className={style.serviceMedia}>
-            <img src={tour.imagens[0]} alt={tour.name} />
-            <div>
-              <img src={tour.imagens[1]} alt={tour.name} />
-              <img src={tour.imagens[2]} alt={tour.name} />
-              <img src={tour.imagens[3]} alt={tour.name} />
+            <div className={style.gallery}>
+              <div className={style.galleryController}>
+                <NextButton onPress={ prevPicture } setStyles={{transform: 'rotateZ(180deg) scale(2.5)'}}/>
+                <NextButton onPress={ nextPicture } />
+              </div>
+              <img src={tour.imagens[index1]} alt={tour.name} className={style.bigPicture}/>
+            </div>
+            <div className={style.smallPictures}>
+              <img src={tour.imagens[index2]} alt={tour.name} />
+              <img src={tour.imagens[index4]} alt={tour.name} />
+              <img src={tour.imagens[index3]} alt={tour.name} />
             </div>
           </section>
           <section className={style.serviceDescription}>
