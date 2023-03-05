@@ -13,12 +13,12 @@ mais badaladas Cariocas, da Região dos Lagos até as favelas cariocas, conectan
 estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não é mais impecílho virtual para conhecer a cultura e admirar a Cidade Maravilhosa.<br/>
 <br/>
 
+Repositório de CRIATIVOS para API = <a href="https://github.com/Juanpi92/criativos-produtos-api">Visualizar</a>
+
 Repositório da API = <a href="https://github.com/Juanpi92/tourism_api">Visualizar</a>
+
+Documentação da API = <a href="https://tourismapi.herokuapp.com/#update-one-product">Visualizar</a>
 
 MVP (Figma) = <a href="https://www.figma.com/file/yqOtcjypEdqI93c2w0t4SW/Tourism-App?node-id=0%3A1&t=WTkxgYmm0jdTD0tc-1">Visualizar</a>
 
 USER FLOW (Miro) = <a href="https://miro.com/app/board/uXjVPmKHg_o=/?share_link_id=599769016089">Visualizar</a>
-
-Repositório de CRIATIVOS para API = <a href="https://github.com/Juanpi92/criativos-produtos-api">Visualizar</a>
-
-
