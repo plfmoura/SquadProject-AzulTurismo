@@ -26,7 +26,7 @@ USER FLOW (Miro) = <a href="https://miro.com/app/board/uXjVPmKHg_o=/?share_link_
 
 ### Contribuidores (em todas as dependências desse projeto): 
 
-<a href="https://github.com/plfmoura/SquadProject-azulTurismo/graphs/contributors">
+<a href="https://github.com/plfmoura/SquadProject-azulTurismo/graphs/contributors" width="30%">
   <img src="https://contrib.rocks/image?repo=plfmoura/SquadProject-azulTurismo" />
-  <img src="https://contrib.rocks/image?repo=Juanpi92/tourism_api" />
+  <img src="https://contrib.rocks/image?repo=Juanpi92/tourism_api"/>
 </a>
