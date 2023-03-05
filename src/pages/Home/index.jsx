@@ -52,7 +52,7 @@ export default function Home() {
                   title={tour.name}
                   location={tour.located}
                   price={tour.price}
-                  image={tour.imagens[0]}
+                  image={tour.imagens}
                   rating={tour.rating}
                 />
               ))}
@@ -70,7 +70,7 @@ export default function Home() {
               title={tour.name}
               location={tour.located}
               price={tour.price}
-              image={tour.imagens[0]}
+              image={tour.imagens}
               rating={tour.rating}
             />
           ))}
