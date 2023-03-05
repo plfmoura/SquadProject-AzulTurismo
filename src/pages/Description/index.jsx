@@ -19,52 +19,26 @@ export default function Description() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
   const [imagensIndex, setImagensIndex] = useState([0, 1, 2, 3]);
-  const [imagens, setImagens] = useState()
-
-  const [ index1, setIndex1 ] = useState(0)
-  const [ index2, setIndex2 ] = useState(1)
-  const [ index3, setIndex3 ] = useState(2)
-  const [ index4, setIndex4 ] = useState(3)
-
-  const nextPicture = () => {
-    setIndex1(index1 + 1)
-    setIndex2(index2 + 1)
-    setIndex3(index3 + 1)
-    setIndex4(index4 + 1)
-
-    if(index1 === 3){
-      setIndex1(0)
-    } 
-    if(index2 === 3){
-      setIndex2(0)
-    } 
-    if(index3 === 3){
-      setIndex3(0)
-    } 
-    if(index4 === 3){
-      setIndex4(0)
-    } 
-  }
 
   const prevPicture = () => {
-    setIndex1(index1 - 1)
-    setIndex2(index2 - 1)
-    setIndex3(index3 - 1)
-    setIndex4(index4 - 1)
+    let imagens_index = imagensIndex;
+    let temp = imagens_index[0];
+    for (let index = 0; index < imagens_index.length - 1; index++) {
+      imagens_index[index] = imagens_index[index + 1];
+    }
+    imagens_index[imagens_index.length - 1] = temp;
+    setImagensIndex([...imagens_index]);
+  };
 
-    if(index1 === 0){
-      setIndex1(3)
-    } 
-    if(index2 === 0){
-      setIndex2(3)
-    } 
-    if(index3 === 0){
-      setIndex3(3)
-    } 
-    if(index4 === 0){
-      setIndex4(3)
-    } 
-  }
+  const nextPicture = () => {
+    let imagens_index = imagensIndex;
+    let temp = imagens_index[imagens_index.length - 1];
+    for (let index = imagens_index.length - 1; index > 0; index--) {
+      imagens_index[index] = imagens_index[index - 1];
+    }
+    imagens_index[0] = temp;
+    setImagensIndex([...imagens_index]);
+  };
 
   useEffect(() => {
     let selected_id = Number(id.id.replace(":", ""));
@@ -87,37 +61,54 @@ export default function Description() {
           <section className={style.serviceMedia}>
             <div className={style.gallery}>
               <div className={style.galleryController}>
-                <NextButton onPress={ prevPicture } setStyles={{transform: 'rotateZ(180deg) scale(2.5)'}}/>
-                <NextButton onPress={ nextPicture } />
+                <NextButton
+                  onPress={prevPicture}
+                  setStyles={{ transform: "rotateZ(180deg) scale(2.5)" }}
+                />
+                <NextButton onPress={nextPicture} />
               </div>
-              <img src={tour.imagens[index1]} alt={tour.name} className={style.bigPicture}/>
+              <img
+                src={tour.imagens[imagensIndex[0]]}
+                alt={tour.name}
+                className={style.bigPicture}
+              />
             </div>
             <div className={style.smallPictures}>
-              <img src={tour.imagens[index2]} alt={tour.name} />
-              <img src={tour.imagens[index4]} alt={tour.name} />
-              <img src={tour.imagens[index3]} alt={tour.name} />
+              <img src={tour.imagens[imagensIndex[3]]} alt={tour.name} />
+              <img src={tour.imagens[imagensIndex[2]]} alt={tour.name} />
+              <img src={tour.imagens[imagensIndex[1]]} alt={tour.name} />
             </div>
           </section>
           <section className={style.serviceDescription}>
             <div className={style.serviceOverView}>
-              <div style={{display: 'flex', alignItems: 'center', fontSize: '24px'}}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  fontSize: "24px",
+                }}
+              >
                 <h1>{tour.name}</h1>
-                <span style={{display: 'flex'}}><AiFillStar/> {tour.rating}</span>
+                <span style={{ display: "flex" }}>
+                  <AiFillStar /> {tour.rating}
+                </span>
               </div>
               <p>{tour.located}</p>
               <div>
                 {tour.included.map((item, key) => (
-                  <p className={style.includedBtns} key={key}>{item}</p>
+                  <p className={style.includedBtns} key={key}>
+                    {item}
+                  </p>
                 ))}
               </div>
               <p>{tour.description}</p>
             </div>
             {/* Area do Formulario inicial de Compra */}
             <div className={style.servicePrice}>
-              <BuyForm tourPrice={tour.price}/>
+              <BuyForm tourPrice={tour.price} />
             </div>
           </section>
-            <hr style={{width: '80%', margin: '2rem auto'}}/>
+          <hr style={{ width: "80%", margin: "2rem auto" }} />
           <section className={style.teamContainer}>
             <h2>
               Nosso time em <span>{tour.name}</span>
@@ -125,7 +116,7 @@ export default function Description() {
             <div className={style.teamContent}>
               {tour && (
                 <>
-                {/* area do lider da excursão, GUIA */}
+                  {/* area do lider da excursão, GUIA */}
                   <div className={style.guideContainer}>
                     <img src={guide[index].picture} />
                     <div>
@@ -190,7 +181,7 @@ export default function Description() {
                       {auxiliary[index].level}
                     </p>
                   </div>
-                {/* Area do fotografo */}
+                  {/* Area do fotografo */}
                   <div className={style.photoContainer}>
                     <img src={photographer[index].picture} />
                     <div>
@@ -220,7 +211,7 @@ export default function Description() {
           </section>
         </>
       )}
-      <hr style={{width: '80%', margin: '2rem auto'}}/>
+      <hr style={{ width: "80%", margin: "2rem auto" }} />
       {/* Google Maps  */}
       {tour && (
         <section className={style.mapsContainer}>
