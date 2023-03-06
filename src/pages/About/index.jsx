@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./about.module.css";
 import Button from "../../components/Button";
 import GoogleMaps from "../../components/GoogleMaps";
 import TeamCard from "./TeamCard";
+import { developTeam } from "../../services/developTeam";
 
 export default function About() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [mensagem, setMensagem] = useState("");
+  const [data, setData] = useState([])
 
+  useEffect(() => {
+    setData(developTeam)
+  }, []);
+
+
+    // developTeam.map(( item ) => console.log( item ) )
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aqui você pode enviar o formulário para o servidor
@@ -101,13 +110,14 @@ export default function About() {
       </section>
       <section className={style.secondSection}>
         <h2>Conheça nossa equipe de Design, Marketing e Desenvolvimento de Software.</h2>
-        <div className={style.alignCards}>
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
+        <div className={style.alignCards}> 
+       
+        { data ?
+            ( <>{
+                data.map((item) => <TeamCard image={item.image} office={item.office} name={item.name}  /> )
+              }</>) : ''                
+
+        }
         </div>
       </section>
     </div>
