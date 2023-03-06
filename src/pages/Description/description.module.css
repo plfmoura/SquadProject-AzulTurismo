@@ -215,3 +215,42 @@
     width: 100%;
     height: 80vh;
 }
+
+@media screen and (max-width: 480px) {
+    .serviceMedia {
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        margin: 0;
+    }
+    .smallPictures {
+        display: none;
+        background-color: yellow;
+    }
+    .serviceDescription {
+        background-color: green;
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .serviceOverView div:first-child {
+        white-space: nowrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .serviceOverView p:nth-of-type(1) {
+        color: red;
+        white-space: nowrap;
+        text-align: start;
+    }
+    .servicePrice {
+       background-color: yellow;
+       width: 100%; 
+    }
+    .teamContent {
+        display: none;
+    }
+    .serviceOverView div:nth-of-type(2) {
+        display: none;
+    }
+}
