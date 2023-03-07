@@ -34,6 +34,9 @@ export default function Card() {
             name={cardDetails.name}
             number={cardDetails.number}
             cpf={cardDetails.cpf}
+            placeholders={{
+              name: 'SEU NOME AQUI',
+            }}
           />
           <div>
             <form className={styles.cardForm}>
@@ -68,7 +71,7 @@ export default function Card() {
                 <input
                   type="tel"
                   name="CPF"
-                  placeholder="CPF"
+                  placeholder="CPF DO TITULAR"
                   maxLength={11}
                 />
                 <input
