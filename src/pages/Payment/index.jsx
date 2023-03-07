@@ -11,12 +11,19 @@ export default function Payment() {
   const [tour, setTour] = useState();
   const state = useSelector((state) => state);
   const { products } = state.shopping;
+  const [ totalPrice, setTotalPrice ] = useState(0)
+  const [ ticketAmount, setTicketAmount ] = useState(0)
 
   useEffect(() => {
     let selected_id = Number(id.id.replace(":", ""));
     let selected_tour = products.find((product) => product.id === selected_id);
     setTour(selected_tour);
   }, [products]);
+
+  useEffect(() => {
+    setTicketAmount(3)
+    setTotalPrice(( 100 * ticketAmount).toFixed(2))
+  }, [ tour ])
 
   return (
     <div className={style.paymentContainer}>
@@ -59,9 +66,34 @@ export default function Payment() {
           </section>
           <section className={style.cartContent}>
             <div className={style.tourContainer}>
-              <div className={style.tourHeader}>
-                <img src="" alt="" />
-                <div>Nome do Passeio</div>
+              {tour &&
+                <div className={style.tourHeader}>
+                    <img src={tour.imagens[0]} alt={tour.name} />
+                    <div>
+                      <h3>{tour.name}</h3>
+                      {
+                        tour.included.map((item) => <p>{item}</p>)
+                      }
+                    </div>
+                </div>
+              }
+              <hr />
+              <p className={style.cartSecure}>Seu passe conta com a proteção do seguro <strong>Azul Turismo</strong></p>
+              <div className={style.priceInfo}>
+                <h3>Informações do Valor Final</h3>
+                <div>
+                  <p>R$<span>130,00</span> x <span>3</span> passes</p>
+                  <p>R$<span>690,00</span></p>
+                </div>
+                <div>
+                  <p>Desconto Adicionado</p>
+                  <p>-R$<span>69,00</span></p>
+                </div>
+                <hr style={{width: '90%'}}/>
+                <div className={style.finalPrice}>
+                  <h3>Valor Total (BRL)</h3>
+                  <span>R${totalPrice}</span>
+                </div>
               </div>
             </div>
           </section>
