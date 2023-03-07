@@ -5,8 +5,7 @@ export default function TeamCard({ name, office, image}){
 
   return (
     <div className={style.cardContainer}>
-        <img src={ image } alt={ name } />
-        <div className={style.cardPicture}>Foto</div>
+        <div className={style.cardPicture}><img src={ image } alt={ name } /></div>
         <div className={style.alignText}>
             <p>{ name }</p>
             <p>{ office }</p>
