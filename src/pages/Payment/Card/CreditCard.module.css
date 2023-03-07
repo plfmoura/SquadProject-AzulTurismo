@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+.cardContainer {
+  margin-top: 5rem;
+}
+
+.cardForm {
+  margin: auto;
+  margin-top: 3rem;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardForm input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border: 2px solid black;
+  outline: none;
+  color: #000;
+  font-size: 1rem;
+  font-family: "Share Tech Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cardForm input:focus,
+.cardForm input:active {
+  border-color: rgb(0, 207, 0);
+}
+
+.cardForm .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.bottom input[name="expiry"] {
+  flex: 1;
+}
+
+.bottom input[name="cvc"] {
+  width: 100px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
