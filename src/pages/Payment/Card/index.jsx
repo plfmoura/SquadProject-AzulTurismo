@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import styles from "./CreditCard.module.css";
@@ -11,9 +11,10 @@ export default function Card() {
         focus: "",
         name: "",
         number: "",
+        cpf: "",
       };
     
-      const [cardDetails, setCardDetails] = React.useState(data);
+      const [cardDetails, setCardDetails] = useState(data);
     
       const handleInputFocus = (e) => {
         setCardDetails({ ...cardDetails, focus: e.target.name });
@@ -32,33 +33,43 @@ export default function Card() {
             focused={cardDetails.focus}
             name={cardDetails.name}
             number={cardDetails.number}
+            cpf={cardDetails.cpf}
           />
           <div>
             <form className={styles.cardForm}>
               <input
                 type="number"
                 name="number"
-                placeholder="Card Number"
+                placeholder="---- ---- ---- ----" 
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
                 value={cardDetails.number}
               />
+              <div className={styles.mainContent}>
               <input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Titular do Cartão"
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
                 value={cardDetails.name}
               />
-              <div className={styles.bottom}>
-                <input
+              <input
                   type="text"
                   name="expiry"
-                  placeholder="MM/YY Expiry"
+                  placeholder="MM/AA"
                   onChange={handleInputChange}
                   onFocus={handleInputFocus}
                   value={cardDetails.expiry}
+                  maxLength={4}
+                />
+              </div>
+              <div className={styles.bottom}>
+                <input
+                  type="tel"
+                  name="CPF"
+                  placeholder="CPF"
+                  maxLength={11}
                 />
                 <input
                   type="tel"

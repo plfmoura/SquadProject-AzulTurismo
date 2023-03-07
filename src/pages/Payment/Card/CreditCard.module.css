@@ -1,13 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
-
-.cardContainer {
-  margin-top: 5rem;
-}
-
 .cardForm {
   margin: auto;
-  margin-top: 3rem;
-  width: 400px;
+  width: 30%;
   display: flex;
   flex-direction: column;
 }
@@ -15,18 +8,36 @@
 .cardForm input {
   margin: 0.5rem;
   padding: 0.5rem;
-  border: 2px solid black;
   outline: none;
-  color: #000;
+  border: .1px solid #33333355;
+  box-shadow: rgba(0, 0, 0, 0.10) 0px 2px 1px;
+  color: #333;
   font-size: 1rem;
-  font-family: "Share Tech Mono", monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
+  border-radius: 10px;
 }
 
 .cardForm input:focus,
 .cardForm input:active {
-  border-color: rgb(0, 207, 0);
+  border-color: #2ea9ff;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainContent input[name="name"],
+.bottom input[name="CPF"] {
+  width: 80%;
+}
+
+.mainContent input[name="expiry"],
+.bottom input[name="cvc"] {
+  width: 20%;
+  text-align: center;
 }
 
 .cardForm .bottom {
@@ -35,12 +46,8 @@
   justify-content: flex-end;
 }
 
-.bottom input[name="expiry"] {
-  flex: 1;
-}
-
-.bottom input[name="cvc"] {
-  width: 100px;
+.bottom input[name="CPF"] {
+  width: 80%;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -48,5 +55,41 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media screen and (min-width: 320px) {
+  .cardForm {
+    margin: auto;
+    margin-top: 3rem;
+    width: 90%;
+    font-size: .5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+
+@media screen and (min-width: 480px) {
+  .cardForm {
+    margin: auto;
+    margin-top: 3rem;
+    width: 70%;
+    font-size: .5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+
+@media screen and (min-width: 480px) {
+  .cardForm {
+    margin: auto;
+    margin-top: 3rem;
+    width: 400px;
+    font-size: .5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
 }
 

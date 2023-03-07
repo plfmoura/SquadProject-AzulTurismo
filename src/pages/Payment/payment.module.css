@@ -1,3 +1,92 @@
 .paymentContainer {
+    margin-top: 2rem;
     width: 100vw;
+}
+
+.alignContainer {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.alignContainer .headerContent h2 span{
+    margin-right: 1rem;
+}
+
+.alignContainer .headerContent h2 {
+    display: flex;
+    align-items: center;
+} 
+
+.alignContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "a b"
+        "a b";
+    gap: 2rem;
+}
+
+.alignContent .paymentContent {
+    grid-area: a;
+}
+
+.alignContent .cartContent {
+    grid-area: b;
+    background-color: yellow;
+}
+
+.paymentContent .tipBanner {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    color: #333;
+    border: 1px solid #33333320;
+    background-color: #fff;
+}
+
+.paymentContent .tipBanner p,
+.paymentContent .tipBanner {
+    margin-top: 1rem;
+}
+
+.paymentContainer .buyContent {
+    padding: 1rem 0rem;
+    margin: 1rem 0;
+}
+
+.paymentContainer .buyContent div {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+/* Span de Alterar informações do pedido */
+.paymentContainer .buyContent div span {
+    font-weight: bold;
+}
+
+.paymentContainer hr {
+    border: 1px solid #33333320;
+}
+
+.paymentContainer .couponContainer {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardContainer,
+.cardContainer h3 {
+    margin: 1rem 0 2rem 0;
+}
+
+.cardContainer .cardArea {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardContainer .cardArea button {
+    margin-top: 1rem;
+    width: 85%;
 }

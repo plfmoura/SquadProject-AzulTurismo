@@ -107,6 +107,7 @@ export default function Description() {
             <div className={style.servicePrice}>
               <BuyForm tourPrice={tour.price} 
                 option={ <option>{tour.Date}</option>}
+                id={tour.id}
                 />
             </div>
           </section>
