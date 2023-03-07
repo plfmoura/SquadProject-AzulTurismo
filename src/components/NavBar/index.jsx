@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom'
 import style from './navBar.module.css'
 import { IoNotifications } from "react-icons/io5"
 import ProfilePicture from '../../assets/profile/user.jpg'
+import Modal from '../Modal'
 
 export default function NavBar() {
   const [ signed, setSigned ] = useState(false)
+  const [ show, setShow ] = useState(false)
 
   return (
+    <>
+    <Modal onShow={ show } />
     <div className={style.alignContent}>
       <div className={style.navBarContainer}>
         <div>
@@ -33,10 +37,12 @@ export default function NavBar() {
                 </div>
               </>) : (
                 <>
-                  <li onClick={() => setSigned(!signed)}><Link to='/profile'>Entrar</Link></li>
+                  {/* <li onClick={() => setSigned(!signed)}><Link to='/profile'>Entrar</Link></li> */}
+                  <li onClick={() => setShow(!show)}><Link>Entrar</Link></li>
                   <div>
                     <Link to='/profile'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU' alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
                   </div>
+                  <button onClick={() => setShow(!show)}>teste</button>
                 </>
               )
             }
@@ -44,5 +50,6 @@ export default function NavBar() {
         </div>
       </div>
     </div>
+    </>
   )
 }
