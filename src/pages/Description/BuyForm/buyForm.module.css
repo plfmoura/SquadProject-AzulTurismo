@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    width: 90%;    
+    width: 20rem;    
     height: 20rem;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 10px;
     border-radius: 20px;
@@ -53,4 +53,10 @@
 
 .formContainer button {
     width: 80%;
+}
+
+@media screen and (max-width: 480px) {
+    .formContainer {
+        width: 100%;
+    }
 }

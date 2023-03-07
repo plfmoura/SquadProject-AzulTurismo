@@ -51,7 +51,7 @@
 .bigPicture {
     position: relative;
     width: 100%;
-    border-radius: 20px;
+    border-radius: 10px;
     object-fit: cover;
     z-index: 1;
 }
@@ -105,14 +105,9 @@
     width: 55%;
 }
 
-.serviceDescription .servicePrice{
-    width: 40%;
-}
-
 /* Dentro das Divisões */
 .serviceOverView div {
     display: flex;
-    justify-content: space-between;
 }
 
 .serviceOverView p:nth-of-type(1){
@@ -133,6 +128,10 @@
     transition: all 300ms ease;
 }
 
+.serviceDescription .servicePrice{
+    width: 100%;
+}
+
 .servicePrice div {
     display: flex;
     align-items: baseline;
@@ -149,7 +148,6 @@
 
 /* segunda seção da página, TEAM  */
 .teamContainer {
-    width: 75%;
     margin: 1rem auto;
 }
 
@@ -214,4 +212,204 @@
 .mapsContainer div {
     width: 100%;
     height: 80vh;
+}
+
+@media screen and (min-width: 320px) {
+    .singleServiceContainer h2 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .serviceMedia {
+        width: 100%;
+        height: 40vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .bigPicture {
+        border-radius: 0;
+    }
+
+    .smallPictures {
+        display: none;
+    }
+    
+    .serviceDescription {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    /* primeira divisão da descrição do serviço */
+    .serviceDescription .serviceOverView {
+        width: 95%;
+        margin: 0 auto;
+    }
+    /* Dentro da divisão do titulo */
+    .serviceOverView div:first-of-type {
+        margin: .5rem auto;
+        display: flex;
+        white-space: nowrap;
+        justify-content: space-between;
+    }
+
+    .serviceOverView div:first-of-type h1 {
+        font-size: 1.5rem;
+    }
+    /* divisão dos inclusos no passeio */
+    .serviceOverView div:last-of-type {
+        display: flex;
+        width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+        gap: .5rem;
+    }
+    /* descrição do passeio  */
+    .textDescription {
+        height: 20vh;
+        overflow: auto;
+        margin: .5rem auto;
+    }
+    /* Area do time  */
+    .teamContainer {
+        width: 100%;
+    }
+
+    .teamContainer .teamOverview {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .teamName {
+        color: #333;
+        font-size: 16px;
+    }
+
+    .teamOverview p {
+        color: #333335aa;
+        font-size: 12px;
+    }
+
+    /* Google Maps  */
+    .mapsContainer {
+        width: 100%;
+        height: 40vh;
+        margin: 0 auto 5rem auto;
+    }
+
+    .mapsContainer h2 {
+        margin-bottom: 1.5rem;
+        width: 80%;
+        margin: 0 auto 1rem auto;
+    }
+
+    .mapsContainer div {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+@media screen and (min-width: 720px) {
+    .singleServiceContainer h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .serviceMedia {
+        width: 100%;
+        height: 60vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .serviceDescription {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .serviceOverView div:first-of-type h1,
+    .serviceOverView div:first-of-type span {
+        font-size: 2rem;
+    }
+
+    .teamContainer {
+        width: 80%;
+    }
+
+    .teamName {
+        color: #333;
+        font-size: 18px;
+    }
+
+    .teamOverview p {
+        color: #333335aa;
+        font-size: 14px;
+    }
+
+    /* Google Maps  */
+    .mapsContainer {
+        width: 80%;
+        height: 60vh;
+        margin: 0 auto 5rem auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .serviceMedia {
+        width: 80%;
+        height: 50vh;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .smallPictures {
+        display: grid;
+    }
+
+    .bigPicture,
+    .smallPictures img { 
+        border-radius: 10px;
+    }
+
+    .serviceDescription {
+        margin-top: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        gap: 2rem;
+    }
+
+    .serviceDescription .serviceOverView {
+        width: 200%;
+    }
+
+    .serviceDescription .servicePrice form {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 1440px) {
+    .singleServiceContainer h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .serviceDescription {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        gap: 2rem;
+    }
+
+    .serviceDescription .serviceOverView {
+        width: 200%;
+    }
+
+    .serviceDescription .servicePrice form {
+        width: 100%;
+    }
 }
