@@ -38,6 +38,18 @@
     position: sticky;
     top: 5rem;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px;
+    animation: appears 2s cubic-bezier(0.215, 0.610, 0.355, 1) normal;
+}
+
+@keyframes appears {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .paymentContent .tipBanner {
