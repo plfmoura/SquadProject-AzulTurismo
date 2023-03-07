@@ -54,3 +54,9 @@
 .formContainer button {
     width: 80%;
 }
+
+@media screen and (max-width: 480px) {
+    .formContainer {
+        width: 100%;
+    }
+}

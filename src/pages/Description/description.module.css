@@ -105,14 +105,9 @@
     width: 55%;
 }
 
-.serviceDescription .servicePrice{
-    width: 40%;
-}
-
 /* Dentro das Divisões */
 .serviceOverView div {
     display: flex;
-    justify-content: space-between;
 }
 
 .serviceOverView p:nth-of-type(1){
@@ -133,6 +128,10 @@
     transition: all 300ms ease;
 }
 
+.serviceDescription .servicePrice{
+    width: 100%;
+}
+
 .servicePrice div {
     display: flex;
     align-items: baseline;
@@ -149,7 +148,6 @@
 
 /* segunda seção da página, TEAM  */
 .teamContainer {
-    width: 75%;
     margin: 1rem auto;
 }
 
@@ -216,41 +214,138 @@
     height: 80vh;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 320px) {
+    .singleServiceContainer h2 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
     .serviceMedia {
         width: 100%;
-        height: 100%;
-        background-color: red;
+        height: 40vh;
         margin: 0;
+        padding: 0;
     }
+
+    .bigPicture {
+        border-radius: 0;
+    }
+
     .smallPictures {
         display: none;
-        background-color: yellow;
     }
+    
     .serviceDescription {
-        background-color: green;
-        width: 90%;
+        width: 100%;
         flex-direction: column;
         align-items: center;
+        gap: 0;
     }
-    .serviceOverView div:first-child {
+    /* primeira divisão da descrição do serviço */
+    .serviceDescription .serviceOverView {
+        width: 95%;
+        margin: 0 auto;
+    }
+    /* Dentro da divisão do titulo */
+    .serviceOverView div:first-of-type {
+        margin: .5rem auto;
+        display: flex;
         white-space: nowrap;
-        justify-content: center;
-        gap: 2rem;
+        justify-content: space-between;
     }
-    .serviceOverView p:nth-of-type(1) {
-        color: red;
+
+    .serviceOverView div:first-of-type h1 {
+        font-size: 1.5rem;
+    }
+    /* divisão dos inclusos no passeio */
+    .serviceOverView div:last-of-type {
+        display: flex;
+        width: 100%;
+        overflow: auto;
         white-space: nowrap;
-        text-align: start;
+        gap: .5rem;
     }
-    .servicePrice {
-       background-color: yellow;
-       width: 100%; 
+    /* descrição do passeio  */
+    .textDescription {
+        height: 20vh;
+        overflow: auto;
+        margin: .5rem auto;
     }
-    .teamContent {
-        display: none;
+    /* Area do time  */
+    .teamContainer {
+        width: 100%;
     }
-    .serviceOverView div:nth-of-type(2) {
-        display: none;
+
+    .teamContainer .teamOverview {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .teamName {
+        color: #333;
+        font-size: 16px;
+    }
+
+    .teamOverview p {
+        color: #333335aa;
+        font-size: 12px;
+    }
+
+    /* Google Maps  */
+    .mapsContainer {
+        width: 100%;
+        height: 40vh;
+        margin: 0 auto 5rem auto;
+    }
+
+    .mapsContainer h2 {
+        margin-bottom: 1.5rem;
+        width: 80%;
+        margin: 0 auto 1rem auto;
+    }
+
+    .mapsContainer div {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+@media screen and (min-width: 720px) {
+    .serviceMedia {
+        width: 100%;
+        height: 60vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .serviceOverView div:first-of-type h1,
+    .serviceOverView div:first-of-type span {
+        font-size: 2rem;
+    }
+
+    .teamContainer {
+        width: 80%;
+    }
+
+    .teamName {
+        color: #333;
+        font-size: 18px;
+    }
+
+    .teamOverview p {
+        color: #333335aa;
+        font-size: 14px;
+    }
+
+    /* Google Maps  */
+    .mapsContainer {
+        width: 100%;
+        height: 60vh;
+        margin: 0 auto 5rem auto;
     }
 }
+
+@media screen and (min-width: 320px) {}
+
+@media screen and (min-width: 320px) {}

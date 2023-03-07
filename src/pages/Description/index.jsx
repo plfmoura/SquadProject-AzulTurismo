@@ -101,7 +101,7 @@ export default function Description() {
                   </p>
                 ))}
               </div>
-              <p>{tour.description}</p>
+              <p className={style.textDescription}>{tour.description}</p>
             </div>
             {/* Area do Formulario inicial de Compra */}
             <div className={style.servicePrice}>
