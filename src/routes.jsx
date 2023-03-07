@@ -6,6 +6,7 @@ import App from "./App";
 import ErrorPage from "./pages/ErrorPage";
 import Profile from "./pages/Profile";
 import About from './pages/About'
+import Payment from "./pages/Payment";
 
 export const router = createHashRouter([
   {
@@ -28,6 +29,10 @@ export const router = createHashRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
     ],
   },
