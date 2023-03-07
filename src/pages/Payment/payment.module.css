@@ -1,0 +1,152 @@
+.paymentContainer {
+    margin-top: 2rem;
+    width: 100vw;
+}
+
+.alignContainer {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.alignContainer .headerContent h2 span{
+    margin-right: 1rem;
+}
+
+.alignContainer .headerContent h2 {
+    display: flex;
+    align-items: center;
+} 
+
+.alignContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "a b"
+        "a b";
+    gap: 2rem;
+}
+
+.alignContent .paymentContent {
+    grid-area: a;
+}
+
+.alignContent .cartContent {
+    grid-area: b;
+    border: 1px solid #33333320;
+    border-radius: 20px;
+    height: 50%;
+    position: sticky;
+    top: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px;
+    animation: appears 1s cubic-bezier(0.215, 0.610, 0.355, 1) normal;
+}
+
+@keyframes appears {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.paymentContent .tipBanner {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    color: #333;
+    border: 1px solid #33333320;
+    background-color: #fff;
+}
+
+.paymentContent .tipBanner p,
+.paymentContent .tipBanner {
+    margin-top: 1rem;
+}
+
+.paymentContainer .buyContent {
+    padding: 1rem 0rem;
+    margin: 1rem 0;
+}
+
+.paymentContainer .buyContent div {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+/* Span de Alterar informações do pedido */
+.paymentContainer .buyContent div span {
+    font-weight: bold;
+}
+
+.paymentContainer hr {
+    border: 1px solid #33333320;
+}
+
+.paymentContainer .couponContainer {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardContainer,
+.cardContainer h3 {
+    margin: 1rem 0 2rem 0;
+}
+
+.cardContainer .cardArea {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardContainer .cardArea button {
+    margin-top: 1rem;
+    width: 85%;
+}
+
+.cartContent .tourHeader {
+    display: flex;
+    padding: 1rem;
+}
+
+.tourHeader div {
+    text-align: start;
+    margin-left: 1rem;
+}
+
+.cartContent .tourHeader img {
+    width: 12rem;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.tourHeader h3 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.cartContent hr {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.cartContent .cartSecure {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.priceInfo {
+    width: 90%;
+    margin: 0 auto;
+}
+.priceInfo div {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}

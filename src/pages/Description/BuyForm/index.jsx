@@ -1,9 +1,13 @@
 import { style } from '@mui/system';
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import Button from "../../../components/Button";
 import styles from './buyForm.module.css'
 
-export default function BuyForm({tourPrice, quantity, option}) {
+export default function BuyForm({tourPrice, quantity, option, id}) {
+    
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('Form concluído')
@@ -24,7 +28,8 @@ export default function BuyForm({tourPrice, quantity, option}) {
                 <option value="default">{quantity}</option>
             </select>
         </div>
-      <Button type='submit' text='Solicitar Compra'/>
+      <Button type='submit' text='Solicitar Compra' onPress={ () => {
+                navigate(`/payment/:${id}`);}}/>
     </form>
   )
 }
