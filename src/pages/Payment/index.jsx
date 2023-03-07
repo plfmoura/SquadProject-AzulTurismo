@@ -72,7 +72,7 @@ export default function Payment() {
                     <div>
                       <h3>{tour.name}</h3>
                       {
-                        tour.included.map((item) => <p>{item}</p>)
+                        tour.included.map((item) => <p key={item}>{item}</p>)
                       }
                     </div>
                 </div>
