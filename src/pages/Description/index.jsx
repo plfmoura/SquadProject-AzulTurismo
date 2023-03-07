@@ -105,7 +105,9 @@ export default function Description() {
             </div>
             {/* Area do Formulario inicial de Compra */}
             <div className={style.servicePrice}>
-              <BuyForm tourPrice={tour.price} />
+              <BuyForm tourPrice={tour.price} 
+                option={ <option>{tour.Date}</option>}
+                />
             </div>
           </section>
           <hr style={{ width: "80%", margin: "2rem auto" }} />

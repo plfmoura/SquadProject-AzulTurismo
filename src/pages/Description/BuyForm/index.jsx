@@ -3,7 +3,7 @@ import React from 'react'
 import Button from "../../../components/Button";
 import styles from './buyForm.module.css'
 
-export default function BuyForm({tourPrice, quantity, date}) {
+export default function BuyForm({tourPrice, quantity, option}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('Form concluído')
@@ -15,7 +15,8 @@ export default function BuyForm({tourPrice, quantity, date}) {
         <div>
             <label htmlFor="date">Dia da Semana</label>
             <select name="date" id="">
-                <option value="default">{date}</option>
+                <option value="default"> Selecione </option>
+                { option }
             </select>
             <hr />
             <label htmlFor="date">Quantidade de Pessoas</label>
