@@ -7,11 +7,12 @@ import Modal from '../Modal'
 
 export default function NavBar() {
   const [ signed, setSigned ] = useState(false)
-  const [ show, setShow ] = useState(false)
+  const[show,setShow]=useState(false);
 
   return (
     <>
-    <Modal onShow={ show } />
+    {show && <Modal setShow={setShow}/>}
+
     <div className={style.alignContent}>
       <div className={style.navBarContainer}>
         <div>
@@ -21,7 +22,7 @@ export default function NavBar() {
         <nav className={style.menuContainer}>
           <ul className={style.menuContent}>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/'>Serviços</Link></li>
+            <li><Link to='/payment'>Serviços</Link></li>
             <li><Link to='/about'>Sobre nós</Link></li>
           </ul>
         </nav>
@@ -37,12 +38,10 @@ export default function NavBar() {
                 </div>
               </>) : (
                 <>
-                  {/* <li onClick={() => setSigned(!signed)}><Link to='/profile'>Entrar</Link></li> */}
-                  <li onClick={() => setShow(!show)}><Link>Entrar</Link></li>
+                  <li onClick={() => setShow(true)}><Link>Entrar</Link></li>
                   <div>
                     <Link to='/profile'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU' alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
                   </div>
-                  <button onClick={() => setShow(!show)}>teste</button>
                 </>
               )
             }
