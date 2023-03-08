@@ -21,6 +21,7 @@
 .cardPicture img{
     width: 19.85rem;
     height: 19.85rem;
+    object-fit:cover ;
   
 }
 
@@ -31,3 +32,4 @@
     color: rgb(20, 114, 202);
 
 }
+
