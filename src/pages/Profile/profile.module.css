@@ -124,3 +124,279 @@
     overflow: auto;
 }
 
+@media screen and (min-width: 320px) {
+    .profileContainer {
+        height: 310vh;
+    }
+
+    .profileContainer .userBackground {
+        height: 40vh;
+    }
+    
+    .profileHeader .alignContent {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profileContent {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .userInfo {
+        text-align: center;
+        white-space: nowrap;
+        margin: -2rem auto -1rem;
+    }
+
+    .userInfo h2 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .userInfo div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .userInfo div div {
+        gap: .5rem;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .profileBio {
+        margin: 1rem 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .profileBio p:nth-of-type(2) {
+        height: 40vh;
+        width: 100%;
+        margin: 0;
+        overflow: auto;
+    }
+
+    .profileInfo {
+        padding: 1rem;
+    }
+    
+    .profileInfo p{
+        margin: 1rem 0;
+    }
+
+    .profileInfo div:nth-child(2){
+        overflow: auto;
+        gap: .5rem;
+    }
+
+    .profileInfo div:nth-child(2) p{
+        background-color: #fcfcfc;
+        padding: .5rem 1rem;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.10) 0px 5px 10px;
+    }
+
+    .profileFooter {
+        width: 90%;
+        margin: 38rem auto 2rem;
+        text-align: center;
+    }
+
+    .profileFooter div {
+        margin: 0;
+        display: flex;
+    }
+
+}
+
+@media screen and (min-width: 420px) {
+    .profileFooter {
+        width: 90%;
+        margin: 38rem auto 20rem auto;
+        text-align: center;
+    }
+
+    .profileFooter div {
+        height: 60vh;
+        margin: 0;
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 580px) {
+    .profileContainer .userBackground {
+        height: 60vh;
+    }
+
+    .profileFooter {
+        width: 90%;
+        margin: 38rem auto 0rem;
+        text-align: center;
+    }
+
+    .profileFooter div {
+        height: 40vh;
+        margin: 0;
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .profileContainer {
+        width: 100vw;
+        height: 100%;
+    }
+    .profileContainer .userBackground {
+        height: 60vh;
+    }
+
+    .profileContent {
+        width: 90%;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: 30% auto 100%;
+        gap: 1rem;
+        grid-template-areas: 
+            "a a"
+            "b c"
+            "d d";
+    }
+
+    .profileHeader {
+        grid-area: a;
+        display: flex;
+        margin-bottom: -2rem;
+    }
+    
+    .profileHeader .alignContent {
+        flex-direction: row;
+    }
+
+    .userInfo {
+        text-align: center;
+        white-space: nowrap;
+        margin-left: 1rem;
+    }
+
+    .userInfo h2 {
+        font-size: 2rem;
+        text-align: start;
+    }
+
+    .userInfo div {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .userInfo div div {
+        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        max-width: 50%;
+    }
+
+    .profileBio {
+        margin: 0;
+        grid-area: b;
+    }
+
+    .profileInfo {
+        grid-area: c;
+        margin: 0;
+    }
+
+    .profileFooter {
+        width: 80%;
+        text-align: center;
+        grid-area: d;
+        margin: 7rem auto 0rem;
+    }
+
+    .profileFooter div {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profileContainer {
+        width: 100vw;
+    }
+
+    .profileContainer .userBackground {
+        height: 60vh;
+    }
+
+    .profileContent {
+        place-content: center;
+        width: 80%;
+        display: grid;
+        grid-template-columns: 60% auto;
+        grid-template-rows: 30% auto;
+        gap: 1rem;
+        grid-template-areas: 
+            "a a"
+            "b c",
+    }
+
+    .profileHeader {
+        grid-area: a;
+        display: flex;
+    }
+    
+    .profileHeader .alignContent {
+        flex-direction: row;
+    }
+
+    .userInfo {
+        text-align: center;
+        white-space: nowrap;
+        margin-left: 1rem;
+    }
+
+    .userInfo h2 {
+        font-size: 2.3rem;
+        text-align: start;
+    }
+
+    .userInfo div {
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .userInfo div div {
+        gap: 1rem;
+        display: flex;
+        flex-direction: row-reverse;
+        max-width: 100%;
+
+    }
+
+    .profileBio {
+        grid-area: b;
+    }
+
+    .profileInfo {
+        grid-area: c;
+    }
+
+    .profileFooter {
+        width: 80%;
+        text-align: center;
+        grid-area: d;
+        margin: 1rem auto;
+    }
+
+    .profileFooter div {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        display: flex;
+    }
+}

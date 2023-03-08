@@ -10,7 +10,7 @@ export default function Profile() {
   
   let userBg = 'src/assets/profile/andressa.jpg'
   let userProfilePicture = 'src/assets/profile/user.jpg'
-  let userName = 'Andressa Mascaranhas'
+  let userName = 'Andressa Mascarenhas'
 
   return (
     <div className={style.profileContainer}>
