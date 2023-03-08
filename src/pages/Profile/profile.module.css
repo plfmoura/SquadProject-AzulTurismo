@@ -1,16 +1,126 @@
 .profileContainer {
     width: 100vw;
-    min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
+.userBackground {
+    width: 100%;
+    height: 60vh;
+}
+
+.userBackground img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .profileContent {
-    margin-top: 5rem;
+    width: 75%;
+    height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 65% auto;
+    grid-template-rows: 30% auto;
+    gap: 1rem;
+    grid-template-areas: 
+        "a a"
+        "b c";
+}
+
+.profileHeader {
+    grid-area: a;
+    position: relative;
+    display: flex;
+}
+/* Bio do usuario */
+.profileBio {
+    grid-area: b;
+    background-color: #e4e4e4;
+    padding: 1rem 2rem;
+    margin-top: -1.5rem ;
+}
+/* Divisão que contem informações de contato */
+.profileInfo {
+    margin-top: -1.5rem ;
+    grid-area: c;
+    background-color: #e4e4e4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0rem 2rem;
+}
+
+.profileHeader .alignContent {
+    display: flex;
+    width: 100%;
+}
+
+.profileHeader .profilePicture {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 100%;
+    border: .4rem solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 8px 10px .2rem;
+    position: relative;
+    top: -4rem;
+    z-index: 3;
+    object-fit: cover;
+}
+
+.userInfo {
+    width: 100%;
+    margin: 1rem 1.5rem;
+}
+
+.userInfo h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.profileRating {
+    margin: 1rem 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.profileRating p {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
 }
+
+.profileRating span {
+    font-size: 1.5rem;
+}
+
+.userInfo div:first-of-type {
+    margin: 1rem 0;
+    display: flex;
+    width: 100%;
+}
+
+.profileBio hr {
+    margin: 1rem 0;
+}
+
+.profileBio p {
+    margin: .5rem 1rem;
+}
+
+.profileBio div,
+.profileInfo div {
+    display: flex;
+    justify-content: space-between;
+}
+/* footer container */
+.profileFooter {
+    width: 75%;
+    margin: 2rem auto;
+}
+/* divisão que estara o slide de fotos */
+.profileFooter div:nth-of-type(1) {
+    margin: .5rem auto;
+    display: flex;
+    overflow: auto;
+}
+
