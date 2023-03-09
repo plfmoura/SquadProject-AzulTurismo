@@ -5,11 +5,11 @@ import Button  from '../../components/Button'
 import { BsFillPencilFill } from 'react-icons/bs'
 import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";
+import userBg from '../../assets/profile/andressa.jpg'
+import userPicture from '../../assets/profile/user.jpg'
 
 export default function Profile() {
   
-  let userBg = 'src/assets/profile/andressa.jpg'
-  let userProfilePicture = 'src/assets/profile/user.jpg'
   let userName = 'Andressa Mascarenhas'
 
   return (
@@ -22,7 +22,7 @@ export default function Profile() {
           <div className={style.alignContent}>
             <img 
               className={style.profilePicture} 
-              src={userProfilePicture} 
+              src={userPicture} 
             />
             <div className={style.userInfo}>
               <h2>{ userName }</h2>
