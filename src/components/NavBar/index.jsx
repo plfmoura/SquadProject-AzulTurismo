@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import style from './navBar.module.css'
 import { IoNotifications } from "react-icons/io5"
 import ProfilePicture from '../../assets/profile/user.jpg'
 import Modal from '../Modal'
 import SingIn from '../../pages/SingIn'
+import { LoggedContext } from '../../context/LoggedContext'
 
 export default function NavBar() {
   const [ signed, setSigned ] = useState(false)
-  const[show,setShow]=useState(false);
-
+  const { show, setShow } = useContext(LoggedContext)
+  
   return (
     <>
     {show && <Modal setShow={setShow} children={ <SingIn />}/>}

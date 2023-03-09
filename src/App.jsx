@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { createContext, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
@@ -22,11 +22,14 @@ function App() {
       .catch();
   }, []);
 
+
+
   return (
     <div className="App">
-      <NavBar />
-      <Outlet />
-      <Rodape />
+      
+        <NavBar />
+        <Outlet />
+        <Rodape />
     </div>
   );
 }
