@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import style from "./description.module.css";
@@ -8,6 +8,7 @@ import { TfiMedallAlt } from "react-icons/tfi";
 import GoogleMaps from "../../components/GoogleMaps";
 import BuyForm from "./BuyForm";
 import NextButton from "../../components/NextButton";
+import { LoggedContext } from "../../context/LoggedContext";
 
 export default function Description() {
   let id = useParams();
@@ -53,7 +54,7 @@ export default function Description() {
     let i = Math.floor(Math.random() * 3);
     setIndex(i);
   }, [tour]);
-
+  
   return (
     <div className={style.singleServiceContainer}>
       {tour && (

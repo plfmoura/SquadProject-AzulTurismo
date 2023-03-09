@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import style from './navBar.module.css'
 import { IoNotifications } from "react-icons/io5"
 import ProfilePicture from '../../assets/profile/user.jpg'
+import Modal from '../Modal'
+import SingIn from '../../pages/SingIn'
+import { LoggedContext } from '../../context/LoggedContext'
 
 export default function NavBar() {
   const [ signed, setSigned ] = useState(false)
-
+  const { show, setShow } = useContext(LoggedContext)
+  
   return (
+    <>
+    {show && <Modal setShow={setShow} children={ <SingIn />}/>}
+
     <div className={style.alignContent}>
       <div className={style.navBarContainer}>
         <div>
@@ -33,7 +40,7 @@ export default function NavBar() {
                 </div>
               </>) : (
                 <>
-                  <li onClick={() => setSigned(!signed)}><Link to='/profile'>Entrar</Link></li>
+                  <li onClick={() => setShow(true)}><Link>Entrar</Link></li>
                   <div>
                     <Link to='/profile'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU' alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
                   </div>
@@ -44,5 +51,6 @@ export default function NavBar() {
         </div>
       </div>
     </div>
+    </>
   )
 }
