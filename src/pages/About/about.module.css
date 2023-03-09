@@ -27,8 +27,8 @@
 }
 
 .formContainer {
-    width: 80%;
-    height: 100%;
+    width: 75rem;
+    height: 38rem;
     border: 1px solid black;
     border-radius: 20px;
     display: flex;
@@ -44,25 +44,26 @@
 
 .formContainer div input, 
 .formContainer div select {
-    border: none;
-    width: 17rem;
-    height: 28px;
+    border: solid 1px black;
+    width: 20rem;
+    height: 2.5rem;
     border-radius: 5px;
     background-color: #f1f1f1;
 }
 
 .formContainer div textarea{
-    border: none;
+    border: solid 1px black;
     border-radius: 5px;
-    height: 10rem;
+    height: 9rem;
     resize: none;
     background-color: #f1f1f1;
-    width: 17rem;
+    width: 20rem;
 }
 
 .formContainer button {
     width: 65%;
     margin: 0 auto;
+    box-shadow:  5px 5px black;
 }
 
 .mapsContainer {

@@ -20,6 +20,7 @@
 .cardPicture img{
     width: 17.85rem;
     height: 20rem;
+    object-fit: cover;
 }
 .alignText{
     margin-top: 5rem;

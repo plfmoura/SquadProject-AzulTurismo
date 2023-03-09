@@ -54,45 +54,29 @@ export default function About() {
         <form onSubmit={handleSubmit} className={style.formContainer}>
           <h2>Fale conosco</h2>
           <div>
-            <label>Nome</label>
-            <input
+            <input placeholder="Nome
+            "
               type="text"
               value={nome}
               onChange={(event) => setNome(event.target.value)}
             />
           </div>
           <div>
-            <label>Email</label>
-            <input
+            <input placeholder="Email"
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
           </div>
           <div>
-            <label>Telefone</label>
-            <input
+            <input placeholder="Telefone" 
               type="tel"
               value={telefone}
               onChange={(event) => setTelefone(event.target.value)}
             />
           </div>
           <div>
-            <label>Selecione um setor</label>
-            <select
-              value={telefone}
-              onChange={(event) => setTelefone(event.target.value)}
-            >
-              <option value="default">...</option>
-              <option value="suggestion">Sugestão</option>
-              <option value="congratz">Agradecimento</option>
-              <option value="forget">Esqueci algo</option>
-              <option value="claim">Reclamação</option>
-            </select>
-          </div>
-          <div>
-            <label>Mensagem</label>
-            <textarea
+            <textarea placeholder="Digite sua Mensagem..."
               value={mensagem}
               onChange={(event) => setMensagem(event.target.value)}
             />
