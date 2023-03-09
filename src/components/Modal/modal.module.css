@@ -34,10 +34,10 @@
 }
 
 .modalContent {
+    padding: .5rem;
     background-color: #fff;
     border-radius: 10px;
-    width: 30%;
-    height: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,17 +52,6 @@
     to {
         transform: scale(1);
     }
-}
-
-.modalContent form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #c1c1c1;
-    width: 80%;
-    height: 80%;
-    position: relative;
 }
 
 .modalHeader,

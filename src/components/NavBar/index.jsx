@@ -4,6 +4,7 @@ import style from './navBar.module.css'
 import { IoNotifications } from "react-icons/io5"
 import ProfilePicture from '../../assets/profile/user.jpg'
 import Modal from '../Modal'
+import SingIn from '../../pages/SingIn'
 
 export default function NavBar() {
   const [ signed, setSigned ] = useState(false)
@@ -11,7 +12,7 @@ export default function NavBar() {
 
   return (
     <>
-    {show && <Modal setShow={setShow}/>}
+    {show && <Modal setShow={setShow} children={ <SingIn />}/>}
 
     <div className={style.alignContent}>
       <div className={style.navBarContainer}>
