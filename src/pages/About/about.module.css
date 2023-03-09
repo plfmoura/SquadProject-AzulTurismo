@@ -25,6 +25,9 @@
     overflow: hidden;
     text-align: justify;
 }
+.description{
+    font-size: 11.79px;
+}
 
 .formContainer {
     width: 75rem;
@@ -53,8 +56,8 @@
 
 .formContainer div textarea{
     border: solid 1px black;
-    border-radius: 5px;
-    height: 9rem;
+    border-radius: 8px;
+    height: 10rem;
     resize: none;
     background-color: #f1f1f1;
     width: 20rem;
@@ -63,7 +66,7 @@
 .formContainer button {
     width: 65%;
     margin: 0 auto;
-    box-shadow:  5px 5px black;
+    box-shadow:  3px 3px black;
 }
 
 .mapsContainer {
@@ -84,4 +87,695 @@
     gap: 2rem;
     width: 100%;
     color: #1B71B7;
+}
+
+@media screen and (max-width: 320px){
+
+
+    .firstSection h1{
+        font-size: 1.5rem;
+    }
+   
+    .description{
+        font-size: 9px;
+    }
+    .formContainer div{
+       
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    white-space: wrap;
+    }
+
+
+    .formContainer{
+        margin-top: 30rem;
+        margin-left: -20rem;
+        width: 50.85rem;
+        height: 30rem;
+
+
+    }
+
+
+     .formContainer h2{
+        text-align: center;
+       font-size: 1.1rem;
+        align-items: center;
+
+
+    }
+    .formContainer label{
+      display: flex;
+      font-size: 0.75rem;
+      justify-content: center;
+    }
+
+
+    .formContainer div input,
+    .formContainer div select{
+       display: flex;
+       flex-wrap: wrap;
+       width: 10rem;
+       height: 2rem;
+    }
+
+
+    .formContainer div textarea{
+        margin-top: 0.25rem;
+        width: 15rem;
+        height: 4rem;
+        font-size: 0.95rem;
+    }
+    .formContainer button {
+        width: 10rem;
+        height: 3.50rem;
+        margin: 0.55rem;
+
+
+    }
+
+
+    .tituloMap{
+      flex-direction: column;
+        margin-top: 1rem;
+        font-size: 0.70rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+    .mapsContainer{
+        width: 20rem;
+        height: 11rem;
+    }
+
+
+    .mapEndereco{
+        margin-top: 0.55rem;
+        font-size: 0.75rem;
+    }
+
+
+    .secondText{
+       margin-top: 10rem;
+        font-size: 0.98rem;
+    }
+
+
+}
+
+
+
+
+@media screen and (max-width: 580px) {
+   
+   
+    .firstSection h1{
+        font-size: 1.4rem;
+    }
+   
+    .description{
+        font-size: 11px;
+    }
+
+
+    .tituloMap{
+        flex-direction: column;
+          margin-top: 1rem;
+          font-size: 0.90rem;
+          flex-wrap: wrap;
+          margin-bottom: 1rem;
+      }
+      .mapsContainer{
+          width: 20rem;
+          height: 10rem;
+      }
+ 
+      .mapEndereco{
+          margin-top: 0.55rem;
+          font-size: 0.75rem;
+      }
+ 
+    .formContainer div{
+       
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    white-space: wrap;
+    }
+
+
+   
+   
+    .formContainer{
+        margin-top: 40rem;
+        margin-left: -20rem;
+        width: 60.85rem;
+        height: 20rem;
+
+
+    }
+
+
+     .formContainer h2{
+        text-align: center;
+       font-size: 1.1rem;
+        align-items: center;
+
+
+    }
+
+    .formContainer div input,
+    .formContainer div select{
+       display: flex;
+       flex-wrap: wrap;
+       width: 25rem;
+       height: 2rem;
+    }
+
+
+    .formContainer div textarea{
+        margin-top: 0.25rem;
+        width: 25rem;
+        height: 8rem;
+        font-size: 0.95rem;
+    }
+    .formContainer button {
+        width: 15rem;
+        height: 3.50rem;
+        margin: 0.55rem;
+
+
+    }
+
+
+   
+    .secondText{
+        margin-top: 40rem;
+         font-size: 2remrem;
+     }
+
+
+}
+
+
+
+
+
+
+@media screen and (max-width: 720px) {
+   
+
+   
+    .firstSection h1{
+        font-size: 2rem;
+    }
+   
+    .description{
+        font-size: 11px;
+    }
+
+
+    .tituloMap{
+        flex-direction: column;
+          margin-top: 2rem;
+          font-size: 1.2rem;
+          flex-wrap: wrap;
+          margin-bottom: 1rem;
+      }
+      .mapsContainer{
+        display: flex;
+          width: 28rem;
+          height: 20rem;
+      }
+ 
+      .mapEndereco{
+          margin-top: 0.55rem;
+          font-size: 0.75rem;
+      }
+ 
+    .formContainer div{
+       
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    position: relative;
+    }
+
+
+   
+   
+    .formContainer{
+        margin-top: 43rem;
+        margin-left: -32rem;
+        width: 65rem;
+        height: 30rem;
+
+
+    }
+
+
+     .formContainer h2{
+        text-align: center;
+       font-size: 1rem;
+        align-items: center;
+
+
+    }
+    .formContainer label{
+      display: flex;
+      font-size: 1rem;
+      justify-content: center;
+    }
+
+
+    .formContainer div input,
+    .formContainer div select{
+       display: flex;
+       flex-wrap: wrap;
+       width: 20rem;
+       height: 2.1rem;
+    }
+
+
+    .formContainer div textarea{
+        margin-top: 0.25rem;
+        width: 20rem;
+        height: 10rem;
+    }
+    .formContainer button {
+        width: 19rem;
+        height: 3.50rem;
+        margin: 0.55rem;
+
+
+    }
+
+
+   
+    .secondText{
+        margin-top: 32rem;
+         font-size: 1.2rem;
+         margin-bottom: 1rem;
+     }
+
+
+}
+
+
+@media screen  and (max-width: 900){
+
+    
+     
+   
+    .firstSection h1{
+        font-size: 2rem;
+    }
+   
+    .description{
+        font-size: 11px;
+    }
+
+
+    .tituloMap{
+            flex-direction: column;
+            margin-top: 2rem;
+            font-size: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+      }
+      .mapsContainer{
+          width: 30rem;
+          height: 20rem;
+      }
+ 
+      .mapEndereco{
+          margin-top: 0.55rem;
+          font-size: 0.75rem;
+      }
+ 
+    .formContainer div{
+        
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        white-space: wrap;
+    }
+
+
+   
+   
+    .formContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 41rem;
+        margin-left: -30rem;
+        width: 75rem;
+        height: 25rem;
+
+
+    }
+
+
+     .formContainer h2{
+        text-align: center;
+       font-size: 1rem;
+        align-items: center;
+
+
+    }
+    .formContainer label{
+      display: flex;
+      font-size: 1rem;
+      justify-content: center;
+    }
+
+
+    .formContainer div input,
+    .formContainer div select{
+       display: flex;
+       flex-wrap: wrap;
+       width: 30rem;
+       height: 2.1rem;
+    }
+
+
+    .formContainer div textarea{
+        margin-top: 0.25rem;
+        width: 30rem;
+        height: 13rem;
+    }
+    .formContainer button {
+        width: 19rem;
+        height: 3.50rem;
+        margin: 0.55rem;
+
+
+    }
+
+
+   
+    .secondText{
+        margin-top: 40rem;
+         font-size: 1.5rem;
+         margin-bottom: 1rem;
+     }
+
+
+}
+
+@media screen  and (max-width: 1024){
+
+
+
+    
+     
+   
+    .firstSection h1{
+        font-size: 2rem;
+    }
+   
+    .description{
+        font-size: 11px;
+    }
+
+
+    .tituloMap{
+            flex-direction: column;
+            margin-top: 2rem;
+            font-size: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+      }
+      .mapsContainer{
+        display: flex;
+          width: 25rem;
+          height: 20rem;
+      }
+ 
+      .mapEndereco{
+          margin-top: 0.55rem;
+          font-size: 0.75rem;
+      }
+ 
+    .formContainer div{
+        
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        white-space: wrap;
+    }
+
+
+   
+   
+    .formContainer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 41rem;
+        width: 40rem;
+        height: 25rem;
+
+
+    }
+
+
+     .formContainer h2{
+        text-align: center;
+       font-size: 1rem;
+        align-items: center;
+
+
+    }
+
+
+    .formContainer div input,
+    .formContainer div select{
+       display: flex;
+       flex-wrap: wrap;
+       width: 30rem;
+       height: 2.1rem;
+    }
+
+
+    .formContainer div textarea{
+        margin-top: 0.25rem;
+        width: 30rem;
+        height: 13rem;
+    }
+    .formContainer button {
+        width: 19rem;
+        height: 3.50rem;
+        margin: 0.55rem;
+
+
+    }
+  
+    .secondText{
+        margin-top: 50rem;
+         font-size: 1.7rem;
+         margin-bottom: 1rem;
+     }
+
+
+
+}
+
+
+@media screen  and (max-width: 1440){
+
+
+
+    
+     
+   
+    .firstSection h1{
+        font-size: 2rem;
+    }
+   
+    .description{
+        font-size: 11px;
+    }
+
+
+    .tituloMap{
+            flex-direction: column;
+            margin-top: 2rem;
+            font-size: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+      }
+      .mapsContainer{
+        display: flex;
+          width: 25rem;
+          height: 20rem;
+      }
+ 
+      .mapEndereco{
+          margin-top: 0.55rem;
+          font-size: 0.75rem;
+      }
+ 
+    .formContainer div{
+        
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        white-space: wrap;
+    }
+
+
+   
+   
+    .formContainer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 41rem;
+        width: 40rem;
+        height: 25rem;
+
+
+    }
+
+
+     .formContainer h2{
+        text-align: center;
+       font-size: 1rem;
+        align-items: center;
+
+
+    }
+
+
+    .formContainer div input,
+    .formContainer div select{
+       display: flex;
+       flex-wrap: wrap;
+       width: 30rem;
+       height: 2.1rem;
+    }
+
+
+    .formContainer div textarea{
+        margin-top: 0.25rem;
+        width: 30rem;
+        height: 13rem;
+    }
+    .formContainer button {
+        width: 19rem;
+        height: 3.50rem;
+        margin: 0.55rem;
+
+
+    }
+  
+    .secondText{
+        margin-top: 50rem;
+         font-size: 1.5rem;
+     }
+
+
+
+}
+
+
+
+@media screen  and (max-width: 1900){
+
+
+
+    
+     
+   
+    .firstSection h1{
+        font-size: 2rem;
+    }
+   
+    .description{
+        font-size: 11px;
+    }
+
+
+    .tituloMap{
+            flex-direction: column;
+            margin-top: 2rem;
+            font-size: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+      }
+      .mapsContainer{
+        display: flex;
+          width: 25rem;
+          height: 20rem;
+      }
+ 
+      .mapEndereco{
+          margin-top: 0.55rem;
+          font-size: 0.75rem;
+      }
+ 
+    .formContainer div{
+        
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        white-space: wrap;
+    }
+
+
+   
+   
+    .formContainer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 41rem;
+        width: 40rem;
+        height: 25rem;
+
+
+    }
+
+
+     .formContainer h2{
+        text-align: center;
+       font-size: 1rem;
+        align-items: center;
+
+
+    }
+
+
+    .formContainer div input,
+    .formContainer div select{
+       display: flex;
+       flex-wrap: wrap;
+       width: 30rem;
+       height: 2.1rem;
+    }
+
+
+    .formContainer div textarea{
+        margin-top: 0.25rem;
+        width: 30rem;
+        height: 13rem;
+    }
+    .formContainer button {
+        width: 19rem;
+        height: 3.50rem;
+        margin: 0.55rem;
+
+
+    }
+  
+    .secondText{
+        margin-top: 5rem;
+         font-size: 1.5rem;
+     }
+
+
+
 }
