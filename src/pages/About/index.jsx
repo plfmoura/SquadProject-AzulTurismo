@@ -3,12 +3,13 @@ import style from "./about.module.css";
 import Button from "../../components/Button";
 import GoogleMaps from "../../components/GoogleMaps";
 import TeamCard from "./TeamCard";
-
+import { devTeam } from "../../services/devTeam";
 export default function About() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [mensagem, setMensagem] = useState("");
+  const [data, setData] = useState([devTeam])
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -102,12 +103,24 @@ export default function About() {
       <section className={style.secondSection}>
         <h2>Conheça nossa equipe de Design, Marketing e Desenvolvimento de Software.</h2>
         <div className={style.alignCards}>
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
-          <TeamCard />
+        { devTeam ?
+          ( <>
+              {
+                devTeam.map((item) => {
+                    return(
+                      <TeamCard
+                        key={item.id}
+                        image={item.image}
+                        office={item.office}
+                        name={item.name}  
+                      />
+                     
+                    );
+                  })
+             
+              }
+          </>) : ''                
+        }
         </div>
       </section>
     </div>
