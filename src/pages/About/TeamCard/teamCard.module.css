@@ -2,6 +2,7 @@
     width: 18rem;
     height: 20rem;
     border: 1px solid black;
+    margin-bottom: 4rem;
 }
 
 .cardPicture {
@@ -14,4 +15,14 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.cardPicture img{
+    width: 17.85rem;
+    height: 20rem;
+    object-fit: cover;
+}
+.alignText{
+    margin-top: 5rem;
+    
 }

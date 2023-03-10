@@ -1,14 +1,13 @@
 import React from 'react'
 import style from './teamCard.module.css'
 
-export default function TeamCard() {
+export default function TeamCard({ name, office, image}) {
   return (
     <div className={style.cardContainer}>
-        {/* <img src="" alt="" /> */}
-        <div className={style.cardPicture}>FOTO</div>
+        <div className={style.cardPicture}><img src={image} alt="" /></div>
         <div className={style.alignText}>
-            <p>Nome Sobrenome</p>
-            <p>Função</p>
+            <p>{ name }</p>
+            <p>{ office }</p>
         </div>
     </div>
   )
