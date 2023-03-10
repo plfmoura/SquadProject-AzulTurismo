@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import Button from '../../components/Button'
@@ -24,11 +25,6 @@ export default function Payment() {
     setTicketAmount(3)
     setTotalPrice(( 100 * ticketAmount).toFixed(2))
   }, [ tour ])
-
-  useEffect(() => {
-    // para subir a pagina após carregamento
-    window.scrollTo(0, 0);
-  }, [])
 
   return (
     <div className={style.paymentContainer}>
