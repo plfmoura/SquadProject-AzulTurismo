@@ -89,7 +89,7 @@
     color: #1B71B7;
 }
 
-@media screen and (min-width: 320px){
+@media screen and (max-width: 375px){
 
 
     .firstSection h1{
