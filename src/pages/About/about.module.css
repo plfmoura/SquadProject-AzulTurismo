@@ -186,7 +186,7 @@
 
 
 
-@media screen and (min-width: 580px) {
+@media screen and (max-width: 580px) {
    
    
     .firstSection h1{
