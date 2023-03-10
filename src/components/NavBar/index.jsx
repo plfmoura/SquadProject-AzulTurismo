@@ -6,6 +6,7 @@ import ProfilePicture from '../../assets/profile/user.jpg'
 import Modal from '../Modal'
 import SingIn from '../../pages/SingIn'
 import { LoggedContext } from '../../context/LoggedContext'
+import BurgerMobileMenu from './BurgerMobileMenu'
 
 export default function NavBar() {
   const [ signed, setSigned ] = useState(false)
@@ -17,7 +18,7 @@ export default function NavBar() {
 
     <div className={style.alignContent}>
       <div className={style.navBarContainer}>
-        <div>
+        <div className={style.logoAlign}>
           <img src="azul.png" alt="Logo da empresa Azul Turismo" className={style.navBarLogo} />
           <span>AZUL TOUR</span>
         </div>
@@ -49,6 +50,7 @@ export default function NavBar() {
             }
           </ul>
         </div>
+        <BurgerMobileMenu callMenu={style.menuMobile}/>
       </div>
     </div>
     </>
