@@ -444,7 +444,7 @@ main {
         margin: 1rem auto;
         display: grid;
         grid-template-columns: 70% auto;
-        grid-template-rows: 50vh 65vh;
+        grid-template-rows: 50vh 80vh;
         grid-template-areas: 
             "a b"
             "c b";
