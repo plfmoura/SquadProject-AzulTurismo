@@ -21,6 +21,11 @@ export default function Home() {
     setFiltered(products)
   },[products])
 
+  useEffect(() => {
+      window.scrollTo(0, 0);
+      console.log('subimos')
+  }, [])
+
   return (
     <div className="Home">
       <header className={style.background}>
