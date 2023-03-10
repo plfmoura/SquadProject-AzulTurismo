@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import HeartAnimation from './HeartAnimation'
 import style from './profile.module.css'
 import Button  from '../../components/Button'
@@ -7,8 +7,12 @@ import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";
 import userBg from '../../assets/profile/andressa.jpg'
 import userPicture from '../../assets/profile/user.jpg'
+import Modal from '../../components/Modal'
+import { LoggedContext } from '../../context/LoggedContext'
 
 export default function Profile() {
+  const { myPass, setMyPass } = useContext(LoggedContext)
+
   useEffect(() => {
     window.scrollTo(0, 0);
     // para subir a pagina após carregamento
@@ -17,6 +21,9 @@ export default function Profile() {
   let userName = 'Andressa Mascarenhas'
 
   return (
+    <>
+    {myPass && <Modal setMyPass={setMyPass} setClose={() => setMyPass(false)}/>}
+
     <div className={style.profileContainer}>
       <header className={style.userBackground}>
         <img src={userBg} />
@@ -35,7 +42,7 @@ export default function Profile() {
                   <p><span><AiFillStar/></span> 187 avaliações</p>
                   <p><span><TfiMedallAlt/></span> Fominha de Excursão</p>
                 </div>
-                <Button text='Meus Passeios'/>
+                <Button text='Meus Passeios' onPress={() => setMyPass(true)}/>
               </div>
             </div>
           </div>
@@ -94,5 +101,6 @@ export default function Profile() {
         </div>
       </section>
     </div>
+    </>
   )
 }

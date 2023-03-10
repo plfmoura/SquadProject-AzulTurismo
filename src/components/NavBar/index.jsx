@@ -14,7 +14,7 @@ export default function NavBar() {
 
   return (
     <>
-    {show && <Modal setShow={setShow} children={ <SingIn />}/>}
+    {show && <Modal setShow={setShow} children={ <SingIn />} setClose={() => setShow(false)}/>}
 
     <div className={style.alignContent}>
       <div className={style.navBarContainer}>

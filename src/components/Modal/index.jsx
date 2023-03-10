@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import style from './modal.module.css'
 import { IoClose } from 'react-icons/io5';
 
-export default function Modal({ children, setShow }) {
+export default function Modal({ children, setShow, setClose }) {
     return (
         <div>
             <div className={style.modalOverlay} 
@@ -10,7 +10,7 @@ export default function Modal({ children, setShow }) {
                 <div className={style.modalContainer}>
                     <div className={style.modalContent}>
                         <div className={style.modalHeader}>
-                            <span onClick={() => setShow(false)}><IoClose /></span>
+                            <span onClick={ setClose }><IoClose /></span>
                         </div>
                         {children}
                         <div className={style.modalFooter}>
