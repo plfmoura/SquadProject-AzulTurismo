@@ -20,7 +20,13 @@ export default function Description() {
   const { products } = state.shopping;
   const [imagensIndex, setImagensIndex] = useState([0, 1, 2, 3]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  // para subir a pagina após carregamento
+  }, [])
+  
   const prevPicture = () => {
+
     let imagens_index = imagensIndex;
     let temp = imagens_index[0];
     for (let index = 0; index < imagens_index.length - 1; index++) {

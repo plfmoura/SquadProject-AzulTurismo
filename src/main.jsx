@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import { router } from "./routes";
 import { LoggedProvider } from "./context/LoggedContext";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
