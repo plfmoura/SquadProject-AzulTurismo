@@ -51,7 +51,7 @@ export default function BurgerMobileMenu({ callMenu }) {
         animationData={Burger}
         play={animation}
         onClick={ burgerPlay }
-        style={{ width: 80, height: 80,  zIndex: "5", position: 'absolute', right: '1rem', top: '-8px', pointerEvents: disableEvent }}
+        style={{ pointerEvents: disableEvent }}
         onLoopComplete={() => burgerStop() }
         
       />
