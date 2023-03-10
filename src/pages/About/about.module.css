@@ -570,7 +570,7 @@
     }
 }
 
-@media screen and (min-width: 1440){
+@media screen and (min-width: 1440px){
     
     .aboutContainer {
         width: 100vw;
