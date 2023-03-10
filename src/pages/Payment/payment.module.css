@@ -8,6 +8,10 @@
     margin: 0 auto;
 }
 
+.headerContent {
+    margin-left: 5%;
+}
+
 .alignContainer .headerContent h2 span{
     margin-right: 1rem;
 }
@@ -20,9 +24,10 @@
 .alignContent {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
     grid-template-areas: 
         "a b"
-        "a b";
+        "c b";
     gap: 2rem;
 }
 
@@ -97,6 +102,7 @@
 }
 
 .cardContainer .cardArea {
+    grid-area: c;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -149,4 +155,185 @@
     margin: 1rem 0;
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (min-width: 320px) {
+    .headerContent {
+        margin-left: 1%;
+    }
+
+    .alignContainer {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .alignContent {
+        width: 95%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30% 30% 40%;
+        grid-template-areas: 
+            "a"
+            "b"
+            "c";
+        gap: 0rem;
+    }
+
+    .alignContent .paymentContent {
+        grid-area: a;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .alignContent .cartContent {
+        width: 100%;
+        grid-area: b;
+        height: 100%;
+        margin: 0 auto;
+        position: static;
+        top: 0rem;
+        margin-bottom: 5rem;
+    }
+
+    .cartContent .tourHeader img {
+        width: 8rem;
+        height: 8rem;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    
+    .tourHeader h3 {
+        font-size: 1rem;
+    }
+
+    .cardContainer .cardArea {
+        width: 100%;
+        margin: 0 auto;
+        grid-area: c;
+    }
+}
+
+@media screen and (min-width: 580px) {
+    .headerContent {
+        margin-left: 3%;
+    }
+
+    .alignContent {
+        width: 80%;
+    }
+
+    .alignContent .paymentContent {
+        grid-area: a;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .alignContent .cartContent {
+        width: 30rem;
+        grid-area: b;
+        height: 100%;
+        margin: 0 auto;
+        position: static;
+        top: 0rem;
+        margin-bottom: 5rem;
+    }
+
+    .cartContent .tourHeader img {
+        width: 8rem;
+        height: 8rem;
+    }
+    
+    .tourHeader h3 {
+        font-size: 2rem;
+    }
+
+    .cardContainer .cardArea {
+        width: 30rem;
+        margin: 0 auto;
+        grid-area: c;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .headerContent {
+        margin-left: 5%;
+    }
+
+    .alignContent {
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: 
+            "a b"
+            "c b";
+        gap: 2rem;
+    }
+
+    .alignContent .paymentContent {
+        grid-area: a;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    .alignContent .cartContent {
+        grid-area: b;
+        width: 30rem;
+        height: 30rem;
+        position: sticky;
+        margin: 0 auto;
+        top: 5rem;
+    }
+
+    .cartContent .tourHeader img {
+        width: 10rem;
+        height: 10rem;
+    }
+    
+    .tourHeader h3 {
+        font-size: 2rem;
+    }
+
+    .cardContainer .cardArea {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1288px) {
+    .headerContent {
+        margin-left: 10%;
+    }
+
+    .alignContainer {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .alignContent {
+        width: 65rem;
+    }
+
+    .alignContent .paymentContent {
+        width: 30rem;
+    }
+    
+    .alignContent .cartContent {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .cartContent .tourHeader img {
+        width: 12rem;
+        height: 12rem;
+    }
+    
+    .tourHeader h3 {
+        font-size: 2rem;
+    }
+
+    .cardContainer .cardArea {
+        width: 30rem;
+    }
 }

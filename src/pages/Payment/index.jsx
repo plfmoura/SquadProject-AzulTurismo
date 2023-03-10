@@ -56,14 +56,14 @@ export default function Payment() {
               <span>CUPOM10%</span>
             </div>
             <hr />
-            <div className={style.cardContainer}>
+          </section>
+          <div className={style.cardContainer}>
               <h3>Área de Pagamento</h3>
               <div className={style.cardArea}>
                 <Card/> 
                 <Button text={'Confirmar Compra'}/>
               </div>
             </div>
-          </section>
           <section className={style.cartContent}>
             <div className={style.tourContainer}>
               {tour &&
