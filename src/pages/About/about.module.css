@@ -383,7 +383,7 @@
 }
 
 
-@media screen and (min-width: 900){
+@media screen and (max-width: 900){
 
     .aboutContainer {
         width: 100vw;
@@ -662,100 +662,4 @@
         width: 100%;
         color: #1B71B7;
     }
-}
-
-@media screen  and (min-width: 1900){
-
-    .aboutContainer {
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .aboutContainer .firstSection {
-        height: 95vh;
-        width: 80%;
-        margin: 3rem auto 0 auto;
-        display: flex;
-        align-items: flex-start;
-    }
-    
-    .aboutContainer h1 {
-        text-align: left;
-        font-size: 34px;
-    }
-    
-    .aboutContainer .description {
-        margin-top: 14px;
-        width: 90%;
-        height: 10rem;
-        margin-bottom: 1rem;
-        overflow: hidden;
-        text-align: justify;
-    }
-    .description{
-        font-size: 11.79px;
-    }
-    
-    .formContainer {
-        width: 75rem;
-        height: 38rem;
-        border: 1px solid black;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    
-    .formContainer div {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .formContainer div input, 
-    .formContainer div select {
-        border: solid 1px black;
-        width: 20rem;
-        height: 2.5rem;
-        border-radius: 5px;
-        background-color: #f1f1f1;
-    }
-    
-    .formContainer div textarea{
-        border: solid 1px black;
-        border-radius: 8px;
-        height: 10rem;
-        resize: none;
-        background-color: #f1f1f1;
-        width: 20rem;
-    }
-    
-    .formContainer button {
-        width: 65%;
-        margin: 0 auto;
-        box-shadow:  3px 3px black;
-    }
-    
-    .mapsContainer {
-        width: 90%;
-        height: 22rem;
-    }
-    
-    .secondSection {
-        margin-top: 2rem;
-        width: 80%;
-        margin: 3rem auto 0 auto;
-    }
-    
-    .secondSection .alignCards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
-        width: 100%;
-        color: #1B71B7;
-    }
-
-    
 }
