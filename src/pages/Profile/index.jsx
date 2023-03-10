@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HeartAnimation from './HeartAnimation'
 import style from './profile.module.css'
 import Button  from '../../components/Button'
@@ -9,6 +9,10 @@ import userBg from '../../assets/profile/andressa.jpg'
 import userPicture from '../../assets/profile/user.jpg'
 
 export default function Profile() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // para subir a pagina após carregamento
+  }, [])
   
   let userName = 'Andressa Mascarenhas'
 

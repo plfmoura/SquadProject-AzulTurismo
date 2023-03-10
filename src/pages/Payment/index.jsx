@@ -25,6 +25,11 @@ export default function Payment() {
     setTotalPrice(( 100 * ticketAmount).toFixed(2))
   }, [ tour ])
 
+  useEffect(() => {
+    // para subir a pagina após carregamento
+    window.scrollTo(0, 0);
+  }, [])
+
   return (
     <div className={style.paymentContainer}>
       <div className={style.alignContainer}>
