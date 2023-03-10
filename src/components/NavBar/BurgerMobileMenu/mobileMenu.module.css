@@ -79,6 +79,13 @@
     color: #333
 }
 
+@media screen and (min-width: 320px){
+    .userContent div {
+        margin-top: 2rem;
+        width: 8rem;
+    }
+}
+
 @media screen and (max-width: 720px){
     .mobileMenu {
         display: block;
