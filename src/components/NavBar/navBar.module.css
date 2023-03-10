@@ -1,7 +1,7 @@
 .alignContent {
-    width: 100%;
+    width: 100vw;
     height: 4rem;
-    background-color: #91919130;
+    background-color: #fcfcfc;
     position: sticky;
     z-index: 999;
     top: 0;
@@ -10,15 +10,15 @@
 }
 
 .alignContent:hover {
-    animation: hoverBar 200ms linear both;
+    animation: hoverBar 500ms linear both;
 }
 
 @keyframes hoverBar {
     from {
-        background-color: #33333350;
+        background-color: #fcfcfc;
     }
     to {
-        background-color: #333333aa;
+        background-color: #ffffffff;
     }    
 }
 
@@ -46,14 +46,14 @@
     z-index: 4;
     font-size: 1.3rem;
     font-weight: bolder;
-    color: #fff;
+    color: #2ea9ff;
 }
 
 /* Animação do Logo */
 @keyframes title {
     from {
         transform: translateX(-1rem);
-        color: #2ea9ff;
+        color: #c1c1c1;
         opacity: 0;
     }
     to {
@@ -113,19 +113,25 @@
 }
 
 .menuContent a {
-    color: #fff;
+    color: #333;
 }
 
 /* Área do usuário */
 .userContainer .menuContent {
     white-space: nowrap;
+    width: 18rem;
+    display: flex;
+    justify-content: space-between;
 }
 
-.menuContent div {
+.userContainer .menuContent div {
     display: flex;
-    width: 25%;
+    width: 30%;
     justify-content: space-between;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 1px .1rem;
+    border-radius: 25px;
+    padding-inline-start: 1rem;
 }
 
 .userPicture {
@@ -138,7 +144,7 @@
 
 .notificationIcon {
     transform: scale(1.5);
-    color: #fff;
+    color: #333;
 }
 
 .menuMobile {
@@ -148,6 +154,7 @@
 @media screen and (min-width: 320px){
     .navBarContainer {
         width: 90%;
+        margin: 0 auto;
     }
     .menuContent {
         display: none;
@@ -158,7 +165,7 @@
 }
 
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 900px) {
     .menuMobile {
         display: block;
     }
@@ -168,9 +175,9 @@
     }
 }
 
-@media screen and (min-width: 740px){
+@media screen and (min-width: 900px){
     .navBarContainer {
-        width: 100%;
+        width: 95%;
     }
     .menuContent {
         display: flex;
@@ -185,7 +192,7 @@
 
 @media screen and (min-width: 1040px){
     .navBarContainer {
-        width: 90%;
+        width: 80%;
         margin: 0 auto;
     }
    

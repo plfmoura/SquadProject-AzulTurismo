@@ -18,7 +18,7 @@ export default function BurgerMobileMenu({ callMenu }) {
     let disableEvent = disable ? 'none' : 'all'
     let showMenu = visible ? 'block' : 'none'
 
-    const [ signed, setSigned ] = useState(false)
+    const [ signed, setSigned ] = useState(true)
     const { show, setShow } = useContext(LoggedContext)
 
     const burgerStop = () => {

@@ -9,7 +9,7 @@ import { LoggedContext } from '../../context/LoggedContext'
 import BurgerMobileMenu from './BurgerMobileMenu'
 
 export default function NavBar() {
-  const [ signed, setSigned ] = useState(false)
+  const [ signed, setSigned ] = useState(true)
   const { show, setShow } = useContext(LoggedContext)
   
   return (
