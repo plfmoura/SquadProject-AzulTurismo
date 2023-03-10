@@ -1,0 +1,490 @@
+.singleServiceContainer {
+    width: 100vw;
+    margin-top: 1.5rem;
+    animation: appears 1s ease normal;
+}
+
+@keyframes appears {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.serviceMedia {
+    height: 65vh;
+    width: 75%;
+    margin: 2rem auto 1rem auto;
+    padding: .5rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    grid-row-gap: .5rem;
+    grid-column-gap: 1rem;
+    position: relative;
+    user-select: none;
+}
+
+.gallery {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.galleryController {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 2;
+    width: 95%;
+    height: 100%;
+}
+
+.btnController {
+    background-color: #fff;
+    border-radius: 100%;
+}
+
+.bigPicture {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.smallPictures img {
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.smallPictures {
+    width: 40%;
+    height: 100%;
+    display: grid;
+    grid-row-gap: .2rem;
+    grid-column-gap: 1rem;
+    grid-template-areas: 
+        "a a"
+        "c b";
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+
+.smallPictures img:nth-of-type(1) {
+    width: 100%;
+    height: 95%;
+    grid-area: a;
+}
+
+.smallPictures img:nth-of-type(2) {
+    width: 100%;
+    height: 100%;
+    grid-area: b;
+}
+
+.smallPictures img:nth-of-type(3) {
+    width: 100%;
+    height: 100%;
+    grid-area: c;
+}
+
+/* Descrição do Serviço */
+.serviceDescription {
+    width: 100%;
+    text-align: justify;
+}
+
+/* Dentro das Divisões */
+.serviceOverView div {
+    display: flex;
+}
+
+.serviceOverView p:nth-of-type(1){
+    opacity: 0.8;
+}
+
+.includedBtns {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px;
+    padding: .5rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 200px;
+}
+
+.includedBtns:hover {
+    transform: scale(1.1);
+    user-select: none;
+    transition: all 300ms ease;
+}
+
+.serviceDescription .servicePrice{
+    width: 100%;
+}
+
+.servicePrice div {
+    display: flex;
+    align-items: baseline;
+}
+
+.servicePrice div h2,
+.servicePrice div span {
+    font-size: 2rem;
+}
+
+.servicePrice div p{
+    margin-left: .2rem;
+}
+
+/* segunda seção da página, TEAM  */
+.teamContainer {
+    margin: 0 auto;
+}
+
+.teamContent {
+    margin-left: 1rem;
+}
+
+.teamContainer .guideContainer,
+.auxContainer, .photoContainer {
+    width: 100%;
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.guideContainer img,
+.auxContainer img, 
+.photoContainer img {
+    border-radius: 100%;
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+    border: .3rem solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px;
+}
+
+.teamContainer .teamOverview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.guideContainer div,
+.auxContainer div, 
+.photoContainer div {
+    margin: .7rem 0 0 .5rem
+}
+
+.teamName {
+   position: relative;
+   font-weight: bold;
+   bottom: -5px;
+   left: .5rem;
+}
+
+.teamRating {
+    margin: .7rem 0 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 28%;
+    white-space: nowrap;
+}
+
+/* Google Maps  */
+.mapsContainer {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.mapsContainer h2 {
+    margin-bottom: 1.5rem;
+}
+
+.mapsContainer div {
+    width: 100%;
+    height: 80vh;
+}
+
+main {
+    width: 75%;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-template-rows: 50vh 65vh;
+    grid-template-areas: 
+        "a b"
+        "c b";
+}
+
+.serviceDescription {
+    grid-area: a;
+}
+
+.servicePrice {
+    grid-area: b;
+    margin-left: 5%;
+}
+
+.teamContainer {
+    width: 100%;
+    margin: 0;
+    grid-area: c;
+}
+
+
+@media screen and (min-width: 320px) {
+    .singleServiceContainer h2 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .serviceMedia {
+        width: 100%;
+        height: 40vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .bigPicture {
+        border-radius: 0;
+    }
+
+    .smallPictures {
+        display: none;
+    }
+    
+    main {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .serviceDescription {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+    /* primeira divisão da descrição do serviço */
+    .serviceDescription .serviceOverView {
+        width: 100%;
+        margin: 0 auto;
+    }
+    /* Dentro da divisão do titulo */
+    .serviceOverView div:first-of-type {
+        margin: .5rem auto;
+        display: flex;
+        white-space: nowrap;
+        justify-content: space-between;
+    }
+
+    .serviceOverView div:first-of-type h1 {
+        font-size: 1.7rem;
+    }
+    /* divisão dos inclusos no passeio */
+    .serviceOverView div:last-of-type {
+        display: flex;
+        width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+        gap: .5rem;
+    }
+    /* descrição do passeio  */
+    .textDescription {
+        height: 30vh;
+        overflow: auto;
+        margin: .5rem auto;
+    }
+    /* Area do formulario de compra */
+    .servicePrice {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    /* Area do time  */
+    .teamContainer {
+        width: 100%;
+        align-items: center;
+    }
+
+    .teamContainer .teamOverview {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .teamName {
+        color: #333;
+        font-size: 16px;
+    }
+
+    .teamOverview p {
+        color: #333335aa;
+        font-size: 12px;
+    }
+
+    .teamRating {
+        font-size: .6rem;
+        /* gap: .5rem; */
+        /* flex-direction: column; */
+    }
+
+    /* Google Maps  */
+    .mapsContainer {
+        width: 100%;
+        height: 40vh;
+        margin: 0 auto 5rem auto;
+    }
+
+    .mapsContainer h2 {
+        margin-bottom: 1.5rem;
+        width: 80%;
+        margin: 0 auto 1rem auto;
+    }
+
+    .mapsContainer div {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+@media screen and (min-width: 720px) {
+    .singleServiceContainer h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .serviceMedia {
+        width: 100%;
+        height: 60vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .serviceDescription {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .serviceOverView div:first-of-type h1,
+    .serviceOverView div:first-of-type span {
+        font-size: 2rem;
+    }
+
+    /* Area do formulario de compra */
+    .servicePrice {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .teamContainer {
+        width: 80%;
+    }
+
+    .teamName {
+        color: #333;
+        font-size: 18px;
+    }
+
+    .teamOverview p {
+        color: #333335aa;
+        font-size: 14px;
+    }
+
+    /* Google Maps  */
+    .mapsContainer {
+        width: 80%;
+        height: 60vh;
+        margin: 0 auto 5rem auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .serviceMedia {
+        width: 85%;
+        height: 50vh;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .smallPictures {
+        display: grid;
+    }
+
+    .bigPicture,
+    .smallPictures img { 
+        border-radius: 10px;
+    }
+
+    .serviceDescription {
+        margin-top: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        gap: 2rem;
+    }
+
+    main {
+        width: 80%;
+        height: 100%;
+        margin: 1rem auto;
+        display: grid;
+        grid-template-columns: 70% auto;
+        grid-template-rows: 50vh 65vh;
+        grid-template-areas: 
+            "a b"
+            "c b";
+        gap: 0rem;
+    }
+    
+    .serviceDescription {
+        grid-area: a;
+        width: 95%;
+    }
+    
+    .servicePrice {
+        grid-area: b;
+        display: flex;
+    }
+    
+    .servicePrice {
+        width: 100%;
+        height: 100%;
+        align-items: start;
+    }
+    
+    .teamContainer {
+        width: 100%;
+        margin: 0;
+        grid-area: c;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .serviceMedia {
+        width: 80%;
+        height: 50vh;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .singleServiceContainer h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+}
