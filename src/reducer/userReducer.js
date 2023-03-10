@@ -11,11 +11,11 @@ export const userSlice = createSlice({
     //Adicionar Usuario
     setUser: (state, action) => {
       state.user = action.payload;
-      localStorage.setItem("admin", JSON.stringify(state.user));
+      localStorage.setItem("azul_user", JSON.stringify(state.user));
     },
     delUser: (state) => {
       state.user = null;
-      localStorage.removeItem("admin");
+      localStorage.removeItem("azul_user");
     },
   },
 });

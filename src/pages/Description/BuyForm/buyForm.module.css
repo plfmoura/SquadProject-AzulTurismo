@@ -7,6 +7,9 @@
     height: 20rem;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 10px;
     border-radius: 20px;
+    position: sticky;
+    top: 5rem;
+    background-color: #fff;
 }
 
 .formContainer h2 {
@@ -55,8 +58,8 @@
     width: 80%;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (min-width: 480px) {
     .formContainer {
-        width: 100%;
+        width: 20rem;
     }
 }

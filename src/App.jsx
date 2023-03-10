@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
-import { actualizarProductos } from "./reducer/shoopingReducer";
+import { updateProducts } from "./reducer/shoopingReducer";
 import Rodape from "./components/Rodape";
 
 function App() {
@@ -16,17 +16,17 @@ function App() {
     //Actualizando productos
     axios
       .get("https://tourismapi.herokuapp.com/products")
-      .then((respuesta) => {
-        dispatch(actualizarProductos(respuesta.data));
+      .then((response) => {
+        dispatch(updateProducts(response.data));
       })
       .catch();
   }, []);
 
   return (
     <div className="App">
-      <NavBar />
-      <Outlet />
-      <Rodape />
+        <NavBar />
+        <Outlet />
+        <Rodape />
     </div>
   );
 }

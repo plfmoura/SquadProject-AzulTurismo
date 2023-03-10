@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./about.module.css";
 import Button from "../../components/Button";
 import GoogleMaps from "../../components/GoogleMaps";
@@ -16,6 +16,12 @@ export default function About() {
     // Aqui você pode enviar o formulário para o servidor
     console.log("Enviando mensagem...");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    console.log('subimos')
+  }, [])
+
   return (
     // Detalhes da empresa parte A
     <div className={style.aboutContainer}>
