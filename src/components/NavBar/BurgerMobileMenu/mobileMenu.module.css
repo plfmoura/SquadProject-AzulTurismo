@@ -54,17 +54,29 @@
     align-items: center;
 }
 
+.userContent div {
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 1px .1rem;
+    border-radius: 50px;
+    width: 18%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .userPicture {
     width: 4rem;
     height: 4rem;
     border-radius: 100%;
     border: .18rem solid #fff;
     object-fit: cover;
+    margin-right: .3rem;
 }
 
 .notificationIcon {
-    transform: scale(1.5);
-    color: #fff;
+    transform: scale(2);
+    margin-left: 1.3rem;
+    color: #333
 }
 
 @media screen and (max-width: 720px){

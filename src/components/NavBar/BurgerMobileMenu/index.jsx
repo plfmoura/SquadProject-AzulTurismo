@@ -53,6 +53,7 @@ export default function BurgerMobileMenu({ callMenu }) {
         onClick={ burgerPlay }
         style={{ width: 80, height: 80,  zIndex: "5", position: 'absolute', right: '1rem', top: '-8px', pointerEvents: disableEvent }}
         onLoopComplete={() => burgerStop() }
+        
       />
       <nav style={{display: showMenu}} className={style.menuContainer}>
         <ul className={style.menuContent} >
@@ -63,16 +64,16 @@ export default function BurgerMobileMenu({ callMenu }) {
         <ul className={style.userContent}>
           {signed ? (
             <>
-              <li><Link to='/profile'>Meus Passeios</Link></li>
-              <li onClick={() => setSigned(!signed)}><Link to='/'>Sair</Link></li>
+              <li onClick={ handleSelected }><Link to='/profile'>Meus Passeios</Link></li>
+              <li onClick={() => {setSigned(!signed); handleSelected()}}><Link to='/'>Sair</Link></li>
               <div>
-                <Link to='/profile'><IoNotifications className={style.notificationIcon}/></Link>
-                <Link to='/profile'><img src={ProfilePicture} alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
+                <Link to='/profile' onClick={ handleSelected }><IoNotifications className={style.notificationIcon}/></Link>
+                <Link to='/profile' onClick={ handleSelected }><img src={ProfilePicture} alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
               </div>
             </>) : (
               <>
-                <li onClick={() => setShow(true)}><Link>Entrar</Link></li>
-                <div>
+                <li onClick={() => {setShow(true); handleSelected()}}><Link>Entrar</Link></li>
+                <div onClick={ handleSelected }>
                   <Link to='/profile'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU' alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
                 </div>
               </>
