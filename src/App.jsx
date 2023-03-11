@@ -6,6 +6,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import { updateProducts } from "./reducer/shoopingReducer";
 import Rodape from "./components/Rodape";
+import { setUser } from "./reducer/userReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,20 +14,28 @@ function App() {
   const { user } = state.user;
 
   useEffect(() => {
-    //Actualizando productos
+    //update my products
     axios
       .get("https://tourismapi.herokuapp.com/products")
       .then((response) => {
         dispatch(updateProducts(response.data));
       })
       .catch();
+
+    //Update my user if he is logged(local storage)
+    if (!user) {
+      try {
+        let user = localStorage.getItem("azul_user");
+        dispatch(setUser(user));
+      } catch (error) {}
+    }
   }, []);
 
   return (
     <div className="App">
-        <NavBar />
-        <Outlet />
-        <Rodape />
+      <NavBar />
+      <Outlet />
+      <Rodape />
     </div>
   );
 }
