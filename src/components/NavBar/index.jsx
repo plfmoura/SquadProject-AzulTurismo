@@ -52,14 +52,7 @@ export default function NavBar() {
                   <li>
                     <Link to="/profile">Meus Passeios</Link>
                   </li>
-                  <li
-                    onClick={() => {
-                      dispatch(delUser());
-                      localStorage.removeItem("token");
-                    }}
-                  >
-                    <Link to="/">Sair</Link>
-                  </li>
+                  
                   <div>
                     <Link to="/profile">
                       <IoNotifications className={style.notificationIcon} />
@@ -71,6 +64,14 @@ export default function NavBar() {
                       />
                     </Link>
                   </div>
+                  <li
+                    onClick={() => {
+                      dispatch(delUser());
+                      localStorage.removeItem("token");
+                    }}
+                  >
+                    <Link to="/">Sair</Link>
+                  </li>
                 </>
               ) : (
                 <>

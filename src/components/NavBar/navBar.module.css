@@ -121,17 +121,13 @@
     white-space: nowrap;
     width: 18rem;
     display: flex;
-    justify-content: space-between;
 }
 
 .userContainer .menuContent div {
     display: flex;
-    width: 30%;
-    justify-content: space-between;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 1px .1rem;
-    border-radius: 25px;
-    padding-inline-start: 1rem;
+    border-radius: 100px;
 }
 
 .userPicture {
@@ -140,11 +136,13 @@
     border-radius: 100%;
     border: .18rem solid #fff;
     object-fit: cover;
+    padding: .2rem;
 }
 
 .notificationIcon {
     transform: scale(1.5);
     color: #333;
+    margin-inline: 1rem;
 }
 
 .menuMobile {
