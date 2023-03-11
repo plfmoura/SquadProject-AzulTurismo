@@ -13,6 +13,27 @@ mais badaladas Cariocas, da Região dos Lagos até as favelas cariocas, conectan
 estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não é mais impecílho virtual para conhecer a cultura e admirar a Cidade Maravilhosa.<br/>
 <br/>
 
+### How to Install and Run this App.
+
+```All steps is using -Git Bash-
+All steps is using -Git Bash
+
+# I - CLONE THIS REPOSITORY
+git clone https://github.com/plfmoura/SquadProject-AzulTurismo.git
+
+# II - Navigate to Project Folder
+cd /folder-name
+
+# III - Install Node Package Manager
+Write the command "npm i" or "npm install" to install 'node_modules' into project source folder.
+
+# IV - Run this Project
+Write in your terminal "npm run dev" to run this App.
+
+# V - After the project is built in the previous step...
+Copy the Local Host URL result or PRESS CTRL + CLICK in URL target.
+```
+
 Repositório de CRIATIVOS para API = <a href="https://github.com/Juanpi92/criativos-produtos-api">Visualizar</a>
 
 Repositório da API = <a href="https://github.com/Juanpi92/tourism_api">Visualizar</a>
