@@ -67,8 +67,7 @@ export default function NavBar() {
                     </Link>
                     <Link to="/profile">
                       <img
-                        src={ProfilePicture}
-                        alt="Imagem de Perfil do usuário"
+                        src={user.image_profile}
                         className={style.userPicture}
                       />
                     </Link>

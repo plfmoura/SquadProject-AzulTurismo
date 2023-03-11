@@ -5,18 +5,21 @@ import Button from "../../components/Button";
 import { BsFillPencilFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";
-import userBg from "../../assets/profile/andressa.jpg";
-import userPicture from "../../assets/profile/user.jpg";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
+import PreLoader from "../../components/PreLoader";
 
 export default function Profile() {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [ skeleton, setSkeleton ] = useState(true)
+
+  console.log(skeleton)
+  console.log(user)
   
   useEffect(() => {
     if (!user) {
@@ -27,19 +30,28 @@ export default function Profile() {
         navigate("/");
       }
     }
-    window.scrollTo(0, 0);
-    // para subir a pagina após carregamento
+    // window.scrollTo(0, 0);
+    // // para subir a pagina após carregamento
+    setTimeout(() => {
+      setSkeleton(false)
+      console.log(skeleton)
+    }, [3000])
   }, []);
 
   return (
+    <>{skeleton ? ( 
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh'}}>
+        <PreLoader />
+      </div> 
+    ) : ( 
     <div className={style.profileContainer}>
       <header className={style.userBackground}>
-        <img src={userBg} />
+        <img src={user.image_banner} />
       </header>
       <main className={style.profileContent}>
         <div className={style.profileHeader}>
           <div className={style.alignContent}>
-            <img className={style.profilePicture} src={userPicture} />
+            <img className={style.profilePicture} src={user.image_profile} />
             <div className={style.userInfo}>
               <h2>{user.name}</h2>
               <div>
@@ -67,66 +79,57 @@ export default function Profile() {
             <h3>Profissão</h3>
             <BsFillPencilFill />
           </div>
-          <p>Exemplo de Profissão</p>
+          <p>{user.profession}</p>
           <hr />
           <div>
             <h3>Sobre mim</h3>
             <BsFillPencilFill />
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Vulputate eu scelerisque felis imperdiet proin fermentum leo.
-            Rhoncus aenean vel elit scelerisque mauris. Quam quisque id diam vel
-            quam elementum pulvinar. Blandit cursus risus at ultrices mi tempus
-            imperdiet. Purus faucibus ornare suspendisse sed nisi. Sed lectus
-            vestibulum mattis ullamcorper velit sed ullamcorper morbi. Leo vel
-            orci porta non pulvinar. Dolor sit amet consectetur adipiscing.
-            Varius duis at consectetur lorem donec. Amet nulla facilisi morbi
-            tempus iaculis urna id volutpat. Tempor commodo ullamcorper a lacus
-            vestibulum sed arcu.
-          </p>
+          <p>{user.about}</p>
         </div>
         <div className={style.profileInfo}>
           <div>
             <h3>Idiomas</h3>
             <BsFillPencilFill />
           </div>
-          <div>
-            <p>Português</p>
-            <p>Português</p>
-            <p>Português</p>
+          <div>{
+              [user.idioms].map(idiom => ( 
+                <p>{idiom}</p>
+              ))
+            }
           </div>
           <hr />
           <div>
             <h3>Localização</h3>
             <BsFillPencilFill />
           </div>
-          <p>Rio de Janeiro, Brazil</p>
+          <p>{user.located}</p>
           <hr />
           <div>
             <h3>Telefones</h3>
             <BsFillPencilFill />
           </div>
-          <p>(21)00000-0000</p>
-          <p>(21)00000-0000</p>
+          <p>{user.tel1}</p>
+          <p>{user.tel2}</p>
           <hr />
           <div>
             <h3>Email</h3>
             <BsFillPencilFill />
           </div>
-          <p>email@email.com</p>
+          <p>{user.email}</p>
         </div>
       </main>
       <section className={style.profileFooter}>
-        <h2>Arquivos de Andressa</h2>
-        <div>
-          <HeartAnimation />
-          <HeartAnimation />
-          <HeartAnimation />
-          <HeartAnimation />
+        <h2>Arquivos de {user.name}</h2>
+        <div>{
+              [user.images].map(image => ( 
+                <HeartAnimation image={ image } />
+              ))
+            }
         </div>
       </section>
     </div>
+    )}
+    </>
   );
 }

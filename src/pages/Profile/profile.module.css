@@ -39,6 +39,8 @@
     background-color: #e4e4e4;
     padding: 1rem 2rem;
     margin-top: -1.5rem ;
+    min-width: 20rem;
+    min-height: 21rem;
 }
 /* Divisão que contem informações de contato */
 .profileInfo {
@@ -49,6 +51,8 @@
     flex-direction: column;
     justify-content: space-evenly;
     padding: 0rem 2rem;
+    min-width: 20rem;
+    min-height: 22rem;
 }
 
 .profileHeader .alignContent {
@@ -57,7 +61,7 @@
 }
 
 .profileHeader .profilePicture {
-    width: 14rem;
+    width: 18rem;
     height: 14rem;
     border-radius: 100%;
     border: .4rem solid #fff;
@@ -115,7 +119,6 @@
 /* footer container */
 .profileFooter {
     width: 75%;
-    margin: 2rem auto;
 }
 /* divisão que estara o slide de fotos */
 .profileFooter div:nth-of-type(1) {
@@ -141,6 +144,11 @@
     .profileContent {
         display: flex;
         flex-direction: column;
+    }
+
+    .profileHeader .profilePicture {
+        width: 12rem;
+        height: 12rem;
     }
 
     .userInfo {
@@ -210,19 +218,26 @@
         display: flex;
     }
 
+    .profileFooter {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .profileFooter div {
+        width: 100%;
+        height: 80%;
+    }
+
 }
 
 @media screen and (min-width: 420px) {
     .profileFooter {
         width: 90%;
-        margin: 38rem auto 20rem auto;
-        text-align: center;
     }
 
     .profileFooter div {
         height: 60vh;
-        margin: 0;
-        display: flex;
     }
 }
 
@@ -231,16 +246,20 @@
         height: 60vh;
     }
 
+    .profileHeader .profilePicture {
+        width: 13rem;
+        height: 13rem;
+    }
+
     .profileFooter {
         width: 90%;
-        margin: 38rem auto 0rem;
+        height: 100%;
         text-align: center;
     }
 
     .profileFooter div {
-        height: 40vh;
-        margin: 0;
-        display: flex;
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -257,7 +276,7 @@
         width: 90%;
         display: grid;
         grid-template-columns: 60% 40%;
-        grid-template-rows: 30% auto 100%;
+        grid-template-rows: 30% auto 30%;
         gap: 1rem;
         grid-template-areas: 
             "a a"
@@ -273,6 +292,11 @@
     
     .profileHeader .alignContent {
         flex-direction: row;
+    }
+
+    .profileHeader .profilePicture {
+        width: 16rem;
+        height: 12rem;
     }
 
     .userInfo {
@@ -311,16 +335,14 @@
 
     .profileFooter {
         width: 80%;
-        text-align: center;
+        height: 100%;
         grid-area: d;
-        margin: 7rem auto 0rem;
+        margin: 0 auto;
     }
 
     .profileFooter div {
         width: 100%;
         height: 100%;
-        margin: 0;
-        display: flex;
     }
 }
 
@@ -354,6 +376,11 @@
         flex-direction: row;
     }
 
+    .profileHeader .profilePicture {
+        width: 15rem;
+        height: 12rem;
+    }
+
     .userInfo {
         text-align: center;
         white-space: nowrap;
@@ -375,28 +402,6 @@
         display: flex;
         flex-direction: row-reverse;
         max-width: 100%;
-
     }
-
-    .profileBio {
-        grid-area: b;
-    }
-
-    .profileInfo {
-        grid-area: c;
-    }
-
-    .profileFooter {
-        width: 80%;
-        text-align: center;
-        grid-area: d;
-        margin: 1rem auto;
-    }
-
-    .profileFooter div {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        display: flex;
-    }
+    
 }
