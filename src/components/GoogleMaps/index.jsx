@@ -26,7 +26,7 @@ export default function GoogleMaps({lat, long, setclass}) {
             center={position}
             zoom={13}
             >
-                <Marker icon={ mapMarker } position={position}></Marker>
+                <Marker position={position}></Marker>
             </GoogleMap>
         ) : <></>}
     </div>
