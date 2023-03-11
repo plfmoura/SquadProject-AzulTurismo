@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import style from "./navBar.module.css";
 import { IoNotifications } from "react-icons/io5";
-import ProfilePicture from "../../assets/profile/user.jpg";
 import Modal from "../Modal";
 import SingIn from "../../pages/SingIn";
 import { LoggedContext } from "../../context/LoggedContext";
@@ -14,7 +13,6 @@ import { delUser } from "../../reducer/userReducer";
 export default function NavBar() {
   const state = useSelector((state) => state);
   const { user } = state.user;
-  const [signed, setSigned] = useState(true);
   const { show, setShow } = useContext(LoggedContext);
   const dispatch = useDispatch();
 
@@ -54,6 +52,18 @@ export default function NavBar() {
                   <li>
                     <Link to="/profile">Meus Passeios</Link>
                   </li>
+                  
+                  <div>
+                    <Link to="/profile">
+                      <IoNotifications className={style.notificationIcon} />
+                    </Link>
+                    <Link to="/profile">
+                      <img
+                        src={user.image_profile}
+                        className={style.userPicture}
+                      />
+                    </Link>
+                  </div>
                   <li
                     onClick={() => {
                       dispatch(delUser());
@@ -62,18 +72,6 @@ export default function NavBar() {
                   >
                     <Link to="/">Sair</Link>
                   </li>
-                  <div>
-                    <Link to="/profile">
-                      <IoNotifications className={style.notificationIcon} />
-                    </Link>
-                    <Link to="/profile">
-                      <img
-                        src={ProfilePicture}
-                        alt="Imagem de Perfil do usuário"
-                        className={style.userPicture}
-                      />
-                    </Link>
-                  </div>
                 </>
               ) : (
                 <>

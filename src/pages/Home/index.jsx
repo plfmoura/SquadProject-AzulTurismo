@@ -23,7 +23,6 @@ export default function Home() {
 
   useEffect(() => {
       window.scrollTo(0, 0);
-      console.log('subimos')
   }, [])
 
   return (

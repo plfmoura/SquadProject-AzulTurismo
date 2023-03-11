@@ -118,8 +118,8 @@ export default function SingIn({ setShow }) {
           <div className={style.formFooter}>
             <Button onPress={handleRegister} text="Cadastrar" />
             <span>ou</span>
-            <FacebookAuth />
-            <GoogleAuth />
+            {/* <FacebookAuth />
+            <GoogleAuth /> */}
             <span onClick={() => setLogin(!login)}>
               Já tem uma conta? <strong>Entrar</strong>
             </span>
