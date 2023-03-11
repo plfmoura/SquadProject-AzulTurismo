@@ -20,17 +20,14 @@ export default function Profile() {
   useEffect(() => {
     if (!user) {
       try {
-        let user = localStorage.getItem("azul_user");
-        dispatch(setUser(user));
-      } catch (error) {
-        navigate("/");
-      }
+        let myuser = localStorage.getItem("azul_user");
+        myuser ? dispatch(setUser(myuser)) : navigate("/");
+      } catch (error) {}
     }
+
     window.scrollTo(0, 0);
     // para subir a pagina após carregamento
   }, []);
-
-  let userName = "Andressa Mascarenhas";
 
   return (
     <div className={style.profileContainer}>
@@ -42,7 +39,7 @@ export default function Profile() {
           <div className={style.alignContent}>
             <img className={style.profilePicture} src={userPicture} />
             <div className={style.userInfo}>
-              <h2>{user.name}</h2>
+              <h2>{user && user.name}</h2>
               <div>
                 <div className={style.profileRating}>
                   <p>

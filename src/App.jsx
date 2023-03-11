@@ -25,8 +25,10 @@ function App() {
     //Update my user if he is logged(local storage)
     if (!user) {
       try {
-        let user = localStorage.getItem("azul_user");
-        dispatch(setUser(user));
+        let myuser = localStorage.getItem("azul_user");
+        if (myuser) {
+          dispatch(setUser(myuser));
+        }
       } catch (error) {}
     }
   }, []);
