@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import style from "./teste.module.css";
+import style from "./description.module.css";
 import { teamService } from "../../services/teamService";
 import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";

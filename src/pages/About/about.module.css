@@ -4,36 +4,152 @@
     flex-direction: column;
 }
 
-.aboutContainer .firstSection {
-    height: 95vh;
-    width: 80%;
-    margin: 3rem auto 0 auto;
+.firstSection {
+    width: 100%;
+    height: 60vh;
+    margin: 0 auto;
     display: flex;
     align-items: flex-start;
+    gap: 2rem;
 }
 
 .aboutContainer h1 {
     text-align: left;
-    font-size: 34px;
+    font-size: 30px;
 }
 
-.aboutContainer .description {
-    margin-top: 14px;
-    width: 90%;
-    height: 10rem;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    text-align: justify;
+.description {
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
 }
-.description{
-    font-size: 11.79px;
+
+.ourMission h2,
+.ourMission p,
+.description h1,
+.description p {
+    font-size: 34px;
+    margin-left: 10%;
+    color: #fff;
+}
+
+.description article{
+    background: rgb(46,154,255);
+    background: linear-gradient(90deg, rgba(46,154,255,1) 0%, rgba(46,154,255,1) 32%, rgba(46,154,255,1) 60%, rgba(0,212,255,0) 87%);  width: 100%;
+    height: 60vh;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ourMission p,
+.description p{
+    text-align: justify;
+    font-size: 16px;
+    width: 47%;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.description img {
+    position: relative;
+    z-index: 0;
+    width: 50%;
+    object-fit: cover;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.mainContent .ourLocation {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.mainContent .ourLocation p {
+    width: 50%;
+}
+
+/* Area do google Maps  */
+.mapsContainer {
+    width: 100%;
+    height: 70vh;
+}
+
+.ourMission {
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ourMission div {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(46,154,255);
+    background: linear-gradient(90deg, rgba(46,154,255,1) 0%, rgba(46,154,255,1) 32%, rgba(46,154,255,1) 60%, rgba(0,212,255,0) 87%);  width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.ourMission h2:nth-of-type(2) {
+    margin-top: 2rem;
+}
+
+.ourMission p {
+    text-align: justify;
+    width: 47%;
+}
+
+.contactUs {
+    height: 80vh;
+    padding: 3% 0;
+    gap: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactUs .contactText {
+    height: 100%;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.contactUs .contactText span {
+    box-shadow: rgba(0, 0, 0, 0.322) 0px 1px 2px .01rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.contactUs .contactText div {
+    text-align: center;
 }
 
 .formContainer {
-    width: 75rem;
-    height: 38rem;
-    border: 1px solid black;
-    border-radius: 20px;
+    width: 30rem;
+    height: 100%;
+    gap: 1rem;
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,621 +161,59 @@
     flex-direction: column;
 }
 
-.formContainer div input, 
-.formContainer div select {
-    border: solid 1px black;
+.formContainer div input,
+.formContainer div textarea {
+    border: none;
     width: 20rem;
-    height: 2.5rem;
-    border-radius: 5px;
-    background-color: #f1f1f1;
+    padding-left: .3rem;
+    height: 2rem;
+    background-color: #fff;
+    font-size: 16px;
 }
 
 .formContainer div textarea{
-    border: solid 1px black;
-    border-radius: 8px;
-    height: 10rem;
+    height: 8rem;
     resize: none;
-    background-color: #f1f1f1;
-    width: 20rem;
 }
 
 .formContainer button {
-    width: 65%;
-    margin: 0 auto;
-    box-shadow:  3px 3px black;
+    width: 20rem;
 }
 
-.mapsContainer {
-    width: 90%;
-    height: 22rem;
-}
-
-.secondSection {
-    margin-top: 2rem;
-    width: 80%;
-    margin: 3rem auto 0 auto;
-}
-
-.secondSection .alignCards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+/* area das fotos dos participantes  */
+.teamSection {
     width: 100%;
-    color: #1B71B7;
-}
-
-@media screen and (max-width: 375px){
-
-
-    .firstSection h1{
-        font-size: 1.5rem;
-    }
-   
-    .description{
-        font-size: 9px;
-    }
-    .formContainer div{
-       
+    height: 80vh;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    white-space: wrap;
-    }
-
-
-    .formContainer{
-        margin-top: 30rem;
-        margin-left: -20rem;
-        width: 50.85rem;
-        height: 30rem;
-
-
-    }
-
-
-     .formContainer h2{
-        text-align: center;
-       font-size: 1.1rem;
-        align-items: center;
-
-
-    }
-    .formContainer label{
-      display: flex;
-      font-size: 0.75rem;
-      justify-content: center;
-    }
-
-
-    .formContainer div input,
-    .formContainer div select{
-       display: flex;
-       flex-wrap: wrap;
-       width: 10rem;
-       height: 2rem;
-    }
-
-
-    .formContainer div textarea{
-        margin-top: 0.25rem;
-        width: 15rem;
-        height: 4rem;
-        font-size: 0.95rem;
-    }
-    .formContainer button {
-        width: 10rem;
-        height: 3.50rem;
-        margin: 0.55rem;
-
-
-    }
-
-
-    .tituloMap{
-      flex-direction: column;
-        margin-top: 1rem;
-        font-size: 0.70rem;
-        flex-wrap: wrap;
-        margin-bottom: 1rem;
-    }
-    .mapsContainer{
-        width: 20rem;
-        height: 11rem;
-    }
-
-
-    .mapEndereco{
-        margin-top: 0.55rem;
-        font-size: 0.75rem;
-    }
-
-
-    .secondText{
-       margin-top: 10rem;
-        font-size: 0.98rem;
-    }
-
-
+    justify-content: space-between;
 }
 
-
-
-
-@media screen and (max-width: 580px) {
-   
-   
-    .firstSection h1{
-        font-size: 1.4rem;
-    }
-   
-    .description{
-        font-size: 11px;
-    }
-
-
-    .tituloMap{
-        flex-direction: column;
-          margin-top: 1rem;
-          font-size: 0.90rem;
-          flex-wrap: wrap;
-          margin-bottom: 1rem;
-      }
-      .mapsContainer{
-          width: 20rem;
-          height: 10rem;
-      }
- 
-      .mapEndereco{
-          margin-top: 0.55rem;
-          font-size: 0.75rem;
-      }
- 
-    .formContainer div{
-       
+.teamSection .alignCards {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    white-space: wrap;
-    }
-
-
-   
-   
-    .formContainer{
-        margin-top: 40rem;
-        margin-left: -20rem;
-        width: 60.85rem;
-        height: 20rem;
-
-
-    }
-
-
-     .formContainer h2{
-        text-align: center;
-       font-size: 1.1rem;
-        align-items: center;
-
-
-    }
-
-    .formContainer div input,
-    .formContainer div select{
-       display: flex;
-       flex-wrap: wrap;
-       width: 25rem;
-       height: 2rem;
-    }
-
-
-    .formContainer div textarea{
-        margin-top: 0.25rem;
-        width: 25rem;
-        height: 8rem;
-        font-size: 0.95rem;
-    }
-    .formContainer button {
-        width: 15rem;
-        height: 3.50rem;
-        margin: 0.55rem;
-
-
-    }
-
-
-   
-    .secondText{
-        margin-top: 40rem;
-         font-size: 2rem;
-     }
-
-
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 50%;
+    height: 80vh;
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    background: rgb(46,154,255);
+    background: linear-gradient(90deg, rgba(46,154,255,1) 0%, rgba(46,154,255,1) 32%, rgba(46,154,255,1) 60%, rgba(0,212,255,0) 87%);  width: 100%;
 }
 
-
-
-
-
-
-@media screen and (max-width: 720px) {
-   
-
-   
-    .firstSection h1{
-        font-size: 2rem;
-    }
-   
-    .description{
-        font-size: 11px;
-    }
-
-
-    .tituloMap{
-        flex-direction: column;
-          margin-top: 2rem;
-          font-size: 1.2rem;
-          flex-wrap: wrap;
-          margin-bottom: 1rem;
-      }
-      .mapsContainer{
-        display: flex;
-          width: 28rem;
-          height: 20rem;
-      }
- 
-      .mapEndereco{
-          margin-top: 0.55rem;
-          font-size: 0.75rem;
-      }
- 
-    .formContainer div{
-       
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    position: relative;
-    }
-
-
-   
-   
-    .formContainer{
-        margin-top: 43rem;
-        margin-left: -32rem;
-        width: 65rem;
-        height: 30rem;
-
-
-    }
-
-
-     .formContainer h2{
-        text-align: center;
-       font-size: 1rem;
-        align-items: center;
-
-
-    }
-    .formContainer label{
-      display: flex;
-      font-size: 1rem;
-      justify-content: center;
-    }
-
-
-    .formContainer div input,
-    .formContainer div select{
-       display: flex;
-       flex-wrap: wrap;
-       width: 20rem;
-       height: 2.1rem;
-    }
-
-
-    .formContainer div textarea{
-        margin-top: 0.25rem;
-        width: 20rem;
-        height: 10rem;
-    }
-    .formContainer button {
-        width: 19rem;
-        height: 3.50rem;
-        margin: 0.55rem;
-
-
-    }
-
-
-   
-    .secondText{
-        margin-top: 32rem;
-         font-size: 1.2rem;
-         margin-bottom: 1rem;
-     }
-
-
+.alignCards h2 {
+    margin: 2rem 0 0 10%;
+    font-size: 22px;
+    color: #fff;
 }
 
-
-@media screen and (max-width: 900){
-
-    .aboutContainer {
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .aboutContainer .firstSection {
-        height: 95vh;
-        width: 80%;
-        margin: 3rem auto 0 auto;
-        display: flex;
-        align-items: flex-start;
-    }
-    
-    .aboutContainer h1 {
-        text-align: left;
-        font-size: 34px;
-    }
-    
-    .aboutContainer .description {
-        margin-top: 14px;
-        width: 90%;
-        height: 10rem;
-        margin-bottom: 1rem;
-        overflow: hidden;
-        text-align: justify;
-    }
-    .description{
-        font-size: 11.79px;
-    }
-    
-    .formContainer {
-        width: 75rem;
-        height: 38rem;
-        border: 1px solid black;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    
-    .formContainer div {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .formContainer div input, 
-    .formContainer div select {
-        border: solid 1px black;
-        width: 20rem;
-        height: 2.5rem;
-        border-radius: 5px;
-        background-color: #f1f1f1;
-    }
-    
-    .formContainer div textarea{
-        border: solid 1px black;
-        border-radius: 8px;
-        height: 10rem;
-        resize: none;
-        background-color: #f1f1f1;
-        width: 20rem;
-    }
-    
-    .formContainer button {
-        width: 65%;
-        margin: 0 auto;
-        box-shadow:  3px 3px black;
-    }
-    
-    .mapsContainer {
-        width: 90%;
-        height: 22rem;
-    }
-    
-    .secondSection {
-        margin-top: 2rem;
-        width: 80%;
-        margin: 3rem auto 0 auto;
-    }
-    
-    .secondSection .alignCards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
-        width: 100%;
-        color: #1B71B7;
-    }
+.teamSection img {
+    width: 50%;
+    object-fit: cover;
 }
 
-@media screen  and (min-width: 1024px){
-    .aboutContainer {
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .aboutContainer .firstSection {
-        height: 95vh;
-        width: 80%;
-        margin: 3rem auto 0 auto;
-        display: flex;
-        align-items: flex-start;
-    }
-    
-    .aboutContainer h1 {
-        text-align: left;
-        font-size: 34px;
-    }
-    
-    .aboutContainer .description {
-        margin-top: 14px;
-        width: 90%;
-        height: 10rem;
-        margin-bottom: 1rem;
-        overflow: hidden;
-        text-align: justify;
-    }
-    .description{
-        font-size: 11.79px;
-    }
-    
-    .formContainer {
-        width: 75rem;
-        height: 38rem;
-        border: 1px solid black;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    
-    .formContainer div {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .formContainer div input, 
-    .formContainer div select {
-        border: solid 1px black;
-        width: 20rem;
-        height: 2.5rem;
-        border-radius: 5px;
-        background-color: #f1f1f1;
-    }
-    
-    .formContainer div textarea{
-        border: solid 1px black;
-        border-radius: 8px;
-        height: 10rem;
-        resize: none;
-        background-color: #f1f1f1;
-        width: 20rem;
-    }
-    
-    .formContainer button {
-        width: 65%;
-        margin: 0 auto;
-        box-shadow:  3px 3px black;
-    }
-    
-    .mapsContainer {
-        width: 90%;
-        height: 22rem;
-    }
-    
-    .secondSection {
-        margin-top: 2rem;
-        width: 80%;
-        margin: 3rem auto 0 auto;
-    }
-    
-    .secondSection .alignCards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
-        width: 100%;
-        color: #1B71B7;
-    }
-}
-
-@media screen and (min-width: 1440px){
-    
-    .aboutContainer {
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .aboutContainer .firstSection {
-        height: 95vh;
-        width: 80%;
-        margin: 3rem auto 0 auto;
-        display: flex;
-        align-items: flex-start;
-    }
-    
-    .aboutContainer h1 {
-        text-align: left;
-        font-size: 34px;
-    }
-    
-    .aboutContainer .description {
-        margin-top: 14px;
-        width: 90%;
-        height: 10rem;
-        margin-bottom: 1rem;
-        overflow: hidden;
-        text-align: justify;
-    }
-    .description{
-        font-size: 11.79px;
-    }
-    
-    .formContainer {
-        width: 75rem;
-        height: 38rem;
-        border: 1px solid black;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    
-    .formContainer div {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .formContainer div input, 
-    .formContainer div select {
-        border: solid 1px black;
-        width: 20rem;
-        height: 2.5rem;
-        border-radius: 5px;
-        background-color: #f1f1f1;
-    }
-    
-    .formContainer div textarea{
-        border: solid 1px black;
-        border-radius: 8px;
-        height: 10rem;
-        resize: none;
-        background-color: #f1f1f1;
-        width: 20rem;
-    }
-    
-    .formContainer button {
-        width: 65%;
-        margin: 0 auto;
-        box-shadow:  3px 3px black;
-    }
-    
-    .mapsContainer {
-        width: 90%;
-        height: 22rem;
-    }
-    
-    .secondSection {
-        margin-top: 2rem;
-        width: 80%;
-        margin: 3rem auto 0 auto;
-    }
-    
-    .secondSection .alignCards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
-        width: 100%;
-        color: #1B71B7;
-    }
+.carouselTeam {
+    width: 50%;
+    margin-left: 10%;
 }
