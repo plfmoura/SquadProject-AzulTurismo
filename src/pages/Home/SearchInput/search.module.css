@@ -44,6 +44,8 @@
     border: none;
     outline: #33333399;
     color: #555;
+    font-size: 16px;
+    background-color: #fff;
 }
 
 .inputContainer button {
@@ -85,13 +87,13 @@
     .selectAlign div:nth-of-type(3) {
         display: none;
     }
+    
+    .selectAlign div select {
+        font-size: 13px;
+    }
 }
 
 @media screen and (min-width: 580px) {
-    .inputContainer {
-        width: 80%;
-    }
-    
     .selectAlign div:nth-of-type(1) {
         display: flex;
     }
@@ -114,12 +116,10 @@
 
 @media screen and (min-width: 1024px) {
     .inputContainer {
-        width: 60%;
+        width: 50rem;
     }
-}
 
-@media screen and (min-width: 1440px) {
-    .inputContainer {
-        width: 50%;
+    .selectAlign div select {
+        font-size: 16px;
     }
 }

@@ -5,7 +5,7 @@
     justify-content: space-evenly;
     width: 20rem;    
     height: 20rem;
-    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 10px;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 2px 5px .05rem;
     border-radius: 20px;
     position: sticky;
     top: 5rem;
@@ -18,7 +18,7 @@
     width: 92%;
     font-size: 2.3rem;
     position: relative;
-    top: -1rem;
+    top: -.5rem;
 }
 
 .formContainer h2 span {
@@ -31,12 +31,6 @@
     font-weight: 600;
 }
 
-.formContainer hr {
-    border: 1px solid #33333322;
-    width: 100%;
-    margin: 1rem 0;
-}
-
 .formContainer div {
     display: flex;
     flex-direction: column;
@@ -45,13 +39,16 @@
     padding: 1.5rem 0rem;
     width: 70%;
     border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 10px;
     border: 1px solid #33333322;
 }
 
 .formContainer div select {
+    margin-top: .5rem;
+    font-size: 16px;
     width: 50%;
     border: none;
+    background-color: #fff;
+    text-align: center;
 }
 
 .formContainer button {

@@ -24,7 +24,7 @@ export default function BuyForm({tourPrice, quantity, option, id}) {
                 <option value="default"> Selecione </option>
                 { option }
             </select>
-            <hr />
+            <hr style={{border: '1px solid #33333322', width: '100%', margin: '1rem 0'}}/>
             <label htmlFor="date">Quantidade de Pessoas</label>
             <select name="quantity" id="">
                 <option value="default">{quantity}</option>
