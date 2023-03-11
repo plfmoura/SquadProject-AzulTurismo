@@ -24,18 +24,17 @@ export default function Profile() {
   useEffect(() => {
     if (!user) {
       try {
-        let user = localStorage.getItem("azul_user");
-        dispatch(setUser(user));
-      } catch (error) {
-        navigate("/");
-      }
+        let myuser = localStorage.getItem("azul_user");
+        myuser ? dispatch(setUser(myuser)) : navigate("/");
+      } catch (error) {}
     }
-    // window.scrollTo(0, 0);
-    // // para subir a pagina após carregamento
+    // para subir a pagina após carregamento
+    window.scrollTo(0, 0);
     setTimeout(() => {
       setSkeleton(false)
       console.log(skeleton)
     }, [3000])
+
   }, []);
 
   return (
@@ -53,7 +52,7 @@ export default function Profile() {
           <div className={style.alignContent}>
             <img className={style.profilePicture} src={user.image_profile} />
             <div className={style.userInfo}>
-              <h2>{user.name}</h2>
+              <h2>{user && user.name}</h2>
               <div>
                 <div className={style.profileRating}>
                   <p>
