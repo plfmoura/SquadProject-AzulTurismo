@@ -20,9 +20,9 @@ export default function About() {
     // Aqui você pode enviar o formulário para o servidor
   };
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
 
   return (
     // Detalhes da empresa parte A
