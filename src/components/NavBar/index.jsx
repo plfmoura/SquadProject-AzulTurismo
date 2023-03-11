@@ -14,7 +14,6 @@ import { delUser } from "../../reducer/userReducer";
 export default function NavBar() {
   const state = useSelector((state) => state);
   const { user } = state.user;
-  const [signed, setSigned] = useState(true);
   const { show, setShow } = useContext(LoggedContext);
   const dispatch = useDispatch();
 

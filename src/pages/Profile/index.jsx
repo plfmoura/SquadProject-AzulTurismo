@@ -17,6 +17,7 @@ export default function Profile() {
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   useEffect(() => {
     if (!user) {
       try {
@@ -29,8 +30,6 @@ export default function Profile() {
     window.scrollTo(0, 0);
     // para subir a pagina após carregamento
   }, []);
-
-  let userName = "Andressa Mascarenhas";
 
   return (
     <div className={style.profileContainer}>
