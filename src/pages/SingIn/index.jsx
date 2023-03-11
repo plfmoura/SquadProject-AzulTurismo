@@ -96,7 +96,7 @@ export default function SingIn({ setShow }) {
       let response = await axios.request(options);
       showLoad()
       dispatch(setUser(response.data.user));
-      localStorage.setItem("azul_user", JSON.stringify(state.user));
+      localStorage.setItem("azul_user", JSON.stringify(response.data.user));
       localStorage.setItem("token", JSON.stringify(response.data.token));
       // loginForm.current.reset();
       alert("Buscando dados no servidor.");
