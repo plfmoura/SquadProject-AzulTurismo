@@ -11,7 +11,6 @@ export const userSlice = createSlice({
     //Adicionar Usuario
     setUser: (state, action) => {
       state.user = action.payload;
-      localStorage.setItem("azul_user", JSON.stringify(state.user));
     },
     delUser: (state) => {
       state.user = null;
