@@ -1,20 +1,36 @@
-import React, { useEffect, useState } from 'react'
-import HeartAnimation from './HeartAnimation'
-import style from './profile.module.css'
-import Button  from '../../components/Button'
-import { BsFillPencilFill } from 'react-icons/bs'
+import React, { useEffect, useState } from "react";
+import HeartAnimation from "./HeartAnimation";
+import style from "./profile.module.css";
+import Button from "../../components/Button";
+import { BsFillPencilFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";
-import userBg from '../../assets/profile/andressa.jpg'
-import userPicture from '../../assets/profile/user.jpg'
+import userBg from "../../assets/profile/andressa.jpg";
+import userPicture from "../../assets/profile/user.jpg";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../reducer/userReducer";
 
 export default function Profile() {
+  const state = useSelector((state) => state);
+  const { user } = state.user;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   useEffect(() => {
+    if (!user) {
+      try {
+        let user = localStorage.getItem("azul_user");
+        dispatch(setUser(user));
+      } catch (error) {
+        navigate("/");
+      }
+    }
     window.scrollTo(0, 0);
     // para subir a pagina após carregamento
-  }, [])
-  
-  let userName = 'Andressa Mascarenhas'
+  }, []);
+
+  let userName = "Andressa Mascarenhas";
 
   return (
     <div className={style.profileContainer}>
@@ -24,18 +40,25 @@ export default function Profile() {
       <main className={style.profileContent}>
         <div className={style.profileHeader}>
           <div className={style.alignContent}>
-            <img 
-              className={style.profilePicture} 
-              src={userPicture} 
-            />
+            <img className={style.profilePicture} src={userPicture} />
             <div className={style.userInfo}>
-              <h2>{ userName }</h2>
+              <h2>{userName}</h2>
               <div>
                 <div className={style.profileRating}>
-                  <p><span><AiFillStar/></span> 187 avaliações</p>
-                  <p><span><TfiMedallAlt/></span> Fominha de Excursão</p>
+                  <p>
+                    <span>
+                      <AiFillStar />
+                    </span>{" "}
+                    187 avaliações
+                  </p>
+                  <p>
+                    <span>
+                      <TfiMedallAlt />
+                    </span>{" "}
+                    Fominha de Excursão
+                  </p>
                 </div>
-                <Button text='Meus Passeios'/>
+                <Button text="Meus Passeios" />
               </div>
             </div>
           </div>
@@ -51,7 +74,19 @@ export default function Profile() {
             <h3>Sobre mim</h3>
             <BsFillPencilFill />
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate eu scelerisque felis imperdiet proin fermentum leo. Rhoncus aenean vel elit scelerisque mauris. Quam quisque id diam vel quam elementum pulvinar. Blandit cursus risus at ultrices mi tempus imperdiet. Purus faucibus ornare suspendisse sed nisi. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Leo vel orci porta non pulvinar. Dolor sit amet consectetur adipiscing. Varius duis at consectetur lorem donec. Amet nulla facilisi morbi tempus iaculis urna id volutpat. Tempor commodo ullamcorper a lacus vestibulum sed arcu.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Vulputate eu scelerisque felis imperdiet proin fermentum leo.
+            Rhoncus aenean vel elit scelerisque mauris. Quam quisque id diam vel
+            quam elementum pulvinar. Blandit cursus risus at ultrices mi tempus
+            imperdiet. Purus faucibus ornare suspendisse sed nisi. Sed lectus
+            vestibulum mattis ullamcorper velit sed ullamcorper morbi. Leo vel
+            orci porta non pulvinar. Dolor sit amet consectetur adipiscing.
+            Varius duis at consectetur lorem donec. Amet nulla facilisi morbi
+            tempus iaculis urna id volutpat. Tempor commodo ullamcorper a lacus
+            vestibulum sed arcu.
+          </p>
         </div>
         <div className={style.profileInfo}>
           <div>
@@ -94,5 +129,5 @@ export default function Profile() {
         </div>
       </section>
     </div>
-  )
+  );
 }
