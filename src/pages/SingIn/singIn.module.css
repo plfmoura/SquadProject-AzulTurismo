@@ -31,11 +31,9 @@
 
 @keyframes appears {
     from {
-        transform: translateY(200px);
         opacity: 0;
     }
     to {
-        transform: translateY(0px);
         opacity: 1;
     }
 }
@@ -99,4 +97,17 @@
     color: #2e9aff;
     font-size: 14px;
     cursor: pointer;
+}
+
+.statusSpan {
+    animation: appears 1s ease normal;
+}
+
+@keyframes appears {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

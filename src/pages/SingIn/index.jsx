@@ -1,18 +1,24 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../../components/Button";
 import FacebookAuth from "./FacebookAuth";
 import GoogleAuth from "./GoogleAuth";
 import style from "./singIn.module.css";
-import axios, { AxiosHeaders } from "axios";
-import { json } from "react-router-dom";
+import axios from "axios";
+import PreLoader from '../../components/PreLoader'
 import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
 
 export default function SingIn({ setShow }) {
-  const [login, setLogin] = useState(false);
+  const [ login, setLogin ] = useState(false);
+  const [ load, setLoad ] = useState(false)
+  const [ status, setStatus ] = useState()
+  
+  let showStatus = ''
+
   const loginForm = useRef();
   const registerForm = useRef();
   const dispatch = useDispatch();
+  console.log(login)
   // Function Register
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -22,6 +28,11 @@ export default function SingIn({ setShow }) {
     let confirmPassword = registerForm.current.confirmPassword.value;
     if (password != confirmPassword) {
       alert("As senhas não coinciden");
+      return;
+    }
+
+    if (password === '' || email === '' || name === '' || confirmPassword === '') {
+      alert("Os campos vazios devem ser preenchidos");
       return;
     }
 
@@ -46,13 +57,26 @@ export default function SingIn({ setShow }) {
     };
     try {
       await axios.request(options);
-      alert("Cadastro Satifatorio");
-      loginForm.current.reset();
+      showLoad()
+      // loginForm.current.reset();
+      setTimeout(() => {
+        setLogin(false);
+      }, [3000])
+      alert("Cadastro Efetuado com Sucesso!");
     } catch (error) {
-      alert("Usuario ja cadastrado");
-      loginForm.current.reset();
+      showLoad()
+      alert("Usuário já cadastrado");
+      // loginForm.current.reset();
     }
   };
+
+  const showLoad = () => {
+    setLoad(true)
+    setTimeout(() => {
+      setLoad(false)
+    }, [3000])
+  }
+
   //function login
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -70,13 +94,19 @@ export default function SingIn({ setShow }) {
     };
     try {
       let response = await axios.request(options);
+      showLoad()
       dispatch(setUser(response.data.user));
       localStorage.setItem("azul_user", JSON.stringify(state.user));
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      loginForm.current.reset();
+      // loginForm.current.reset();
+      alert("Buscando dados no servidor.");
+      // setTimeout(() => {
+      // }, [ 2000 ])
       setShow(false);
     } catch (error) {
-      alert("Usuario ou senha errada");
+      // showLoad()
+      console.log(error)
+      alert("Email ou Senha errados.");
     }
   };
 
@@ -117,13 +147,22 @@ export default function SingIn({ setShow }) {
             />
           </div>
           <div className={style.formFooter}>
-            <Button onPress={handleRegister} text="Cadastrar" />
-            <span>ou</span>
-            {/* <FacebookAuth />
-            <GoogleAuth /> */}
-            <span onClick={() => setLogin(!login)}>
-              Já tem uma conta? <strong>Entrar</strong>
-            </span>
+            {load ? ( 
+              <>
+                { status && <span className={style.statusSpan}>{showStatus}</span>}
+                <PreLoader /> 
+              </>
+              ) : ( 
+             <> 
+                <Button onPress={handleRegister} text="Cadastrar" />
+                <span>ou</span>
+                {/* <FacebookAuth />
+                <GoogleAuth /> */}
+                <span onClick={() => setLogin(!login)}>
+                  Já tem uma conta? <strong>Entrar</strong>
+                </span> 
+              </>
+              )}
           </div>
         </form>
       ) : (
@@ -149,13 +188,22 @@ export default function SingIn({ setShow }) {
             />
           </div>
           <div className={style.formFooter}>
-            <Button onPress={handleLogin} text="Entrar como Usuário" />
-            <span>ou</span>
-            {/*  <FacebookAuth />
-            <GoogleAuth />*/}
-            <span onClick={() => setLogin(!login)}>
-              Não é cadastrado? <strong>Cadastre-se</strong>
-            </span>
+          {load ? ( 
+            <>
+              <span className={style.statusSpan}>{showStatus}</span>
+              <PreLoader /> 
+            </>
+           ) : (
+            <>
+              <Button onPress={handleLogin} text="Entrar como Usuário" />
+              <span>ou</span>
+              {/*  <FacebookAuth />
+              <GoogleAuth />*/}
+              <span onClick={() => setLogin(!login)}>
+                Não é cadastrado? <strong>Cadastre-se</strong>
+              </span>
+            </>)
+            }
           </div>
         </form>
       )}
