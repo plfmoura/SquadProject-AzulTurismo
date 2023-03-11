@@ -27,8 +27,7 @@ export default function SingIn({ setShow }) {
 
     const options = {
       method: "POST",
-      /*url: "https://tourismapi.herokuapp.com/register",*/
-      url: "http://127.0.0.1:3000/register",
+      url: "https://tourismapi.herokuapp.com/register",
       headers: { "Content-Type": "application/json" },
       data: {
         name: `${name}`,
@@ -62,7 +61,7 @@ export default function SingIn({ setShow }) {
 
     const options = {
       method: "POST",
-      url: "http://127.0.0.1:3000/login",
+      url: "https://tourismapi.herokuapp.com/login",
       headers: { "Content-Type": "application/json" },
       data: {
         email: `${email}`,

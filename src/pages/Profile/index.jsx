@@ -42,7 +42,7 @@ export default function Profile() {
           <div className={style.alignContent}>
             <img className={style.profilePicture} src={userPicture} />
             <div className={style.userInfo}>
-              <h2>{userName}</h2>
+              <h2>{user.name}</h2>
               <div>
                 <div className={style.profileRating}>
                   <p>
