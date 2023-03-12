@@ -7,7 +7,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Profile from "./pages/Profile";
 import About from './pages/About'
 import Payment from "./pages/Payment";
-import ServicesPage from "./pages/ServicesPage";
+import ServicesPage from "./pages/ServicesPage"
 
 export const router = createHashRouter([
   {
