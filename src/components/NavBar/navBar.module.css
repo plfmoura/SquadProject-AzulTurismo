@@ -1,25 +1,12 @@
 .alignContent {
     width: 100vw;
     height: 4rem;
-    background-color: #fcfcfc;
     position: sticky;
+    transition: all 200ms ease;
     z-index: 999;
     top: 0;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 8px;
     user-select: none;
-}
-
-.alignContent:hover {
-    animation: hoverBar 500ms linear both;
-}
-
-@keyframes hoverBar {
-    from {
-        background-color: #fcfcfc;
-    }
-    to {
-        background-color: #ffffffff;
-    }    
 }
 
 .navBarContainer {
@@ -110,10 +97,6 @@
     width: 20rem;
     list-style: none;
     text-decoration: none;
-}
-
-.menuContent a {
-    color: #333;
 }
 
 /* Área do usuário */

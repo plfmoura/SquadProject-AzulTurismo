@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import style from "./description.module.css";
@@ -8,9 +8,11 @@ import { TfiMedallAlt } from "react-icons/tfi";
 import GoogleMaps from "../../components/GoogleMaps";
 import BuyForm from "./BuyForm";
 import NextButton from "../../components/NextButton";
+import { NavBarContext } from "../../context/NavBarContext";
 
 export default function Description() {
   let id = useParams();
+  const { setBgColor } = useContext(NavBarContext); 
   
   const [tour, setTour] = useState();
   const [auxiliary, setAuxiliary] = useState();
@@ -22,8 +24,10 @@ export default function Description() {
   const [imagensIndex, setImagensIndex] = useState([0, 1, 2, 3]);
 
   useEffect(() => {
+    // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
-  // para subir a pagina após carregamento
+    // para alterar cor do background de acordo com a página 
+    setBgColor(true)
   }, [])
   
   const prevPicture = () => {

@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import { updateProducts } from "./reducer/shoopingReducer";
 import Rodape from "./components/Rodape";
 import { setUser } from "./reducer/userReducer";
+import { NavBarProvider } from "./context/NavBarContext";
 
 function App() {
   const dispatch = useDispatch();

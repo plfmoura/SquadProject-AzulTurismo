@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import HeartAnimation from "./HeartAnimation";
 import style from "./profile.module.css";
 import Button from "../../components/Button";
@@ -10,16 +10,15 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
 import PreLoader from "../../components/PreLoader";
+import { NavBarContext } from "../../context/NavBarContext";
 
 export default function Profile() {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [skeleton, setSkeleton] = useState(true);
-
-  console.log(skeleton);
-  console.log(user);
+  const { setBgColor } = useContext(NavBarContext);
+  const [ skeleton, setSkeleton ] = useState(true);
 
   useEffect(() => {
     if (!user) {
@@ -32,8 +31,8 @@ export default function Profile() {
     window.scrollTo(0, 0);
     setTimeout(() => {
       setSkeleton(false);
-      console.log(skeleton);
     }, [3000]);
+    setBgColor(true)
   }, []);
 
   return (
@@ -103,7 +102,7 @@ export default function Profile() {
               </div>
               <div>
                 {[user.idioms].map((idiom) => (
-                  <p>{idiom}</p>
+                  <p key={idiom}>{idiom}</p>
                 ))}
               </div>
               <hr />
@@ -130,8 +129,8 @@ export default function Profile() {
           <section className={style.profileFooter}>
             <h2>Arquivos de {user.name}</h2>
             <div>
-              {[user.images].map((image) => (
-                <HeartAnimation image={image} />
+              {user.images.map((image, key) => (
+                <HeartAnimation image={image} key={key}/>
               ))}
             </div>
           </section>
