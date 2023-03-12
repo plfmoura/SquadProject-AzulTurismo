@@ -4,12 +4,12 @@ import "react-credit-cards-2/es/styles-compiled.css";
 import Button from "../../../components/Button";
 import styles from "./CreditCard.module.css";
 
-export default function Card({ onPurchase }) {
-  const [ done, setDone ] = useState(false)
+export default function Card({ handleCheckout }) {
+  const [done, setDone] = useState(false);
 
   useEffect(() => {
-    setDone(false)
-  }, [])
+    setDone(false);
+  }, []);
 
   const data = {
     cvc: "",
@@ -45,7 +45,7 @@ export default function Card({ onPurchase }) {
         }}
       />
       <div>
-        <form className={styles.cardForm} onSubmit={ onPurchase }>
+        <form className={styles.cardForm} onSubmit={handleCheckout}>
           <input
             type="tel"
             name="number"
