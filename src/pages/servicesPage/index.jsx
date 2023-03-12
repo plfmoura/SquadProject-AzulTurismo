@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import style from "./services.module.css";
 import Button from "../../components/Button";
 import { NavBarContext } from "../../context/NavBarContext";
+import BackgroundImage from "../../assets/serviceImg/rioimage.png"
 
 export default function ServicesPage() {
   const { setBgColor } = useContext(NavBarContext);
@@ -35,7 +36,7 @@ export default function ServicesPage() {
           <p>Serviços</p>
         </div>
         <div className={style.serviceBackground}>
-          <img src="/src/assets/serviceImg/rioimage.png" />
+          <img src={BackgroundImage} />
         </div>
       </header>
       <section className={style.fotografoContainer}>
