@@ -19,6 +19,7 @@ export default function SingIn({ setShow }) {
   const registerForm = useRef();
   const dispatch = useDispatch();
   console.log(login)
+
   // Function Register
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -31,11 +32,6 @@ export default function SingIn({ setShow }) {
       return;
     }
 
-    if (password === '' || email === '' || name === '' || confirmPassword === '') {
-      alert("Os campos vazios devem ser preenchidos");
-      return;
-    }
-
     const options = {
       method: "POST",
       url: "https://tourismapi.herokuapp.com/register",
@@ -44,12 +40,12 @@ export default function SingIn({ setShow }) {
         name: `${name}`,
         email: `${email}`,
         password: `${password}`,
-        idioms: "",
-        profession: "",
-        located: "",
-        tel1: "",
-        tel2: "",
-        about: "",
+        idioms: "Insira seus idiomas",
+        profession: "Insira sua profissão",
+        located: "Insira seu Estado",
+        tel1: "Insira seu Telefone",
+        tel2: "Insira seu Celular",
+        about: "Conte algo sobre você",
         images: ["", "", "", ""],
         image_banner: "",
         image_profile: "",
@@ -58,7 +54,7 @@ export default function SingIn({ setShow }) {
     try {
       await axios.request(options);
       showLoad()
-      // loginForm.current.reset();
+      registerForm.current.reset();
       setTimeout(() => {
         setLogin(false);
       }, [3000])
@@ -66,7 +62,7 @@ export default function SingIn({ setShow }) {
     } catch (error) {
       showLoad()
       alert("Usuário já cadastrado");
-      // loginForm.current.reset();
+      registerForm.current.reset();
     }
   };
 
@@ -98,13 +94,14 @@ export default function SingIn({ setShow }) {
       dispatch(setUser(response.data.user));
       localStorage.setItem("azul_user", JSON.stringify(response.data.user));
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      // loginForm.current.reset();
-      alert("Buscando dados no servidor.");
-      // setTimeout(() => {
-      // }, [ 2000 ])
+      loginForm.current.reset();
+      setTimeout(() => {
+        showLoad()
+      }, [ 2000 ])
+      // alert("Buscando dados no servidor.");
       setShow(false);
     } catch (error) {
-      // showLoad()
+      showLoad()
       console.log(error)
       alert("Email ou Senha errados.");
     }
@@ -113,7 +110,7 @@ export default function SingIn({ setShow }) {
   return (
     <div>
       {login ? (
-        <form className={style.singInContainer} ref={registerForm}>
+        <form className={style.singInContainer} ref={registerForm} onSubmit={ handleRegister }>
           <div className={style.formHeader}>
             <img src="azul.png" alt="Logo da Empresa Azul Turismo" />
             <span>Cadastre-se agora</span>
@@ -154,7 +151,7 @@ export default function SingIn({ setShow }) {
               </>
               ) : ( 
              <> 
-                <Button onPress={handleRegister} text="Cadastrar" />
+                <Button text="Cadastrar" type="submit"/>
                 <span>ou</span>
                 {/* <FacebookAuth />
                 <GoogleAuth /> */}

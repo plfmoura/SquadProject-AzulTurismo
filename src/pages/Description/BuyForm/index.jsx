@@ -5,7 +5,7 @@ import Button from "../../../components/Button";
 import { LoggedContext } from "../../../context/LoggedContext";
 import styles from "./buyForm.module.css";
 
-export default function BuyForm({ tourPrice, quantity, option, id }) {
+export default function BuyForm({ tourPrice, amount, date, id }) {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const { show, setShow } = useContext(LoggedContext);
@@ -14,7 +14,8 @@ export default function BuyForm({ tourPrice, quantity, option, id }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form concluído");
+    let quantity = e.target.quantity.value
+    !user ? setShow(!show) : navigate(`/payment/:${id}/:${quantity}`)
   };
 
   return (
@@ -25,11 +26,8 @@ export default function BuyForm({ tourPrice, quantity, option, id }) {
         <span> /pessoa</span>
       </h2>
       <div>
-        <label htmlFor="date">Dia da Semana</label>
-        <select name="date" id="">
-          <option value="default"> Selecione </option>
-          {option}
-        </select>
+        <label htmlFor="date">Data da Reserva</label>
+        <p className={styles.reservationDate}>{date}</p>          
         <hr
           style={{
             border: "1px solid #33333322",
@@ -38,19 +36,17 @@ export default function BuyForm({ tourPrice, quantity, option, id }) {
           }}
         />
         <label htmlFor="date">Quantidade de Pessoas</label>
-        <select name="quantity" id="">
-          <option value="default">{quantity}</option>
+        <select name="quantity">
+          {/* For para pegar sold - capacity */}
+          <option value="default">Selecione</option>
+          <option value='1'>{1}</option>
+          {/* <option value='1'>{amount}</option> */}
         </select>
       </div>
 
       <Button
         type="submit"
         text="Solicitar Compra"
-        onPress={() => {
-          {
-            user ? navigate(`/payment/:${id}`) : setShow(!show);
-          }
-        }}
       />
     </form>
   );

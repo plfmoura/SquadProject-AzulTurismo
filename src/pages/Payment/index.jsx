@@ -1,34 +1,37 @@
-
 import React, { useEffect, useState } from 'react'
 import Card from './Card'
-import Button from '../../components/Button'
 import style from './payment.module.css'
 import { GrPrevious } from "react-icons/gr";
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import { setUser } from '../../reducer/userReducer';
 
 export default function Payment() {
-  let id = useParams();
+  let { id, quantity } = useParams();
   const [tour, setTour] = useState();
+  const [ ticketAmount, setTicketAmount ] = useState(0)
   const state = useSelector((state) => state);
   const { products } = state.shopping;
-  const [ totalPrice, setTotalPrice ] = useState(0)
-  const [ ticketAmount, setTicketAmount ] = useState(0)
-
+  const { user } = state.user;
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  
   useEffect(() => {
-    let selected_id = Number(id.id.replace(":", ""));
+    let selected_id = Number(id.replace(":", ""));
     let selected_tour = products.find((product) => product.id === selected_id);
     setTour(selected_tour);
   }, [products]);
 
   useEffect(() => {
-    setTicketAmount(3)
-    setTotalPrice(( 100 * ticketAmount).toFixed(2))
-  }, [ tour ])
-
-  useEffect(() => {
+    if (!user) {
+      try {
+        let myuser = localStorage.getItem("azul_user");
+        myuser ? dispatch(setUser(myuser)) : navigate("/");
+      } catch (error) {}
+    }
+    // para subir a pagina após carregamento
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   return (
     <div className={style.paymentContainer}>
@@ -53,7 +56,7 @@ export default function Payment() {
                 <label htmlFor="">Número de Passes selecionados</label>
                 <span>Alterar</span>
               </div>
-                <span>3 pessoas</span>
+                <span>{Number(quantity.replace(":", ""))} passe</span>
             </div>
             <hr />
             <div className={style.couponContainer}>
@@ -66,7 +69,6 @@ export default function Payment() {
               <h3>Área de Pagamento</h3>
               <div className={style.cardArea}>
                 <Card/> 
-                <Button text={'Confirmar Compra'}/>
               </div>
             </div>
           <section className={style.cartContent}>
@@ -84,22 +86,26 @@ export default function Payment() {
               }
               <hr />
               <p className={style.cartSecure}>Seu passe conta com a proteção do seguro <strong>Azul Turismo</strong></p>
+              {tour && 
               <div className={style.priceInfo}>
                 <h3>Informações do Valor Final</h3>
                 <div>
-                  <p>R$<span>130,00</span> x <span>3</span> passes</p>
-                  <p>R$<span>690,00</span></p>
+                  <p>R$<span>{tour.price}</span> x <span>{Number(quantity.replace(":", ""))}</span> passes</p>
+                  {/* multiplicação da quantidade de passe pelo valor do passeio */}
+                  <p>R$<span>{tour.price * Number(quantity.replace(":", ""))}</span></p>
                 </div>
                 <div>
                   <p>Desconto Adicionado</p>
-                  <p>-R$<span>69,00</span></p>
+                  {/* valor do desconto alterado */}
+                  <p>-R$<span>{tour.price * Number(quantity.replace(":", "")) * 0.1}</span></p>
                 </div>
                 <hr style={{width: '90%'}}/>
                 <div className={style.finalPrice}>
                   <h3>Valor Total (BRL)</h3>
-                  <span>R${totalPrice}</span>
+                  <span>R${(tour.price * Number(quantity.replace(":", "")) - tour.price * Number(quantity.replace(":", "")) * 0.1).toFixed(2)}</span>
                 </div>
               </div>
+              }
             </div>
           </section>
         </div>

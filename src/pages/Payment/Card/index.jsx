@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/es/styles-compiled.css";
+import Button from '../../../components/Button';
 import styles from "./CreditCard.module.css";
 
 export default function Card() {
@@ -25,6 +26,11 @@ export default function Card() {
         setCardDetails({ ...cardDetails, [name]: value });
       };
     
+      const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('compra efetuada')
+      }
+      
       return (
         <div className={styles.cardContainer}>
           <Cards
@@ -39,14 +45,16 @@ export default function Card() {
             }}
           />
           <div>
-            <form className={styles.cardForm}>
+            <form className={styles.cardForm} onSubmit={ handleSubmit }>
               <input
-                type="number"
+                type="tel"
                 name="number"
-                placeholder="---- ---- ---- ----" 
+                placeholder="0000 0000 0000 0000" 
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
                 value={cardDetails.number}
+                pattern="^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$"
+                required
               />
               <div className={styles.mainContent}>
               <input
@@ -56,6 +64,7 @@ export default function Card() {
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
                 value={cardDetails.name}
+                required
               />
               <input
                   type="text"
@@ -64,15 +73,17 @@ export default function Card() {
                   onChange={handleInputChange}
                   onFocus={handleInputFocus}
                   value={cardDetails.expiry}
-                  maxLength={4}
+                  pattern="^[0-9]{4}$"
+                  required
                 />
               </div>
               <div className={styles.bottom}>
                 <input
-                  type="tel"
+                  type="text"
                   name="CPF"
                   placeholder="CPF DO TITULAR"
-                  maxLength={11}
+                  pattern="^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$"
+                  required
                 />
                 <input
                   type="tel"
@@ -81,8 +92,13 @@ export default function Card() {
                   onChange={handleInputChange}
                   onFocus={handleInputFocus}
                   value={cardDetails.cvc}
+                  pattern="^[0-9]{3}$"
                   maxLength={3}
+                  required
                 />
+              </div>
+              <div className={styles.submitArea}>
+                <Button text={'Confirmar Compra'} type="submit"/>
               </div>
             </form>
           </div>
