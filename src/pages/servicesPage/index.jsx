@@ -34,6 +34,9 @@ export default function ServicesPage() {
           <span>Nossos</span>
           <p>Serviços</p>
         </div>
+        <div className={style.serviceBackground}>
+          <img src="/src/assets/serviceImg/rioimage.png" />
+        </div>
       </header>
       <section className={style.fotografoContainer}>
         <div className={style.fotoConteudo}>
