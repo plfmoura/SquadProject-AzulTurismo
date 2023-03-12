@@ -130,7 +130,7 @@ export default function Profile() {
           <section className={style.profileFooter}>
             <h2>Arquivos de {user.name}</h2>
             <div>
-              {[user.images].map((image) => (
+              {user.images.map((image) => (
                 <HeartAnimation image={image} />
               ))}
             </div>
