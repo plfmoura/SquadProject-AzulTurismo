@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import TourCard from "../../components/TourCard";
 import style from "./home.module.css";
@@ -9,10 +9,12 @@ import CarouselRatings from "./CarouselRatings";
 import CustomerCard from "./CustomerCard";
 import Button from "../../components/Button";
 import { dataCustomer } from "../../services/dataCustomer";
+import { NavBarContext } from "../../context/NavBarContext";
 
 export default function Home() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
+  const { setBgColor } = useContext(NavBarContext);
   const [ filtered,setFiltered ] = useState([])
   const [ myRegion,setMyRegion ] = useState("Todas as Regiões")
   const [ showTop, setShowTop ] = useState('')
@@ -22,8 +24,25 @@ export default function Home() {
   },[products])
 
   useEffect(() => {
-      window.scrollTo(0, 0);
+    // Subir a página após trocar de páginas 
+    window.scrollTo(0, 0);
   }, [])
+
+  // Para pegar a posição do Menu e alterar conforme a posição da página 
+  const [ position, setPosition] = useState()
+
+  useEffect(() => {
+  function updatePosition() {
+      setPosition(window.scrollY)
+  };
+
+  window.addEventListener('scroll', updatePosition);
+  updatePosition();
+  // condicional para mostrar de acordo com o valor mesmo que ele volte a 0 novamente 
+  let checkBgPosition = position > 400 ? setBgColor(true) : setBgColor(false)
+
+  return () => window.removeEventListener('scroll', updatePosition);
+  }, [position])
 
   return (
     <div className="Home">

@@ -8,7 +8,7 @@ export const LoggedProvider = ({ children }) => {
     
     return (
         <LoggedContext.Provider value={{ hasUser, setHasUser, show, setShow }}>
-            {children}
-        </LoggedContext.Provider>
+           {children}
+        </LoggedContext.Provider> 
     )
 }

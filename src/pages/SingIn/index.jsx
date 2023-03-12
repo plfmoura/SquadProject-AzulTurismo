@@ -18,7 +18,6 @@ export default function SingIn({ setShow }) {
   const loginForm = useRef();
   const registerForm = useRef();
   const dispatch = useDispatch();
-  console.log(login)
 
   // Function Register
   const handleRegister = async (e) => {
