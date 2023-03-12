@@ -65,6 +65,7 @@ export default function BurgerMobileMenu({ callMenu }) {
       <nav style={{display: showMenu}} className={style.menuContainer}>
         <ul className={style.menuContent} >
           <li onClick={ handleSelected }><Link to='/'>Home</Link></li>
+          <li onClick={ handleSelected }><Link to='/services'>Serviços</Link></li>
           <li onClick={ handleSelected }><Link to='/payment'>Serviços</Link></li>
           <li onClick={ handleSelected }><Link to='/about'>Sobre nós</Link></li>
         </ul>

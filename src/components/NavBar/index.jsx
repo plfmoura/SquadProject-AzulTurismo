@@ -40,7 +40,7 @@ export default function NavBar() {
                 <Link style={{color: changeColor}} to="/">Home</Link>
               </li>
               <li>
-                <Link style={{color: changeColor}} to="/">Serviços</Link>
+                <Link style={{color: changeColor}} to="/services">Serviços</Link>
               </li>
               <li>
                 <Link style={{color: changeColor}} to="/about">Sobre nós</Link>
