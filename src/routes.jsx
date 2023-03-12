@@ -31,7 +31,7 @@ export const router = createHashRouter([
         element: <About />,
       },
       {
-        path: "payment/:id",
+        path: "payment/:id/:quantity",
         element: <Payment />,
       },
     ],

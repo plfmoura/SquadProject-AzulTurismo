@@ -11,6 +11,7 @@ import NextButton from "../../components/NextButton";
 
 export default function Description() {
   let id = useParams();
+  
   const [tour, setTour] = useState();
   const [auxiliary, setAuxiliary] = useState();
   const [guide, setGuide] = useState();
@@ -115,7 +116,10 @@ export default function Description() {
               {/* Area do Formulario inicial de Compra */}
             <div className={style.servicePrice}>
               <BuyForm tourPrice={tour.price} 
-                option={ <option>{tour.Date}</option>}
+                option={ 
+                  <option>{tour.Date}</option>
+                }
+                date={tour.Date}
                 id={tour.id}
                 />
             </div>

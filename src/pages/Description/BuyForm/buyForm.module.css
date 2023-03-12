@@ -55,6 +55,11 @@
     width: 80%;
 }
 
+.reservationDate {
+    margin: .5rem;
+    color: #333;
+}
+
 @media screen and (min-width: 480px) {
     .formContainer {
         width: 20rem;
