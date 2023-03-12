@@ -31,7 +31,9 @@ export default function Payment() {
     // para subir a pagina após carregamento
     window.scrollTo(0, 0);
   }, []);
+  let dateNow = new Date().toLocaleDateString().replace(/\//g,'-')
 
+  console.log(dateNow)
   // finalização de compra
   const handleCheckout = async (e) => {
     e.preventDefault()
@@ -100,7 +102,7 @@ export default function Payment() {
           <div className={style.cardContainer}>
               <h3>Área de Pagamento</h3>
               <div className={style.cardArea}>
-                <Card onPress={ handleCheckout }/> 
+                <Card onPurchase={ handleCheckout }/> 
               </div>
             </div>
           <section className={style.cartContent}>
