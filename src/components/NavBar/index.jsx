@@ -9,11 +9,13 @@ import BurgerMobileMenu from "./BurgerMobileMenu";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { delUser } from "../../reducer/userReducer";
+import { NavBarContext } from "../../context/NavBarContext";
 
 export default function NavBar() {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const { show, setShow } = useContext(LoggedContext);
+  const { changeBgColor, changeColor } = useContext(NavBarContext);
   const dispatch = useDispatch();
 
   return (
@@ -22,7 +24,7 @@ export default function NavBar() {
         <Modal setShow={setShow} children={<SingIn setShow={setShow} />} />
       )}
 
-      <div className={style.alignContent}>
+      <div className={style.alignContent} style={{backgroundColor: changeBgColor}}>
         <div className={style.navBarContainer}>
           <div className={style.logoAlign}>
             <img
@@ -35,13 +37,13 @@ export default function NavBar() {
           <nav className={style.menuContainer}>
             <ul className={style.menuContent}>
               <li>
-                <Link to="/">Home</Link>
+                <Link style={{color: changeColor}} to="/">Home</Link>
               </li>
               <li>
-                <Link to="/services">Serviços</Link>
+                <Link style={{color: changeColor}} to="/services">Serviços</Link>
               </li>
               <li>
-                <Link to="/about">Sobre nós</Link>
+                <Link style={{color: changeColor}} to="/about">Sobre nós</Link>
               </li>
             </ul>
           </nav>
@@ -50,14 +52,14 @@ export default function NavBar() {
               {user ? (
                 <>
                   <li>
-                    <Link to="/profile">Meus Passeios</Link>
+                    <Link style={{color: changeColor}} to="/profile">Meus Passeios</Link>
                   </li>
                   
                   <div>
-                    <Link to="/profile">
+                    <Link style={{color: changeColor}} to="/profile">
                       <IoNotifications className={style.notificationIcon} />
                     </Link>
-                    <Link to="/profile">
+                    <Link style={{color: changeColor}} to="/profile">
                       <img
                         src={user.image_profile}
                         className={style.userPicture}
@@ -70,16 +72,16 @@ export default function NavBar() {
                       localStorage.removeItem("token");
                     }}
                   >
-                    <Link to="/">Sair</Link>
+                    <Link style={{color: changeColor}} to="/">Sair</Link>
                   </li>
                 </>
               ) : (
                 <>
                   <li onClick={() => setShow(true)}>
-                    <Link>Entrar</Link>
+                    <Link style={{color: changeColor}}>Entrar</Link>
                   </li>
                   <div>
-                    <Link to="/profile">
+                    <Link style={{color: changeColor}} to="/profile">
                       <img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU"
                         alt="Imagem de Perfil do usuário"

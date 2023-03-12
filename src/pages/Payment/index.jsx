@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "./Card";
 import style from "./payment.module.css";
 import { GrPrevious } from "react-icons/gr";
@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { setUser } from "../../reducer/userReducer";
 import axios from "axios";
+import { NavBarContext } from "../../context/NavBarContext";
 
 export default function Payment() {
   let { id, quantity } = useParams();
@@ -15,6 +16,7 @@ export default function Payment() {
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { setBgColor } = useContext(NavBarContext);
 
   useEffect(() => {
     let selected_id = Number(id.replace(":", ""));
@@ -31,6 +33,8 @@ export default function Payment() {
     }
     // para subir a pagina após carregamento
     window.scrollTo(0, 0);
+    // trocar estilo de cor do navbar de acordo com a página
+    setBgColor(true)
   }, []);
   // finalização de compra
   const handleCheckout = async (e) => {

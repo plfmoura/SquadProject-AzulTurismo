@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./about.module.css";
 import Button from "../../components/Button";
 import GoogleMaps from "../../components/GoogleMaps";
@@ -7,8 +7,10 @@ import CarouselTeam from './CarouselTeam'
 import { devTeam } from "../../services/devTeam";
 import { BsFillTelephoneFill, BsInstagram } from 'react-icons/bs'
 import { AiOutlineMail } from 'react-icons/ai'
+import { NavBarContext } from "../../context/NavBarContext";
 
 export default function About() {
+  const { setBgColor } = useContext(NavBarContext); 
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
@@ -21,7 +23,10 @@ export default function About() {
   };
 
   useEffect(() => {
+    // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
+    // para alterar cor do background de acordo com a página 
+    setBgColor(true)
   }, [])
 
   return (
