@@ -63,7 +63,7 @@ function ServicePage(){
         <section className={style.servContent}>
             <div className={style.textoConteudo}>
                 <article>
-                    <h1>Frota de Trasporte</h1>
+                    <h1>Frota de Transporte</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi sed culpa fuga exercitationem saepe perferendis? Recusandae amet excepturi porro soluta numquam, officia suscipit ipsa commodi itaque hic tempora, totam atque.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum praesentium dignissimos eius quas magni saepe, labore perspiciatis cumque reprehenderit ea ipsa quaerat dolore harum cum ratione accusamus a consectetur nisi!
