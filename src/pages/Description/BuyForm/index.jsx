@@ -15,6 +15,10 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     let quantity = e.target.quantity.value
+    if(quantity === 'default'){
+      return
+    }
+    console.log(quantity)
     !user ? setShow(!show) : navigate(`/payment/:${id}/:${quantity}`)
   };
 
@@ -36,14 +40,13 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
           }}
         />
         <label htmlFor="date">Quantidade de Pessoas</label>
-        <select name="quantity">
+        <select name="quantity" required>
           {/* For para pegar sold - capacity */}
           <option value="default">Selecione</option>
           <option value='1'>{1}</option>
           {/* <option value='1'>{amount}</option> */}
         </select>
       </div>
-
       <Button
         type="submit"
         text="Solicitar Compra"

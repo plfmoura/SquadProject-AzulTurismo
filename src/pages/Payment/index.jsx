@@ -9,13 +9,12 @@ import { setUser } from '../../reducer/userReducer';
 export default function Payment() {
   let { id, quantity } = useParams();
   const [tour, setTour] = useState();
-  const [ ticketAmount, setTicketAmount ] = useState(0)
   const state = useSelector((state) => state);
   const { products } = state.shopping;
   const { user } = state.user;
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     let selected_id = Number(id.replace(":", ""));
     let selected_tour = products.find((product) => product.id === selected_id);
@@ -32,6 +31,39 @@ export default function Payment() {
     // para subir a pagina após carregamento
     window.scrollTo(0, 0);
   }, []);
+
+  // finalização de compra
+  const handleCheckout = async (e) => {
+    e.preventDefault()
+    let buyer = JSON.parse(user)
+    let dateNow = new Date().toLocaleDateString().replace(/\//g,'-')
+    let getToken = localStorage.getItem("token");
+
+    const options = {
+      method: "POST",
+      url: "https://tourismapi.herokuapp.com/comprar",
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': getToken
+      },
+      data: {
+        id_user: `${buyer.user_id}`,
+        id_product: `${Number(id.replace(":", ""))}`,
+        data_compra: `${dateNow}`,
+        data_tour: `${tour.Date}`,
+        tickets: `${Number(quantity.replace(":", ""))}`
+      },
+    };
+    try {
+      let response = await axios.request(options)
+      console.log(response.data);
+      alert('Compra efetuada!')
+      navigate('/profile')
+    } catch (error) {
+      console.error(error);
+      alert('Ops, algo deu errado!')
+    }
+  }
 
   return (
     <div className={style.paymentContainer}>
@@ -68,7 +100,7 @@ export default function Payment() {
           <div className={style.cardContainer}>
               <h3>Área de Pagamento</h3>
               <div className={style.cardArea}>
-                <Card/> 
+                <Card onPress={ handleCheckout }/> 
               </div>
             </div>
           <section className={style.cartContent}>
