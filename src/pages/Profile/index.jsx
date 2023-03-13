@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import HeartAnimation from "./HeartAnimation";
 import style from "./profile.module.css";
 import Button from "../../components/Button";
-import { BsFillPencilFill } from "react-icons/bs";
+import { BsFillPencilFill, BsFillCheckSquareFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";
 import { useSelector } from "react-redux";
@@ -18,7 +18,11 @@ export default function Profile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { setBgColor } = useContext(NavBarContext);
-  const [ skeleton, setSkeleton ] = useState(true);
+  const [skeleton, setSkeleton] = useState(true);
+  const [active, setActive] = useState(true);
+  const [value, setValue] = useState("");
+
+  const profRef = useRef();
 
   useEffect(() => {
     if (!user) {
@@ -28,12 +32,26 @@ export default function Profile() {
       } catch (error) {}
     }
     // para subir a pagina após carregamento
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     setTimeout(() => {
       setSkeleton(false);
     }, [3000]);
-    setBgColor(true)
+    setBgColor(true);
   }, []);
+
+  const handleChange = () => {
+    console.log("Atualize");
+    setActive(!active);
+  };
+
+  const getChange = () => {
+    let user = JSON.parse(localStorage.getItem('azul_user'))
+    user.profession = profRef.current.value
+    localStorage.removeItem('azul_user')
+    localStorage.setItem('azul_user', JSON.stringify(user))
+    setValue(profRef.current.value);
+    setActive(!active);
+  };
 
   return (
     <>
@@ -85,9 +103,27 @@ export default function Profile() {
             <div className={style.profileBio}>
               <div>
                 <h3>Profissão</h3>
-                <BsFillPencilFill />
+                {!active ? (
+                  <BsFillCheckSquareFill 
+                    onClick={getChange} />
+                ) : (
+                  <BsFillPencilFill 
+                    onClick={handleChange} />
+                )}
               </div>
-              <p>{user.profession}</p>
+              {/* <p>{user.profession}</p> */}
+              <input
+                type="text"
+                name="job"
+                ref={profRef}
+                defaultValue={user.profession}
+                className={style.dinamicalInput}
+                style={{ 
+                  backgroundColor: active ? "transparent" : "#fff",
+                  border: active ? "none" : "#333",
+                  pointerEvents: active ? "none" : 'visible',
+                }}
+              />
               <hr />
               <div>
                 <h3>Sobre mim</h3>
@@ -130,7 +166,7 @@ export default function Profile() {
             <h2>Arquivos de {user.name}</h2>
             <div>
               {user.images.map((image, key) => (
-                <HeartAnimation image={image} key={key}/>
+                <HeartAnimation image={image} key={key} />
               ))}
             </div>
           </section>

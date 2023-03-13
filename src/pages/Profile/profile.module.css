@@ -126,6 +126,11 @@
     display: flex;
     overflow: auto;
 }
+/* 
+.dinamicalInput {
+    border: none;
+    background-color: transparent;
+} */
 
 @media screen and (min-width: 320px) {
     .profileContainer {
