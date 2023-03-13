@@ -111,7 +111,7 @@ export default function Home() {
                 name={item.customerName}
                 service={item.servicePicture}
                 rating={item.customerRating}
-                picture={item.servicePicture}
+                picture={item.customerProfilePicture}
               />
             ))}
           />

@@ -24,13 +24,14 @@ function CustomerCard({ name, rating, picture, service }) {
           className={style.cardContainer}
           style={hover ? ({
             transition: '0.3s',
-            backgroundImage: `url(${service})`,
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            color: "#fff",
+            background: `linear-gradient(
+              rgba(0,0,0,.3),rgba(0,0,0,.3)
+            ), url(${service})`,
+            color: "#fff"
           }) : ({
-            backgroundColor: "#777",
-            color: "#222",
+            background: `url(${service})`,
+
+            color: "#fff",
           })
           }
         >
