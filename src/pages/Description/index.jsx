@@ -31,7 +31,6 @@ export default function Description() {
   }, [])
   
   const prevPicture = () => {
-
     let imagens_index = imagensIndex;
     let temp = imagens_index[0];
     for (let index = 0; index < imagens_index.length - 1; index++) {
@@ -64,7 +63,7 @@ export default function Description() {
     let i = Math.floor(Math.random() * 3);
     setIndex(i);
   }, [tour]);
-  
+
   return (
     <div className={style.singleServiceContainer}>
       {tour && (
@@ -119,13 +118,16 @@ export default function Description() {
             </section>
               {/* Area do Formulario inicial de Compra */}
             <div className={style.servicePrice}>
+              { tour && 
               <BuyForm tourPrice={tour.price} 
                 option={ 
                   <option>{tour.Date}</option>
                 }
+                amount={tour.capacity - tour.sold}
                 date={tour.Date}
                 id={tour.id}
                 />
+              }
             </div>
             <section className={style.teamContainer}>
               <h2>

@@ -103,7 +103,7 @@ export default function Payment() {
                 <label htmlFor="">Número de Passes selecionados</label>
                 <span>Alterar</span>
               </div>
-              <span>{Number(quantity.replace(":", ""))} passe</span>
+              <span>{Number(quantity.replace(":", ""))} {Number(quantity.replace(":", "")) === 1 ? 'passe' : 'passes'}</span>
             </div>
             <hr />
             <div className={style.couponContainer}>
