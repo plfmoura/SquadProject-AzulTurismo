@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState,useRef } from "react";
 import HeartAnimation from "./HeartAnimation";
 import style from "./profile.module.css";
 import Button from "../../components/Button";
-import { BsFillPencilFill } from "react-icons/bs";
+import { BsFillPencilFill, BsFillCheckSquareFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { TfiMedallAlt } from "react-icons/tfi";
 import { useSelector } from "react-redux";
@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
 import PreLoader from "../../components/PreLoader";
 import { NavBarContext } from "../../context/NavBarContext";
+import { actUser } from "../../reducer/userReducer";
 
 export default function Profile() {
   const state = useSelector((state) => state);
@@ -19,6 +20,8 @@ export default function Profile() {
   const dispatch = useDispatch();
   const { setBgColor } = useContext(NavBarContext);
   const [ skeleton, setSkeleton ] = useState(true);
+  const profession=useRef();
+  const [professionButton,setProfessionButon]=useState(true);
 
   useEffect(() => {
     if (!user) {
@@ -29,7 +32,7 @@ export default function Profile() {
     }
     // para subir a pagina após carregamento
     window.scrollTo(0, 0);
-    setTimeout(() => {
+   setTimeout(() => {
       setSkeleton(false);
     }, [3000]);
     setBgColor(true)
@@ -85,9 +88,17 @@ export default function Profile() {
             <div className={style.profileBio}>
               <div>
                 <h3>Profissão</h3>
-                <BsFillPencilFill />
+                {professionButton&&<BsFillPencilFill onClick={()=>{
+                profession.current.readOnly=false;
+                setProfessionButon(false);
+             }} />}
+            {!professionButton&&<BsFillCheckSquareFill onClick={()=>{
+                profession.current.readOnly=true;
+                setProfessionButon(true);
+                dispatch(actUser({profession:profession.current.value}))}}/>} 
+                {/*sen to the database using patch route*/}
               </div>
-              <p>{user.profession}</p>
+              <input type="text" defaultValue={user.profession} ref={profession} readOnly={true}/>
               <hr />
               <div>
                 <h3>Sobre mim</h3>
