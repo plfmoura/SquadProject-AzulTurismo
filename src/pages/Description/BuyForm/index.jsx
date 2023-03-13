@@ -55,7 +55,7 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
             <option value="default">Selecione</option>
             {tickets.map((quantity, key) => 
               <option value={quantity} key={key}>
-                {quantity}
+                {quantity} {quantity === 1 ? 'pessoa' : 'pessoas'}
               </option>
             )}
           </select>

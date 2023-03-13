@@ -31,7 +31,6 @@ export default function Description() {
   }, [])
   
   const prevPicture = () => {
-
     let imagens_index = imagensIndex;
     let temp = imagens_index[0];
     for (let index = 0; index < imagens_index.length - 1; index++) {
@@ -51,7 +50,6 @@ export default function Description() {
     setImagensIndex([...imagens_index]);
   };
 
-  
   useEffect(() => {
     let selected_id = Number(id.id.replace(":", ""));
     let selected_tour = products.find((product) => product.id === selected_id);
@@ -65,13 +63,6 @@ export default function Description() {
     let i = Math.floor(Math.random() * 3);
     setIndex(i);
   }, [tour]);
-
-  const teste = () => {
-    for(let i = 1; i <= tour.capacity - tour.sold; i++){
-      return (
-        <option value={i}>{i}</option>
-      )
-    }}
 
   return (
     <div className={style.singleServiceContainer}>
