@@ -1,219 +1,244 @@
 .aboutContainer {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .firstSection {
-    width: 100%;
-    height: 60vh;
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
+  width: 100%;
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .aboutContainer h1 {
-    text-align: left;
-    font-size: 30px;
+  text-align: left;
+  font-size: 30px;
 }
 
 .description {
-    gap: 1rem;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .ourMission h2,
 .ourMission p,
 .description h1,
 .description p {
-    font-size: 34px;
-    margin-left: 10%;
-    color: #fff;
+  font-size: 34px;
+  margin-left: 10%;
+  color: #fff;
 }
 
-.description article{
-    background: rgb(46,154,255);
-    background: linear-gradient(90deg, rgba(46,154,255,1) 0%, rgba(46,154,255,1) 32%, rgba(46,154,255,1) 60%, rgba(0,212,255,0) 87%);  width: 100%;
-    height: 60vh;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
+.description article {
+  background: rgb(46, 154, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(46, 154, 255, 1) 0%,
+    rgba(46, 154, 255, 1) 32%,
+    rgba(46, 154, 255, 1) 60%,
+    rgba(0, 212, 255, 0) 87%
+  );
+  width: 100%;
+  height: 60vh;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .ourMission p,
-.description p{
-    text-align: justify;
-    font-size: 16px;
-    width: 47%;
-    color: #fff;
-    margin-top: 1rem;
+.description p {
+  text-align: justify;
+  font-size: 16px;
+  width: 47%;
+  color: #fff;
+  margin-top: 1rem;
 }
 
 .description img {
-    position: relative;
-    z-index: 0;
-    width: 50%;
-    object-fit: cover;
+  position: relative;
+  z-index: 0;
+  width: 50%;
+  object-fit: cover;
 }
 
 .mainContent {
-    display: flex;
-    flex-direction: row-reverse;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .mainContent .ourLocation {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    text-align: center;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
 }
 
 .mainContent .ourLocation p {
-    width: 50%;
+  width: 50%;
 }
 
 /* Area do google Maps  */
 .mapsContainer {
-    width: 100%;
-    height: 70vh;
+  width: 100%;
+  height: 70vh;
 }
 
 .ourMission {
-    height: 60vh;
-    display: flex;
-    justify-content: space-between;
+  height: 60vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .ourMission div {
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: rgb(46,154,255);
-    background: linear-gradient(90deg, rgba(46,154,255,1) 0%, rgba(46,154,255,1) 32%, rgba(46,154,255,1) 60%, rgba(0,212,255,0) 87%);  width: 100%;
-    position: absolute;
-    z-index: 1;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgb(46, 154, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(46, 154, 255, 1) 0%,
+    rgba(46, 154, 255, 1) 32%,
+    rgba(46, 154, 255, 1) 60%,
+    rgba(0, 212, 255, 0) 87%
+  );
+  width: 100%;
+  position: absolute;
+  z-index: 1;
 }
 
 .ourMission h2:nth-of-type(2) {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .ourMission p {
-    text-align: justify;
-    width: 47%;
+  text-align: justify;
+  width: 47%;
 }
 
 .contactUs {
-    height: 80vh;
-    padding: 3% 0;
-    gap: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 85vh;
+  padding: 3% 0;
+  gap: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contactUs .contactText {
-    height: 100%;
-    display: flex;
-    gap: 3rem;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .contactUs .contactText span {
-    box-shadow: rgba(0, 0, 0, 0.322) 0px 1px 2px .01rem;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
+  box-shadow: rgba(0, 0, 0, 0.322) 0px 1px 2px 0.01rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .contactUs .contactText div {
-    text-align: center;
+  text-align: center;
 }
 
 .formContainer {
-    width: 30rem;
-    height: 100%;
-    gap: 1rem;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+  margin: 15px 0px;
+  width: 30rem;
+  height: 100%;
+  gap: 1rem;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .formContainer div {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .formContainer div input,
 .formContainer div textarea {
-    border: none;
-    width: 20rem;
-    padding-left: .3rem;
-    height: 2rem;
-    background-color: #fff;
-    font-size: 16px;
+  border: none;
+  width: 20rem;
+  padding-left: 0.3rem;
+  height: 2rem;
+  background-color: #fff;
+  font-size: 16px;
 }
 
-.formContainer div textarea{
-    height: 8rem;
-    resize: none;
+.formContainer div textarea {
+  height: 8rem;
+  resize: none;
 }
-
+.formContainer .firstdiv {
+  margin-top: 10px;
+}
 .formContainer button {
-    width: 20rem;
+  margin-bottom: 10px;
+  width: 20rem;
 }
 
 /* area das fotos dos participantes  */
 .teamSection {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .teamSection .alignCards {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 2rem;
-    width: 50%;
-    height: 80vh;
-    position: absolute;
-    z-index: 2;
-    color: #fff;
-    background: rgb(46,154,255);
-    background: linear-gradient(90deg, rgba(46,154,255,1) 0%, rgba(46,154,255,1) 32%, rgba(46,154,255,1) 60%, rgba(0,212,255,0) 87%);  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 50%;
+  height: 80vh;
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  background: rgb(46, 154, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(46, 154, 255, 1) 0%,
+    rgba(46, 154, 255, 1) 32%,
+    rgba(46, 154, 255, 1) 60%,
+    rgba(0, 212, 255, 0) 87%
+  );
+  width: 100%;
 }
 
 .alignCards h2 {
-    margin: 2rem 0 0 10%;
-    font-size: 22px;
-    color: #fff;
+  margin: 2rem 0 0 10%;
+  font-size: 22px;
+  color: #fff;
 }
 
 .teamSection img {
-    width: 50%;
-    object-fit: cover;
+  width: 50%;
+  object-fit: cover;
 }
 
 .carouselTeam {
-    width: 50%;
-    margin-left: 10%;
+  width: 50%;
+  margin-left: 10%;
 }
