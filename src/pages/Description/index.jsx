@@ -51,6 +51,7 @@ export default function Description() {
     setImagensIndex([...imagens_index]);
   };
 
+  
   useEffect(() => {
     let selected_id = Number(id.id.replace(":", ""));
     let selected_tour = products.find((product) => product.id === selected_id);
@@ -64,7 +65,14 @@ export default function Description() {
     let i = Math.floor(Math.random() * 3);
     setIndex(i);
   }, [tour]);
-  
+
+  const teste = () => {
+    for(let i = 1; i <= tour.capacity - tour.sold; i++){
+      return (
+        <option value={i}>{i}</option>
+      )
+    }}
+
   return (
     <div className={style.singleServiceContainer}>
       {tour && (
@@ -119,13 +127,16 @@ export default function Description() {
             </section>
               {/* Area do Formulario inicial de Compra */}
             <div className={style.servicePrice}>
+              { tour && 
               <BuyForm tourPrice={tour.price} 
                 option={ 
                   <option>{tour.Date}</option>
                 }
+                amount={tour.capacity - tour.sold}
                 date={tour.Date}
                 id={tour.id}
                 />
+              }
             </div>
             <section className={style.teamContainer}>
               <h2>
