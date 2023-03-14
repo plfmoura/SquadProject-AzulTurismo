@@ -120,11 +120,8 @@ export default function Description() {
             <div className={style.servicePrice}>
               { tour && 
               <BuyForm tourPrice={tour.price} 
-                option={ 
-                  <option>{tour.Date}</option>
-                }
                 amount={tour.capacity - tour.sold}
-                date={tour.Date}
+                date={tour.Date.replaceAll("-", '/')}
                 id={tour.id}
                 />
               }

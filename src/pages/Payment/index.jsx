@@ -78,7 +78,7 @@ export default function Payment() {
         <div className={style.headerContent}>
           <h2>
             <span>
-              <GrPrevious />
+              <GrPrevious onClick={() => navigate(-1)} style={{cursor: 'pointer'}}/>
             </span>
             Confirmar e Pagar
           </h2>
@@ -98,7 +98,7 @@ export default function Payment() {
                 <label htmlFor="">Data do Passeio</label>
                 <span>Alterar</span>
               </div>
-              <span>00/00/00</span>
+              {tour && <span>{tour.Date.replaceAll("-", '/')}</span>}
               <div>
                 <label htmlFor="">Número de Passes selecionados</label>
                 <span>Alterar</span>

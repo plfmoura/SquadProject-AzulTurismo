@@ -26,15 +26,6 @@
   justify-content: space-between;
 }
 
-.ourMission h2,
-.ourMission p,
-.description h1,
-.description p {
-  font-size: 34px;
-  margin-left: 10%;
-  color: #fff;
-}
-
 .description article {
   background: rgb(46, 154, 255);
   background: linear-gradient(
@@ -54,6 +45,22 @@
   justify-content: center;
 }
 
+.description img {
+  position: relative;
+  z-index: 0;
+  width: 50%;
+  object-fit: cover;
+}
+
+.ourMission h2,
+.ourMission p,
+.description h1,
+.description p {
+  font-size: 34px;
+  margin-left: 10%;
+  color: #fff;
+}
+
 .ourMission p,
 .description p {
   text-align: justify;
@@ -61,13 +68,6 @@
   width: 47%;
   color: #fff;
   margin-top: 1rem;
-}
-
-.description img {
-  position: relative;
-  z-index: 0;
-  width: 50%;
-  object-fit: cover;
 }
 
 .mainContent {
@@ -242,3 +242,70 @@
   width: 50%;
   margin-left: 10%;
 }
+
+@media screen and (min-width: 320px) {
+  .firstSection {
+    width: 100%;
+    height: 60vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .firstSection img {
+    height: 60vh;
+  }
+
+  .aboutContainer h1 {
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: .5rem;
+  }
+  
+  .description {
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .description article {
+    height: 60vh;
+  }
+
+  .ourMission p,
+  .description p {
+    text-align: justify;
+    font-size: 12px;
+    width: 80%;
+    color: #fff;
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 580px) {
+ 
+}
+
+@media screen and (min-width: 720px) {
+ 
+}
+
+@media screen and (min-width: 900px) {
+ 
+}
+
+@media screen and (min-width: 1024px) {
+ 
+}
+
+@media screen and (min-width: 1200px) {
+ 
+}
+
+@media screen and (min-width: 1440px) {
+ 
+}
+
