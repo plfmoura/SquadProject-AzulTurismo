@@ -263,3 +263,250 @@
     }
     
 }
+
+@media screen and (min-width: 580px) {
+    .userBackground {
+        height: 50vh;
+    }
+
+    .profileContent {
+        width: 80%;
+    }
+ 
+    .profileHeader .profilePicture {
+        width: 10rem;
+        height: 10rem;
+        transform: scale(1.3);
+        position: relative;
+        top: -4rem;
+    }
+
+    .userInfo {
+        width: 100%;
+        margin: 0;
+        flex-direction: column;
+        display: flex;
+    }
+    
+    .userInfo h2 {
+        text-align: center;
+        font-size: 2.3rem;
+        font-weight: bold;
+    }
+    
+    .profileFooter {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 1.5rem;
+    }
+
+    .profileFooter h2{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .userBackground {
+        height: 50vh;
+    }
+
+    .profileHeader .profilePicture {
+        width: 12rem;
+        height: 12rem;
+        transform: scale(1.2);
+    }
+
+    .profileRating {
+        flex-direction: row;
+    }
+
+    .profileHeader .profileRating div {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .userBackground {
+        height: 40vh;
+    }
+
+    .profileHeader .profilePicture {
+        width: 12rem;
+        height: 12rem;
+        transform: scale(1);
+    }
+
+    .profileContent {
+        width: 90%;
+        height: 85vh;
+        margin: 0 auto;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 65% auto;
+        grid-template-rows: 25vh auto;
+        grid-template-areas: 
+            "a a"
+            "b c";
+    }
+
+    .profileHeader {
+        grid-area: a;
+        position: relative;
+        display: flex;
+    }
+    /* Bio do usuario */
+    .profileBio {
+        grid-area: b;
+        background-color: #e4e4e4;
+        padding: .7rem 1rem 1rem;
+        min-width: 60%;
+        min-height: 40vh;
+        height: 100%;
+    }
+    /* Divisão que contem informações de contato */
+    .profileInfo {
+        grid-area: c;
+        background-color: #e4e4e4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 0rem 1rem 1rem;
+        min-width: 40%;
+        min-height: 40vh;
+        height: 100%;
+    }
+
+    .alignContent {
+        flex-direction: row;
+        align-items: flex-start;
+        height: 25vh;
+        margin: 0;
+    }
+
+    .userInfo h2 {
+        font-size: 2rem;
+        text-align: left;
+    }
+
+    .userInfo {
+        margin-left: 1rem;
+    }
+
+    .profileRating {
+        flex-direction: row;
+    }
+
+    .profileHeader .profileRating div {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .profileFooter {
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 1.5rem;
+    }
+
+    .profileFooter h2{
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .userBackground {
+        height: 45vh;
+    }
+
+    .profileContent {
+        width: 50rem;
+        gap: 0;
+    }
+
+    .profileBio {
+        width: 32rem;
+    }
+
+    .profileInfo {
+        width: 17rem;
+    }
+
+
+    .profileFooter {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .userBackground {
+        height: 50vh;
+    }
+
+    .profileContent {
+        width: 60rem;
+        gap: 0;
+    }
+
+    .profileBio {
+        width: 38rem;
+    }
+
+    .profileInfo {
+        width: 22rem;
+    }
+
+    .profileFooter {
+        width: 75%;
+        height: 100%;
+        margin: 1rem auto 2rem;
+    }
+    /* divisão que estara o slide de fotos */
+    .profileFooter div:nth-of-type(1) {
+        margin: .5rem auto;
+        display: flex;
+    }
+
+    .profileFooter div:nth-of-type(1) img {
+        width: 500px;
+        object-fit: cover;
+        height: 300px;
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .userBackground {
+        height: 60vh;
+    }
+
+    .profileContent {
+        width: 60rem;
+        gap: 0;
+    }
+
+    .profileBio {
+        width: 38rem;
+    }
+
+    .profileInfo {
+        width: 22rem;
+    }
+
+    .profileFooter {
+        width: 60rem;
+        height: 100%;
+        margin: 1rem auto 2rem;
+    }
+    /* divisão que estara o slide de fotos */
+    .profileFooter div:nth-of-type(1) {
+        margin: .5rem auto;
+        display: flex;
+    }
+
+    .profileFooter div:nth-of-type(1) img {
+        width: 500px;
+        object-fit: cover;
+        height: 300px;
+        padding: 0 1rem;
+    }
+}
