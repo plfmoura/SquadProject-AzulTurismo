@@ -14,6 +14,7 @@ import { setUser } from "../../reducer/userReducer";
 import PreLoader from "../../components/PreLoader";
 import { NavBarContext } from "../../context/NavBarContext";
 import { actUser } from "../../reducer/userReducer";
+import Carousel from "../../components/Carousel";
 
 export default function Profile() {
   const state = useSelector((state) => state);
@@ -73,20 +74,10 @@ export default function Profile() {
                 />
                 <div className={style.userInfo}>
                   <h2>{user && user.name}</h2>
-                  <div>
-                    <div className={style.profileRating}>
-                      <p>
-                        <span>
-                          <AiFillStar />
-                        </span>{" "}
-                        187 avaliações
-                      </p>
-                      <p>
-                        <span>
-                          <TfiMedallAlt />
-                        </span>{" "}
-                        Fominha de Excursão
-                      </p>
+                  <div className={style.profileRating}>
+                    <div>
+                      <p><span><AiFillStar /></span>187 avaliações</p>
+                      <p><span><TfiMedallAlt /></span>Fominha de Excursão</p>
                     </div>
                     <Button text="Meus Passeios" />
                   </div>
@@ -184,7 +175,7 @@ export default function Profile() {
                 <h3>Idiomas</h3>
                 <BsFillPencilFill />
               </div>
-              <div>
+              <div className={style.idiomsContainer}>
                 {[user.idioms].map((idiom) => (
                   <p key={idiom}>{idiom}</p>
                 ))}
@@ -262,11 +253,11 @@ export default function Profile() {
           </main>
           <section className={style.profileFooter}>
             <h2>Arquivos de {user.name}</h2>
-            <div>
-              {user.images.map((image, key) => (
+            <Carousel setClass='profile-carousel' children={
+              user.images.map((image, key) => (
                 <HeartAnimation image={image} key={key} />
-              ))}
-            </div>
+              ))
+            }/>
           </section>
         </div>
       )}

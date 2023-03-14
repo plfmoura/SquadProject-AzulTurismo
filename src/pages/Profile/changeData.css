@@ -4,6 +4,7 @@
     transition: all 200ms ease;
     outline: none;
     margin: .5rem 0 1rem .5rem;
+    font-size: 16px;
 }
 
 .input-enable {
@@ -13,7 +14,6 @@
     margin-top: .5rem;
     margin: .5rem 0 1rem .5rem;
     padding: .2rem .5rem;
-    height: 100%;
 }
 
 .profession {
