@@ -1,9 +1,9 @@
 .servContainer{
     width: 100vw;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
-
 .fundobanner{
     width: 100vw;
     height: 35rem;
@@ -14,7 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 .titleContainer {
     display: flex;
@@ -33,39 +32,32 @@
     margin-left: 6rem;
     color: white;
 }
-
-
 .titleContainer p{
     font-size: 3.6rem;
     font-weight: 600;
 }
-
 .titleContainer span{
     font-size: 3.6rem;
     font-weight: bold;
     line-height: 9rem;
 }
-
 .servContent{
     width: 100%;
     height: 60vh;
     display: flex;
     margin-bottom: -1.9rem;
 }
-
 .textoConteudo{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
 }
-
 .servContent h1{
     margin-top:15rem;
     text-align: right;
     font-size: 3rem;
 }
-
 .servContent article{
     margin-left: 0.50rem;
     background: rgb(0, 174, 255);
@@ -78,11 +70,9 @@
     flex-direction: column;
     justify-content: center;
 }
-
 .servContent h1,p{
 margin-left: 1rem;
 }
-
 .servContent p{
     text-align: justify;
     font-size: 18px;
@@ -90,8 +80,6 @@ margin-left: 1rem;
     color: black;
     margin-top: 1rem;
 }
-
-
  .lisingConteudo img{
     display: flex;
     justify-content: space-around;
@@ -103,7 +91,6 @@ margin-left: 1rem;
     height: 18rem;
     object-fit: cover;
 }
-
 .btnGuia{
     margin-top: 2rem;
     margin-left: 1rem;
@@ -112,14 +99,17 @@ margin-left: 1rem;
     color: black;
     font-size: 1.3rem;
     cursor: pointer;
-
 }
-
 .btnGuia:hover{
     background-color: rgb(0, 174, 255);
 }
 
-
+.servContainer .textoConteudo .lisingConteudo{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
 .fotografoContainer{
     margin-top: 1rem;
@@ -127,15 +117,12 @@ margin-left: 1rem;
     height: 60vh;
     display: flex;
 }
-
 .fotoConteudo{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-between;
 }
-
-
 .fotoContent{
     text-align: right;
     font-size: 3rem;
@@ -147,58 +134,51 @@ margin-left: 1rem;
     font-size: 3rem;
     margin-bottom: 1rem;
 }
-
 .fotoConteudo h1{
-    margin-right: 2rem;
-    }
-    
-    .fotoConteudo p{
-        margin-right: 1rem;
-        display: flex;
-        font-size: 19px;
-        width: 47%;
-        color: black;
-        margin-top: 1rem;
-    }
+ margin-right: 2rem; 
+}
 
-    .fotoContent{
-        margin-top: 2rem;
-        right: 1rem;
-        background: white;
-        width: 100%;
-        height: 60vh;
-        position: absolute;
-        z-index: 2;
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .pictureEstilo img{
-        display: flex;
-        justify-content: flex-start;
-        right: 42rem;
-        top: -18rem;
-        position: relative;
-        z-index: 0;
-        width:  40rem;
-        height: 18rem;
-        object-fit: cover;
-    }
-
-    
+.fotoConteudo p{
+    margin-right: 1rem;
+    display: flex;
+    font-size: 19px;
+    width: 47%;
+    color: black;
+    margin-top: 1rem;
+}
+.fotoContent{
+    margin-top: 2rem;
+    right: 1rem;
+    background: white;
+    width: 100%;
+    height: 60vh;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+}
+.pictureEstilo img{
+    display: flex;
+    justify-content: flex-start;
+    right: 42rem;
+    top: -20rem;
+    position: relative;
+    z-index: 0;
+    width:  40rem;
+    height: 18rem;
+    object-fit: cover;
+} 
 .btnFoto{
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-right: 3rem;
     background-color: rgb(0, 174, 255);
     width: 9rem;
     color:white;
     font-size: 1.3rem;
-
 }
-
 .btnFoto:hover{
-    
 
+    background-color:  rgb(42, 64, 213);
 }
