@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../../../components/Button";
 import "./purchases.css";
 
-export default function Purchases({ ticketName, ticketDate, purchaseDate }) {
+export default function Purchases({ data }) {
     const today =  new Date().getDate()
+    const purchaseRef = useRef()
+    const ticketRef = useRef()
+    useEffect(() => {
+        // console.log(purchaseRef.current.value)
+    } , [data])
 
-    let checkDate = today > ticketDate ? {
-        color: '#ff3333',
-    } : {
-        color: '#00ff00',
-        fontWeight: '600'
-    }
+    // let checkDate = today > ticketDate ? {
 
-    let ticketStatus = today > ticketDate ? {
-        backgroundColor: '#999'
-    } : {
-        backgroundColor: '#fff'
-    }
+
+    // let ticketStatus = today > ticketDate ? {
+    //     backgroundColor: '#999'
+    // } : {
+    //     backgroundColor: '#fff'
+    // }
 
     return (
     <div className="purchases-container">
@@ -24,26 +25,36 @@ export default function Purchases({ ticketName, ticketDate, purchaseDate }) {
             <h3>Histórico de Compras</h3>
         </div>
         <div className="main-content">
-            <div className="ticket" style={ticketStatus}>
-                <img src="https://i0.wp.com/www.mundoopensource.com.br/wp-content/uploads/2010/04/qrcode.png" />
-                <div>
-                    <span className="ticket-name">{ticketName ? ticketName: 'Nome do Passeio'}</span>
+        {data && data.map((item) => (
+            <div className="ticket" >
+            <img src="https://i0.wp.com/www.mundoopensource.com.br/wp-content/uploads/2010/04/qrcode.png" />
+                <div key={item.id_compras}>
+                    <span className="ticket-name">{item.name ? item.name: 'Nome do Passeio'}</span>
                     <div className="ticket-info">
                     <div>
                         <span className="span-title">Data da compra</span>
-                        <span className="span-content">{purchaseDate ? purchaseDate: '00/00/00'}</span>
+                        <span className="span-content">{item.data_compra}</span>
                     </div>
                     <div>
                         <span className="span-title">Data do Passeio</span>
-                        <span className="span-content">{ticketDate ? ticketDate: '00/00/00'}</span>
+                        <span className="span-content">{item.data_tour}</span>
                     </div>
                     <div>
                         <span className="span-title">Disponibilidade</span>
-                        <span className="span-content" style={ checkDate }>Disponível</span>
+                        <span 
+                            className="span-content"
+                            style={today > item.data_tour ? 
+                            ({color: '#ff3333'}) : (
+                                {color: '#00ff00',
+                                fontWeight: '600'})
+                            }
+                            >Disponível</span>
                     </div>
                     </div>
                 </div>
             </div>
+            ))
+            }
         </div>
         <div className="footer-content">
             <Button text='Duvidas?' />

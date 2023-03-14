@@ -23,6 +23,7 @@ export default function Profile() {
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [ ticketHistory, setTicketHistory ] = useState()
   const [show, setShow] = useState(false);
   const { setBgColor } = useContext(NavBarContext);
   const [skeleton, setSkeleton] = useState(true);
@@ -50,6 +51,25 @@ export default function Profile() {
     setBgColor(true);
   }, []);
 
+  useEffect(() => {
+    let token = JSON.parse(localStorage.getItem('token'))
+    let sendUser = user.user_id;
+    const options = {
+      method: 'GET',
+      url: `https://tourismapi.herokuapp.com/history/${sendUser}`,
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': token
+      }
+    };
+    
+    axios.request(options).then(function (response) {
+      setTicketHistory(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+  }, [])
+
   return (
     <>
       {skeleton ? (
@@ -68,7 +88,10 @@ export default function Profile() {
           {show && (
             <Modal
               setShow={setShow}
-              children={<Purchases />}
+              children={
+              <Purchases 
+                data={ ticketHistory } 
+                />}
             />
           )}
           <div className={style.profileContainer}>

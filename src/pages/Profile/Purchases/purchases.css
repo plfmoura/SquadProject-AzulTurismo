@@ -16,6 +16,8 @@
     width: 30rem;
     background-color: #f1f1f1;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .ticket {

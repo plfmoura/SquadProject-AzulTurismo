@@ -44,7 +44,7 @@ export default function Payment() {
 
     const options = {
       method: "POST",
-      url: "http://127.0.0.1:3000/comprar",
+      url: "https://tourismapi.herokuapp.com/comprar",
       headers: {
         "Content-Type": "application/json",
         "auth-token": token,
@@ -63,7 +63,6 @@ export default function Payment() {
     };
     try {
       let response = await axios.request(options);
-      console.log(response.data);
       alert("Compra efetuada!");
       navigate("/profile");
     } catch (error) {
