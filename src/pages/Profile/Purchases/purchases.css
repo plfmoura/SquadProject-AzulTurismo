@@ -11,7 +11,6 @@
 }
 
 .main-content {
-    min-height: 20rem;
     max-height: 20rem;
     width: 30rem;
     background-color: #f1f1f1;
@@ -84,4 +83,96 @@
 
 .footer-content {
     margin-top: 1rem;
+}
+
+@media screen and (min-width: 320px) {
+    .main-content {
+        max-height: 20rem;
+        width: 130%;
+    }
+
+    .ticket {
+        display: flex;
+        margin: .2rem auto;
+        width: 95%;
+    }
+
+    .ticket-name {
+        font-size: 14px;
+        position: relative;
+        top: .3rem;
+        left: 2%;
+    }
+
+    .span-title {
+        font-size: 10px;
+    }
+    
+    .span-content {
+        margin-top: .3rem;
+        font-size: 10px;
+    }
+
+    .ticket-info div:nth-child(1) {
+        display: none;
+        flex-direction: column;
+        position: relative;
+        top: .3rem;
+        left: 0;
+    }
+}
+
+@media screen and (min-width: 580px) {
+    .main-content {
+        max-height: 20rem;
+        width: 25rem;
+    }
+
+    .ticket-name {
+        font-size: 16px;
+        top: .3rem;
+        left: 3%;
+    }
+    
+    .span-content {
+        font-size: 12px;
+    }
+
+    .ticket-info div:nth-child(1) {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .ticket-name {
+        font-size: 18px;
+    }
+    
+    .span-content {
+        font-size: 14px;
+    }
+
+    .ticket-info div {
+        display: flex;
+        margin-left: .3rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .main-content {
+        max-height: 20rem;
+        width: 130%;
+    }
+
+    .span-content {
+        font-size: 14px;
+    }
+    .ticket-info div {
+        display: flex;
+        margin-left: 5%;
+    }
+
+    .ticket-name {
+        left: 5%;
+    }
 }

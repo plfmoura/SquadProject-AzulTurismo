@@ -14,10 +14,7 @@ export default function Purchases({ data }) {
 
 
     // let ticketStatus = today > ticketDate ? {
-    //     backgroundColor: '#999'
-    // } : {
-    //     backgroundColor: '#fff'
-    // }
+    
 
     return (
     <div className="purchases-container">
@@ -26,7 +23,15 @@ export default function Purchases({ data }) {
         </div>
         <div className="main-content">
         {data && data.map((item) => (
-            <div className="ticket" >
+            <div className="ticket" 
+                style={today > item.data_tour ? {
+                    backgroundColor: '#999',
+                    color: '#fcfcfc'
+                } : {
+                    backgroundColor: '#fff',
+                    color: '#333'
+                }
+            }>
             <img src="https://i0.wp.com/www.mundoopensource.com.br/wp-content/uploads/2010/04/qrcode.png" />
                 <div key={item.id_compras}>
                     <span className="ticket-name">{item.name ? item.name: 'Nome do Passeio'}</span>
