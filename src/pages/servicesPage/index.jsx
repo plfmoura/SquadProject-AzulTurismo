@@ -24,10 +24,8 @@ function ServicePage(){
                     <div className={style.pictureEstilo}>
                         <img src="https://www.maladeaventuras.com/wp-content/uploads/2018/12/DSC7078.jpg" alt="" />
                     </div>
-
                 </article>
             </div>
-
         </section>
         <section className={style.servContent}>
             <div className={style.textoConteudo}>
@@ -44,39 +42,37 @@ function ServicePage(){
                 </article>
             </div>
         </section>
-        <section className={style.fotografoContainer}>
-            <div className={style.fotoConteudo}>
-                <article className={style.fotoContent}>
+        <section className={style.culeContainer}>
+            <div className={style.culeConteudo}>
+                <article className={style.culeContent}>
                 <h1>Culinária Carioca</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi sed culpa fuga exercitationem saepe perferendis? Recusandae amet excepturi porro soluta numquam, officia suscipit ipsa commodi itaque hic tempora, totam atque.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum praesentium dignissimos eius quas magni saepe, labore perspiciatis cumque reprehenderit ea ipsa quaerat dolore harum cum ratione accusamus a consectetur nisi!
                     </p>
-                    <button className={style.btnFoto}> Saiba Mais..</button>
-                    <div className={style.pictureEstilo}>
+                    <button className={style.btnComida}> Saiba Mais..</button>
+                    <div className={style.culeImage}>
                         <img src="https://img.freepik.com/fotos-gratis/variedade-plana-com-deliciosa-comida-brasileira_23-2148739179.jpg?w=2000" alt="" />
                     </div>
 
                 </article>
             </div>
         </section>
-        <section className={style.servContent}>
-            <div className={style.textoConteudo}>
+        <section className={style.transContent}>
+            <div className={style.transConteudo}>
                 <article>
                     <h1>Frota de Transporte</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi sed culpa fuga exercitationem saepe perferendis? Recusandae amet excepturi porro soluta numquam, officia suscipit ipsa commodi itaque hic tempora, totam atque.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum praesentium dignissimos eius quas magni saepe, labore perspiciatis cumque reprehenderit ea ipsa quaerat dolore harum cum ratione accusamus a consectetur nisi!
                     </p>
-                    <button className={style.btnGuia}> Saiba Mais..</button>
-                    <div className={style.lisingConteudo}>
+                    <button className={style.btnTrans}> Saiba Mais..</button>
+                    <div className={style.transImage}>
                     <img src="https://blog.123milhas.com/wp-content/uploads/2023/01/10-Dicas-para-uma-viagem-de-onibus-segura-conexao123.jpg" alt="" />
                     </div>
                 </article>
             </div>
         </section>
-
-        
     </div>
     )
 }
