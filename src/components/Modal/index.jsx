@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import style from './modal.module.css'
 import { IoClose } from 'react-icons/io5';
 
