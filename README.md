@@ -49,5 +49,4 @@ Fluxo do usuário (Miro) = <a href="https://miro.com/app/board/uXjVPmKHg_o=/?sha
 
 <a href="https://github.com/plfmoura/SquadProject-azulTurismo/graphs/contributors" width="30%">
   <img src="https://contrib.rocks/image?repo=plfmoura/SquadProject-azulTurismo" />
-  <img src="https://contrib.rocks/image?repo=Juanpi92/tourism_api"/>
 </a>
