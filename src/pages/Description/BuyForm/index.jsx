@@ -32,7 +32,6 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
       } ,[1000])
       return;
     }
-    console.log(quantity);
     !user ? setShow(!show) : navigate(`/payment/:${id}/:${quantity}`);
   };
 
