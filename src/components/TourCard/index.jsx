@@ -36,7 +36,8 @@ function TourCard({ id, title, location, image, price, rating }) {
       {skeleton ? (
         <TourCardSkeleton />
       ) : (
-        <div className={style.cardContainer}>
+        <div className={style.cardContainer}
+        >
           <div className={style.gallery}>
             <div className={style.galleryController}>
               <NextButton
