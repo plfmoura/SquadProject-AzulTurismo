@@ -1,5 +1,5 @@
 export const devTeam = [
-    {
+      {
         id: 1,
         name: "Pedro Moura",
         office: "Desenvolvedor",

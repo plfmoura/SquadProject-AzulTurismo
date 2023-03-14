@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState,useRef } from "react";
 import HeartAnimation from "./HeartAnimation";
 import style from "./profile.module.css";
 import Button from "../../components/Button";
@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
 import PreLoader from "../../components/PreLoader";
 import { NavBarContext } from "../../context/NavBarContext";
+import { actUser } from "../../reducer/userReducer";
 
 export default function Profile() {
   const state = useSelector((state) => state);
@@ -18,11 +19,9 @@ export default function Profile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { setBgColor } = useContext(NavBarContext);
-  const [skeleton, setSkeleton] = useState(true);
-  const [active, setActive] = useState(true);
-  const [value, setValue] = useState("");
-
-  const profRef = useRef();
+  const [ skeleton, setSkeleton ] = useState(true);
+  const profession=useRef();
+  const [professionButton,setProfessionButon]=useState(true);
 
   useEffect(() => {
     if (!user) {
@@ -32,26 +31,12 @@ export default function Profile() {
       } catch (error) {}
     }
     // para subir a pagina após carregamento
-    // window.scrollTo(0, 0);
-    setTimeout(() => {
+    window.scrollTo(0, 0);
+   setTimeout(() => {
       setSkeleton(false);
     }, [3000]);
     setBgColor(true);
   }, []);
-
-  const handleChange = () => {
-    console.log("Atualize");
-    setActive(!active);
-  };
-
-  const getChange = () => {
-    let user = JSON.parse(localStorage.getItem('azul_user'))
-    user.profession = profRef.current.value
-    localStorage.removeItem('azul_user')
-    localStorage.setItem('azul_user', JSON.stringify(user))
-    setValue(profRef.current.value);
-    setActive(!active);
-  };
 
   return (
     <>
@@ -103,27 +88,17 @@ export default function Profile() {
             <div className={style.profileBio}>
               <div>
                 <h3>Profissão</h3>
-                {!active ? (
-                  <BsFillCheckSquareFill 
-                    onClick={getChange} />
-                ) : (
-                  <BsFillPencilFill 
-                    onClick={handleChange} />
-                )}
+                {professionButton&&<BsFillPencilFill onClick={()=>{
+                profession.current.readOnly=false;
+                setProfessionButon(false);
+             }} />}
+            {!professionButton&&<BsFillCheckSquareFill onClick={()=>{
+                profession.current.readOnly=true;
+                setProfessionButon(true);
+                dispatch(actUser({profession:profession.current.value}))}}/>} 
+                {/*sen to the database using patch route*/}
               </div>
-              {/* <p>{user.profession}</p> */}
-              <input
-                type="text"
-                name="job"
-                ref={profRef}
-                defaultValue={user.profession}
-                className={style.dinamicalInput}
-                style={{ 
-                  backgroundColor: active ? "transparent" : "#fff",
-                  border: active ? "none" : "#333",
-                  pointerEvents: active ? "none" : 'visible',
-                }}
-              />
+              <input type="text" defaultValue={user.profession} ref={profession} readOnly={true}/>
               <hr />
               <div>
                 <h3>Sobre mim</h3>
