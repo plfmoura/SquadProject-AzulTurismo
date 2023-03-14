@@ -190,9 +190,11 @@
   height: 8rem;
   resize: none;
 }
+
 .formContainer .firstdiv {
   margin-top: 10px;
 }
+
 .formContainer button {
   margin-bottom: 10px;
   width: 20rem;
@@ -245,67 +247,313 @@
 
 @media screen and (min-width: 320px) {
   .firstSection {
-    width: 100%;
     height: 60vh;
-    margin: 0 auto;
     display: flex;
-    align-items: flex-start;
-    gap: 2rem;
   }
   
   .firstSection img {
     height: 60vh;
   }
 
-  .aboutContainer h1 {
-    text-align: left;
-    font-size: 16px;
+  .aboutContainer h1,
+  .ourMission h2,
+  .teamSection h2,
+  .ourLocation h3 {
+    font-size: 1rem;
     margin-bottom: .5rem;
-  }
-  
-  .description {
-    gap: 1rem;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .description article {
-    height: 60vh;
   }
 
   .ourMission p,
   .description p {
-    text-align: justify;
     font-size: 12px;
     width: 80%;
-    color: #fff;
     margin-top: 0;
+  }
+
+  .mainContent {
+    flex-direction: column-reverse;
+  }
+
+  .mainContent .ourLocation {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .mapsContainer {
+    width: 100%;
+    height: 30vh;
+  }
+    
+  .contactUs {
+    width: 95%;
+    height: 100%;
+    padding: 3% 0;
+    gap: 0;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .contactUs .contactText {
+    height: 100%;
+    gap: .5rem;
+  }
+
+  .formContainer {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .formContainer div input,
+  .formContainer div textarea {
+    width: 90%;
+    height: 2rem;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: 16px;
+  }
+  
+  .formContainer div textarea {
+    height: 8rem;
+    resize: none;
+  }
+
+  .formContainer button {
+    margin-bottom: 10px;
+    width: 90%;
+  }
+
+  .carouselTeam {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .aboutContainer h1,
+  .ourMission h2,
+  .teamSection h2,
+  .ourLocation h3 {
+    font-size: 1.7rem;
+    margin-bottom: .5rem;
+  }
+
+  .ourMission p,
+  .description p {
+    font-size: 14px;
+    width: 80%;
+    margin-top: 0;
+  }
+
+  .formContainer {
+    width: 70%;
+    margin: 1rem auto;
+  }
+
+  .teamSection h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: .5rem;
+  }
+ 
+  .teamSection img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carouselTeam {
+    width: 50%;
+    height: 10rem;
+    margin: 0 auto;
   }
 }
 
 @media screen and (min-width: 580px) {
- 
-}
+  .mapsContainer {
+    width: 100%;
+    height: 50vh;
+  }
+  
+  .mainContent .ourLocation {
+    width: 70%; 
+  }
 
-@media screen and (min-width: 720px) {
- 
+  .formContainer {
+    width: 25rem;
+  }
+
+  .carouselTeam {
+    width: 18rem;
+    margin-left: 10%;
+  }
 }
 
 @media screen and (min-width: 900px) {
- 
+  .ourMission p,
+  .description p {
+    font-size: 16px;
+    width: 70%;
+    margin-top: 0;
+  }
+
+  .ourMission h2,
+  .description h1 {
+    font-size: 2rem;
+    color: #fff;
+  }
+  
+  .mapsContainer {
+    width: 100%;
+    height: 60vh;
+  }
+  
+  .mainContent .ourLocation {
+    width: 70%; 
+  }
+
+  .contactUs {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0 auto;
+  }
+
+  .contactUs .contactText {
+    width: 25rem;
+    height: 100%;
+    gap: 1.5rem;
+    margin: 1rem auto 0;
+  }
+
+  .teamSection h2 {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 70%;
+    margin: 1rem auto;
+  }
+
+  .formContainer {
+    width: 25rem;
+  }
+
+  .formContainer div input,
+  .formContainer div textarea {
+    width: 20rem;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: 16px;
+  }
+
+  .carouselTeam {
+    width: 35rem;
+    margin-left: 10%;
+  }
 }
 
 @media screen and (min-width: 1024px) {
- 
+  .ourMission p,
+  .description p {
+    font-size: 16px;
+    width: 60%;
+  }
+
+  .ourMission h2,
+  .description h1 {
+    font-size: 2rem;
+  }
+  
+  .mapsContainer {
+    width: 100%;
+    height: 60vh;
+  }
+  
+  .mainContent .ourLocation {
+    width: 70%; 
+  }
+
+  .contactUs {
+    width: 90%;
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0 auto;
+  }
+
+  .contactUs .contactText {
+    height: 100%;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .teamSection h2 {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 70%;
+    margin: 1rem auto;
+  }
+
+  .formContainer {
+    width: 25rem;
+  }
+
+  .formContainer div input,
+  .formContainer div textarea {
+    width: 20rem;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: 16px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
- 
+  .ourMission p,
+  .description p {
+    width: 50%;
+  }
+
+  .ourMission h2,
+  .description h1 {
+    font-size: 2.5rem;
+  }
+  
+  .mainContent {
+    flex-direction: row-reverse;
+  }
+  
+  .mainContent .ourLocation {
+    width: 70%;
+  }
+
+  .mainContent .ourLocation h3{
+    width: 80%;
+  }
+
+  .teamSection h2 {
+    font-size: 2rem;
+    width: 70%;
+    margin: 1rem auto;
+  }
+
+  .formContainer div input,
+  .formContainer div textarea {
+    width: 20rem;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: 16px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
- 
-}
+  .ourMission p,
+  .description p {
+    width: 50%;
+    font-size: 20px;
+  }
 
+  .ourMission h2,
+  .description h1 {
+    font-size: 4rem;
+  }
+  
+}
