@@ -1,10 +1,12 @@
-.servContainer{
+.servConteiner{
+    
     width: 100vw;
     height: auto;
     display: flex;
     flex-direction: column;
 }
 .fundobanner{
+    margin-top: -5rem;
     width: 100vw;
     height: 35rem;
     background: url('/src/assets/serviceImg/rioimage.png') center;

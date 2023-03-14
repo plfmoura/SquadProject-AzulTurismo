@@ -24,10 +24,8 @@ function ServicePage(){
                     <div className={style.pictureEstilo}>
                         <img src="https://www.maladeaventuras.com/wp-content/uploads/2018/12/DSC7078.jpg" alt="" />
                     </div>
-
                 </article>
             </div>
-
         </section>
         <section className={style.servContent}>
             <div className={style.textoConteudo}>
@@ -75,8 +73,6 @@ function ServicePage(){
                 </article>
             </div>
         </section>
-
-        
     </div>
     )
 }
