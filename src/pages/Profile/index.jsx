@@ -15,14 +15,14 @@ import PreLoader from "../../components/PreLoader";
 import { NavBarContext } from "../../context/NavBarContext";
 import { actUser } from "../../reducer/userReducer";
 import Carousel from "../../components/Carousel";
-import Modal from '../../components/Modal'
+import Modal from "../../components/Modal";
 
 export default function Profile() {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [ show, setShow ] = useState(false)
+  const [show, setShow] = useState(false);
   const { setBgColor } = useContext(NavBarContext);
   const [skeleton, setSkeleton] = useState(true);
   const profession = useRef();
@@ -63,9 +63,13 @@ export default function Profile() {
           <PreLoader />
         </div>
       ) : (
-
         <>
-          {show && <Modal setShow={setShow} children={<h1>Informações Sobre os passeios</h1>}/>}
+          {show && (
+            <Modal
+              setShow={setShow}
+              children={<h1>Informações Sobre os passeios</h1>}
+            />
+          )}
           <div className={style.profileContainer}>
             <header className={style.userBackground}>
               <img src={user.image_banner} />
@@ -81,10 +85,23 @@ export default function Profile() {
                     <h2>{user && user.name}</h2>
                     <div className={style.profileRating}>
                       <div>
-                        <p><span><AiFillStar /></span>187 avaliações</p>
-                        <p><span><TfiMedallAlt /></span>Fominha de Excursão</p>
+                        <p>
+                          <span>
+                            <AiFillStar />
+                          </span>
+                          187 avaliações
+                        </p>
+                        <p>
+                          <span>
+                            <TfiMedallAlt />
+                          </span>
+                          Fominha de Excursão
+                        </p>
                       </div>
-                      <Button text="Meus Passeios" onPress={() => setShow(!show)}/>
+                      <Button
+                        text="Meus Passeios"
+                        onPress={() => setShow(!show)}
+                      />
                     </div>
                   </div>
                 </div>
@@ -141,19 +158,37 @@ export default function Profile() {
                     ref={profession}
                     readOnly={true}
                     className="profession input-enable"
-                    />
+                  />
                 )}
                 <hr />
                 <div>
                   <h3>Sobre mim</h3>
                   {aboutButton ? (
                     <BsFillPencilFill
-                      onClick={() => setAboutButton(!aboutButton)}
+                      onClick={() => {
+                        about.current.readOnly = false;
+                        setAboutButton(!aboutButton);
+                      }}
                     />
                   ) : (
                     <BsFillCheckSquareFill
                       className="checkSquare"
-                      onClick={() => setAboutButton(!aboutButton)}
+                      onClick={async () => {
+                        setAboutButton(!aboutButton);
+                        about.current.readOnly = true;
+                        dispatch(actUser({ about: about.current.value }));
+                        let token = JSON.parse(localStorage.getItem("token"));
+                        const options = {
+                          method: "PATCH",
+                          url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+                          headers: {
+                            "auth-token": token,
+                            "Content-Type": "application/json",
+                          },
+                          data: { about: about.current.value },
+                        };
+                        await axios.request(options);
+                      }}
                     />
                   )}
                 </div>
@@ -190,12 +225,30 @@ export default function Profile() {
                   <h3>Localização</h3>
                   {localizationButton ? (
                     <BsFillPencilFill
-                      onClick={() => setlocalizationButton(!localizationButton)}
+                      onClick={() => {
+                        setlocalizationButton(!localizationButton);
+                        located.current.readOnly = false;
+                      }}
                     />
                   ) : (
                     <BsFillCheckSquareFill
                       className="checkSquare"
-                      onClick={() => setlocalizationButton(!localizationButton)}
+                      onClick={async () => {
+                        located.current.readOnly = true;
+                        setlocalizationButton(!localizationButton);
+                        dispatch(actUser({ located: located.current.value }));
+                        let token = JSON.parse(localStorage.getItem("token"));
+                        const options = {
+                          method: "PATCH",
+                          url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+                          headers: {
+                            "auth-token": token,
+                            "Content-Type": "application/json",
+                          },
+                          data: { located: located.current.value },
+                        };
+                        await axios.request(options);
+                      }}
                     />
                   )}
                 </div>
@@ -221,12 +274,30 @@ export default function Profile() {
                   <h3>Telefones</h3>
                   {phoneButton ? (
                     <BsFillPencilFill
-                      onClick={() => setPhoneButton(!phoneButton)}
+                      onClick={() => {
+                        phone.current.readOnly = false;
+                        setPhoneButton(!phoneButton);
+                      }}
                     />
                   ) : (
                     <BsFillCheckSquareFill
                       className="checkSquare"
-                      onClick={() => setPhoneButton(!phoneButton)}
+                      onClick={async () => {
+                        phone.current.readOnly = true;
+                        setPhoneButton(!phoneButton);
+                        dispatch(actUser({ tel1: phone.current.value }));
+                        let token = JSON.parse(localStorage.getItem("token"));
+                        const options = {
+                          method: "PATCH",
+                          url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+                          headers: {
+                            "auth-token": token,
+                            "Content-Type": "application/json",
+                          },
+                          data: { tel1: phone.current.value },
+                        };
+                        await axios.request(options);
+                      }}
                     />
                   )}
                 </div>
@@ -258,11 +329,12 @@ export default function Profile() {
             </main>
             <section className={style.profileFooter}>
               <h2>Arquivos de {user.name}</h2>
-              <Carousel setClass='profile-carousel' children={
-                user.images.map((image, key) => (
+              <Carousel
+                setClass="profile-carousel"
+                children={user.images.map((image, key) => (
                   <HeartAnimation image={image} key={key} />
-                ))
-              }/>
+                ))}
+              />
             </section>
           </div>
         </>

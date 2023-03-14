@@ -4,16 +4,16 @@ import FacebookAuth from "./FacebookAuth";
 import GoogleAuth from "./GoogleAuth";
 import style from "./singIn.module.css";
 import axios from "axios";
-import PreLoader from '../../components/PreLoader'
+import PreLoader from "../../components/PreLoader";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
 
 export default function SingIn({ setShow }) {
-  const [ login, setLogin ] = useState(false);
-  const [ load, setLoad ] = useState(false)
-  const [ status, setStatus ] = useState()
-  
-  let showStatus = ''
+  const [login, setLogin] = useState(false);
+  const [load, setLoad] = useState(false);
+  const [status, setStatus] = useState();
+
+  let showStatus = "";
 
   const loginForm = useRef();
   const registerForm = useRef();
@@ -39,11 +39,11 @@ export default function SingIn({ setShow }) {
         name: `${name}`,
         email: `${email}`,
         password: `${password}`,
-        idioms: "Insira seus idiomas",
+        idioms: "Português",
         profession: "Insira sua profissão",
         located: "Insira seu Estado",
         tel1: "Insira seu Telefone",
-        tel2: "Insira seu Celular",
+        tel2: "",
         about: "Conte algo sobre você",
         images: ["", "", "", ""],
         image_banner: "",
@@ -52,25 +52,25 @@ export default function SingIn({ setShow }) {
     };
     try {
       await axios.request(options);
-      showLoad()
+      showLoad();
       registerForm.current.reset();
       setTimeout(() => {
         setLogin(false);
-      }, [3000])
+      }, [3000]);
       alert("Cadastro Efetuado com Sucesso!");
     } catch (error) {
-      showLoad()
+      showLoad();
       alert("Usuário já cadastrado");
       registerForm.current.reset();
     }
   };
 
   const showLoad = () => {
-    setLoad(true)
+    setLoad(true);
     setTimeout(() => {
-      setLoad(false)
-    }, [3000])
-  }
+      setLoad(false);
+    }, [3000]);
+  };
 
   //function login
   const handleLogin = async (e) => {
@@ -89,19 +89,19 @@ export default function SingIn({ setShow }) {
     };
     try {
       let response = await axios.request(options);
-      showLoad()
+      showLoad();
       dispatch(setUser(response.data.user));
       localStorage.setItem("azul_user", JSON.stringify(response.data.user));
       localStorage.setItem("token", JSON.stringify(response.data.token));
       loginForm.current.reset();
       setTimeout(() => {
-        showLoad()
-      }, [ 2000 ])
+        showLoad();
+      }, [2000]);
       // alert("Buscando dados no servidor.");
       setShow(false);
     } catch (error) {
-      showLoad()
-      console.log(error)
+      showLoad();
+      console.log(error);
       alert("Email ou Senha errados.");
     }
   };
@@ -109,7 +109,11 @@ export default function SingIn({ setShow }) {
   return (
     <div>
       {login ? (
-        <form className={style.singInContainer} ref={registerForm} onSubmit={ handleRegister }>
+        <form
+          className={style.singInContainer}
+          ref={registerForm}
+          onSubmit={handleRegister}
+        >
           <div className={style.formHeader}>
             <img src="azul.png" alt="Logo da Empresa Azul Turismo" />
             <span>Cadastre-se agora</span>
@@ -143,22 +147,24 @@ export default function SingIn({ setShow }) {
             />
           </div>
           <div className={style.formFooter}>
-            {load ? ( 
+            {load ? (
               <>
-                { status && <span className={style.statusSpan}>{showStatus}</span>}
-                <PreLoader /> 
+                {status && (
+                  <span className={style.statusSpan}>{showStatus}</span>
+                )}
+                <PreLoader />
               </>
-              ) : ( 
-             <> 
-                <Button text="Cadastrar" type="submit"/>
+            ) : (
+              <>
+                <Button text="Cadastrar" type="submit" />
                 <span>ou</span>
                 {/* <FacebookAuth />
                 <GoogleAuth /> */}
                 <span onClick={() => setLogin(!login)}>
                   Já tem uma conta? <strong>Entrar</strong>
-                </span> 
+                </span>
               </>
-              )}
+            )}
           </div>
         </form>
       ) : (
@@ -184,22 +190,22 @@ export default function SingIn({ setShow }) {
             />
           </div>
           <div className={style.formFooter}>
-          {load ? ( 
-            <>
-              <span className={style.statusSpan}>{showStatus}</span>
-              <PreLoader /> 
-            </>
-           ) : (
-            <>
-              <Button onPress={handleLogin} text="Entrar como Usuário" />
-              <span>ou</span>
-              {/*  <FacebookAuth />
+            {load ? (
+              <>
+                <span className={style.statusSpan}>{showStatus}</span>
+                <PreLoader />
+              </>
+            ) : (
+              <>
+                <Button onPress={handleLogin} text="Entrar como Usuário" />
+                <span>ou</span>
+                {/*  <FacebookAuth />
               <GoogleAuth />*/}
-              <span onClick={() => setLogin(!login)}>
-                Não é cadastrado? <strong>Cadastre-se</strong>
-              </span>
-            </>)
-            }
+                <span onClick={() => setLogin(!login)}>
+                  Não é cadastrado? <strong>Cadastre-se</strong>
+                </span>
+              </>
+            )}
           </div>
         </form>
       )}
