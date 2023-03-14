@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState,useRef } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
+import axios from "axios";
 import HeartAnimation from "./HeartAnimation";
 import style from "./profile.module.css";
 import Button from "../../components/Button";
@@ -19,9 +20,9 @@ export default function Profile() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { setBgColor } = useContext(NavBarContext);
-  const [ skeleton, setSkeleton ] = useState(true);
-  const profession=useRef();
-  const [professionButton,setProfessionButon]=useState(true);
+  const [skeleton, setSkeleton] = useState(true);
+  const profession = useRef();
+  const [professionButton, setProfessionButon] = useState(true);
 
   useEffect(() => {
     if (!user) {
@@ -32,7 +33,7 @@ export default function Profile() {
     }
     // para subir a pagina após carregamento
     window.scrollTo(0, 0);
-   setTimeout(() => {
+    setTimeout(() => {
       setSkeleton(false);
     }, [3000]);
     setBgColor(true);
@@ -88,17 +89,43 @@ export default function Profile() {
             <div className={style.profileBio}>
               <div>
                 <h3>Profissão</h3>
-                {professionButton&&<BsFillPencilFill onClick={()=>{
-                profession.current.readOnly=false;
-                setProfessionButon(false);
-             }} />}
-            {!professionButton&&<BsFillCheckSquareFill onClick={()=>{
-                profession.current.readOnly=true;
-                setProfessionButon(true);
-                dispatch(actUser({profession:profession.current.value}))}}/>} 
-                {/*sen to the database using patch route*/}
+                {professionButton && (
+                  <BsFillPencilFill
+                    onClick={() => {
+                      profession.current.readOnly = false;
+                      setProfessionButon(false);
+                    }}
+                  />
+                )}
+                {!professionButton && (
+                  <BsFillCheckSquareFill
+                    onClick={async () => {
+                      profession.current.readOnly = true;
+                      setProfessionButon(true);
+                      dispatch(
+                        actUser({ profession: profession.current.value })
+                      );
+                      let token = JSON.parse(localStorage.getItem("token"));
+                      const options = {
+                        method: "PATCH",
+                        url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+                        headers: {
+                          "auth-token": token,
+                          "Content-Type": "application/json",
+                        },
+                        data: { profession: profession.current.value },
+                      };
+                      await axios.request(options);
+                    }}
+                  />
+                )}
               </div>
-              <input type="text" defaultValue={user.profession} ref={profession} readOnly={true}/>
+              <input
+                type="text"
+                defaultValue={user.profession}
+                ref={profession}
+                readOnly={true}
+              />
               <hr />
               <div>
                 <h3>Sobre mim</h3>
