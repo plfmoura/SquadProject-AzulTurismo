@@ -41,6 +41,8 @@
     min-width: 60%;
     min-height: 40vh;
     height: 100%;
+    position: relative;
+    z-index: 3;
 }
 /* Divisão que contem informações de contato */
 .profileInfo {
@@ -53,6 +55,8 @@
     min-width: 40%;
     min-height: 40vh;
     height: 100%;
+    position: relative;
+    z-index: 3;
 }
 
 .profileInfo .idiomsContainer {
