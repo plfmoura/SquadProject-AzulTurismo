@@ -16,6 +16,7 @@ import { NavBarContext } from "../../context/NavBarContext";
 import { actUser } from "../../reducer/userReducer";
 import Carousel from "../../components/Carousel";
 import Modal from "../../components/Modal";
+import Purchases from "./Purchases";
 
 export default function Profile() {
   const state = useSelector((state) => state);
@@ -67,7 +68,7 @@ export default function Profile() {
           {show && (
             <Modal
               setShow={setShow}
-              children={<h1>Informações Sobre os passeios</h1>}
+              children={<Purchases />}
             />
           )}
           <div className={style.profileContainer}>
