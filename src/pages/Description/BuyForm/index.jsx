@@ -1,4 +1,4 @@
-import React, { createElement, useContext, useEffect, useState } from "react";
+import React, { createElement, useContext, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
@@ -10,12 +10,26 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
   const { user } = state.user;
   const { show, setShow } = useContext(LoggedContext);
   const [tickets, setTickets] = useState([]);
+  const [ warning, setWarning ] = useState(false)
   const navigate = useNavigate();
+  const formRef = useRef();
+
+  let showWarning = warning ? {
+    transition: 'all 300ms ease',
+    border: '1px solid #2eafff',
+    transform: 'scale(1.1)',
+  } : {
+    border: '1px solid #2eaf0000',
+    transition: 'all 300ms ease',
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     let quantity = e.target.quantity.value;
     if (quantity === "default") {
+      setTimeout(() => {
+        setWarning(!warning) 
+      } ,[1000])
       return;
     }
     console.log(quantity);
@@ -34,7 +48,10 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} className={styles.formContainer}>
+    <form 
+      ref={formRef}
+      onSubmit={handleSubmit} 
+      className={styles.formContainer}>
       <h2>
         R${tourPrice}
         <span> /pessoa</span>
@@ -51,7 +68,7 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
         />
         <label htmlFor="date">Quantidade de Pessoas</label>
         {tickets && (
-          <select name="quantity" required id="quantity">
+          <select name="quantity" required id="quantity" style={showWarning}>
             <option value="default">Selecione</option>
             {tickets.map((quantity, key) => 
               <option value={quantity} key={key}>

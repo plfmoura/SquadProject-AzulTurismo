@@ -415,8 +415,8 @@ main {
 
 @media screen and (min-width: 1024px) {
     .serviceMedia {
-        width: 85%;
-        height: 50vh;
+        width: 80%;
+        height: 60vh;
         margin: 0 auto;
         padding: 0;
     }
@@ -477,7 +477,7 @@ main {
 @media screen and (min-width: 1440px) {
     .serviceMedia {
         width: 80%;
-        height: 50vh;
+        height: 60vh;
         margin: 0 auto;
         padding: 0;
     }
