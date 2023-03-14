@@ -43,7 +43,7 @@ export default function About() {
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     //to set the contact form for a loged user
