@@ -28,6 +28,8 @@ export default function CarouselRatings({ children, setclass }) {
     infinite: true,
     slidesToShow: 3,
     swipeToSlide: true,
+    autoplay: true,
+    speed: 2300,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [

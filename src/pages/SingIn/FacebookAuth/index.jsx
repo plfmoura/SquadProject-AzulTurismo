@@ -6,8 +6,8 @@ export default function FacebookAuth() {
     <SocialButton
         provider="facebook"
         appId="3404739599801682"
-        onLoginSuccess={ console.log('Login efetuado com sucesso!')}
-        onLoginFailure={ console.log('Tente novamente!')}
+        // onLoginSuccess={ console.log('Login efetuado com sucesso!')}
+        // onLoginFailure={ console.log('Tente novamente!')}
         style={{
         backgroundColor: "#4267B2",
         alignItems: "center",

@@ -1,0 +1,85 @@
+.purchases-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-content {
+    position: relative;
+    top: -2rem;
+}
+
+.main-content {
+    min-height: 20rem;
+    max-height: 20rem;
+    width: 30rem;
+    background-color: #f1f1f1;
+    overflow: auto;
+}
+
+.ticket {
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px .2rem;
+    padding: .4rem;
+    margin: .5rem;
+    animation: appears 1s ease normal;
+}
+
+@keyframes appears {
+    from {
+        transform: scale(0.97);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.ticket:hover {
+    transition: all 400ms ease;
+    transform: scale(1.02);
+    user-select: none;
+}
+
+.ticket img {
+    margin: .2rem .2rem .2rem 0;
+    width: 80px;
+    height: 80px;
+}
+
+.ticket-name {
+    font-size: 18px;
+    position: relative;
+    top: .3rem;
+    left: 2%;
+}
+
+.ticket-info {
+    display: flex;
+    width: 98%;
+    justify-content: space-between;
+    gap: .8rem;
+    text-align: center;
+}
+
+.ticket-info div {
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: .3rem;
+    left: 2%;
+}
+
+.span-title {
+    font-size: 14px;
+}
+
+.span-content {
+    margin-top: .3rem;
+    font-size: 16px;
+}
+
+.footer-content {
+    margin-top: 1rem;
+}
