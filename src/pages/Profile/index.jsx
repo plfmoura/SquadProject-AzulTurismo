@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import axios from "axios";
-import HeartAnimation from "./HeartAnimation";
+import HeartAnimation from "./Animations/Heart";
 import style from "./profile.module.css";
+import "./changeData.css";
 import Button from "../../components/Button";
 import { BsFillPencilFill, BsFillCheckSquareFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
@@ -22,7 +23,13 @@ export default function Profile() {
   const { setBgColor } = useContext(NavBarContext);
   const [skeleton, setSkeleton] = useState(true);
   const profession = useRef();
+  const about = useRef();
+  const phone = useRef();
+  const located = useRef();
   const [professionButton, setProfessionButon] = useState(true);
+  const [aboutButton, setAboutButton] = useState(true);
+  const [localizationButton, setlocalizationButton] = useState(true);
+  const [phoneButton, setPhoneButton] = useState(true);
 
   useEffect(() => {
     if (!user) {
@@ -32,7 +39,7 @@ export default function Profile() {
       } catch (error) {}
     }
     // para subir a pagina após carregamento
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     setTimeout(() => {
       setSkeleton(false);
     }, [3000]);
@@ -90,6 +97,7 @@ export default function Profile() {
               <div>
                 <h3>Profissão</h3>
                 {professionButton && (
+                  // Botão de alteração
                   <BsFillPencilFill
                     onClick={() => {
                       profession.current.readOnly = false;
@@ -98,7 +106,9 @@ export default function Profile() {
                   />
                 )}
                 {!professionButton && (
+                  // Botão Check
                   <BsFillCheckSquareFill
+                    className="checkSquare"
                     onClick={async () => {
                       profession.current.readOnly = true;
                       setProfessionButon(true);
@@ -120,18 +130,54 @@ export default function Profile() {
                   />
                 )}
               </div>
-              <input
-                type="text"
-                defaultValue={user.profession}
-                ref={profession}
-                readOnly={true}
-              />
+              {professionButton ? (
+                <input
+                  type="text"
+                  defaultValue={user.profession}
+                  ref={profession}
+                  readOnly={true}
+                  className="profession input-disable"
+                />
+              ) : (
+                <input
+                  type="text"
+                  defaultValue={user.profession}
+                  ref={profession}
+                  readOnly={true}
+                  className="profession input-enable"
+                  />
+              )}
               <hr />
               <div>
                 <h3>Sobre mim</h3>
-                <BsFillPencilFill />
+                {aboutButton ? (
+                  <BsFillPencilFill
+                    onClick={() => setAboutButton(!aboutButton)}
+                  />
+                ) : (
+                  <BsFillCheckSquareFill
+                    className="checkSquare"
+                    onClick={() => setAboutButton(!aboutButton)}
+                  />
+                )}
               </div>
-              <p>{user.about}</p>
+              {aboutButton ? (
+                <textarea
+                  type="text"
+                  defaultValue={user.about}
+                  ref={about}
+                  readOnly={true}
+                  className="about-me input-disable"
+                />
+              ) : (
+                <textarea
+                  type="text"
+                  defaultValue={user.about}
+                  ref={about}
+                  readOnly={true}
+                  className="about-me input-enable"
+                />
+              )}
             </div>
             <div className={style.profileInfo}>
               <div>
@@ -146,20 +192,70 @@ export default function Profile() {
               <hr />
               <div>
                 <h3>Localização</h3>
-                <BsFillPencilFill />
+                {localizationButton ? (
+                  <BsFillPencilFill
+                    onClick={() => setlocalizationButton(!localizationButton)}
+                  />
+                ) : (
+                  <BsFillCheckSquareFill
+                    className="checkSquare"
+                    onClick={() => setlocalizationButton(!localizationButton)}
+                  />
+                )}
               </div>
-              <p>{user.located}</p>
+              {localizationButton ? (
+                <input
+                  type="text"
+                  defaultValue={user.located}
+                  ref={located}
+                  readOnly={true}
+                  className="input-disable"
+                />
+              ) : (
+                <input
+                  type="text"
+                  defaultValue={user.located}
+                  ref={located}
+                  readOnly={true}
+                  className="input-enable"
+                />
+              )}
               <hr />
               <div>
                 <h3>Telefones</h3>
-                <BsFillPencilFill />
+                {phoneButton ? (
+                  <BsFillPencilFill
+                    onClick={() => setPhoneButton(!phoneButton)}
+                  />
+                ) : (
+                  <BsFillCheckSquareFill
+                    className="checkSquare"
+                    onClick={() => setPhoneButton(!phoneButton)}
+                  />
+                )}
               </div>
-              <p>{user.tel1}</p>
-              <p>{user.tel2}</p>
+              {phoneButton ? (
+                <input
+                  type="text"
+                  defaultValue={user.tel1}
+                  ref={phone}
+                  readOnly={true}
+                  className="input-disable"
+                />
+              ) : (
+                <input
+                  type="text"
+                  defaultValue={user.tel1}
+                  ref={phone}
+                  readOnly={true}
+                  className="input-enable"
+                />
+              )}
               <hr />
               <div>
                 <h3>Email</h3>
-                <BsFillPencilFill />
+                {/* Não é editavel neste momento, botão será comentado */}
+                {/* <BsFillPencilFill /> */}
               </div>
               <p>{user.email}</p>
             </div>
