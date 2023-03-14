@@ -158,8 +158,8 @@ export default function SingIn({ setShow }) {
               <>
                 <Button text="Cadastrar" type="submit" />
                 <span>ou</span>
-                {/* <FacebookAuth />
-                <GoogleAuth /> */}
+                <FacebookAuth />
+                <GoogleAuth />
                 <span onClick={() => setLogin(!login)}>
                   Já tem uma conta? <strong>Entrar</strong>
                 </span>
@@ -199,8 +199,8 @@ export default function SingIn({ setShow }) {
               <>
                 <Button onPress={handleLogin} text="Entrar como Usuário" />
                 <span>ou</span>
-                {/*  <FacebookAuth />
-              <GoogleAuth />*/}
+                <FacebookAuth />
+                <GoogleAuth />
                 <span onClick={() => setLogin(!login)}>
                   Não é cadastrado? <strong>Cadastre-se</strong>
                 </span>

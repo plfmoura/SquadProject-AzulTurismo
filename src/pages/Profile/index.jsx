@@ -42,7 +42,7 @@ export default function Profile() {
       } catch (error) {}
     }
     // para subir a pagina após carregamento
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     setTimeout(() => {
       setSkeleton(false);
     }, [3000]);
