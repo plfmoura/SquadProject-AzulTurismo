@@ -21,19 +21,23 @@ function CustomerCard({ name, rating, picture, service }) {
         <div
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          className={style.cardContainer}
           style={hover ? ({
-            transition: '0.3s',
             background: `linear-gradient(
               rgba(0,0,0,.3),rgba(0,0,0,.3)
-            ), url(${service})`,
-            color: "#fff"
+            ), url(${service}) no-repeat center center`,
+            backgroundSize: '250%',
+            color: "#fff",
+            transition: 'all 2s ease'
           }) : ({
-            background: `url(${service})`,
-
+            background: `linear-gradient(
+              rgba(0,0,0,0),rgba(0,0,0,0)
+            ), url(${service}) no-repeat center center`,
+            backgroundSize: '300%',
+            transition: 'all 2s ease',
             color: "#fff",
           })
           }
+          className={style.cardContainer}
         >
           <img src={picture} alt={name} loading="lazy"/>
           <div>

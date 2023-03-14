@@ -10,6 +10,7 @@ import CustomerCard from "./CustomerCard";
 import Button from "../../components/Button";
 import { dataCustomer } from "../../services/dataCustomer";
 import { NavBarContext } from "../../context/NavBarContext";
+import { LoggedContext } from "../../context/LoggedContext";
 
 export default function Home() {
   const state = useSelector((state) => state);
@@ -18,6 +19,8 @@ export default function Home() {
   const [ filtered,setFiltered ] = useState([])
   const [ myRegion,setMyRegion ] = useState("Todas as Regiões")
   const [ showTop, setShowTop ] = useState('')
+  const { show, setShow } = useContext(LoggedContext);
+
 
   useEffect(()=>{
     setFiltered(products)
@@ -25,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     // Subir a página após trocar de páginas 
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, [])
 
   // Para pegar a posição do Menu e alterar conforme a posição da página 
@@ -123,7 +126,7 @@ export default function Home() {
           />
           <div>
             <h2>Faça seu Cadastro</h2>
-            <Button text='Cadastre-se' />
+            <Button text='Cadastre-se' onPress={() => setShow(true)}/>
           </div>
         </div>
       </section>

@@ -35,7 +35,7 @@ export default function Profile() {
    setTimeout(() => {
       setSkeleton(false);
     }, [3000]);
-    setBgColor(true)
+    setBgColor(true);
   }, []);
 
   return (
@@ -141,7 +141,7 @@ export default function Profile() {
             <h2>Arquivos de {user.name}</h2>
             <div>
               {user.images.map((image, key) => (
-                <HeartAnimation image={image} key={key}/>
+                <HeartAnimation image={image} key={key} />
               ))}
             </div>
           </section>

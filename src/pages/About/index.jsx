@@ -47,13 +47,8 @@ export default function About() {
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     //to set the contact form for a loged user
-    if (user) {
-      contactForm.current.name.value = user.name;
-      contactForm.current.email.value = user.email;
-      contactForm.current.tel.value = user.tel1;
-      contactForm.current.name.readOnly = true;
-    }
   }, []);
+  
   useEffect(() => {
     //to set the contact form for a loged user
     if (user) {
