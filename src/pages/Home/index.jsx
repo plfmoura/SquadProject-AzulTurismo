@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     // Subir a página após trocar de páginas 
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, [])
 
   // Para pegar a posição do Menu e alterar conforme a posição da página 

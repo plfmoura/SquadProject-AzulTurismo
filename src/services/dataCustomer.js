@@ -3,7 +3,7 @@ export const dataCustomer = [
     id: 1,
     customerName: "Altamiro",
     customerProfilePicture: "https://1.bp.blogspot.com/-0xjiD4ykbZw/XsHelGIRL5I/AAAAAAAAVjU/Qd9VDdS71pM8pkPJy41RcuPFpvmKv9IMwCNcBGAsYHQ/s1600/selfie%2Bde%2Bhomem%2Bde%2Bbarba%2B15.jpg",
-    servicePicture: "https://i.imgur.com/wscxD2D.jpg",
+    servicePicture: "https://diariodorio.com/wp-content/uploads/2021/03/cristo-redentor-2.jpg",
     customerRating:
       "A guia Rafaela foi super atenciosa, rápida nas respostas e o passeio Adoramos. Voltaremos com certeza..",
   },
@@ -11,7 +11,7 @@ export const dataCustomer = [
     id: 2,
     customerName: "Dani",
     customerProfilePicture: "http://turismoemfamilia.com.br/wp-content/uploads/2020/06/IMG_7922-rotated.jpg",
-    servicePicture: "https://i.imgur.com/ikgw08O.jpeg",
+    servicePicture: "https://ogimg.infoglobo.com.br/in/24588920-417-241/FT1086A/Acesso-ao-Cristo-Redentor-foi-liberado-neste-sabado.jpg",
     customerRating:
       "A Rafaela nos forneceu informações, como chegar e tudo mais. Eu amei conhecer o Rio!!!",
   },
@@ -19,7 +19,7 @@ export const dataCustomer = [
     id: 3,
     customerName: "Rafaelle",
     customerProfilePicture: "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg?fit=640,427",
-    servicePicture: "https://i.imgur.com/mrDUbjD.jpg",
+    servicePicture: "https://lh3.googleusercontent.com/-U1M8U8-CXTE/X-Zt_mKgRwI/AAAAAAAANJ4/JTSmmzRMZ80t12oeXNMe-KIAFkMinN7qQCLcBGAsYHQ/w640-h480/G066198101.jpg",
     customerRating:
       "Excelente, adoramos nossa guia Tatiana. Pessoal atencioso.... guia com bastante conhecimento. Recomendo.",
   },
@@ -27,7 +27,7 @@ export const dataCustomer = [
     id: 4,
     customerName: "Geovani",
     customerProfilePicture: "https://t4.ftcdn.net/jpg/03/98/85/77/360_F_398857704_n44BPhqM68Xk9vT31BeFkLQwWsgeZS6C.jpg",
-    servicePicture: "https://i.imgur.com/wscxD2D.jpg",
+    servicePicture: "https://images.jota.info/wp-content/uploads/2018/04/680582-e1523976888935.jpg",
     customerRating:
       "Fomos a A esse local lindo no Rio passar o dia, e o passeio foi lindo! Guia e mororista muito simpáticos e atenciosos.",
   },
@@ -59,7 +59,7 @@ export const dataCustomer = [
     id: 8,
     customerName: "Andreia",
     customerProfilePicture: "https://thumbs.dreamstime.com/b/perfil-da-mulher-preta-e-sorrindo-bonita-weari-modelo-f%C3%AAmea-98105267.jpg",
-    servicePicture: "https://i.imgur.com/mrDUbjD.jpg",
+    servicePicture: "https://abihrj.com.br/wp-content/uploads/2022/08/shutterstock_1752773855.jpg",
     customerRating:
       "Esse rolê permite uma experiência incrível com uma vista estonteante. Recomendadíssimo para quem quer se aventurar e se desconectar do caos!",
   },
@@ -67,7 +67,7 @@ export const dataCustomer = [
     id: 9,
     customerName: "Eduardo",
     customerProfilePicture: "https://i0.wp.com/centralblogs.com.br/wp-content/uploads/2019/11/selfie-foto-masculina3.jpg?resize=696%2C870&ssl=1",
-    servicePicture: "https://i.imgur.com/wscxD2D.jpg",
+    servicePicture: "https://comshalom.org/wp-content/uploads/2021/10/De-bracos-abertos-Cristo-Redentor-completa-90-anos.jpg",
     customerRating:
       "Passeios incríveis com guias maravilhosos, ótima experiência no Rio de Janeiro, sem dúvidas Marcelo foi um grande incentivador!",
   },
@@ -75,7 +75,7 @@ export const dataCustomer = [
     id: 10,
     customerName: "Lucas",
     customerProfilePicture: "https://i.pinimg.com/736x/a4/66/4a/a4664aea38ea941755636bc3afe160ea.jpg",
-    servicePicture: "https://i.imgur.com/8nzsZKK.jpg",
+    servicePicture: "https://vejario.abril.com.br/wp-content/uploads/2017/10/fc3a1bio-minduim.png?w=1280&h=720&crop=1",
     customerRating:
       "Atenciosos e prestativos. Estávamos com uma criança de 1 ano e 10 meses, o passeio foi ótimo. Recomendo",
   },
@@ -115,7 +115,7 @@ export const dataCustomer = [
     id: 15,
     customerName: "Marianna",
     customerProfilePicture: "https://s2.glbimg.com/LwU2g4WAXhZcinjoZLZeuYNklo8=/620x620/smart/e.glbimg.com/og/ed/f/original/2020/10/02/captura_de_tela_2020-10-02_as_10.46.31.png",
-    servicePicture: "https://i.imgur.com/8nzsZKK.jpg",
+    servicePicture: "https://a.cdn-hotels.com/gdcs/production187/d753/f0bf1cb8-fe7d-47ed-b105-55fcb91f5700.jpg",
     customerRating:
       "É a rolê mais famoso do mundo. Bonito dms vale a pena. Achei os preços dos petiscos e bebidas acessíveis.",
   },
@@ -123,7 +123,7 @@ export const dataCustomer = [
     id: 16,
     customerName: "Regina",
     customerProfilePicture: "https://ichef.bbci.co.uk/news/640/cpsprodpb/13938/production/_114248108_sashaextra.jpg",
-    servicePicture: "https://i.imgur.com/wscxD2D.jpg",
+    servicePicture: "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/64000/64336-Copacabana-Beach.jpg",
     customerRating:
       "O resumo do Rio. Todos e tudo circulam por Copacabana. Lar do Cervantes. A Praia vale pela caminhada, pelo banho de mar, por seu restaurantes, seu futebol de areia, seus nadadores e vendedores.",
   },
@@ -139,7 +139,7 @@ export const dataCustomer = [
     id: 18,
     customerName: "Eduarda",
     customerProfilePicture: "https://nadafragil.com.br/wp-content/uploads/2021/01/mulher-tirando-selfie-na-praia-dicas-para-facilitar-sua-vida-na-praia-ou-piscina-300x420.jpg",
-    servicePicture: "https://i.imgur.com/mrDUbjD.jpg",
+    servicePicture: "https://img.theculturetrip.com/450x/smart/wp-content/uploads/2021/06/kp6fct.jpg",
     customerRating:
       "Amamos conhecer e foi a praia da Cidade do Rio de Janeiro que mais ficamos na água. Local tranquilo e lindo. Bastante pessoas praticando esportes!",
   },
@@ -147,7 +147,7 @@ export const dataCustomer = [
     id: 19,
     customerName: "Priscila",
     customerProfilePicture: "https://i.pinimg.com/736x/0c/a7/a5/0ca7a54753667c58a9a91bac36b0cca4.jpg",
-    servicePicture: "https://i.imgur.com/wscxD2D.jpg",
+    servicePicture: "https://www.maladeaventuras.com/wp-content/uploads/2020/02/o-que-fazer-em-cabo-frio-capa.jpg",
     customerRating:
       "Uma das praias mais bonitas do mundo. Mar limpo e agradável, gente bonita e seguro. Ótimas opções de lazer e culinária nos quiosques no calçadão.",
   },
