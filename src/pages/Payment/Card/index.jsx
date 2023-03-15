@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/es/styles-compiled.css";
+import OnSuccessAnimation from "../../../assets/animations/OnSuccess";
 import Button from "../../../components/Button";
 import styles from "./CreditCard.module.css";
 
 export default function Card({ handleCheckout }) {
   const [done, setDone] = useState(false);
+  const [ onSuccess, setOnSuccess ] = useState(!false)
+
+  let paymentDone = onSuccess ? { animation: 'disappear 2s ease normal' } : null
 
   useEffect(() => {
     setDone(false);
@@ -32,7 +36,10 @@ export default function Card({ handleCheckout }) {
   };
 
   return (
-    <div className={styles.cardContainer}>
+
+    <>
+    { !onSuccess ? (
+    <div className={styles.cardContainer} style={ paymentDone }>
       <Cards
         cvc={cardDetails.cvc}
         expiry={cardDetails.expiry}
@@ -45,7 +52,7 @@ export default function Card({ handleCheckout }) {
         }}
       />
       <div>
-        <form className={styles.cardForm} onSubmit={handleCheckout}>
+        <form className={styles.cardForm} onSubmit={() => {handleCheckout; setOnSuccess(onSuccess)}}>
           <input
             type="tel"
             name="number"
@@ -103,5 +110,12 @@ export default function Card({ handleCheckout }) {
         </form>
       </div>
     </div>
+    ) : (
+      <div className={styles.onPurchaseSuccess}>
+        <OnSuccessAnimation />
+      </div>
+    )
+    }
+    </>
   );
 }

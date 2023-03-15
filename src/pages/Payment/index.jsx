@@ -64,7 +64,6 @@ export default function Payment() {
     try {
       let response = await axios.request(options);
       alert("Compra efetuada!");
-      navigate("/profile");
     } catch (error) {
       console.error(error);
       alert("Ops, algo deu errado!");

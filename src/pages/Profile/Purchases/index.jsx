@@ -7,14 +7,7 @@ export default function Purchases({ data }) {
     const purchaseRef = useRef()
     const ticketRef = useRef()
     useEffect(() => {
-        // console.log(purchaseRef.current.value)
     } , [data])
-
-    // let checkDate = today > ticketDate ? {
-
-
-    // let ticketStatus = today > ticketDate ? {
-    
 
     return (
     <div className="purchases-container">
@@ -53,7 +46,7 @@ export default function Purchases({ data }) {
                                 {color: '#00ff00',
                                 fontWeight: '600'})
                             }
-                            >Disponível</span>
+                            >{today > item.data_tour ? 'Disponível' : 'Indisponível'}</span>
                     </div>
                     </div>
                 </div>

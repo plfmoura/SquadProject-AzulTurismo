@@ -5,6 +5,15 @@
   flex-direction: column;
 }
 
+@keyframes disappear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .cardForm input {
   margin: 0.5rem;
   padding: 0.5rem;
@@ -61,6 +70,14 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.onPurchaseSuccess {
+  min-height: 20rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (min-width: 320px) {

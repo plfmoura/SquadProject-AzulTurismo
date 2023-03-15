@@ -4,7 +4,7 @@ import OnSuccess from '../../../assets/animations/OnSuccess/on-success.json'
 
 export default function OnSuccessAnimation() {
     const [ animation, setAnimation] = useState(true)
-    const [ visible, setVisible ] = useState('none')
+    const [ visible, setVisible ] = useState('block')
 
     const Stop = () => {
         setAnimation(false)
@@ -22,8 +22,8 @@ export default function OnSuccessAnimation() {
             loop={true}
             animationData={OnSuccess}
             play={animation}
-            style={{ width: 100, height: 100, display:`${visible}`, position: "absolute", zIndex: "5", overflow: 'hidden'}}
-            // onLoopComplete={() => Stop() }
+            style={{ width: 400, height: 400, display:`${visible}`, position: "absolute", zIndex: "5", overflow: 'hidden'}}
+            onLoopComplete={() => Stop() }
         />
     )
 }
