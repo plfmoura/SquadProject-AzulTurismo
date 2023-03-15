@@ -7,6 +7,7 @@ import axios from "axios";
 import PreLoader from "../../components/PreLoader";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
+import OnSuccessAnimation from "../../assets/animations/OnSuccess";
 
 export default function SingIn({ setShow }) {
   const [login, setLogin] = useState(false);
