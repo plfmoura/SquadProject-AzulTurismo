@@ -1,12 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Button from "../../../components/Button";
 import "./purchases.css";
 
 export default function Purchases({ data }) {
-  const today = new Date().getDate();
-  const purchaseRef = useRef();
-  const ticketRef = useRef();
-  useEffect(() => {}, [data]);
+  const today = Date.now();
 
   return (
     <div className="purchases-container">
@@ -19,7 +16,7 @@ export default function Purchases({ data }) {
             <div
               className="ticket"
               style={
-                today > item.data_tour
+                today > Date.parse(new Date(item.data_tour.split("-")[2],item.data_tour.split("-")[1],item.data_tour.split("-")[0]))
                   ? {
                       backgroundColor: "#999",
                       color: "#fcfcfc",
@@ -51,12 +48,12 @@ export default function Purchases({ data }) {
                     <span
                       className="span-content"
                       style={
-                        today > item.data_tour
+                        today > Date.parse(new Date(item.data_tour.split("-")[2],item.data_tour.split("-")[1],item.data_tour.split("-")[0]))
                           ? { color: "#ff3333" }
                           : { color: "#00ff00", fontWeight: "600" }
                       }
                     >
-                      {today > item.data_tour ? "Disponível" : "Indisponível"}
+                      {today > Date.parse(new Date(item.data_tour.split("-")[2],item.data_tour.split("-")[1],item.data_tour.split("-")[0])) ? "Indisponível" : "Disponível"}
                     </span>
                   </div>
                 </div>

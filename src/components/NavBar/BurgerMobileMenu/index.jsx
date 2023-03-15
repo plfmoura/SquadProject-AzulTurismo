@@ -72,7 +72,6 @@ export default function BurgerMobileMenu({ callMenu }) {
         <ul className={style.userContent}>
           {user ? (
             <>
-              <li onClick={ handleSelected }><Link to='/profile'>Meus Passeios</Link></li>
               <li
                 onClick={() => {
                     dispatch(delUser());

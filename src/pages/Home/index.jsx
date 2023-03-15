@@ -16,14 +16,14 @@ export default function Home() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
   const { setBgColor } = useContext(NavBarContext);
-  const [ filtered,setFiltered ] = useState([])
-  const [ myRegion,setMyRegion ] = useState("Todas as Regiões")
-  const [ showTop, setShowTop ] = useState('')
-  const { show, setShow } = useContext(LoggedContext);
+  const [filtered, setFiltered] = useState([])
+  const [myRegion, setMyRegion] = useState("Todas as Regiões")
+  const [showTop, setShowTop] = useState('')
+  const { show, setShow, setChange } = useContext(LoggedContext);
 
-  useEffect(()=>{
+  useEffect(() => {
     setFiltered(products)
-  },[products])
+  }, [products])
 
   useEffect(() => {
     // Subir a página após trocar de páginas 
@@ -31,19 +31,19 @@ export default function Home() {
   }, [])
 
   // Para pegar a posição do Menu e alterar conforme a posição da página 
-  const [ position, setPosition] = useState()
+  const [position, setPosition] = useState()
 
   useEffect(() => {
-  function updatePosition() {
+    function updatePosition() {
       setPosition(window.scrollY)
-  };
+    };
 
-  window.addEventListener('scroll', updatePosition);
-  updatePosition();
-  // condicional para mostrar de acordo com o valor mesmo que ele volte a 0 novamente 
-  let checkBgPosition = position > 400 ? setBgColor(true) : setBgColor(false)
+    window.addEventListener('scroll', updatePosition);
+    updatePosition();
+    // condicional para mostrar de acordo com o valor mesmo que ele volte a 0 novamente 
+    let checkBgPosition = position > 400 ? setBgColor(true) : setBgColor(false)
 
-  return () => window.removeEventListener('scroll', updatePosition);
+    return () => window.removeEventListener('scroll', updatePosition);
   }, [position])
 
   return (
@@ -60,28 +60,28 @@ export default function Home() {
         </div>
       </header>
       <section className={style.searchInputContainer}>
-        <SearchInput setFiltered={setFiltered} setMyRegion={setMyRegion} setShowTop={setShowTop}/>
+        <SearchInput setFiltered={setFiltered} setMyRegion={setMyRegion} setShowTop={setShowTop} />
       </section>
       <section className={style.servicesContainer}>
-        <div style={{display: `${showTop}`}}>
+        <div style={{ display: `${showTop}` }}>
           <h3>
             Passeios mais <span>Populares</span>
           </h3>
-            <CarouselServices
-              setClass={style.servicesSlider}
-              call={style.arrowAlign}
-              children={products.slice(1, 10).map((tour) => (
-                <TourCard
-                  key={tour.id}
-                  id={tour.id}
-                  title={tour.name}
-                  location={tour.located}
-                  price={tour.price}
-                  image={tour.imagens}
-                  rating={tour.rating}
-                />
-              ))}
-            />
+          <CarouselServices
+            setClass={style.servicesSlider}
+            call={style.arrowAlign}
+            children={products.slice(1, 10).map((tour) => (
+              <TourCard
+                key={tour.id}
+                id={tour.id}
+                title={tour.name}
+                location={tour.located}
+                price={tour.price}
+                image={tour.imagens}
+                rating={tour.rating}
+              />
+            ))}
+          />
         </div>
         <h3>
           Passeios em <span>{myRegion}</span>
@@ -125,7 +125,10 @@ export default function Home() {
           />
           <div>
             <h2>Faça seu Cadastro</h2>
-            <Button text='Cadastre-se' onPress={() => setShow(true)}/>
+            <Button text='Cadastre-se' 
+              onPress={() => { 
+                setShow(true); 
+                setChange(true)}} />
           </div>
         </div>
       </section>
