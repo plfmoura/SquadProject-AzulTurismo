@@ -1,17 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Button from "../../../components/Button";
 import "./purchases.css";
 
 export default function Purchases({ data }) {
   const today = Date.now();
-  const purchaseRef = useRef();
-  const ticketRef = useRef();
-
-let date=data[0].data_tour.split("-")
-var theBigDay = new Date(date[2], date[1], date[0]);
-console.log(Date.parse(theBigDay));
-  useEffect(() => {}, [data]);
-
 
   return (
     <div className="purchases-container">

@@ -53,7 +53,7 @@ export default function Profile() {
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem('token'))
-    let sendUser = user.user_id;
+    let sendUser = JSON.parse(localStorage.getItem("azul_user")).user_id;
     const options = {
       method: 'GET',
       url: `https://tourismapi.herokuapp.com/history/${sendUser}`,
@@ -68,7 +68,7 @@ export default function Profile() {
     }).catch(function (error) {
       console.error(error);
     });
-  }, [])
+  }, [user])
 
   return (
     <>

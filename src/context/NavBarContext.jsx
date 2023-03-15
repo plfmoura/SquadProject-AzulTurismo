@@ -5,7 +5,7 @@ export const NavBarContext = createContext()
 export const NavBarProvider = ({children}) => {
     const [ bgColor, setBgColor ] = useState(false)
 
-    let changeBgColor = bgColor ? '#fff' : '#ffffff00'
+    let changeBgColor = bgColor ? '#fff' : '#ffffff55'
     let changeColor = bgColor ? '#333' : '#fff'
 
     return (

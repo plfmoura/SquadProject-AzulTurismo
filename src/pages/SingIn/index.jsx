@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Button from "../../components/Button";
-import FacebookAuth from "./FacebookAuth";
-import GoogleAuth from "./GoogleAuth";
 import style from "./singIn.module.css";
 import axios from "axios";
 import PreLoader from "../../components/PreLoader";
@@ -9,8 +7,8 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
 import OnSuccessAnimation from "../../assets/animations/OnSuccess";
 
-export default function SingIn({ setShow }) {
-  const [login, setLogin] = useState(false);
+export default function SingIn({ setShow, change}) {
+  const [login, setLogin] = useState( change );
   const [load, setLoad] = useState(false);
   const [status, setStatus] = useState();
 
@@ -159,8 +157,8 @@ export default function SingIn({ setShow }) {
               <>
                 <Button text="Cadastrar" type="submit" />
                 <span>ou</span>
-                <FacebookAuth />
-                <GoogleAuth />
+                {/* <FacebookAuth /> */}
+                {/* <GoogleAuth /> */}
                 <span onClick={() => setLogin(!login)}>
                   Já tem uma conta? <strong>Entrar</strong>
                 </span>
@@ -200,8 +198,8 @@ export default function SingIn({ setShow }) {
               <>
                 <Button onPress={handleLogin} text="Entrar como Usuário" />
                 <span>ou</span>
-                <FacebookAuth />
-                <GoogleAuth />
+                {/* <FacebookAuth /> */}
+                {/* <GoogleAuth /> */}
                 <span onClick={() => setLogin(!login)}>
                   Não é cadastrado? <strong>Cadastre-se</strong>
                 </span>

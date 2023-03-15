@@ -14,14 +14,14 @@ import { NavBarContext } from "../../context/NavBarContext";
 export default function NavBar() {
   const state = useSelector((state) => state);
   const { user } = state.user;
-  const { show, setShow } = useContext(LoggedContext);
+  const { show, setShow, change, setChange } = useContext(LoggedContext);
   const { changeBgColor, changeColor } = useContext(NavBarContext);
   const dispatch = useDispatch();
 
   return (
     <>
       {show && (
-        <Modal setShow={setShow} children={<SingIn setShow={setShow} />} />
+        <Modal setShow={setShow} children={<SingIn setShow={setShow} change={change} />} />
       )}
 
       <div className={style.alignContent} style={{backgroundColor: changeBgColor}}>
@@ -51,10 +51,6 @@ export default function NavBar() {
             <ul className={style.menuContent}>
               {user ? (
                 <>
-                  <li>
-                    <Link style={{color: changeColor}} to="/profile">Meus Passeios</Link>
-                  </li>
-                  
                   <div>
                     <Link style={{color: changeColor}} to="/profile">
                       <IoNotifications className={style.notificationIcon} />
@@ -77,7 +73,7 @@ export default function NavBar() {
                 </>
               ) : (
                 <>
-                  <li onClick={() => setShow(true)}>
+                  <li onClick={() => {setShow(true); setChange(false)}}>
                     <Link style={{color: changeColor}}>Entrar</Link>
                   </li>
                   <div>
