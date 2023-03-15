@@ -80,7 +80,7 @@ export default function BurgerMobileMenu({ callMenu }) {
                     handleSelected()
                   }}
                 >
-                  <Link to="/">Sair</Link>
+                  <Link to="/" onClick={ handleSelected }>Sair</Link>
               </li>
               <div>
                 <Link to='/profile' onClick={ handleSelected }><IoNotifications className={style.notificationIcon}/></Link>
