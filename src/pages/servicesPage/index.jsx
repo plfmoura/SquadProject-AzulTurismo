@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import style from"./services.module.css"; 
-
+import { NavBarContext } from "../../context/NavBarContext";
 
 function ServicePage(){
+  const { setBgColor } = useContext(NavBarContext);
+
+  useEffect(() => {
+    // para subir a ao topo após renderizar a página
+    window.scrollTo(0, 0);
+    // para alterar cor do background de acordo com a página
+    setBgColor(true);
+  }, []);
+
     return(
         <div className={style.servPage}>
             <header className={style.fundoPage}>

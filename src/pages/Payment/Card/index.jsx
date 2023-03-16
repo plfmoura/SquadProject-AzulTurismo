@@ -5,12 +5,14 @@ import OnSuccessAnimation from "../../../assets/animations/OnSuccess";
 import Button from "../../../components/Button";
 import styles from "./CreditCard.module.css";
 
-export default function Card({ handleCheckout }) {
-  const [done, setDone] = useState(false);
-  const [ onSuccess, setOnSuccess ] = useState(!false)
+export default function Card({ handleCheckout, purchaseReturn }) {
+  const [ done, setDone ] = useState(false);
+  const [ onSuccess, setOnSuccess ] = useState(purchaseReturn)
 
-  let paymentDone = onSuccess ? { animation: 'disappear 2s ease normal' } : null
+  // let paymentDone = onSuccess ? { animation: 'disappear 2s ease normal' } : null
 
+  useEffect(() => { setOnSuccess(purchaseReturn)}, [ handleCheckout ])
+  
   useEffect(() => {
     setDone(false);
   }, []);
@@ -38,8 +40,8 @@ export default function Card({ handleCheckout }) {
   return (
 
     <>
-    { !onSuccess ? (
-    <div className={styles.cardContainer} style={ paymentDone }>
+    {!onSuccess ? (
+    <div className={styles.cardContainer}>
       <Cards
         cvc={cardDetails.cvc}
         expiry={cardDetails.expiry}
@@ -52,7 +54,7 @@ export default function Card({ handleCheckout }) {
         }}
       />
       <div>
-        <form className={styles.cardForm} onSubmit={() => {handleCheckout; setOnSuccess(onSuccess)}}>
+        <form className={styles.cardForm} onSubmit={handleCheckout}>
           <input
             type="tel"
             name="number"

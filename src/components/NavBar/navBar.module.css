@@ -5,7 +5,7 @@
     transition: all 200ms ease;
     z-index: 999;
     top: 0;
-    box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 5px .1rem;
     user-select: none;
 }
 
