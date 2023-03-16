@@ -1,328 +1,607 @@
-.servConteiner{
-    
-    width: 100vw;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-}
-.fundobanner{
+
+.servPage{
     margin-top: -5rem;
-    width: 100vw;
-    height: 35rem;
-    background: url('/src/assets/serviceImg/rioimage.png') center;
+    margin-bottom: -2rem;
+}
+.fundoPage{
+    background: url('https://www.maladeaventuras.com/wp-content/uploads/2018/12/DSC7078.jpg') center;
     background-position-y: 30%;
     background-size: cover;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 100vw;
+    height: 35rem;
 }
-.titleContainer {
+
+.contaIner{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5%;  
+}
+.banNer{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    position: relative;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 3rem;
-    height: 29rem;
-    width: 25rem;
-    text-transform: uppercase;
-    transform: scale(1.2);
-    user-select: none;
-    margin-top: 2rem;
-    margin-left: 6rem;
+}
+
+.banNer .bannerText{
+    margin: 150px;
+    text-align: center;
+    padding: 0 90px;
+}
+
+.bannerText h1{
+    font-size: 90px;
+    color: rgb(46, 108, 202);
+    font-weight: 900;
+}
+.bannerText p{
+    color:  rgb(52, 182, 234);
+    font-size: 25px;
+    font-weight: 800;
+    margin: 18px 0;
+
+}
+.btnLink{   
+    background-color: #4f9cf9;
     color: white;
-}
-.titleContainer p{
-    font-size: 3.6rem;
-    font-weight: 600;
-}
-.titleContainer span{
-    font-size: 3.6rem;
-    font-weight: bold;
-    line-height: 9rem;
-}
-.servContent{
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    margin-bottom: -1.9rem;
-}
-.textoConteudo{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.servContent h1{
-    margin-top:15rem;
-    text-align: right;
-    font-size: 3rem;
-}
-.servContent article{
-    margin-top: -0.98rem;
-    margin-left: 0.50rem;
-    background: rgb(0, 174, 255);
-    width: 100%;
-    height: 60vh;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-}
-.servContent h1,p{
-margin-left: 1rem;
-}
-.servContent p{
-    text-align: justify;
-    font-size: 18px;
-    width: 47%;
-    color: black;
-    margin-top: 1rem;
-}
- .lisingConteudo img{
-    display: flex;
-    justify-content: space-around;
-    top: -16rem;
-    left: 43rem;
-    position: relative;
-    z-index: 0;
-    width: 40rem;
-    height: 18rem;
-    object-fit: cover;
-}
-.btnGuia{
-    margin-top: 2rem;
-    margin-left: 1rem;
-    background-color:white;
-    width: 9rem;
-    color: black;
-    font-size: 1.3rem;
+    padding: 15px 20px;
+    border-radius: 10px;
     cursor: pointer;
+    display: inline-block;
+    transition: 0.1s;
+}
+
+.btnLink:hover{
+    background-color: #3580db;
+}
+
+/*sessão Sessão White*/
+.guiaContainer{
+    display: flex;
+    align-items: center;
+}
+
+.guiaBranco{
+    width: 100%;
+    padding: 50px;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.guiaBranco .guiaTexto{
+    width: 50%;
+    padding: 0 40px;
+}
+.guiaContainer h3{
+    font-size: 56px;
+}
+
+.guiaBranco .guiaContainer p{
+    margin: 5px 0 10px 0;
+    text-align: left;
+}
+.guiaBranco .brancoImage{
+    width: 100%;  
+}
+.guiaBranco .brancoImage img{
+    width: 100%;
+    height: 50%;
+    border-radius: 20px;
+    border: solid #3580db 1px;
+    box-shadow: 5rem;
+}
+.btnBlue{   
+    margin-top: 1rem;
+    background-color: #4f9cf9;
+    color: white;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.1s;
+}
+.btnBlue:hover{
+    background-color: #3580db;
+}
+/* fim da sessão White*/
+
+/* Sessão Blue*/
+.guiaContainer{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.guiaTuristico{
+    width: 100%;
+    padding: 50px;
+    background-color: #3580db;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+.guiaTuristico .guiaText{
+    width: 50%;
+    padding: 0 40px;
+}
+.guiaContainer h3{
+    font-size: 56px;
+}
+
+.guiaTuristico .guiaContainer p{
+    margin: 5px 0 10px 0;
+    text-align: justify;
+}
+.guiaTuristico .guiaImage{
+    width: 100%;  
+}
+.guiaTuristico .guiaImage img{
+    width: 100%;
+    height: 50%;
+    border-radius: 20px;
+    border: solid #3580db 1px;
+    box-shadow: 5rem;
+}
+.btnGuia{   
+    margin-top: 1rem;
+    background-color: #f1f1f1f1;
+    color: black;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.1s;
 }
 .btnGuia:hover{
-    background-color: rgb(0, 174, 255);
+    background-color: #3580db;
 }
 
-.servContainer .textoConteudo .lisingConteudo{
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    justify-content: flex-end;
+/*Responsivo*/
+/*
+@media screen and (max-width: 370px) {
+    .contaIner{
+        max-width: 100%;
+    }
+    .banNer .bannerText{
+        padding: 0;
+        margin: 80px;
+    }
+    .banNer .bannerText h1{
+        font-size: 30px;
+    }
+    .guiaTuristico{
+        width: 36.23;
+    }
+    .banNer .bannerText p{
+        font-size: 10px;
+    }
+    .guiaTuristico .guiaContainer{
+        margin-top: 10px;
+        padding: 0 10px;
+        order: 1;
+        gap: 2rem;
+    }
+    .guiaTuristico .guiaContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .guiaTuristico .guiaContainer h3{
+        font-size: 30px;
+    }
+    .guiaTuristico .guiaContainer p{
+        font-size: 10px;
+        text-align: center;
+    }
+    .guiaTuristico .guiaText,
+    .guiaTuristico .guiaImage img{
+        width:20rem;
+        height: 10rem;
+        object-fit: cover;
+    }
+    .btnGuia{
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        padding: 0.60rem;
+        border-radius: 10px;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.1s;
+    }
+
+    .guiaBranco{
+        display: flex;
+        width: 36.25rem;
+        background-color: #f1f1f1;
+    }
+
+    .guiaBranco .guiaContainer{
+        order: 1;
+        gap: 2rem;
+      
+    }
+    .guiaBranco .guiaContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .guiaBranco .guiaContainer h3{
+        font-size: 30px;
+    }
+    .guiaBranco .guiaContainer p{
+        font-size: 10px;
+        text-align: center;
+    }
+    .guiaBranco .guiaTexto,
+    .guiaBranco .brancoImage img{
+        width:15rem;
+        height: 15rem;
+        object-fit: cover;
+    }
+    
+    .btnBlue{
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        padding: 0.60rem;
+        border-radius: 10px;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.1s;
+    }
+}
+@media screen and (max-width: 580px) {
+    .contaIner{
+        max-width: 100%;
+    }
+    .banNer .bannerText{
+        padding: 0;
+        margin: 80px;
+    }
+    .banNer .bannerText h1{
+        font-size: 30px;
+    }
+    .guiaTuristico{
+        width: 36.23;
+    }
+    .banNer .bannerText p{
+        font-size: 10px;
+    }
+    .guiaTuristico .guiaContainer{
+        margin-top: 10px;
+        padding: 0 10px;
+        order: 1;
+        gap: 2rem;
+    }
+    .guiaTuristico .guiaContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .guiaTuristico .guiaContainer h3{
+        font-size: 30px;
+    }
+    .guiaTuristico .guiaContainer p{
+        font-size: 10px;
+        text-align: center;
+    }
+    .guiaTuristico .guiaText,
+    .guiaTuristico .guiaImage img{
+        width:20rem;
+        height: 10rem;
+        object-fit: cover;
+    }
+    .btnGuia{
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        padding: 0.60rem;
+        border-radius: 10px;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.1s;
+    }
+
+    .guiaBranco{
+        display: flex;
+        width: 36.25rem;
+        background-color: #f1f1f1;
+    }
+
+    .guiaBranco .guiaContainer{
+        order: 1;
+        gap: 2rem;
+      
+    }
+    .guiaBranco .guiaContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .guiaBranco .guiaContainer h3{
+        font-size: 30px;
+    }
+    .guiaBranco .guiaContainer p{
+        font-size: 10px;
+        text-align: center;
+    }
+    .guiaBranco .guiaTexto,
+    .guiaBranco .brancoImage img{
+        width:15rem;
+        height: 15rem;
+        object-fit: cover;
+    }
+    
+    .btnBlue{
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        padding: 0.60rem;
+        border-radius: 10px;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.1s;
+    }
+}
+@media screen and (max-width: 720px) {
+    .banNer .bannerText{
+        padding: 0;
+        margin: 80px;
+    }
+    .banNer .bannerText h1{
+        font-size: 80px;
+    }
+    .guiaTuristico{
+       width: 45rem;
+    }
+    .banNer .bannerText p{
+        font-size: 10px;
+    }
+    .guiaTuristico .guiaContainer{
+        margin-top: 10px;
+        padding: 0 10px;
+        order: 1;
+        gap: 2rem;
+    }
+    .guiaTuristico .guiaContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .guiaTuristico .guiaContainer h3{
+        font-size: 33px;
+    }
+    .guiaTuristico .guiaContainer p{
+        font-size: 15px;
+        text-align: center;
+    }
+    .guiaTuristico .guiaText,
+    .guiaTuristico .guiaImage img{
+        width:35rem;
+        height: 20rem;
+        object-fit: cover;
+    }
+    .btnGuia{
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        padding: 0.60rem;
+        border-radius: 10px;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.1s;
+    }
+
+    .guiaBranco{
+        width: 45rem;
+        background-color: red;
+    }
+
+    .guiaBranco .guiaContainer{
+        margin-top: 10px;
+        padding: 0 10px;
+        order: 1;
+        gap: 2rem;
+      
+    }
+    .guiaBranco .guiaContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .guiaBranco .guiaContainer h3{
+        font-size: 33px;
+    }
+    .guiaBranco .guiaContainer p{
+        font-size: 15px;
+        text-align: center;
+    }
+    .guiaBranco .guiaTexto,
+    .guiaBranco .brancoImage img{
+        width:35rem;
+        height: 20rem;
+        object-fit: cover;
+    }
+    
+    .btnBlue{
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        padding: 0.60rem;
+        border-radius: 10px;
+        cursor: pointer;
+        display: inline-block;
+        transition: 0.1s;
+    }
+}
+   
+@media screen and (max-width: 1280px){
+        
+.servPage{
+    margin-top: -5rem;
+    margin-bottom: -2rem;
+}
+.fundoPage{
+    background: url('https://www.maladeaventuras.com/wp-content/uploads/2018/12/DSC7078.jpg') center;
+    background-position-y: 30%;
+    background-size: cover;
+    position: relative;
+    width: 100vw;
+    height: 35rem;
 }
 
-.fotografoContainer{
-    margin-top: 1rem;
-    width: 100%;
-    height: 60vh;
+.contaIner{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5%;  
+}
+.banNer{
     display: flex;
-}
-.fotoConteudo{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.fotoContent{
-    text-align: right;
-    font-size: 3rem;
-}
-
-.fotoConteudo h1{
-    margin-top: 16rem;
-    text-align: right;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-.fotoConteudo h1{
- margin-right: 2rem; 
-}
-
-.fotoConteudo p{
-    margin-right: 1rem;
-    display: flex;
-    font-size: 19px;
-    width: 47%;
-    color: black;
-    margin-top: 1rem;
-}
-.fotoContent{
-    margin-top: -0.98rem;
-    right: 1rem;
-    left: 0;
-    background: white;
-    width: 100%;
-    height: 60vh;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
     justify-content: center;
 }
-.pictureEstilo img{
-    display: flex;
-    justify-content: flex-start;
-    right: 43rem;
-    top: -17rem;
-    position: relative;
-    z-index: 0;
-    width:  40rem;
-    height: 20rem;
-    object-fit: cover;
-} 
-.btnFoto{
-    margin-top: 1rem;
-    margin-right: 3rem;
-    background-color: rgb(0, 174, 255);
-    width: 9rem;
-    color:white;
-    font-size: 1.3rem;
-}
-.btnFoto:hover{
 
-    background-color:  rgb(42, 64, 213);
-}
-.culeContainer{
-    margin-top: 1rem;
-    width: 100%;
-    height: 60vh;
-    display: flex;
-}
-.culeConteudo{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.culeContent{
-    text-align: right;
-    font-size: 3rem;
+.banNer .bannerText{
+    margin: 150px;
+    text-align: center;
+    padding: 0 90px;
 }
 
-.culeConteudo h1{
-    margin-top: 16rem;
-    text-align: right;
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.bannerText h1{
+    font-size: 90px;
+    color: rgb(46, 108, 202);
+    font-weight: 900;
 }
-.culeConteudo h1{
- margin-right: 2rem; 
-}
+.bannerText p{
+    color:  rgb(52, 182, 234);
+    font-size: 25px;
+    font-weight: 800;
+    margin: 18px 0;
 
-.culeConteudo p{
-    margin-right: 1rem;
-    display: flex;
-    font-size: 19px;
-    width: 47%;
-    color: black;
-    margin-top: 1rem;
 }
-.culeContent{
-    margin-top: -0.50rem;
-    right: 1rem;
-    left: 0;
-    background: white;
-    width: 100%;
-    height: 60vh;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    justify-content: center;
-}
-.culeImage img{
-    display: flex;
-    justify-content: flex-start;
-    right: 43rem;
-    top: -18rem;
-    position: relative;
-    z-index: 0;
-    width:  40rem;
-    height: 20rem;
-    object-fit: cover;
-} 
-.btnComida{
-    margin-top: 1rem;
-    margin-right: 3rem;
-    background-color: rgb(0, 174, 255);
-    width: 9rem;
-    color:white;
-    font-size: 1.3rem;
-}
-.btnComida:hover{
-
-    background-color:  rgb(42, 64, 213);
-}
-
-.transContent{
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    margin-bottom: -1.9rem;
-}
-.transConteudo{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-.transContent h1{
-    margin-top:15rem;
-    text-align: right;
-    font-size: 3rem;
-}
-.transContent article{
-    margin-top: -0.98rem;
-    margin-left: 0.50rem;
-    background: rgb(0, 174, 255);
-    width: 100%;
-    height: 60vh;
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-}
-.trnasContent h1,p{
-margin-left: 1rem;
-}
-.transContent p{
-    text-align: justify;
-    font-size: 18px;
-    width: 47%;
-    color: black;
-    margin-top: 1rem;
-}
- .transImage img{
-    display: flex;
-    justify-content: space-around;
-    top: -16rem;
-    left: 43rem;
-    position: relative;
-    z-index: 0;
-    width: 40rem;
-    height: 18rem;
-    object-fit: cover;
-}
-.btnTrans{
-    margin-top: 2rem;
-    margin-left: 1rem;
-    background-color:white;
-    width: 9rem;
-    color: black;
-    font-size: 1.3rem;
+.btnLink{   
+    background-color: #4f9cf9;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
     cursor: pointer;
-}
-.btnTrans:hover{
-    background-color: rgb(0, 174, 255);
+    display: inline-block;
+    transition: 0.1s;
 }
 
+.btnLink:hover{
+    background-color: #3580db;
+}
+
+/*sessão Sessão White*/
+/*
+.guiaContainer{
+    display: flex;
+    align-items: center;
+}
+
+.guiaBranco{
+    width: 100%;
+    padding: 50px;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.guiaBranco .guiaTexto{
+    width: 50%;
+    padding: 0 40px;
+}
+.guiaContainer h3{
+    font-size: 56px;
+}
+
+.guiaBranco .guiaContainer p{
+    margin: 5px 0 10px 0;
+    text-align: left;
+}
+.guiaBranco .brancoImage{
+    width: 100%;  
+}
+.guiaBranco .brancoImage img{
+    width: 100%;
+    height: 50%;
+    border-radius: 20px;
+    border: solid #3580db 1px;
+    box-shadow: 5rem;
+}
+.btnBlue{   
+    margin-top: 1rem;
+    background-color: #4f9cf9;
+    color: white;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.1s;
+}
+.btnBlue:hover{
+    background-color: #3580db;
+}
+/* fim da sessão White*/
+
+/* Sessão Blue*/
+/*
+.guiaContainer{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.guiaTuristico{
+    width: 100%;
+    padding: 50px;
+    background-color: #3580db;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+.guiaTuristico .guiaText{
+    width: 50%;
+    padding: 0 40px;
+}
+.guiaContainer h3{
+    font-size: 56px;
+}
+
+.guiaTuristico .guiaContainer p{
+    margin: 5px 0 10px 0;
+    text-align: justify;
+}
+.guiaTuristico .guiaImage{
+    width: 100%;  
+}
+.guiaTuristico .guiaImage img{
+    width: 100%;
+    height: 50%;
+    border-radius: 20px;
+    border: solid #3580db 1px;
+    box-shadow: 5rem;
+}
+.btnGuia{   
+    margin-top: 1rem;
+    background-color: #f1f1f1f1;
+    color: black;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.1s;
+}
+.btnGuia:hover{
+    background-color: #3580db;
+}
+}
+*/
 
 
 
