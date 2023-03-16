@@ -80,19 +80,19 @@ export default function Card({ handleCheckout, purchaseReturn }) {
             <InputElement
               type="text"
               name="expiry"
-              mask='99 99'
+              mask='99/99'
               placeholder="MM/AA"
               onChange={handleInputChange}
               onFocus={handleInputFocus}
               value={cardDetails.expiry}
-              pattern="^[0-9]{4}$"
               required
             />
           </div>
           <div className={styles.bottom}>
             <InputElement
-              type="text"
+              type="tel"
               name="CPF"
+              mask='999.999.999-99'
               placeholder="CPF DO TITULAR"
               pattern="^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$"
               required
@@ -100,6 +100,7 @@ export default function Card({ handleCheckout, purchaseReturn }) {
             <input
               type="tel"
               name="cvc"
+              mask='999'
               placeholder="CVC"
               onChange={handleInputChange}
               onFocus={handleInputFocus}
