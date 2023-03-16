@@ -1,15 +1,15 @@
 .singleServiceContainer {
     width: 100vw;
     margin-top: 1.5rem;
-    animation: appears 1s ease normal;
+    animation: appears 500ms ease normal;
 }
 
 @keyframes appears {
     from {
-        opacity: 0;
+        transform: translateX(300vw);
     }
     to {
-        opacity: 1;
+        transform: translateX(0vw);
     }
 }
 

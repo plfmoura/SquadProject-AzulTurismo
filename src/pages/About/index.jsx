@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import style from "./about.module.css";
 import Button from "../../components/Button";
 import GoogleMaps from "../../components/GoogleMaps";
@@ -13,7 +13,6 @@ import axios from "axios";
 
 export default function About() {
   const { setBgColor } = useContext(NavBarContext);
-  const [data, setData] = useState([devTeam]);
   const contactForm = useRef();
   const state = useSelector((state) => state);
   const { user } = state.user;
@@ -43,10 +42,9 @@ export default function About() {
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
-    //to set the contact form for a loged user
   }, []);
   
   useEffect(() => {
@@ -85,7 +83,6 @@ export default function About() {
           <span style={{ visibility: "hidden" }}>Ver mais...</span>
           <img
             src="https://www.melhoresdestinos.com.br/wp-content/uploads/2019/08/parque-lage-rio.jpg"
-            alt=""
           />
         </div>
       </section>
@@ -124,7 +121,6 @@ export default function About() {
         <span style={{ visibility: "hidden" }}>Ver mais...</span>
         <img
           src="https://img.freepik.com/fotos-gratis/equipe-de-negocios-feliz-e-feliz-comemora-vitoria-corporativa_93675-134733.jpg"
-          alt=""
         />
       </article>
       <section className={style.contactUs}>

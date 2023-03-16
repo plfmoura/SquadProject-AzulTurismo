@@ -15,7 +15,7 @@ export default function NavBar() {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const { show, setShow, change, setChange } = useContext(LoggedContext);
-  const { changeBgColor, changeColor } = useContext(NavBarContext);
+  const { changeBgColor, changeColor, changeNotficationIcon } = useContext(NavBarContext);
   const dispatch = useDispatch();
 
   return (
@@ -24,7 +24,7 @@ export default function NavBar() {
         <Modal setShow={setShow} children={<SingIn setShow={setShow} change={change} />} />
       )}
 
-      <div className={style.alignContent} style={{backgroundColor: changeBgColor}}>
+      <div className={style.alignContent} style={changeBgColor}>
         <div className={style.navBarContainer}>
           <div className={style.logoAlign}>
             <img
@@ -53,7 +53,9 @@ export default function NavBar() {
                 <>
                   <div>
                     <Link style={{color: changeColor}} to="/profile">
-                      <IoNotifications className={style.notificationIcon} />
+                      <IoNotifications 
+                        className={style.notificationIcon}
+                        style={{color: changeNotficationIcon}} />
                     </Link>
                     <Link style={{color: changeColor}} to="/profile">
                       <img
