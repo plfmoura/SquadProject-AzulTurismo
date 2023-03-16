@@ -16,7 +16,14 @@ export default function Purchases({ data }) {
             <div
               className="ticket"
               style={
-                today > Date.parse(new Date(item.data_tour.split("-")[2],item.data_tour.split("-")[1],item.data_tour.split("-")[0]))
+                today >
+                Date.parse(
+                  new Date(
+                    Number(item.data_tour.split("-")[2]),
+                    Number(item.data_tour.split("-")[1] - 1),
+                    Number(item.data_tour.split("-")[0])
+                  )
+                )
                   ? {
                       backgroundColor: "#999",
                       color: "#fcfcfc",
@@ -48,12 +55,28 @@ export default function Purchases({ data }) {
                     <span
                       className="span-content"
                       style={
-                        today > Date.parse(new Date(item.data_tour.split("-")[2],item.data_tour.split("-")[1],item.data_tour.split("-")[0]))
+                        today >
+                        Date.parse(
+                          new Date(
+                            Number(item.data_tour.split("-")[2]),
+                            Number(item.data_tour.split("-")[1] - 1),
+                            Number(item.data_tour.split("-")[0])
+                          )
+                        )
                           ? { color: "#ff3333" }
                           : { color: "#00ff00", fontWeight: "600" }
                       }
                     >
-                      {today > Date.parse(new Date(item.data_tour.split("-")[2],item.data_tour.split("-")[1],item.data_tour.split("-")[0])) ? "Indisponível" : "Disponível"}
+                      {today >
+                      Date.parse(
+                        new Date(
+                          Number(item.data_tour.split("-")[2]),
+                          Number(item.data_tour.split("-")[1] - 1),
+                          Number(item.data_tour.split("-")[0])
+                        )
+                      )
+                        ? "Indisponível"
+                        : "Disponível"}
                     </span>
                   </div>
                 </div>
