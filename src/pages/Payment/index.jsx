@@ -19,7 +19,7 @@ export default function Payment() {
   const { setBgColor } = useContext(NavBarContext);
 
   // Estado que envia o retorno para animação renderizar e tirar o CARD
-  const [ onSuccess, setOnSuccess ] = useState(!false)
+  const [ onSuccess, setOnSuccess ] = useState(false)
 
   useEffect(() => {
     let selected_id = Number(id.replace(":", ""));
@@ -54,7 +54,7 @@ export default function Payment() {
       url: "https://tourismapi.herokuapp.com/comprar",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": token,
+        "auth-token": `${token}`,
       },
       data: {
         id_user: `${user.user_id}`,
@@ -70,12 +70,9 @@ export default function Payment() {
     };
     try {
       let response = await axios.request(options);
-      //estate que envia o tratamento para o componente animação de sucesso
-      setOnSuccess(!onSuccess)
       setTimeout(() => {
-        setOnSuccess(!onSuccess)
-        // navigate('/profile') <-- Navigate
-      }, [ 3000 ])
+        setOnSuccess(true)
+      }, [ 1000 ])
     } catch (error) {
       console.error(error);
       alert("Ops, algo deu errado!");
