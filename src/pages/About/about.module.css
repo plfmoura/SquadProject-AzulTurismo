@@ -2,7 +2,18 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  animation: appears 800ms ease normal;
 }
+
+@keyframes appears {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
 
 .firstSection {
   width: 100%;

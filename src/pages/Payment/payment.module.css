@@ -1,6 +1,16 @@
 .paymentContainer {
     margin-top: 2rem;
     width: 100vw;
+    animation: motion 500ms ease normal;
+}
+
+@keyframes motion {
+    from {
+        transform: translateX(-200vw);
+    }
+    to {
+        transform: translateX(0vw);
+    }
 }
 
 .alignContainer {

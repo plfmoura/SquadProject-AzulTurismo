@@ -7,6 +7,16 @@
 .userBackground {
     width: 100%;
     height: 60vh;
+    animation: bgMotion 3000ms ease normal;
+}
+
+@keyframes bgMotion {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .userBackground img {
