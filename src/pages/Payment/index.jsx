@@ -18,6 +18,9 @@ export default function Payment() {
   const dispatch = useDispatch();
   const { setBgColor } = useContext(NavBarContext);
 
+  // Estado que envia o retorno para animação renderizar e tirar o CARD
+  const [ onSuccess, setOnSuccess ] = useState(!false)
+
   useEffect(() => {
     let selected_id = Number(id.replace(":", ""));
     let selected_tour = products.find((product) => product.id === selected_id);
@@ -38,7 +41,11 @@ export default function Payment() {
   }, []);
   // finalização de compra
   const handleCheckout = async (e) => {
-    e.preventDefault();
+    // não ta fazendo esse preventDefault() faz o teste no site
+    // finalizaçã ode compra, digita os dados, ele simplesmente da 
+    // reload na página
+
+    e.preventDefault(); // <----- esse (APÓS RESOLVER APAGA ESSES COMENTÁRIOS)
     let date = new Date().toLocaleDateString("pt-br").replace(/\//g, "-");
     let token = JSON.parse(localStorage.getItem("token"));
 
@@ -63,7 +70,12 @@ export default function Payment() {
     };
     try {
       let response = await axios.request(options);
-      alert("Compra efetuada!");
+      //estate que envia o tratamento para o componente animação de sucesso
+      setOnSuccess(!onSuccess)
+      setTimeout(() => {
+        setOnSuccess(!onSuccess)
+        // navigate('/profile') <-- Navigate
+      }, [ 3000 ])
     } catch (error) {
       console.error(error);
       alert("Ops, algo deu errado!");
@@ -113,7 +125,13 @@ export default function Payment() {
           <div className={style.cardContainer}>
             <h3>Área de Pagamento</h3>
             <div className={style.cardArea}>
-              <Card handleCheckout={handleCheckout} />
+
+
+{/* COMPONENTE CARD  */}
+              <Card handleCheckout={handleCheckout} purchaseReturn={onSuccess}/>
+{/* COMPONENTE CARD  */}
+            
+            
             </div>
           </div>
           <section className={style.cartContent}>
