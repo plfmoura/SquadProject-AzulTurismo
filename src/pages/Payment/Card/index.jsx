@@ -5,9 +5,9 @@ import OnSuccessAnimation from "../../../assets/animations/OnSuccess";
 import Button from "../../../components/Button";
 import styles from "./CreditCard.module.css";
 
-export default function Card({ handleCheckout }) {
-  const [done, setDone] = useState(false);
-  const [ onSuccess, setOnSuccess ] = useState(!false)
+export default function Card({ handleCheckout, purchaseReturn }) {
+  const [ done, setDone ] = useState(false);
+  const [ onSuccess, setOnSuccess ] = useState(purchaseReturn)
 
   let paymentDone = onSuccess ? { animation: 'disappear 2s ease normal' } : null
 
