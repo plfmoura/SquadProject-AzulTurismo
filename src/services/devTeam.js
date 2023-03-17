@@ -9,7 +9,7 @@ export const devTeam = [
         id: 2,
         name: "Juan Pelier",
         office: "Desenvolvedor",
-        image: "https://media.licdn.com/dms/image/C4E03AQHG3PNOpAvnMA/profile-displayphoto-shrink_800_800/0/1649721389875?e=1683763200&v=beta&t=x4U4YQSYWEQJvk5RLGnQ63ypkkPxfZk7cLPmOipy9X0",
+        image: "https://avatars.githubusercontent.com/u/113916693?v=4",
       },
       {
         id: 3,
