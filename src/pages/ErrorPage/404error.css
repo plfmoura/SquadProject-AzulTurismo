@@ -14,7 +14,7 @@
 }
 
 .animated-error {
-    animation: appears 400ms ease normal;
+    animation: appears 500ms ease normal;
 }
 
 @keyframes appears {
