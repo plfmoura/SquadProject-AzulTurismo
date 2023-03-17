@@ -5,14 +5,15 @@ import axios from "axios";
 import PreLoader from "../../components/PreLoader";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
-import OnSuccessAnimation from "../../assets/animations/OnSuccess";
+import RegisterDone from "./Animation/RegisterDone";
 
-export default function SingIn({ setShow, change}) {
-  const [login, setLogin] = useState( change );
+export default function SingIn({ setShow, change }) {
+  const [login, setLogin] = useState(change);
   const [load, setLoad] = useState(false);
-  const [status, setStatus] = useState();
-
-  let showStatus = "";
+  const [status, setStatus] = useState(false);
+  const [doneAnimation, setDoneAnimation] = useState(false);
+  const [authError, setAuthError] = useState("");
+  const [showPassword, setShowPassword] = useState(false)
 
   const loginForm = useRef();
   const registerForm = useRef();
@@ -26,7 +27,12 @@ export default function SingIn({ setShow, change}) {
     let password = registerForm.current.password.value;
     let confirmPassword = registerForm.current.confirmPassword.value;
     if (password != confirmPassword) {
-      alert("As senhas não coinciden");
+      setAuthError("Confirmação de senha incorreta.");
+      setTimeout(() => {
+        setAuthError("");
+        registerForm.current.password.value = "";
+        registerForm.current.confirmPassword.value = "";
+      }, [3000]);
       return;
     }
 
@@ -52,15 +58,18 @@ export default function SingIn({ setShow, change}) {
     try {
       await axios.request(options);
       showLoad();
+      setStatus(true);
       registerForm.current.reset();
       setTimeout(() => {
         setLogin(false);
-      }, [3000]);
-      alert("Cadastro Efetuado com Sucesso!");
+      }, [4300]);
     } catch (error) {
       showLoad();
-      alert("Usuário já cadastrado");
-      registerForm.current.reset();
+      setAuthError("Usuário já cadastrado");
+      setTimeout(() => {
+        setAuthError("");
+        registerForm.current.reset();
+      }, [3000]);
     }
   };
 
@@ -68,7 +77,7 @@ export default function SingIn({ setShow, change}) {
     setLoad(true);
     setTimeout(() => {
       setLoad(false);
-    }, [3000]);
+    }, [4000]);
   };
 
   //function login
@@ -95,15 +104,31 @@ export default function SingIn({ setShow, change}) {
       loginForm.current.reset();
       setTimeout(() => {
         showLoad();
-      }, [2000]);
-      // alert("Buscando dados no servidor.");
+      }, [3000]);
       setShow(false);
     } catch (error) {
       showLoad();
-      console.log(error);
-      alert("Email ou Senha errados.");
+      setTimeout(() => {
+        setAuthError("Email ou Senha incorretos. Tente novamente.");
+        setTimeout(() => {
+          setAuthError("");
+        }, [5000]);
+      }, [3000]);
     }
   };
+
+  const eraseInputHistory = () => {
+    registerForm.current.reset();
+    loginForm.current.reset();
+  }
+
+  useEffect(() => {
+    setDoneAnimation(true);
+    setTimeout(() => {
+      setDoneAnimation(false);
+      setStatus(false);
+    }, [4000]);
+  }, [status === true]);
 
   return (
     <div>
@@ -118,53 +143,64 @@ export default function SingIn({ setShow, change}) {
             <span>Cadastre-se agora</span>
             <p>Faça seu cadastro agora e comece a explorar nossos passeios.</p>
           </div>
-          <div className={style.formMain}>
-            <input
-              type="text"
-              placeholder="Insira seu nome"
-              id="name"
-              required
-            />
-            <input
-              type="email"
-              placeholder="Insira seu email"
-              pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
-              id="email"
-              required
-            />
-            <input
-              type="password"
-              placeholder="Insira uma senha"
-              id="password"
-              required
-            />
-            <input
-              type="password"
-              placeholder="Confirme sua senha"
-              id="confirmPassword"
-              required
-            />
-          </div>
-          <div className={style.formFooter}>
-            {load ? (
-              <>
-                {status && (
-                  <span className={style.statusSpan}>{showStatus}</span>
-                )}
-                <PreLoader />
-              </>
+          <div className={style.formMain} style={{ minHeight: "250px" }}>
+            {status ? (
+              <RegisterDone play={doneAnimation} />
             ) : (
               <>
-                <Button text="Cadastrar" type="submit" />
-                <span>ou</span>
-                {/* <FacebookAuth /> */}
-                {/* <GoogleAuth /> */}
-                <span onClick={() => setLogin(!login)}>
-                  Já tem uma conta? <strong>Entrar</strong>
+                <input
+                  type="text"
+                  placeholder="Insira seu nome"
+                  id="name"
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Insira seu email"
+                  pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+                  id="email"
+                  required
+                />
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Insira uma senha"
+                  id="password"
+                  required
+                />
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Confirme sua senha"
+                  id="confirmPassword"
+                  required
+                />
+                <div style={{ display: "flex", justifyContent: "left", width: '100%'}}>
+                  <input type="checkbox" name="showPassword" onClick={() => setShowPassword(!showPassword)} style={{ width: '20px', marginRight: 5}}/>
+                  <span style={{ height: "16px", fontSize: "15px", color: "#333" }}>Mostrar campos de senha</span>
+                </div>
+                <span
+                  style={{ height: "16px", fontSize: "14px", color: "red" }}
+                >
+                  {authError}
                 </span>
               </>
             )}
           </div>
+          {!status && (
+            <div className={style.formFooter}>
+              <Button text="Cadastrar" type="submit" />
+              <span>ou</span>
+              {/* <FacebookAuth /> */}
+              {/* <GoogleAuth /> */}
+              <span 
+                onClick={() => {
+                  setLogin(!login); 
+                  setShowPassword(false);
+                  eraseInputHistory()
+                  }}>
+                Já tem uma conta? <strong>Entrar</strong>
+              </span>
+            </div>
+          )}
         </form>
       ) : (
         <form className={style.loginContainer} ref={loginForm}>
@@ -182,16 +218,22 @@ export default function SingIn({ setShow, change}) {
               id="email_login"
             />
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Senha de usuário"
               id="password_login"
               required
             />
+            <div style={{ display: "flex", justifyContent: "left", width: '100%'}}>
+              <input type="checkbox" name="showPassword" onClick={() => setShowPassword(!showPassword)} style={{ width: '20px', marginRight: 5}}/>
+              <span style={{ height: "16px", fontSize: "15px", color: "#333" }}>Mostrar senha</span>
+            </div>
+            <span style={{ height: "16px", fontSize: "14px", color: "red" }}>
+              {authError}
+            </span>
           </div>
           <div className={style.formFooter}>
             {load ? (
               <>
-                <span className={style.statusSpan}>{showStatus}</span>
                 <PreLoader />
               </>
             ) : (
@@ -200,7 +242,11 @@ export default function SingIn({ setShow, change}) {
                 <span>ou</span>
                 {/* <FacebookAuth /> */}
                 {/* <GoogleAuth /> */}
-                <span onClick={() => setLogin(!login)}>
+                <span 
+                onClick={() => {
+                  setLogin(!login); 
+                  setShowPassword(false);
+                  }}>
                   Não é cadastrado? <strong>Cadastre-se</strong>
                 </span>
               </>

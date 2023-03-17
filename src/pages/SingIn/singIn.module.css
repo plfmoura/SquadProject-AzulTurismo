@@ -63,7 +63,9 @@
 .formMain {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    position: relative;
     gap: 1rem;
     width: 60%;
 }
