@@ -4,6 +4,7 @@ import "react-credit-cards-2/es/styles-compiled.css";
 import OnSuccessAnimation from "../../../assets/animations/OnSuccess";
 import Button from "../../../components/Button";
 import styles from "./CreditCard.module.css";
+import InputElement from "react-input-mask/lib/react-input-mask.production.min";
 
 export default function Card({ handleCheckout, purchaseReturn }) {
   const [ done, setDone ] = useState(false);
@@ -55,7 +56,8 @@ export default function Card({ handleCheckout, purchaseReturn }) {
       />
       <div>
         <form className={styles.cardForm} onSubmit={handleCheckout}>
-          <input
+          <InputElement
+            mask='9999 9999 9999 9999'
             type="tel"
             name="number"
             placeholder="0000 0000 0000 0000"
@@ -66,7 +68,7 @@ export default function Card({ handleCheckout, purchaseReturn }) {
             required
           />
           <div className={styles.mainContent}>
-            <input
+            <InputElement
               type="text"
               name="name"
               placeholder="Titular do Cartão"
@@ -75,21 +77,22 @@ export default function Card({ handleCheckout, purchaseReturn }) {
               value={cardDetails.name}
               required
             />
-            <input
+            <InputElement
               type="text"
               name="expiry"
+              mask='99/99'
               placeholder="MM/AA"
               onChange={handleInputChange}
               onFocus={handleInputFocus}
               value={cardDetails.expiry}
-              pattern="^[0-9]{4}$"
               required
             />
           </div>
           <div className={styles.bottom}>
-            <input
-              type="text"
+            <InputElement
+              type="tel"
               name="CPF"
+              mask='999.999.999-99'
               placeholder="CPF DO TITULAR"
               pattern="^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$"
               required
@@ -97,6 +100,7 @@ export default function Card({ handleCheckout, purchaseReturn }) {
             <input
               type="tel"
               name="cvc"
+              mask='999'
               placeholder="CVC"
               onChange={handleInputChange}
               onFocus={handleInputFocus}
