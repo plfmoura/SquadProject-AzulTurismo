@@ -35,6 +35,8 @@ Copy the Local Host URL result or PRESS CTRL + CLICK in URL target.
 
 Repositório do Projeto Principal (Integração Front-End - Back-End): <a href="https://github.com/plfmoura/SquadProject-AzulTurismo">Visualizar</a> 🟢
 
+Repositório do Administrativo (Integração Front-end - Back-End): <a href="https://github.com/plfmoura/SquadProject-AdminAzulTurismo">Visualizar</a> 🟢
+
 Repositório da API/Banco de Dados (Back-End): <a href="https://github.com/Juanpi92/tourism_api">Visualizar</a> 🟢
 
 Repositório de informações para Alimentação do Banco de Dados: <a href="https://github.com/Juanpi92/criativos-produtos-api">Visualizar</a>
