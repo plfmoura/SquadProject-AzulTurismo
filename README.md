@@ -2,8 +2,7 @@
 <br/>
 
 <div align="center">
-  <img src="./public/azul.png" width="10%"/>
-  <h1>Azul Turismo</h1>
+  <img src="./public/azul.png" width="10%" /> <h1>Azul Turismo</h1>
 </div>
 
 <br/>
@@ -34,18 +33,20 @@ Write in your terminal "npm run dev" to run this App.
 Copy the Local Host URL result or PRESS CTRL + CLICK in URL target.
 ```
 
-Repositório de CRIATIVOS para API = <a href="https://github.com/Juanpi92/criativos-produtos-api">Visualizar</a>
+Repositório do Projeto Principal (Integração Front-End - Back-End): <a href="https://github.com/plfmoura/SquadProject-AzulTurismo">Visualizar</a> 🟢
 
-Repositório da API = <a href="https://github.com/Juanpi92/tourism_api">Visualizar</a>
+Repositório da API/Banco de Dados (Back-End): <a href="https://github.com/Juanpi92/tourism_api">Visualizar</a> 🟢
 
-Documentação da API = <a href="https://tourismapi.herokuapp.com/#update-one-product">Visualizar</a>
+Repositório de informações para Alimentação do Banco de Dados: <a href="https://github.com/Juanpi92/criativos-produtos-api">Visualizar</a>
 
-Protótipo (Figma) = <a href="https://www.figma.com/file/yqOtcjypEdqI93c2w0t4SW/Tourism-App?node-id=0%3A1&t=WTkxgYmm0jdTD0tc-1">Visualizar</a>
+Documentação da API: <a href="https://tourismapi.herokuapp.com/#update-one-product">Visualizar</a> 
 
-Fluxo do usuário (Miro) = <a href="https://miro.com/app/board/uXjVPmKHg_o=/?share_link_id=599769016089">Visualizar</a>
+Protótipo UX/UI (Figma): <a href="https://www.figma.com/file/yqOtcjypEdqI93c2w0t4SW/Tourism-App?node-id=0%3A1&t=WTkxgYmm0jdTD0tc-1">Visualizar</a> 
+
+Fluxo de Usuário (Miro): <a href="https://miro.com/app/board/uXjVPmKHg_o=/?share_link_id=599769016089">Visualizar</a> 
 
 
-### Contribuidores (em todas as dependências desse projeto): 
+### Contribuidores (em todas as dependências do projeto): 
 
 <a href="https://github.com/plfmoura/SquadProject-azulTurismo/graphs/contributors" width="30%">
   <img src="https://contrib.rocks/image?repo=plfmoura/SquadProject-azulTurismo" />
