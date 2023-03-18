@@ -48,6 +48,6 @@ Fluxo de Usuário (Miro): <a href="https://miro.com/app/board/uXjVPmKHg_o=/?shar
 
 ### Contribuidores (em todas as dependências do projeto): 
 
-<a href="https://github.com/plfmoura/SquadProject-azulTurismo/graphs/contributors" width="30%">
-  <img src="https://contrib.rocks/image?repo=plfmoura/SquadProject-azulTurismo" />
+<a href="https://github.com/plfmoura/SquadProject-azulTurismo/graphs/contributors" width="100%">
+  <img src="https://contrib.rocks/image?repo=plfmoura/SquadProject-azulTurismo" width="40%"/>
 </a>
