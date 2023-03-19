@@ -18,8 +18,7 @@ function ServicePage(){
                 <div className={style.contaIner}>
                     <section className={style.banNer}>
                         <div className={style.bannerText}>
-                            <h1>Services</h1>
-                            <p>Confira os Serviços que Azul Tour preparou especialmente para você em seu passeio!</p>
+                            <p>Confira os Serviços que preparamos especialmente para você!</p>
                             <a href="" className={style.btnLink}>Central de Atendimento</a>
                         </div>
                     </section>
@@ -46,7 +45,7 @@ function ServicePage(){
             <section className={style.guiaTuristico}>
                 <div className={style.guiaContainer}>
                 <div className={style.guiaImage}>
-                        <img src="https://www.vidadeturista.com/wp-content/uploads/2016/05/guia-de-turismo-profissao.jpg" alt="" />
+                         <img src="https://www.melhoresdestinos.com.br/wp-content/uploads/2021/07/melhores-restaurantes-mundo-2021-capa.jpg"walt="" />
                     </div>
                     <div className="guiaText">
                         <h3>Melhores Restaurantes</h3>
@@ -70,7 +69,7 @@ function ServicePage(){
                             <a className={style.btnBlue} href="">Saiba Mais.</a>
                     </div>
                     <div className={style.brancoImage}>
-                        <img src="https://www.vidadeturista.com/wp-content/uploads/2016/05/guia-de-turismo-profissao.jpg" alt="" />
+                        <img src="https://www.otempo.com.br/image/contentid/policy:1.2765706:1668340122/frota-5-jpg.jpg?f=3x2&w=1224" alt="" />
                     </div>
                 </div>
             </section>
@@ -79,13 +78,13 @@ function ServicePage(){
             <section className={style.guiaTuristico}>
                 <div className={style.guiaContainer}>
                 <div className={style.guiaImage}>
-                        <img src="https://www.vidadeturista.com/wp-content/uploads/2016/05/guia-de-turismo-profissao.jpg" alt="" />
+                        <img src="https://www.ilhagrande.com.br/wp-content/uploads/2015/06/passeio-barco-lopes-mendes-ilha-grande-41.jpg" alt="" />
                     </div>
                     <div className="guiaText">
-                        <h3>Passeio de Barco</h3>
+                        <h3>Passeios de Barcos</h3>
                             <p> Trabalhamos com as melhores agências
                                 de turismo marinho com escunas 100% seguras e com manutenção rigorosamente rígida 
-                                ara seu maior conforto e segurança.
+                                para seu maior conforto e segurança.
                             </p>
                             <a className={style.btnGuia} href="">Saiba Mais.</a>
                     </div>
