@@ -1,0 +1,14 @@
+.onSuccess-animation-container span {
+    animation: animatedText 4020ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes animatedText {
+    from {
+        opacity: 0;
+        color: gray;
+    }
+    to {
+        color: green;
+        opacity: 1;
+    }
+}

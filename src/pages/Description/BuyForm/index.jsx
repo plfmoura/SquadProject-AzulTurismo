@@ -1,4 +1,4 @@
-import React, { createElement, useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
@@ -10,6 +10,7 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
   const { user } = state.user;
   const { show, setShow } = useContext(LoggedContext);
   const [tickets, setTickets] = useState([]);
+  const [avaiableTickets, setAvaiableTickets] = useState();
   const [ warning, setWarning ] = useState(false)
   const navigate = useNavigate();
   const formRef = useRef();
@@ -35,15 +36,15 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
     !user ? setShow(!show) : navigate(`/payment/:${id}/:${quantity}`);
   };
 
-  // Para adicionar as opções de quantidade de tickets disponíveis para cada passeio
-  const newOption = () => {
-    for (let i = 1; i <= amount; i++) {
+  useEffect(() => {
+    // Para adicionar as opções de quantidade de tickets disponíveis para cada passeio
+    for(let i = 1; i <= amount; i++) {
       tickets.push(i);
     }
-  };
-
-  useEffect(() => {
-    newOption();
+    // Filtrar entrega duplicada do REACT
+    setAvaiableTickets(tickets.filter(function(check, index) {
+      return tickets.indexOf(check) === index;
+    }))
   }, []);
 
   return (
@@ -66,10 +67,10 @@ export default function BuyForm({ tourPrice, amount, date, id }) {
           }}
         />
         <label htmlFor="date">Quantidade de Pessoas</label>
-        {tickets && (
+        {avaiableTickets && (
           <select name="quantity" required id="quantity" style={showWarning}>
             <option value="default">Selecione</option>
-            {tickets.map((quantity, key) => 
+            {avaiableTickets.map((quantity, key) => 
               <option value={quantity} key={key}>
                 {quantity} {quantity === 1 ? 'pessoa' : 'pessoas'}
               </option>

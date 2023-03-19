@@ -4,6 +4,7 @@
 }
 
 .error-content {
+    margin-top: 8vh;
     width: 100%;
     height: 100%;
     display: flex;
@@ -13,7 +14,7 @@
 }
 
 .animated-error {
-    animation: appears 400ms ease normal;
+    animation: appears 500ms ease normal;
 }
 
 @keyframes appears {
