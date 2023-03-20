@@ -27,7 +27,7 @@ export const devTeam = [
         id: 5,
         name: "Guilherme Santos",
         office: "Desenvolvedor",
-        image: "https://scontent.fqnv10-1.fna.fbcdn.net/v/t39.30808-6/316310197_2075332655970335_7846852653048967956_n.jpg",
+        image: "https://media.licdn.com/dms/image/D4D03AQH5lc2ZucDMgg/profile-displayphoto-shrink_800_800/0/1665056744970?e=1684972800&v=beta&t=tdQRQi_EyWjvzh2W4-oC9TsdXQyTGdhdBJkdE3Zfrl8",
       },
       {
         id: 6,
