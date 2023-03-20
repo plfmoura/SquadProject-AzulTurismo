@@ -30,7 +30,7 @@ function ServicePage(){
             <section className={style.guiaBranco}>
                 <div className={style.guiaContainer}>
                     <div className="guiaTexto">
-                        <h3>Guias Turismo</h3>
+                        <h3>Guias de Turismo</h3>
                             <p>
                             Possuímos profissionais treinados e qualificados para acompanhar a sua viagem e 
                             transformar seu passeio na melhor experiência possível, digno de uma memória inesquecível.
@@ -73,12 +73,12 @@ function ServicePage(){
                 <div className={style.guiaContainer}>
                     <div className={style.guiaTexto}>
                         <h3>Transporte</h3>
-                            <p> A Nossa frota possui veículos novos, confortáveis , 
-                                totalmente legalizados e seguros . Nossos motoristas são treinados e capacitados. Buscamos você em seu hotel.
-                                Nossa frota de veículos é muito mais do que apenas jipes restaurados! Nós temos vans de passageiros Mercedes Vito 7, 
-                                uma variedade de carros executivos, vans de 15 e 20 passageiros e ônibus também. 
-                                Oferecemos traslados para o aeroporto, para Búzios ou outros destinos e aluguéis diários de carros com motorista. 
-                                Tudo pode estar disponível mediante a sua solicitação.
+                            <p> 
+                              A Nossa frota possui veículos novos, confortáveis, totalmente legalizados e seguros. Nossos motoristas são treinados e capacitados. Buscamos você 
+                              em seu hotel. Nossa frota de veículos é muito mais do que apenas jipes restaurados! Nós temos vans de passageiro Mercedes Vito 7, uma variedade de 
+                              carros executivos, vans de 15 e 20 passageiros e ônibus também. Oferecemos traslados para o 
+                              aeroporto, para Búzios ou outros destinos e aluguéis diários de carros com motorista. 
+                              Tudo pode estar disponível mediante a sua solicitação.
                             </p>
                             <Button className={style.btnBlue} 
                         text="Saiba Mais"/>
@@ -96,13 +96,12 @@ function ServicePage(){
                         <img src="https://www.ilhagrande.com.br/wp-content/uploads/2015/06/passeio-barco-lopes-mendes-ilha-grande-41.jpg" alt="" />
                     </div>
                     <div className={style.guiaText}>
-                        <h3>Passeios de Barcos</h3>
+                        <h3>Passeios de Barco</h3>
                             <p> Trabalhamos com as melhores agências
-                                de turismo marinho com escunas 100% seguras e com manutenção rigorosamente rígida 
+                                de turismo marinho com embarcações 100% seguras e com manutenção rigorosamente rígida 
                                 para seu maior conforto e segurança.
                                 Nossa missão é promover experiências únicas e inesquecíveis na Cidade Maravilhosa.  
                                 Seja a bordo de um veleiro ou de outra embarcação escolhida, a garantia é de vistas e paisagens de tirar o fôlego.
-                                
                             </p>
                             <Button className={style.btnGuia} 
                         text="Saiba Mais"/>
