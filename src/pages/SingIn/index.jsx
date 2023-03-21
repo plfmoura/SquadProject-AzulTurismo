@@ -51,8 +51,8 @@ export default function SingIn({ setShow, change }) {
         tel2: "",
         about: "Conte algo sobre você",
         images: ["", "", "", ""],
-        image_banner: "",
-        image_profile: "",
+        image_banner: "https://wallpapers.com/images/featured/2iuzyh711jo9bmgo.jpg",
+        image_profile: "https://icon-library.com/images/user-icon-jpg/user-icon-jpg-5.jpg",
       },
     };
     try {
