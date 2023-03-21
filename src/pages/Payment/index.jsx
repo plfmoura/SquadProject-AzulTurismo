@@ -122,13 +122,8 @@ export default function Payment() {
           <div className={style.cardContainer}>
             <h3>Área de Pagamento</h3>
             <div className={style.cardArea}>
-
-
 {/* COMPONENTE CARD  */}
               <Card handleCheckout={handleCheckout} purchaseReturn={onSuccess}/>
-{/* COMPONENTE CARD  */}
-            
-            
             </div>
           </div>
           <section className={style.cartContent}>
@@ -171,7 +166,7 @@ export default function Payment() {
                     <p>
                       -R$
                       <span>
-                        {tour.price * Number(quantity.replace(":", "")) * 0.1}
+                        {(tour.price * Number(quantity.replace(":", "")) * 0.10).toFixed(2)}
                       </span>
                     </p>
                   </div>
@@ -183,7 +178,7 @@ export default function Payment() {
                       {(
                         tour.price * Number(quantity.replace(":", "")) -
                         tour.price * Number(quantity.replace(":", "")) * 0.1
-                      ).toFixed(2)}
+                      ).toFixed(2).replace(".", ",")}
                     </span>
                   </div>
                 </div>
