@@ -29,17 +29,18 @@ function ServicePage(){
             {/*Primeira sessão wwhite*/}
             <section className={style.guiaBranco}>
                 <div className={style.guiaContainer}>
-                    <div className="guiaTexto">
+                    <div className={style.guiaTexto}>
                         <h3>Guias de Turismo</h3>
                             <p>
                             Possuímos profissionais treinados e qualificados para acompanhar a sua viagem e 
                             transformar seu passeio na melhor experiência possível, digno de uma memória inesquecível.
                              Entre eles, podemos fornecer guias personalizados nos seguintes idiomas: português (obviamente ;-) 
-                            inglês, espanhol, alemão, francês, italiano, hebraico, japonês, chinês (mandarim) e grego. 
-                            Impressionante, certo? Deixe-nos saber qual é o seu idioma preferido e faremos o possível para encontrar o guia mais adequado para seu tour.
+                            inglês, espanhol, alemão, francês, italiano, hebraico, japonês, chinês (mandarim) e grego.
                             </p>
-                            <Button className={style.btnBlue} 
-                        text="Saiba Mais"/>
+                            <div> 
+                                 <Button className={style.btnBlue} 
+                                 text="Saiba Mais"/>
+                            </div>
                     </div>
                     <div className={style.brancoImage}>
                         <img src="https://www.vidadeturista.com/wp-content/uploads/2016/05/guia-de-turismo-profissao.jpg" alt="" />
@@ -62,9 +63,11 @@ function ServicePage(){
                                  que encontramos em todos os estados brasileiros, a verdade é que quem provou a feijoada carioca 
                                 incontestavelmente garante que é a melhor! Em nossos passeios você vai se deliciar com as comidas típicas do Rio de Janeiro aproveite!
                             </p>
-                            <Button className={style.btnGuia} 
-                        text="Saiba Mais"/>
-                    </div>
+                            <div>
+                                <Button className={style.btnGuia} 
+                                text="Saiba Mais"/>
+                            </div>
+                </div>
                 </div>
             </section>
             {/*fim segunda sessão*/}
@@ -75,13 +78,13 @@ function ServicePage(){
                         <h3>Transporte</h3>
                             <p> 
                               A Nossa frota possui veículos novos, confortáveis, totalmente legalizados e seguros. Nossos motoristas são treinados e capacitados. Buscamos você 
-                              em seu hotel. Nossa frota de veículos é muito mais do que apenas jipes restaurados! Nós temos vans de passageiro Mercedes Vito 7, uma variedade de 
-                              carros executivos, vans de 15 e 20 passageiros e ônibus também. Oferecemos traslados para o 
-                              aeroporto, para Búzios ou outros destinos e aluguéis diários de carros com motorista. 
-                              Tudo pode estar disponível mediante a sua solicitação.
+                              em seu hotel. Nós temos vans de passeio Mercedes Vito 7, uma variedade de 
+                              carros executivos, vans de 15 e 20 passageiros e ônibus também.
                             </p>
-                            <Button className={style.btnBlue} 
-                        text="Saiba Mais"/>
+                            <div>
+                                <Button className={style.btnBlue} 
+                                 text="Saiba Mais"/>
+                            </div>
                     </div>
                     <div className={style.brancoImage}>
                         <img src="https://www.otempo.com.br/image/contentid/policy:1.2765706:1668340122/frota-5-jpg.jpg?f=3x2&w=1224" alt="" />
