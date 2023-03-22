@@ -60,7 +60,7 @@ export default function CarouselServices({ children, setClass }) {
     className: "center",
     infinite: true,
     centerPadding: "60px",
-    slidesToShow: 3,
+    slidesToShow: 3.55,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -68,7 +68,16 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 3.3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 1340,
+        settings: {
+          slidesToShow: 3.1,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -77,7 +86,16 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 2.3,
+          slidesToShow: 2.8,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 1150,
+        settings: {
+          slidesToShow: 2.4,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -86,7 +104,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2.1,
+          slidesToShow: 2.2,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -95,7 +113,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 900,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.05,
           slidesToScroll: 2,
           initialSlide: 1
         }
@@ -103,7 +121,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 820,
         settings: {
-          slidesToShow: 1.7,
+          slidesToShow: 1.6,
           initialSlide: 2,
           slidesToScroll: 1
         }
@@ -111,6 +129,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 690,
         settings: {
+          slidesToShow: 1.1,
           initialSlide: 3,
           slidesToShow: 1.5,
         }
@@ -118,6 +137,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 610,
         settings: {
+          slidesToShow: 1,
           initialSlide: 3,
           slidesToShow: 1.2,
         }
