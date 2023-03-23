@@ -59,6 +59,17 @@
   width: 80%;
 }
 
+
+.cardFlagsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardFlagsTitle {
+  margin-bottom: -2rem;
+}
+
 .submitArea {
   display: flex;
   align-items: center;
