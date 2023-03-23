@@ -26,6 +26,7 @@ export default function CarouselTeam({ children, setclass }) {
   const settings = {
     className: "center",
     infinite: true,
+    initialSlide: 0,
     slidesToShow: 3,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
@@ -56,18 +57,8 @@ export default function CarouselTeam({ children, setclass }) {
         }
       },
       {
-        breakpoint: 980,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          initialSlide: 3,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 880,
-        settings: {
-          centerPadding: 1.5,
-          initialSlide: 3,
           slidesToShow: 1,
           slidesToScroll: 1
         }

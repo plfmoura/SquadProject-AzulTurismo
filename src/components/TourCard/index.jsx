@@ -72,7 +72,7 @@ function TourCard({ id, title, location, image, price, rating }) {
             <div className={style.cardOverView}>
               <p>{location}</p>
               <p>
-                <span>R${price} </span>/pessoa
+                <span style={{fontWeight: 700, fontSize: 16}}>R${price} </span>/pessoa
               </p>
             </div>
           </div>

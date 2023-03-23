@@ -233,7 +233,7 @@ export default function Description() {
       {/* Google Maps  */}
       {tour && (
         <section className={style.mapsContainer}>
-          <h2>Nosso destino em {tour.name} através do Maps</h2>
+          <h2>Veja a localização de {tour.name}, através do Google Maps.</h2>
           <div>
             <GoogleMaps
               lat={Number(tour.latitude)}

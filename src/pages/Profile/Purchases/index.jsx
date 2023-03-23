@@ -12,9 +12,10 @@ export default function Purchases({ data }) {
       </div>
       <div className="main-content">
         {data &&
-          data.map((item) => (
+          data.map((item, key) => (
             <div
               className="ticket"
+              key={key}
               style={
                 today >
                 Date.parse(
@@ -25,7 +26,7 @@ export default function Purchases({ data }) {
                   )
                 )
                   ? {
-                      backgroundColor: "#999",
+                      backgroundColor: "#aaa",
                       color: "#fcfcfc",
                     }
                   : {
@@ -63,7 +64,7 @@ export default function Purchases({ data }) {
                             Number(item.data_tour.split("-")[0])
                           )
                         )
-                          ? { color: "#ff3333" }
+                          ? { color: "#ff3333", fontWeight: "500" }
                           : { color: "#00ff00", fontWeight: "600" }
                       }
                     >
