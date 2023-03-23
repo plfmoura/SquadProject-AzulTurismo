@@ -1,0 +1,68 @@
+@media screen and (min-width: 320px){
+    .imgContent {
+        width: 14rem;
+        height: 10rem;
+        object-fit: cover;
+        border-radius: 10px;
+        position: relative; 
+        z-index: 0; 
+        padding: .5rem;
+    }
+
+    .heartAnimation {
+        transform: scale(1);
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+    }
+}
+
+@media screen and (min-width: 480px){
+    .imgContent {
+        width: 21rem;
+        height: 15rem;
+    }
+
+    .heartAnimation {
+        transform: scale(1.2);
+    }
+}
+
+@media screen and (min-width: 580px){
+    .imgContent {
+        width: 26rem;
+        height: 18rem;
+        padding: 0;
+    }
+
+    .heartAnimation {
+        transform: scale(1.4);
+    }
+}
+
+@media screen and (min-width: 720px){
+    .imgContent {
+        width: 30rem;
+        height: 20rem;
+    }
+
+    .heartAnimation {
+        transform: scale(1.6);
+    }
+}
+
+@media screen and (min-width: 900px){
+    .imgContent {
+        width: 35rem;
+        height: 20rem;
+        padding: 1rem;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .imgContent {
+        width: 40rem;
+        height: 20rem;
+        padding: -1rem;
+    }
+}

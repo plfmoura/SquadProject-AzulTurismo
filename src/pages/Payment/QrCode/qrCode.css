@@ -1,0 +1,38 @@
+.qrCode-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    height: 3rem;
+    margin: 0 auto;
+}
+
+.qrCode-main-content {
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    animation: appears-qr 2s ease normal;
+}
+
+@keyframes appears-qr {
+    0%,75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.payment-info-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-info-content span {
+    margin-bottom: 1rem;
+}
+

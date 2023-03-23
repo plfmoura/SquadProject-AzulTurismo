@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-evenly;
     width: 20rem;    
-    height: 20rem;
+    height: 21rem;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 2px 5px .05rem;
     border-radius: 20px;
     position: sticky;
@@ -53,6 +53,7 @@
 
 .formContainer button {
     width: 80%;
+    margin: 0 auto 1rem;
 }
 
 .reservationDate {

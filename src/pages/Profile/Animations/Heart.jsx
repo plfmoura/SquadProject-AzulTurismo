@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Lottie from 'react-lottie-player'
 import Heart from '../../../assets/animations/heart.json'
+import style from './userImage.module.css'
 
 export default function HeartAnimation({ image }) {
     const [ animation, setAnimation] = useState(false)
@@ -18,13 +19,13 @@ export default function HeartAnimation({ image }) {
 
   return (
     <div style={{display: "flex", alignItems: 'center', justifyContent: 'center'}}>
-        <img src={ image } width='500px' height='350px' style={{position: "relative", zIndex: "0", objectFit: 'cover'}} onDoubleClick={ heartPlay }/>
+        <img src={ image } className={style.imgContent} onDoubleClick={ heartPlay }/>
       <Lottie 
-        className='testando'
+        className={style.heartAnimation}
         loop={true}
         animationData={Heart}
         play={animation}
-        style={{ width: 100, height: 100, display:`${visible}`, position: "absolute", zIndex: "1", overflow: 'hidden'}}
+        style={{ display:`${visible}`}}
         onLoopComplete={() => heartStop() }
       />
     </div>
