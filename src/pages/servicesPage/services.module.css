@@ -85,7 +85,7 @@
 
 .guiaTuristico{
     width: 100vw;
-    padding: 50px;
+    padding: 5rem 0 5rem 0;
     background-color: #3580db;
     display: flex;
     justify-content: flex-end;
@@ -124,17 +124,10 @@
     background-color: #4f9cf9;
 }
 /*Responsivo*/
-@media screen and (min-width: 320px) {
+@media (min-width: 320px) and (max-width: 499px) {
     .banNer .bannerText{
         padding: 0;
         margin: 10px;
-    }
-    .guiaTuristico, .guiaBranco{
-     
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 2rem;
     }
     .banNer .bannerText p{
         padding-bottom: 4rem;
@@ -146,213 +139,209 @@
         order: 1;
         padding-bottom: 5rem;
     }
-    .guiaTuristico .guiaContainer{
-        margin-bottom: 20rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
     .guiaTuristico .guiaContainer h3{
-        font-size: 28px;
+        font-size: 9vw;
     }
     .guiaTuristico .guiaContainer p{
+        margin-bottom: 1rem;
+        font-size: 16px;
         margin-top: 1rem;
-        font-size: 13px;
+        font-weight: 200;
+        text-align: center;
+    }
+    .guiaTuristico .guiaContainer{
+        margin-bottom: 30rem;
+        display: flex;
+        flex-direction: column;
         text-align: center;
     }
     .guiaTuristico .guiaText,
     .guiaTuristico .guiaImage img{
-        width:15rem;
-        height: 10rem;
-        object-fit: cover;
+        width:80vw;
+        height: 30vh;
     }
     .btnGuia{
         margin-top: 1rem;
         font-size: 1.1rem;
         padding: 0.60rem;
     }
-
-    .guiaBranco{
-        display: flex;
-        padding-bottom: 18rem;
-      
-    }
     .guiaBranco .guiaContainer{
-        order: 1;
-        gap: 2rem;
-      
-    }
-    .guiaBranco .guiaContainer{
+        margin-bottom: 18rem;
         display: flex;
         flex-direction: column-reverse;
         justify-content: center;
         text-align: center;
     }
     .guiaBranco .guiaContainer h3{
-        font-size: 28px;
+        font-size: 9vw;
     }
     .guiaBranco .guiaContainer p{
+        font-size: 15px;
+        margin-bottom: 5rem;
         margin-top: 1rem;
-        font-size: 13px;
+        font-weight: 400;
         text-align: center;
     }
     .guiaBranco .guiaTexto,
     .guiaBranco .brancoImage img{
-        width:15rem;
-        height: 10rem;
-        object-fit: cover;
+        width:90vw;
+        height: 30vh;
     }
 }
-
-@media screen and (min-width: 370px) {
-    .guiaTuristico{
-        padding-bottom: 8rem;
+@media (min-width:500px) and (max-width: 599px) {
+    .banNer .bannerText{
+        padding: 0;
+        margin: 10px;
     }
     .banNer .bannerText p{
-        font-size: 15px;
+        padding-bottom: 4rem;
+        margin-top: 3rem;
+        font-size: 18px;
+    }
+    .guiaTuristico .guiaContainer{
+        margin-top: 10px;
+        order: 1;
+        padding-bottom: 5rem;
     }
     .guiaTuristico .guiaContainer h3{
-        font-size: 21px;
+        font-size: 9vw;
     }
     .guiaTuristico .guiaContainer p{
-        font-size: 15px;
+        margin-bottom: 1rem;
+        font-size: 16px;
+        margin-top: 1rem;
+        font-weight: 200;
+        text-align: center;
+    }
+    .guiaTuristico .guiaContainer{
+        margin-bottom: 30rem;
+        display: flex;
+        flex-direction: column;
         text-align: center;
     }
     .guiaTuristico .guiaText,
     .guiaTuristico .guiaImage img{
-        width:100%;
-        height: 100%;
-        object-fit: cover;
+        width:80vw;
+        height: 30vh;
+    }
+    .btnGuia{
+        margin-top: 1rem;
+        font-size: 1.1rem;
+        padding: 0.60rem;
+    }
+    .guiaBranco .guiaContainer{
+        margin-bottom: 18rem;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        text-align: center;
+    }
+    .guiaBranco .guiaContainer h3{
+        font-size: 9vw;
+    }
+    .guiaBranco .guiaContainer p{
+        font-size: 15px;
+        margin-bottom: 5rem;
+        margin-top: 1rem;
+        font-weight: 400;
+        text-align: center;
     }
     .guiaBranco .guiaTexto,
     .guiaBranco .brancoImage img{
-        width:100%;
-        height: 100%;
-        object-fit: cover;
+        width:90vw;
+        height: 30vh;
     }
 }
-
-@media screen and (min-width: 500px) {
-    
+@media (min-width: 600px) and (max-width: 699px){
     .banNer .bannerText p{
-        font-size: 25px;
-        text-align: center;
-    }
-    .guiaTuristico .guiaContainer h3,
-    .guiaBranco .guiaContainer h3{
-        font-size: 35px;
-    }
-    .guiaTuristico .guiaContainer p,
-    .guiaBranco .guiaContainer p{
-        font-size: 20px;
-    }
-    .btnGuia, .btnBlue{
-        font-size: 1.5rem;
-    }
-}
-
-@media screen and (min-width: 580px) {
-    .banNer .bannerText p{
+        padding-bottom: 4rem;
+        margin-top: 3rem;
         font-size: 30px;
     }
-    .guiaTuristico .guiaContainer,
-    .guiaBranco .guiaContainer{
-        margin-bottom: 0;
-    }
-}
-
-@media screen and (min-width: 720px) {
-    .banNer .bannerText p{
-        font-size: 35px;
-    }
-    .guiaTuristico .guiaContainer h3,
-    .guiaBranco .guiaContainer h3{
-        font-size: 36px;
-    }
-    .guiaTuristico .guiaContainer p,
-    .guiaBranco .guiaContainer p{
-        font-size: 20px;
+    .guiaTuristico .guiaContainer {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
         text-align: center;
-    }
-    .btnGuia .btnBlue{
-        margin-top: 1rem;
-        font-size: 1.5rem;
-        padding: 0.70rem;
-    }
-}
-
-@media screen and (min-width: 900px) {
-   .guiaBranco .brancoImage img,
-   .guiaTuristico .guiaImage img{
-        width: 40vw;
-        height: 25vw;
+   } 
+   .guiaBranco .guiaContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    text-align: center;
    }
-   
+   .guiaBranco .guiaText,
+   .guiaBranco .brancoImage img,
+   .guiaTuristico .guiaTexto,
+   .guiaTuristico .guiaImage img{
+        width: 80vw;
+        height: 40vh;
+        object-fit: cover;
+   }
+   .guiaBranco .guiaContainer h3,
+   .guiaTuristico .guiaContainer h3{
+     font-size: 2.5rem;
+   }
+   .guiaBranco .guiaContainer p,
+   .guiaTuristico .guiaContainer p{
+    margin-top: 2rem;
+    font-size: 0.90rem;
+    text-align: center;
+    font-weight: 400;
+   }
 }
-
-@media screen and (min-width: 1024px) {
-    .guiaTuristico{
-        width: 100vw;
-       }
-       .guiaBranco{
-        width: 100vw;
-       }    
-}
-@media screen and (min-width: 1200px) and (max-width: 1280px) {
-    .guiaTuristico .guiaContainer{
-        width: 100vw;
-        
-       }
-       .guiaBranco{
-        width: 100vw;
-       }
-       .guiaTuristico .guiaImage img, 
-       .guiaBranco .brancoImage img{
-            width: 40rem;
-            height: 18rem;
-       }  
-       .guiaTuristico .guiaContainer h3,
-       .guiaBranco .guiaContainer h3{
-           font-size: 56px;
-       }
-
-        .guiaTuristico .guiaContainer p,
-        .guiaBranco .guiaContainer p{
-            font-size: 26px;
-            text-align: center;
-        }
-
-}
-   
-@media screen and (width: 1440px){
-  
-    .guiaTuristico{
-        width: 100vw;
-       }
-       .guiaBranco{
-        width: 100vw;
-       }
+@media (min-width: 700px) and (max-width: 900px) {
+    .banNer .bannerText p{
+        padding-bottom: 4rem;
+        margin-top: 3rem;
+        font-size: 40px;
     }
+    .guiaTuristico .guiaContainer {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
 
-    @media screen and (min-width: 1900px) and (min-width: 1920px){
-        .guiaTuristico .guiaContainer,
-        .guiaBranco .guiaContainer{
-            padding-top: 5rem;
-            
-        }
-            .guiaTuristico .guiaContainer p,
-            .guiaBranco .guiaContainer p{
-                font-size: 40px;
-            }
-            .guiaTuristico .guiaContainer h3,
-            .guiaBranco .guiaContainer h3{
-                font-size: 70px;
-            }
-           .guiaTuristico .guiaImage img, 
-           .guiaBranco .brancoImage img{
-            width: 90vh;
-            height: 30vw;
-           }
-        }
-    
+   } 
+   .guiaBranco .guiaContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    text-align: center;
+   }
+   .guiaBranco .guiaText,
+   .guiaBranco .brancoImage img,
+   .guiaTuristico .guiaTexto,
+   .guiaTuristico .guiaImage img{
+        width: 90vw;
+        height: 60vh;
+   }
+   .guiaBranco .guiaContainer h3,
+   .guiaTuristico .guiaContainer h3{
+     font-size: 5vw;
+   }
+   .guiaBranco .guiaContainer p,
+   .guiaTuristico .guiaContainer p{
+    margin-top: 2rem;
+    font-size: 1.15rem;
+    text-align: center;
+    font-weight: 400;
+   }
+   .guiaBranco .guiaTexto Button,
+   .guiaTuristico .guiaText Button{
+    display: inline-block;
+   }
+}
+@media (min-width: 1440px) and (max-width: 2067px) {
+    .guiaBranco .guiaContainer p,
+   .guiaTuristico .guiaContainer p{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+   }
+   .guiaBranco .guiaContainer h3,
+   .guiaTuristico .guiaContainer h3{
+     font-size: 3vw;
+   }
+
+}
