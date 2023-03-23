@@ -60,6 +60,8 @@ export default function CarouselServices({ children, setClass }) {
     className: "center",
     infinite: true,
     centerPadding: "60px",
+    autoplay: true,
+    speed: 2300,
     slidesToShow: 3.55,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,

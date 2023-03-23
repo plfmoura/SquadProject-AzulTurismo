@@ -214,7 +214,7 @@
 /* area das fotos dos participantes  */
 .teamSection {
   width: 100%;
-  height: 65vh;
+  height: 70vh;
   display: flex;
   justify-content: space-between;
 }
@@ -225,7 +225,7 @@
   flex-wrap: wrap;
   gap: 2rem;
   width: 50%;
-  height: 65vh;
+  height: 70vh;
   position: absolute;
   z-index: 2;
   color: #fff;

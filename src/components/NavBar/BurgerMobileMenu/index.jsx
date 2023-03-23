@@ -1,15 +1,14 @@
-import Lottie from 'react-lottie-player'
-import { Link } from 'react-router-dom'
-import Burger from '../../../assets/animations/menuIcon.json'
-import style from './mobileMenu.module.css'
 import React, { useContext, useState } from 'react'
-import { IoNotifications } from "react-icons/io5"
-import ProfilePicture from '../../../assets/profile/user.jpg'
-import Modal from '../../Modal'
-import SingIn from '../../../pages/SingIn'
 import { LoggedContext } from '../../../context/LoggedContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { delUser } from '../../../reducer/userReducer'
+import SingIn from '../../../pages/SingIn'
+import Modal from '../../Modal'
+import style from './mobileMenu.module.css'
+import { Link } from 'react-router-dom'
+import Lottie from 'react-lottie-player'
+import Burger from '../../../assets/animations/menuIcon.json'
+import { IoNotifications } from "react-icons/io5"
 
 export default function BurgerMobileMenu({ callMenu }) {
     const state = useSelector((state) => state);

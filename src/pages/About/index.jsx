@@ -42,7 +42,7 @@ export default function About() {
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
   }, []);
@@ -154,8 +154,9 @@ export default function About() {
           onSubmit={handleSubmit}
           className={style.formContainer}
           ref={contactForm}
+          
         >
-          <div className={style.firstdiv}>
+          <div className={style.firstdiv} id='form'>
             <input placeholder="Nome" type="text" required id="name" />
           </div>
           <div>
