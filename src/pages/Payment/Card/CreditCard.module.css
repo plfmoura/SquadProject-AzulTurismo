@@ -82,11 +82,12 @@
 }
 
 
-.cardFlagsContainer {
-}
-
 .cardFlagsTitle {
-  margin-right: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-right: 25px;
+  margin-left: 0.5rem;
   margin-bottom: 5px;
 }
 
