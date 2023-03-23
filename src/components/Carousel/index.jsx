@@ -59,8 +59,7 @@ export default function Carousel({ children, setClass }) {
   const settings = {
     className: "center",
     infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
+    slidesToShow: 1.45,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -68,7 +67,7 @@ export default function Carousel({ children, setClass }) {
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1.45,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -77,7 +76,7 @@ export default function Carousel({ children, setClass }) {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 2.3,
+          slidesToShow: 1.4,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -86,7 +85,7 @@ export default function Carousel({ children, setClass }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2.1,
+          slidesToShow: 1.3,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -95,38 +94,9 @@ export default function Carousel({ children, setClass }) {
       {
         breakpoint: 900,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 1
-        }
-      },
-      {
-        breakpoint: 820,
-        settings: {
-          slidesToShow: 1.7,
-          initialSlide: 2,
-          slidesToScroll: 1
-        }
-      },
-      {
-        breakpoint: 690,
-        settings: {
-          initialSlide: 3,
-          slidesToShow: 1.5,
-        }
-      },
-      {
-        breakpoint: 610,
-        settings: {
-          initialSlide: 3,
-          slidesToShow: 1.2,
-        }
-      },
-      {
-        breakpoint: 490,
-        settings: {
-          initialSlide: 3,
           slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
         }
       },
     ]
