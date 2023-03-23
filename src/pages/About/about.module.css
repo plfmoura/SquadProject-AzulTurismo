@@ -214,7 +214,7 @@
 /* area das fotos dos participantes  */
 .teamSection {
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   display: flex;
   justify-content: space-between;
 }
@@ -225,7 +225,7 @@
   flex-wrap: wrap;
   gap: 2rem;
   width: 50%;
-  height: 80vh;
+  height: 70vh;
   position: absolute;
   z-index: 2;
   color: #fff;
@@ -378,7 +378,7 @@
 
   .carouselTeam {
     width: 50%;
-    height: 10rem;
+    height: 20rem;
     margin: 0 auto;
   }
 }
@@ -460,7 +460,7 @@
   }
 
   .carouselTeam {
-    width: 35rem;
+    width: 20rem;
     margin-left: 10%;
   }
 }
@@ -520,6 +520,11 @@
     background-color: #fff;
     font-size: 16px;
   }
+
+  .carouselTeam {
+    width: 35rem;
+    margin-left: 10%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -545,18 +550,24 @@
     width: 80%;
   }
 
-  .teamSection h2 {
-    font-size: 2rem;
-    width: 70%;
-    margin: 1rem auto;
-  }
-
   .formContainer div input,
   .formContainer div textarea {
     width: 20rem;
     margin: 0 auto;
     background-color: #fff;
     font-size: 16px;
+  }
+
+  .teamSection h2 {
+    font-size: 1.4rem;
+    white-space: nowrap;
+    width: 70%;
+    margin: 1rem auto;
+  }
+
+  .carouselTeam {
+    width: 45%;
+    margin-left: 10%;
   }
 }
 
@@ -572,4 +583,8 @@
     font-size: 4rem;
   }
   
+  .carouselTeam {
+    width: 50%;
+    margin-left: 10%;
+  }
 }

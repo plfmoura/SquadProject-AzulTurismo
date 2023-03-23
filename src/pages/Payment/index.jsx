@@ -7,6 +7,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { setUser } from "../../reducer/userReducer";
 import axios from "axios";
 import { NavBarContext } from "../../context/NavBarContext";
+import QrCodePayment from "./QrCode";
 
 export default function Payment() {
   let { id, quantity } = useParams();
@@ -19,7 +20,7 @@ export default function Payment() {
   const { setBgColor } = useContext(NavBarContext);
 
   // Estado que envia o retorno para animação renderizar e tirar o CARD
-  const [ onSuccess, setOnSuccess ] = useState(false)
+  const [onSuccess, setOnSuccess] = useState(false);
 
   useEffect(() => {
     let selected_id = Number(id.replace(":", ""));
@@ -35,14 +36,14 @@ export default function Payment() {
       } catch (error) {}
     }
     // para subir a pagina após carregamento
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     // trocar estilo de cor do navbar de acordo com a página
-    setBgColor(true)
+    setBgColor(true);
   }, []);
   // finalização de compra
   const handleCheckout = async (e) => {
     // não ta fazendo esse preventDefault() faz o teste no site
-    // finalizaçã ode compra, digita os dados, ele simplesmente da 
+    // finalizaçã ode compra, digita os dados, ele simplesmente da
     // reload na página
 
     e.preventDefault(); // <----- esse (APÓS RESOLVER APAGA ESSES COMENTÁRIOS)
@@ -71,8 +72,8 @@ export default function Payment() {
     try {
       let response = await axios.request(options);
       setTimeout(() => {
-        setOnSuccess(true)
-      }, [ 1000 ])
+        setOnSuccess(true);
+      }, [1000]);
     } catch (error) {
       console.error(error);
       alert("Ops, algo deu errado!");
@@ -85,7 +86,10 @@ export default function Payment() {
         <div className={style.headerContent}>
           <h2>
             <span>
-              <GrPrevious onClick={() => navigate(-1)} style={{cursor: 'pointer'}}/>
+              <GrPrevious
+                onClick={() => navigate(-1)}
+                style={{ cursor: "pointer" }}
+              />
             </span>
             Confirmar e Pagar
           </h2>
@@ -105,12 +109,15 @@ export default function Payment() {
                 <label htmlFor="">Data do Passeio</label>
                 <span>Alterar</span>
               </div>
-              {tour && <span>{tour.Date.replaceAll("-", '/')}</span>}
+              {tour && <span>{tour.Date.replaceAll("-", "/")}</span>}
               <div>
                 <label htmlFor="">Número de Passes selecionados</label>
                 <span>Alterar</span>
               </div>
-              <span>{Number(quantity.replace(":", ""))} {Number(quantity.replace(":", "")) === 1 ? 'passe' : 'passes'}</span>
+              <span>
+                {Number(quantity.replace(":", ""))}{" "}
+                {Number(quantity.replace(":", "")) === 1 ? "passe" : "passes"}
+              </span>
             </div>
             <hr />
             <div className={style.couponContainer}>
@@ -121,9 +128,35 @@ export default function Payment() {
           </section>
           <div className={style.cardContainer}>
             <h3>Área de Pagamento</h3>
-            <div className={style.cardArea}>
-{/* COMPONENTE CARD  */}
+            {/* COMPONENTE CARD  */}
+            <div
+              className='paymentMethod-container'
+              style={{
+                boxShadow: 'rgba(0, 0, 0, 0.30) 0px 3px 6px 1px',
+                borderRadius: 10,
+                margin: ".8rem",
+                padding: ".5rem"
+              }}
+            >
               <Card handleCheckout={handleCheckout} purchaseReturn={onSuccess}/>
+            </div>
+            <div
+              className='paymentMethod-container'
+              style={{
+                boxShadow: 'rgba(0, 0, 0, 0.30) 0px 3px 6px 1px',
+                borderRadius: 10,
+                margin: ".8rem",
+                padding: ".5rem"
+              }}
+            >
+              <QrCodePayment value={tour &&
+                (
+                  tour.price * Number(quantity.replace(":", "")) -
+                  tour.price * Number(quantity.replace(":", "")) * 0.1
+                )
+                  .toFixed(2)
+                  .replace(".", ",")
+              } purchaseName={tour && tour.name.replace(' ', '')}/>
             </div>
           </div>
           <section className={style.cartContent}>
@@ -166,7 +199,11 @@ export default function Payment() {
                     <p>
                       -R$
                       <span>
-                        {(tour.price * Number(quantity.replace(":", "")) * 0.10).toFixed(2)}
+                        {(
+                          tour.price *
+                          Number(quantity.replace(":", "")) *
+                          0.1
+                        ).toFixed(2)}
                       </span>
                     </p>
                   </div>
@@ -178,7 +215,9 @@ export default function Payment() {
                       {(
                         tour.price * Number(quantity.replace(":", "")) -
                         tour.price * Number(quantity.replace(":", "")) * 0.1
-                      ).toFixed(2).replace(".", ",")}
+                      )
+                        .toFixed(2)
+                        .replace(".", ",")}
                     </span>
                   </div>
                 </div>

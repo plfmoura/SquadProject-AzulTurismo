@@ -5,6 +5,28 @@
   flex-direction: column;
 }
 
+.cardPayment_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 3rem;
+  margin: 0 auto;
+}
+
+.cardPaymentMethod_container {
+  animation: appears-qr 2s ease normal;
+}
+
+@keyframes appears-qr {
+    0%,75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @keyframes disappear {
   from {
     opacity: 0;
@@ -115,8 +137,7 @@ input::-webkit-inner-spin-button {
 
 @media screen and (min-width: 480px) {
   .cardForm {
-    margin: auto;
-    margin-top: 3rem;
+    margin: 3rem auto auto;
     width: 400px;
     font-size: .5rem;
     display: flex;

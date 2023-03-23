@@ -154,8 +154,9 @@ export default function About() {
           onSubmit={handleSubmit}
           className={style.formContainer}
           ref={contactForm}
+          
         >
-          <div className={style.firstdiv}>
+          <div className={style.firstdiv} id='form'>
             <input placeholder="Nome" type="text" required id="name" />
           </div>
           <div>
