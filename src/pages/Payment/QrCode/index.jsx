@@ -36,7 +36,7 @@ export default function QrCodePayment({value, id_qrCode, purchaseName}) {
             type="text" 
             style={{width: '60%', marginTop: 10}} 
             value={inputValue} 
-            onClick={window.navigator.clipboard.writeText(inputValue)}
+            // onClick={window.navigator.clipboard.writeText(inputValue)}
             disabled
           />
         </form>

@@ -17,7 +17,7 @@ export default function Payment() {
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { setBgColor } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter } = useContext(NavBarContext);
 
   // Estado que envia o retorno para animação renderizar e tirar o CARD
   const [onSuccess, setOnSuccess] = useState(false);
@@ -36,9 +36,11 @@ export default function Payment() {
       } catch (error) {}
     }
     // para subir a pagina após carregamento
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     // trocar estilo de cor do navbar de acordo com a página
     setBgColor(true);
+    // Estilização do footer na página de compra
+    setPaymentFooter(true)
   }, []);
   // finalização de compra
   const handleCheckout = async (e) => {
@@ -189,7 +191,7 @@ export default function Payment() {
                     <p>
                       R$
                       <span>
-                        {tour.price * Number(quantity.replace(":", ""))}
+                        {(tour.price * Number(quantity.replace(":", ""))).toFixed(2)}
                       </span>
                     </p>
                   </div>

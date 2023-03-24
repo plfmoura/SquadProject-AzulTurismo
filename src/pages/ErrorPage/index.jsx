@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../components/Button';
 
 export default function ErrorPage() {
-  const { setBgColor } = useContext(NavBarContext); 
+  const { setBgColor, setPaymentFooter } = useContext(NavBarContext); 
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -15,6 +15,7 @@ export default function ErrorPage() {
     window.scrollTo(0, 0);
     // para alterar cor do background de acordo com a página 
     setBgColor(true)
+    setPaymentFooter(false)
   }, [])
 
   return (

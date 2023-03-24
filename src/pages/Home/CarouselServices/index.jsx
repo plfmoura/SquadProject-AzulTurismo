@@ -131,7 +131,6 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 690,
         settings: {
-          slidesToShow: 1.1,
           initialSlide: 3,
           slidesToShow: 1.5,
         }
@@ -139,7 +138,6 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 610,
         settings: {
-          slidesToShow: 1,
           initialSlide: 3,
           slidesToShow: 1.2,
         }

@@ -97,7 +97,10 @@
 /* Descrição do Serviço */
 .serviceDescription {
     width: 100%;
+    height: 100%;
     text-align: justify;
+    position: relative;
+    z-index: 3;
 }
 
 /* Dentro das Divisões */

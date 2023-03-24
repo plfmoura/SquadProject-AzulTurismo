@@ -4,13 +4,14 @@ import { NavBarContext } from "../../context/NavBarContext";
 import Button from "../../components/Button";
 
 function ServicePage(){
-  const { setBgColor } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter } = useContext(NavBarContext);
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
+    setPaymentFooter(false)
   }, []);
 
     return(

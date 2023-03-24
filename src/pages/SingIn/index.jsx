@@ -95,6 +95,17 @@ export default function SingIn({ setShow, change }) {
         password: `${password}`,
       },
     };
+    setAuthError("");
+
+    if(email === '' || password === ''){
+      setTimeout(() => {
+        setAuthError("Os campos não podem está vazios.");
+        setTimeout(() => {
+          setAuthError("");
+        }, [5000])});
+      return
+    }
+
     try {
       let response = await axios.request(options);
       showLoad();

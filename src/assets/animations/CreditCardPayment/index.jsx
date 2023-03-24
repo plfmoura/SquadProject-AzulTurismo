@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Lottie from 'react-lottie-player'
 import creditCard from './credit-card.json'
 
 export default function CreditCardPayment() {
-    const [ animation, setAnimation] = useState(false)
-    const [ visible, setVisible ] = useState('none')
+    const [ play, setPlay ] = useState(true)
 
-    const Stop = () => {
-        setAnimation(false)
-        setVisible('none')
-      }
-  
+    !play ? (
+        setTimeout(() => {
+            setPlay(true)
+        }, [9000])) : (null)
+    
     return (
         <Lottie 
-            className='testando'
-            loop={true}
             animationData={creditCard}
-            play={true}
+            play={play}
             speed={0.3}
             style={{ width: 80, height: 80}}
+            onLoopComplete={() => setPlay(false)}
         />
     )
 }

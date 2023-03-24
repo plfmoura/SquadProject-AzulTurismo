@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 export default function About() {
-  const { setBgColor } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter } = useContext(NavBarContext);
   const contactForm = useRef();
   const state = useSelector((state) => state);
   const { user } = state.user;
@@ -45,6 +45,7 @@ export default function About() {
     window.scrollTo(0, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
+    setPaymentFooter(false)
   }, []);
   
   useEffect(() => {
