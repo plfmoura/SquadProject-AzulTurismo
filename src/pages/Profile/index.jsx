@@ -44,7 +44,6 @@ export default function Profile() {
 
     //1 step: get the old img
     const old_img = photo_profile.current.src;
-    console.log(old_img);
 
     //2-step: get the new img an post in Imgur
     const options = {
@@ -57,7 +56,7 @@ export default function Profile() {
       data: new_imagen,
     };
     let response = await axios.request(options);
-    console.log(response);
+
     let new_imagen_url = response.data.data.link;
 
     //3-step: Update the database, the state and the localstorage
@@ -71,6 +70,52 @@ export default function Profile() {
         "Content-Type": "application/json",
       },
       data: { image_profile: new_imagen_url },
+    };
+    await axios.request(options1);
+
+    //4 step: delete the old img from imgur
+    /*const options2 = {
+      method: "DEL",
+      url: old_img,
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded",
+        Authorization: "Client-ID 5d3a830d45c8c58",
+      },
+    };
+    let delresponse = await axios.request(options2);
+    console.log(delresponse);*/
+  };
+  const handleCapaSubmit = async (e) => {
+    const new_imagen = new FormData();
+    new_imagen.append("image", e.target.files[0]);
+
+    //1 step: get the old img
+    const old_img = photo_profile.current.src;
+
+    //2-step: get the new img an post in Imgur
+    const options = {
+      method: "POST",
+      url: "https://api.imgur.com/3/image",
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded",
+        Authorization: "Client-ID 5d3a830d45c8c58",
+      },
+      data: new_imagen,
+    };
+    let response = await axios.request(options);
+    let new_imagen_url = response.data.data.link;
+
+    //3-step: Update the database, the state and the localstorage
+    dispatch(actUser({ image_banner: new_imagen_url }));
+    let token = JSON.parse(localStorage.getItem("token"));
+    const options1 = {
+      method: "PATCH",
+      url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+      headers: {
+        "auth-token": token,
+        "Content-Type": "application/json",
+      },
+      data: { image_banner: new_imagen_url },
     };
     await axios.request(options1);
 
@@ -100,7 +145,7 @@ export default function Profile() {
       setSkeleton(false);
     }, [3000]);
     setBgColor(true);
-    setPaymentFooter(false)
+    setPaymentFooter(false);
   }, []);
 
   useEffect(() => {
@@ -147,21 +192,21 @@ export default function Profile() {
             />
           )}
           <div className={style.profileContainer}>
-            <header className={style.userBackground} id='user-Bg'>
+            <header className={style.userBackground} id="user-Bg">
               <img src={user.image_banner} />
               <label htmlFor="bg_change" className="btn-changeBackground">
-                  <BsFillPencilFill className={style.penIcon}/>
+                <BsFillPencilFill className={style.penIcon} />
               </label>
               <input
-                  style={{
-                    display: "none",
-                  }}
-                  type="file"
-                  id="bg_change"
-                  // onChange={(e) => {
-                  //   change something
-                  // }}
-                />
+                style={{
+                  display: "none",
+                }}
+                type="file"
+                id="bg_change"
+                onChange={(e) => {
+                  handleCapaSubmit(e);
+                }}
+              />
             </header>
             <main className={style.profileContent}>
               <div className={style.profileHeader}>
@@ -173,7 +218,7 @@ export default function Profile() {
                       ref={photo_profile}
                     />
                     <label htmlFor="image_change">
-                      <BsFillPencilFill className={style.penIcon}/>
+                      <BsFillPencilFill className={style.penIcon} />
                     </label>
 
                     <input
