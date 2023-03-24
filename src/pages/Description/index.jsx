@@ -12,7 +12,7 @@ import { NavBarContext } from "../../context/NavBarContext";
 
 export default function Description() {
   let id = useParams();
-  const { setBgColor } = useContext(NavBarContext); 
+  const { setBgColor, setPaymentFooter } = useContext(NavBarContext); 
   
   const [tour, setTour] = useState();
   const [auxiliary, setAuxiliary] = useState();
@@ -28,6 +28,7 @@ export default function Description() {
     window.scrollTo(0, 0);
     // para alterar cor do background de acordo com a página 
     setBgColor(true)
+    setPaymentFooter(false)
   }, [])
   
   const prevPicture = () => {

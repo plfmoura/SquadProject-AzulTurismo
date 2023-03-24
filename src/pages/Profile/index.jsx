@@ -25,7 +25,7 @@ export default function Profile() {
   const dispatch = useDispatch();
   const [ ticketHistory, setTicketHistory ] = useState()
   const [show, setShow] = useState(false);
-  const { setBgColor } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter } = useContext(NavBarContext);
   const [skeleton, setSkeleton] = useState(true);
   const profession = useRef();
   const about = useRef();
@@ -49,6 +49,7 @@ export default function Profile() {
       setSkeleton(false);
     }, [3000]);
     setBgColor(true);
+    setPaymentFooter(false)
   }, []);
 
   useEffect(() => {

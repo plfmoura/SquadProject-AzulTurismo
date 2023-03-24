@@ -15,7 +15,7 @@ import { LoggedContext } from "../../context/LoggedContext";
 export default function Home() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
-  const { setBgColor } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter } = useContext(NavBarContext);
   const [filtered, setFiltered] = useState([])
   const [myRegion, setMyRegion] = useState("Todas as Regiões")
   const [showTop, setShowTop] = useState('')
@@ -28,6 +28,8 @@ export default function Home() {
   useEffect(() => {
     // Subir a página após trocar de páginas 
     window.scrollTo(0, 0);
+    // Estilização do footer na página de compra
+    setPaymentFooter(false)
   }, [])
 
   // Para pegar a posição do Menu e alterar conforme a posição da página 
