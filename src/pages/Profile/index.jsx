@@ -147,8 +147,21 @@ export default function Profile() {
             />
           )}
           <div className={style.profileContainer}>
-            <header className={style.userBackground}>
+            <header className={style.userBackground} id='user-Bg'>
               <img src={user.image_banner} />
+              <label htmlFor="bg_change" className="btn-changeBackground">
+                  <BsFillPencilFill className={style.penIcon}/>
+              </label>
+              <input
+                  style={{
+                    display: "none",
+                  }}
+                  type="file"
+                  id="bg_change"
+                  // onChange={(e) => {
+                  //   change something
+                  // }}
+                />
             </header>
             <main className={style.profileContent}>
               <div className={style.profileHeader}>
