@@ -12,8 +12,8 @@ import { NavBarContext } from "../../context/NavBarContext";
 
 export default function Description() {
   let id = useParams();
-  const { setBgColor, setPaymentFooter } = useContext(NavBarContext); 
-  
+  const { setBgColor, setPaymentFooter } = useContext(NavBarContext);
+
   const [tour, setTour] = useState();
   const [auxiliary, setAuxiliary] = useState();
   const [guide, setGuide] = useState();
@@ -22,15 +22,16 @@ export default function Description() {
   const state = useSelector((state) => state);
   const { products } = state.shopping;
   const [imagensIndex, setImagensIndex] = useState([0, 1, 2, 3]);
+  const [descriptionText, setDescriptionText] = useState(true);
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
-    // para alterar cor do background de acordo com a página 
-    setBgColor(true)
-    setPaymentFooter(false)
-  }, [])
-  
+    // para alterar cor do background de acordo com a página
+    setBgColor(true);
+    setPaymentFooter(false);
+  }, []);
+
   const prevPicture = () => {
     let imagens_index = imagensIndex;
     let temp = imagens_index[0];
@@ -64,6 +65,9 @@ export default function Description() {
     let i = Math.floor(Math.random() * 3);
     setIndex(i);
   }, [tour]);
+
+  // mostrar o texto completo da descrição
+  let showText = descriptionText ? "50px" : "10rem";
 
   return (
     <div className={style.singleServiceContainer}>
@@ -113,21 +117,52 @@ export default function Description() {
                     </p>
                   ))}
                 </div>
-                <p className={style.textDescription}>{tour.description}</p>
-                <hr style={{ width: "90%", margin: '1rem auto 0' }} />
+                <p
+                  className={style.textDescription}
+                  style={{
+                    maxHeight: showText,
+                    overflow: "hidden",
+                    transition: "all 400ms ease",
+                  }}
+                >
+                  {tour.description}
+                </p>
+                <span
+                  onClick={() => setDescriptionText(!descriptionText)}
+                  style={{
+                    color: "#2ea9ff",
+                    cursor: "pointer",
+                    userSelect: "none",
+                  }}
+                >
+                  {descriptionText ? "Ver mais..." : "Ver menos."}
+                </span>
+                {descriptionText && (
+                  <hr
+                    style={{
+                      width: "90%",
+                      color: "#33333335",
+                      margin: '3rem auto 1rem'
+                    }}
+                  />
+                )}
               </div>
             </section>
-              {/* Area do Formulario inicial de Compra */}
+            {/* Area do Formulario inicial de Compra */}
             <div className={style.servicePrice}>
-              { tour && 
-              <BuyForm tourPrice={tour.price} 
-                amount={tour.capacity - tour.sold}
-                date={tour.Date.replaceAll("-", '/')}
-                id={tour.id}
+              {tour && (
+                <BuyForm
+                  tourPrice={tour.price}
+                  amount={tour.capacity - tour.sold}
+                  date={tour.Date.replaceAll("-", "/")}
+                  id={tour.id}
                 />
-              }
+              )}
             </div>
-            <section className={style.teamContainer}>
+            <section
+              className={style.teamContainer}
+              style={{ marginTop: "2rem" }}
+            >
               <h2>
                 Nosso time em <span>{tour.name}</span>
               </h2>
@@ -138,13 +173,16 @@ export default function Description() {
                     <div className={style.guideContainer}>
                       <img src={guide[index].picture} />
                       <div>
-                        <p className={style.teamName}>Guia {guide[index].name}</p>
+                        <p className={style.teamName}>
+                          Guia {guide[index].name}
+                        </p>
                         <div
                           style={{ display: "flex" }}
                           className={style.teamOverview}
                         >
                           <p>
-                            {guide[index].role} desde {guide[index].firstContract}
+                            {guide[index].role} desde{" "}
+                            {guide[index].firstContract}
                           </p>
                           <p>
                             Idiomas:{" "}
@@ -182,7 +220,9 @@ export default function Description() {
                           </p>
                           <p>
                             Idiomas:{" "}
-                            {auxiliary[index].languages.map((item) => `${item} `)}
+                            {auxiliary[index].languages.map(
+                              (item) => `${item} `
+                            )}
                           </p>
                         </div>
                       </div>
@@ -228,9 +268,9 @@ export default function Description() {
               </div>
             </section>
           </main>
-          </>
+        </>
       )}
-      <hr style={{ width: "80%", margin: "2rem auto" }} />
+      <hr style={{ width: "80%", margin: "2rem auto", color: '#33333335' }} />
       {/* Google Maps  */}
       {tour && (
         <section className={style.mapsContainer}>
