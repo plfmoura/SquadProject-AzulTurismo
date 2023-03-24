@@ -4,7 +4,7 @@ export const FooterContext = createContext()
 
 export const FooterProvider = ({children}) => {
 
-    const [flags, setFlags] = useState(true)
+    const [flags, setFlags] = useState(false)
 
     return (
         <FooterContext.Provider value={{flags, setFlags}}>
