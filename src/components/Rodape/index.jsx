@@ -11,6 +11,7 @@ function Rodape() {
   const { products } = state.shopping;
   const [shotcuts, setShotcuts] = useState([]);
   const navigate = useNavigate();
+  const { flags } = useContext(FooterContext);
 
   useEffect(() => {
     setShotcuts(products.map((item) => item.name));
