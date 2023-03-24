@@ -6,7 +6,6 @@ import Button from "../../../components/Button";
 import styles from "./CreditCard.module.css";
 import InputElement from "react-input-mask/lib/react-input-mask.production.min";
 import CreditCardPayment from "../../../assets/animations/CreditCardPayment";
-import { FaCcVisa, FaCcMastercard, FaCcDiscover, FaCcAmex, FaCcJcb, FaCcDinersClub } from 'react-icons/fa';
 
 export default function Card({ handleCheckout, purchaseReturn }) {
   const [done, setDone] = useState(false);
@@ -70,17 +69,7 @@ export default function Card({ handleCheckout, purchaseReturn }) {
               }}
             />
 
-            <div className={styles.cardFlagsContainer}>
-              <h4 className={styles.cardFlagsTitle}>Bandeiras aceitas</h4>
-              <div className={styles.cardsFlags}>
-                <FaCcVisa size={55} color={"#191970"} style={{ marginRight: '10px', marginLeft: '35px' }} />
-                <FaCcMastercard size={55} color={"#ff4600"} style={{ marginRight: '10px' }} />
-                <FaCcDiscover size={55} color={"#c0c0c0"} style={{ marginRight: '10px' }} />
-                <FaCcAmex size={55} color={"#191970"} style={{ marginRight: '10px' }} />
-                <FaCcJcb size={55} color={"#f00000"} style={{ marginRight: '10px' }} />
-                <FaCcDinersClub color={"#a2d1e9"} size={55} />
-              </div>
-            </div>
+          
 
 
             <div>

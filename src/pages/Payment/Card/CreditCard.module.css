@@ -81,16 +81,6 @@
   width: 80%;
 }
 
-
-.cardFlagsTitle {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-right: 25px;
-  margin-left: 0.5rem;
-  margin-bottom: 5px;
-}
-
 .submitArea {
   display: flex;
   align-items: center;

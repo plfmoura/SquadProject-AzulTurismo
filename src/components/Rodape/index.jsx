@@ -3,6 +3,7 @@ import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import CardsFlags from "./CardsFlags";
 
 function Rodape() {
   const state = useSelector((state) => state);
@@ -51,6 +52,7 @@ function Rodape() {
       </div>
       <hr style={{ width: "80%", margin: "1rem auto", color: "#3333355" }} />
       <div className={styles.textoFinal}>
+        <CardsFlags/>
         <div className={styles.alignShotcuts}>
           <p>&copy; 2023 Azul Turismo, inc.</p>
           <ul className={styles.listaLink}>
