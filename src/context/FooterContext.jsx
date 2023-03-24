@@ -4,11 +4,10 @@ export const FooterContext = createContext()
 
 export const FooterProvider = ({children}) => {
 
-    const [showFlags, setShowFlags] = useState(false)
-   
+    const [flags, setFlags] = useState(true)
 
     return (
-        <FooterContext.Provider value={{}}>
+        <FooterContext.Provider value={{flags, setFlags}}>
            {children}
         </FooterContext.Provider> 
     )

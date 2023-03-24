@@ -1,9 +1,10 @@
 import styles from "../../components/Rodape/rodape.module.css";
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CardsFlags from "./CardsFlags";
+import { FooterContext } from "../../context/FooterContext";
 
 function Rodape() {
   const state = useSelector((state) => state);
@@ -23,7 +24,7 @@ function Rodape() {
           {shotcuts &&
             shotcuts.slice(0, 5).map((item, key) => (
               <li key={key}
-                onClick={() => {navigate("/");}}
+                onClick={() => { navigate("/"); }}
               >
                 <a>{item}</a>
               </li>
@@ -33,7 +34,7 @@ function Rodape() {
           {shotcuts &&
             shotcuts.slice(6, 10).map((item, key) => (
               <li key={key}
-                onClick={() => {navigate("/");}}
+                onClick={() => { navigate("/"); }}
               >
                 <a href="#">{item}</a>
               </li>
@@ -43,7 +44,7 @@ function Rodape() {
           {shotcuts &&
             shotcuts.slice(11, 16).map((item, key) => (
               <li key={key}
-                onClick={() => {navigate("/");}}
+                onClick={() => { navigate("/"); }}
               >
                 <a href="#">{item}</a>
               </li>
@@ -52,7 +53,7 @@ function Rodape() {
       </div>
       <hr style={{ width: "80%", margin: "1rem auto", color: "#3333355" }} />
       <div className={styles.textoFinal}>
-        <CardsFlags/>
+        <CardsFlags />
         <div className={styles.alignShotcuts}>
           <p>&copy; 2023 Azul Turismo, inc.</p>
           <ul className={styles.listaLink}>
