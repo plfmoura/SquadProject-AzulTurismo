@@ -1,0 +1,22 @@
+.cardFlag{
+    display: flex;
+    justify-content: center;
+    margin-right: 3rem;
+    gap: 1rem;
+}
+
+.cardSizeVisa{
+    max-height: 5rem;
+}
+
+.cardSizeElo{
+    max-height: 5rem;
+}
+
+.cardSizeAmex{
+    max-height: 5rem;
+}
+
+.cardSizeMc{
+    max-height: 5rem;
+}
