@@ -191,7 +191,7 @@ export default function Payment() {
                     <p>
                       R$
                       <span>
-                        {tour.price * Number(quantity.replace(":", ""))}
+                        {(tour.price * Number(quantity.replace(":", ""))).toFixed(2)}
                       </span>
                     </p>
                   </div>
