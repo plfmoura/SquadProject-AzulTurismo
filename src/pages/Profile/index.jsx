@@ -23,11 +23,12 @@ export default function Profile() {
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [ ticketHistory, setTicketHistory ] = useState()
+  const [ticketHistory, setTicketHistory] = useState();
   const [show, setShow] = useState(false);
   const { setBgColor } = useContext(NavBarContext);
   const [skeleton, setSkeleton] = useState(true);
   const profession = useRef();
+  const photo_profile = useRef();
   const about = useRef();
   const phone = useRef();
   const located = useRef();
@@ -35,6 +36,56 @@ export default function Profile() {
   const [aboutButton, setAboutButton] = useState(true);
   const [localizationButton, setlocalizationButton] = useState(true);
   const [phoneButton, setPhoneButton] = useState(true);
+
+  const handleImagenSubmit = async (e) => {
+    const new_imagen = new FormData();
+    new_imagen.append("image", e.target.files[0]);
+    console.log(new_imagen);
+
+    //1 step: get the old img
+    const old_img = photo_profile.current.src;
+    console.log(old_img);
+
+    //2-step: get the new img an post in Imgur
+    const options = {
+      method: "POST",
+      url: "https://api.imgur.com/3/image",
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded",
+        Authorization: "Client-ID 5d3a830d45c8c58",
+      },
+      data: new_imagen,
+    };
+    let response = await axios.request(options);
+    console.log(response);
+    let new_imagen_url = response.data.data.link;
+
+    //3-step: Update the database, the state and the localstorage
+    dispatch(actUser({ image_profile: new_imagen_url }));
+    let token = JSON.parse(localStorage.getItem("token"));
+    const options1 = {
+      method: "PATCH",
+      url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+      headers: {
+        "auth-token": token,
+        "Content-Type": "application/json",
+      },
+      data: { image_profile: new_imagen_url },
+    };
+    await axios.request(options1);
+
+    //4 step: delete the old img from imgur
+    /*const options2 = {
+      method: "DEL",
+      url: old_img,
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded",
+        Authorization: "Client-ID 5d3a830d45c8c58",
+      },
+    };
+    let delresponse = await axios.request(options2);
+    console.log(delresponse);*/
+  };
 
   useEffect(() => {
     if (!user) {
@@ -52,23 +103,26 @@ export default function Profile() {
   }, []);
 
   useEffect(() => {
-    let token = JSON.parse(localStorage.getItem('token'))
+    let token = JSON.parse(localStorage.getItem("token"));
     let sendUser = JSON.parse(localStorage.getItem("azul_user")).user_id;
     const options = {
-      method: 'GET',
+      method: "GET",
       url: `https://tourismapi.herokuapp.com/history/${sendUser}`,
       headers: {
-        'Content-Type': 'application/json',
-        'auth-token': token
-      }
+        "Content-Type": "application/json",
+        "auth-token": token,
+      },
     };
-    
-    axios.request(options).then(function (response) {
-      setTicketHistory(response.data);
-    }).catch(function (error) {
-      console.error(error);
-    });
-  }, [user])
+
+    axios
+      .request(options)
+      .then(function (response) {
+        setTicketHistory(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, [user]);
 
   return (
     <>
@@ -88,10 +142,7 @@ export default function Profile() {
           {show && (
             <Modal
               setShow={setShow}
-              children={
-              <Purchases 
-                data={ ticketHistory } 
-                />}
+              children={<Purchases data={ticketHistory} />}
             />
           )}
           <div className={style.profileContainer}>
@@ -104,6 +155,21 @@ export default function Profile() {
                   <img
                     className={style.profilePicture}
                     src={user.image_profile}
+                    ref={photo_profile}
+                  />
+                  <label htmlFor="image_change">
+                    <BsFillPencilFill />
+                  </label>
+
+                  <input
+                    style={{
+                      display: "none",
+                    }}
+                    type="file"
+                    id="image_change"
+                    onChange={(e) => {
+                      handleImagenSubmit(e);
+                    }}
                   />
                   <div className={style.userInfo}>
                     <h2>{user && user.name}</h2>
