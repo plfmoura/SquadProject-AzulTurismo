@@ -43,6 +43,29 @@
     position: relative;
     display: flex;
 }
+
+.profilePictureContainer {
+    display: flex;
+}
+
+.profilePictureContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profilePictureContainer label {
+    position: relative;
+    top: 6.8rem;
+    left: -1rem;
+}
+
+.profilePictureContainer label:hover,
+.penIcon:hover {
+    color: #2e9fff;
+    cursor: pointer;
+}
+
 /* Bio do usuario */
 .profileBio {
     grid-area: b;
@@ -89,9 +112,6 @@
 }
 
 .profileHeader .profilePicture {
-    width: 14rem;
-    height: 14rem;
-    border-radius: 100%;
     border: .4rem solid #fff;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 8px 10px .2rem;
     position: relative;
@@ -213,6 +233,14 @@
         top: -4rem;
     }
 
+    .profilePictureContainer label {
+        position: relative;
+        top: 4.8rem;
+        z-index: 5;
+        left: 2.5rem;
+        cursor: pointer;
+    }
+
     .userInfo {
         width: 100%;
         margin: 0;
@@ -279,6 +307,12 @@
         top: -4rem;
     }
 
+    .profilePictureContainer label {
+        top: 6.5rem;
+        left: 2rem;
+        z-index: 5;
+    }
+
     .userInfo {
         width: 100%;
         margin: 0;
@@ -313,6 +347,10 @@
         height: 12rem;
         transform: scale(1.2);
     }
+    
+    .profilePictureContainer label {
+        top: 8rem;
+    }
 
     .profileRating {
         flex-direction: row;
@@ -336,6 +374,11 @@
         width: 12rem;
         height: 12rem;
         transform: scale(1);
+    }
+
+    .profilePictureContainer label {
+        top: 6.8rem;
+        left: 0.5rem;
     }
 
     .profileContent {

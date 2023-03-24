@@ -153,25 +153,27 @@ export default function Profile() {
             <main className={style.profileContent}>
               <div className={style.profileHeader}>
                 <div className={style.alignContent}>
-                  <img
-                    className={style.profilePicture}
-                    src={user.image_profile}
-                    ref={photo_profile}
-                  />
-                  <label htmlFor="image_change">
-                    <BsFillPencilFill />
-                  </label>
+                  <div className={style.profilePictureContainer}>
+                    <img
+                      className={style.profilePicture}
+                      src={user.image_profile}
+                      ref={photo_profile}
+                    />
+                    <label htmlFor="image_change">
+                      <BsFillPencilFill className={style.penIcon}/>
+                    </label>
 
-                  <input
-                    style={{
-                      display: "none",
-                    }}
-                    type="file"
-                    id="image_change"
-                    onChange={(e) => {
-                      handleImagenSubmit(e);
-                    }}
-                  />
+                    <input
+                      style={{
+                        display: "none",
+                      }}
+                      type="file"
+                      id="image_change"
+                      onChange={(e) => {
+                        handleImagenSubmit(e);
+                      }}
+                    />
+                  </div>
                   <div className={style.userInfo}>
                     <h2>{user && user.name}</h2>
                     <div className={style.profileRating}>
@@ -203,6 +205,7 @@ export default function Profile() {
                   {professionButton && (
                     // Botão de alteração
                     <BsFillPencilFill
+                      className={style.penIcon}
                       onClick={() => {
                         profession.current.readOnly = false;
                         setProfessionButon(false);
@@ -256,6 +259,7 @@ export default function Profile() {
                   <h3>Sobre mim</h3>
                   {aboutButton ? (
                     <BsFillPencilFill
+                      className={style.penIcon}
                       onClick={() => {
                         about.current.readOnly = false;
                         setAboutButton(!aboutButton);
@@ -304,7 +308,8 @@ export default function Profile() {
               <div className={style.profileInfo}>
                 <div>
                   <h3>Idiomas</h3>
-                  <BsFillPencilFill />
+                  {/* não é editavel por agora */}
+                  {/* <BsFillPencilFill /> */}
                 </div>
                 <div className={style.idiomsContainer}>
                   {[user.idioms].map((idiom) => (
@@ -316,6 +321,7 @@ export default function Profile() {
                   <h3>Localização</h3>
                   {localizationButton ? (
                     <BsFillPencilFill
+                      className={style.penIcon}
                       onClick={() => {
                         setlocalizationButton(!localizationButton);
                         located.current.readOnly = false;
@@ -365,6 +371,7 @@ export default function Profile() {
                   <h3>Telefones</h3>
                   {phoneButton ? (
                     <BsFillPencilFill
+                      className={style.penIcon}
                       onClick={() => {
                         phone.current.readOnly = false;
                         setPhoneButton(!phoneButton);
