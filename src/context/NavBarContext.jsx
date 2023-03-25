@@ -5,6 +5,7 @@ export const NavBarContext = createContext();
 export const NavBarProvider = ({ children }) => {
   const [bgColor, setBgColor] = useState(false);
   const [paymentFooter, setPaymentFooter] = useState(false);
+  const [showOffCanvas, setShowOffCanvas] = useState(false)
 
   let alignPaymentShotcuts = paymentFooter ? 'center' : 'space-between'
   let changeBgColor = bgColor
@@ -26,7 +27,9 @@ export const NavBarProvider = ({ children }) => {
         changeNotficationIcon,
         paymentFooter,
         setPaymentFooter,
-        alignPaymentShotcuts
+        alignPaymentShotcuts,
+        showOffCanvas,
+        setShowOffCanvas
       }}
     >
       {children}

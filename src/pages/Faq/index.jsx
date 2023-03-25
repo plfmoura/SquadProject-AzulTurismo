@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import  "./FAQ.css";
 import { IoSearch } from 'react-icons/io5'
 import OffCanvas from './OffCanvas';
-const index = () => {
+import { NavBarContext } from '../../context/NavBarContext';
 
-  const [ showOffCanvas, setShowOffCanvas ] = useState(false)
+const index = () => {
+  const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
+  
+  useEffect(() => {
+    // para subir a ao topo após renderizar a página
+    window.scrollTo(0, 0);
+    // para alterar cor do background de acordo com a página
+    setBgColor(true);
+    // para alterar estilização do footer caso venha direto da página de payment
+    setPaymentFooter(false);
+  }, []);
+
   // OBJETO TESTE
 
+  showOffCanvas ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto'
  
   // STATE DO MEU INPUT
   const [DataInput,setDataInput] = useState({
@@ -17,7 +29,6 @@ const index = () => {
   const HandleChange =(e) =>{
 
     setDataInput((prev)=>({...prev,[e.target.name]: e.target.value}))
-
   }
 
   //  FUNÇAO DE CLICK
@@ -31,7 +42,7 @@ const index = () => {
   return (
     <>
     {showOffCanvas &&
-      <OffCanvas onShow={showOffCanvas} children={
+      <OffCanvas children={
         <h1>Sou o Filho deste elemento</h1>
       }/>
     }
@@ -46,11 +57,11 @@ const index = () => {
               
             </div>
             <div className="call-my-offCanvas">
-              <button onClick={() => setShowOffCanvas(!showOffCanvas)}>Show OffCanvas</button>
+              <button onClick={() => setShowOffCanvas(true)}>Show OffCanvas</button>
             </div>
         </section>
         <section className='BtnFaq'>
-          
+
         </section>
     </div>
     </>
