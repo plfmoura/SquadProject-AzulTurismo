@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './offCanvas.css'
 import { HiOutlineXMark } from "react-icons/hi2";
+import { NavBarContext } from '../../../context/NavBarContext';
 
-export default function OffCanvas({ onShow, children }) {
-    const [ show, setShow ] = useState(true)
+export default function OffCanvas({ children }) {
+    const { setShowOffCanvas } = useContext(NavBarContext);
 
   return (
     <>
-    {show && 
     <div className='OffCanvas-overlay'>
         <div className="offCanvas-container">
             <div className="offCanvas-header">
                 <HiOutlineXMark 
                     style={{fontSize: 35}}
-                    onClick={() => setShow(!onShow)}/>
+                    onClick={() => setShowOffCanvas(false)}/>
             </div>
             <div className="offCanvas-content">
                 {/* Todos os elementos filhos deste offcanvas */}
@@ -25,7 +25,6 @@ export default function OffCanvas({ onShow, children }) {
             </div>
         </div>
     </div>
-     }
     </>
   )
 }
