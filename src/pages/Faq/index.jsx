@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import Axios from "axios"
 import  "./FAQ.css";
 import { IoSearch } from 'react-icons/io5'
+import OffCanvas from './OffCanvas';
 const index = () => {
 
+  const [ showOffCanvas, setShowOffCanvas ] = useState(false)
   // OBJETO TESTE
 
  
@@ -27,8 +28,14 @@ const index = () => {
      else {console.log(DataInput)}
   }
 
- 
   return (
+    <>
+    {showOffCanvas &&
+      <OffCanvas onShow={showOffCanvas} children={
+        <h1>Sou o Filho deste elemento</h1>
+      }/>
+    }
+
     <div className='FAQ'>
         <section className='InfosFaq'>
             <h1>Ola! Precisando de Ajuda?</h1>
@@ -38,9 +45,15 @@ const index = () => {
                 <button type='submit' onClick={BtnSearch}><IoSearch /></button>
               
             </div>
+            <div className="call-my-offCanvas">
+              <button onClick={() => setShowOffCanvas(!showOffCanvas)}>Show OffCanvas</button>
+            </div>
         </section>
-        <section className='BtnFaq'></section>
+        <section className='BtnFaq'>
+          
+        </section>
     </div>
+    </>
   )
 }
 
