@@ -11,9 +11,14 @@ export default function OffCanvas({ children }) {
     <div className='OffCanvas-overlay'>
         <div className="offCanvas-container">
             <div className="offCanvas-header">
-                <HiOutlineXMark 
-                    style={{fontSize: 35}}
-                    onClick={() => setShowOffCanvas(false)}/>
+                <label onClick={() => setShowOffCanvas(false)}>
+                    <HiOutlineXMark 
+                        style={{
+                            fontSize: 35,
+                            cursor: 'pointer'
+                        }}
+                    />
+                </label>
             </div>
             <div className="offCanvas-content">
                 {/* Todos os elementos filhos deste offcanvas */}
