@@ -149,6 +149,13 @@ export default function CarouselServices({ children, setClass }) {
           slidesToShow: 1,
         }
       },
+      {
+        breakpoint: 380,
+        settings: {
+          initialSlide: 1,
+          slidesToShow: 1
+        }
+      },
     ]
   };
 

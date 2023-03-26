@@ -7,6 +7,12 @@ export const NavBarProvider = ({ children }) => {
   const [paymentFooter, setPaymentFooter] = useState(false);
   const [showOffCanvas, setShowOffCanvas] = useState(false)
 
+  const handleScrollableCheck = ( check ) => {
+    check ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto'
+  }
+
+  handleScrollableCheck(showOffCanvas)
+
   let alignPaymentShotcuts = paymentFooter ? 'center' : 'space-between'
   let changeBgColor = bgColor
     ? { backgroundColor: "#fff", fontWeight: "500" }
@@ -29,7 +35,8 @@ export const NavBarProvider = ({ children }) => {
         setPaymentFooter,
         alignPaymentShotcuts,
         showOffCanvas,
-        setShowOffCanvas
+        setShowOffCanvas,
+        handleScrollableCheck
       }}
     >
       {children}

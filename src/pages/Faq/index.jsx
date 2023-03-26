@@ -18,8 +18,6 @@ const index = () => {
 
   // OBJETO TESTE
 
-  showOffCanvas ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto'
- 
   // STATE DO MEU INPUT
   const [DataInput,setDataInput] = useState({
     data:"",
