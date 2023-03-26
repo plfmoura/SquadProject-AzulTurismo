@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { LoggedContext } from '../../../context/LoggedContext'
 import { useDispatch, useSelector } from 'react-redux'
 import { delUser } from '../../../reducer/userReducer'
@@ -22,7 +22,9 @@ export default function BurgerMobileMenu({ callMenu }) {
     const [ visible, setVisible ] = useState(false)
     const [ disable, setDisable ] = useState(false)
 
-    handleScrollableCheck(visible)
+    useEffect(() => {
+      handleScrollableCheck(visible)
+    }, [visible])
 
     let disableEvent = disable ? 'none' : 'all'
     let showMenu = visible ? 'block' : 'none'
