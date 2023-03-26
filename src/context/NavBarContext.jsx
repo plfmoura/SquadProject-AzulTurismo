@@ -5,6 +5,13 @@ export const NavBarContext = createContext();
 export const NavBarProvider = ({ children }) => {
   const [bgColor, setBgColor] = useState(false);
   const [paymentFooter, setPaymentFooter] = useState(false);
+  const [showOffCanvas, setShowOffCanvas] = useState(false)
+
+  const handleScrollableCheck = ( check ) => {
+    check ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto'
+  }
+
+  handleScrollableCheck(showOffCanvas)
 
   let alignPaymentShotcuts = paymentFooter ? 'center' : 'space-between'
   let changeBgColor = bgColor
@@ -26,7 +33,10 @@ export const NavBarProvider = ({ children }) => {
         changeNotficationIcon,
         paymentFooter,
         setPaymentFooter,
-        alignPaymentShotcuts
+        alignPaymentShotcuts,
+        showOffCanvas,
+        setShowOffCanvas,
+        handleScrollableCheck
       }}
     >
       {children}

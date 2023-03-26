@@ -5,6 +5,8 @@
     background-color: #f1f1f1;
     padding: 2rem 0rem 5rem 0rem;
     color: #333;
+    z-index: 2;
+    position: relative;
 }
 
 .footerContainer a {

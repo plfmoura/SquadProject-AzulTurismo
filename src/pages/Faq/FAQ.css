@@ -1,0 +1,68 @@
+
+/* DIV PRINCIPAL */
+.FAQ{
+    width: 100%;
+    height: 100vh;
+}
+
+/* DIV FILHA */
+.FAQ section{
+    width: 100%;
+    height: 50%;
+  
+}
+
+/* PRIMEIRA SECTION */
+.InfosFaq{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.InfosFaq h1{
+    font-size: 3em;
+    margin-bottom: 50px;
+}
+
+.inputSearch{
+    width: 35%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.322) 0px 3px 8px;;
+
+}
+.inputSearch input{
+ width: 90%;
+ border: none;
+ outline: none;
+ padding-left: 20px;
+ border-radius: 20px;
+ font-size: 1em;
+}
+
+.inputSearch  button{
+    width:55px;
+    height: 90%;
+    background-color: #2e90ff;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.inputSearch button:hover {
+    transition: 0.4s;
+    background-color: #217be2;
+}
+
+
+/* SEGUNDA SECTION */

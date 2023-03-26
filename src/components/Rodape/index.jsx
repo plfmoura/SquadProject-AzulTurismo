@@ -1,4 +1,5 @@
 import styles from "../../components/Rodape/rodape.module.css";
+import { Link } from "react-router-dom";
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -74,7 +75,7 @@ export default function Rodape() {
                 <a href="#">Termos</a>
               </li>
               <li>
-                <a href="#">Mapa do site</a>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li>
                 <a href="#">Informações da Empresa</a>

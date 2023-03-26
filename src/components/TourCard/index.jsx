@@ -62,7 +62,7 @@ function TourCard({ id, title, location, image, price, rating }) {
           >
             <div className={style.cardTitle}>
               <p>{title}</p>
-              <p>
+              <p className={style.cardRatingValue}>
                 <span>
                   <AiFillStar />
                 </span>

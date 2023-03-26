@@ -7,6 +7,8 @@ export const LoggedProvider = ({ children }) => {
     const [ show, setShow ] = useState(false);
     const [ change, setChange ] = useState(false)
     
+    show ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto'
+
     return (
         <LoggedContext.Provider value={{ hasUser, setHasUser, show, setShow, change, setChange }}>
            {children}

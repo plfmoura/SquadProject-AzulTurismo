@@ -9,16 +9,20 @@ import { Link } from 'react-router-dom'
 import Lottie from 'react-lottie-player'
 import Burger from '../../../assets/animations/menuIcon.json'
 import { IoNotifications } from "react-icons/io5"
+import { NavBarContext } from '../../../context/NavBarContext'
 
 export default function BurgerMobileMenu({ callMenu }) {
     const state = useSelector((state) => state);
     const { user } = state.user;
     const dispatch = useDispatch();
+    const { handleScrollableCheck } = useContext(NavBarContext)
     
     // Menu burger animation events
     const [ animation, setAnimation] = useState(false)
     const [ visible, setVisible ] = useState(false)
     const [ disable, setDisable ] = useState(false)
+
+    handleScrollableCheck(visible)
 
     let disableEvent = disable ? 'none' : 'all'
     let showMenu = visible ? 'block' : 'none'

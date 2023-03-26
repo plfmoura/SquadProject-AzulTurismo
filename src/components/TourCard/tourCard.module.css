@@ -79,6 +79,7 @@
 .cardContainer .cardTitle p:last-of-type {
     margin-right: .5rem;
     display: flex;
+    display: none;
 }
 
 .cardContainer .cardTitle p:first-of-type {
@@ -98,4 +99,30 @@
 .cardContainer .cardOverView p:nth-of-type(4) span {
     font-size: 22px;
     font-weight: bold;
+}
+
+@media screen and (min-width: 320px) {
+    .cardContainer .cardOverView p:nth-of-type(1) {
+        font-size: 10px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .cardContainer .cardOverView p:nth-of-type(1) {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 420px) {
+    .cardContainer .cardTitle p:last-of-type {
+        margin-right: .5rem;
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 724px) {
+    .cardContainer .cardOverView p:nth-of-type(1) {
+        font-size: 16px;
+    }
 }
