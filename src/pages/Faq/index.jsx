@@ -6,6 +6,7 @@ import { NavBarContext } from '../../context/NavBarContext';
 import axios from "axios"
 const index = () => {
 
+// REQUISIÇAO A API
 
 
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
@@ -22,7 +23,9 @@ const index = () => {
   // OBJETO TESTE
 
   // STATE DOS MEUS BUTTONS
-  const [DataBtn,setDataBtn] = useState()
+  const [DataBtn,setDataBtn] = useState([])
+  console.log(DataBtn)
+
   
 
   // STATE DO MEU INPUT
@@ -36,6 +39,33 @@ const index = () => {
     setDataInput((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  // FUNCTION CLICK BTN
+
+  const ClickButton = (e) =>{
+    let ValueBtn = e.target.value
+
+    // setDataBtn(e.target.value)
+    setShowOffCanvas(true)
+
+    ConsultaApi(ValueBtn)
+  
+  }
+ 
+
+  const ConsultaApi = (URL) =>{
+
+    console.log(`http://localhost:3000/${URL}`)
+    axios.get(`http://localhost:3000/${URL}`)
+    .then(function (response) {
+    
+      setDataBtn(response.data)
+    })
+    .catch(function (error) {
+      // aqui temos acesso ao erro, quando alguma coisa inesperada acontece:
+      console.log(error);
+    })
+  }
+
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
     const verificar = DataInput.data
@@ -45,73 +75,73 @@ const index = () => {
 
     else if (verificar.includes("usuario") == true) {
       console.log("fazendo a requisiçao a tabela de usuario")
-      setShowOffCanvas(true)
-      setDataBtn("Usuario")
+      setShowOffCanvas(true) 
+      ConsultaApi("Usuario")
     }
     else if (verificar.includes("Usuario") == true) {
       console.log("fazendo a requisiçao a tabela de usuario")
       setShowOffCanvas(true)
-      setDataBtn("Usuario")
+      ConsultaApi("Usuario")
     }
     else if (verificar.includes("usuarios") == true) {
       console.log("fazendo a requisiçao a tabela de usuario")
       setShowOffCanvas(true)
-      setDataBtn("Usuario")
+      ConsultaApi("Usuario")
     }
     else if (verificar.includes("Usuarios") == true) {
       console.log("fazendo a requisiçao a tabela de usuario")
       setShowOffCanvas(true)
-      setDataBtn("Usuario")
+      ConsultaApi("Usuario")
     }
     else if (verificar.includes("pagamentos") == true) {
       console.log("fazendo a req a tabela pagamento")
       setShowOffCanvas(true)
-      setDataBtn("Pagamento")
+      ConsultaApi("Pagamento")
     }
     else if (verificar.includes("Pagamentos") == true) {
       console.log("fazendo a req a tabela pagamento")
       setShowOffCanvas(true)
-      setDataBtn("Pagamento")
+      ConsultaApi("Pagamento")
     }
     else if (verificar.includes("pagamento") == true) {
       console.log("fazendo a req a tabela pagamento")
       setShowOffCanvas(true)
-      setDataBtn("Pagamento")
+      ConsultaApi("Pagamento")
     }
     else if (verificar.includes("Pagamento") == true) {
       console.log("fazendo a req a tabela pagamento")
       setShowOffCanvas(true)
-      setDataBtn("Pagamento")
+      ConsultaApi("Pagamento")
     }
     else if (verificar.includes("Garantias") == true) {
       console.log("fazendo a req a tabela Garantias e segurança")
       setShowOffCanvas(true)
-      setDataBtn("seguranca")
+      ConsultaApi("seguranca")
     }
     else if (verificar.includes("garantias") == true) {
       console.log("fazendo a req a tabela Garantias e segurança")
       setShowOffCanvas(true)
-      setDataBtn("seguranca")
+      ConsultaApi("seguranca")
     }
     else if (verificar.includes("Garantia") == true) {
       console.log("fazendo a req a tabela Garantias e segurança")
       setShowOffCanvas(true)
-      setDataBtn("seguranca")
+      ConsultaApi("seguranca")
     }
     else if (verificar.includes("garantia") == true) {
       console.log("fazendo a req a tabela Garantias e segurança")
       setShowOffCanvas(true)
-      setDataBtn("seguranca")
+      ConsultaApi("seguranca")
     }
     else if (verificar.includes("Segurança") == true) {
       console.log("fazendo a req a tabela Garantias e segurança")
       setShowOffCanvas(true)
-      setDataBtn("seguranca")
+      ConsultaApi("seguranca")
     }
     else if (verificar.includes("segurança") == true) {
       console.log("fazendo a req a tabela Garantias e segurança")
       setShowOffCanvas(true)
-      setDataBtn("seguranca")
+      ConsultaApi("seguranca")
     }
 
     else {
@@ -126,9 +156,18 @@ const index = () => {
     <>
       {showOffCanvas &&
         <OffCanvas children={
-          <h1>Sou o Filho deste elemento</h1>
+          <div>
+            {
+              DataBtn.map((data,key)=>{
+                // TENTANDO MAPEAR MINHA API
+                // <div key={key}>{data.titulo}</div>
+              })
+            }
+          </div>
         } />
       }
+
+
 
       <div className={style.FAQ}>
         <section className={style.InfosFaq}>
@@ -143,22 +182,11 @@ const index = () => {
         </section>
         <section className='BtnFaq'>
 
-          <button className="Btn" value="Usuario" onClick={(e) => {
-            setDataBtn(e.target.value)
-
-            setShowOffCanvas(true)
-          }}>Click</button>
-
-          <button className="Btn" value="Seguranca" onClick={(e) => {
-           setDataBtn(e.target.value)
-           setShowOffCanvas(true)
-          }}>Click</button>
+          <button className="Btn" value="Usuario" onClick={ClickButton}>USER</button>
+          <button className="Btn" value="Pagamento" onClick={ClickButton}>PAGAMENTO</button>
+          <button className="Btn" value="Seguranca" onClick={ClickButton}>SEGURANÇA</button>
          
-         <button className="Btn" value="Pagamento" onClick={(e) => {
-           setDataBtn(e.target.value)
-           setShowOffCanvas(true)
-          }}>Click</button>
-         
+  
         </section>
       </div>
     </>
