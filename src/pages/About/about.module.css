@@ -14,7 +14,6 @@
   }
 }
 
-
 .firstSection {
   width: 100%;
   height: 60vh;
@@ -214,7 +213,7 @@
 /* area das fotos dos participantes  */
 .teamSection {
   width: 100%;
-  height: 70vh;
+  height: 75vh;
   display: flex;
   justify-content: space-between;
 }
@@ -225,7 +224,7 @@
   flex-wrap: wrap;
   gap: 2rem;
   width: 50%;
-  height: 70vh;
+  height: 75vh;
   position: absolute;
   z-index: 2;
   color: #fff;
@@ -296,7 +295,7 @@
   }
 
   .ourMission img {
-    width: 100%;
+    width: 50%;
     object-fit: cover;
   }
     

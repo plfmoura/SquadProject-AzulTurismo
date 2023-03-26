@@ -1,12 +1,9 @@
 .footerContainer{
-    margin-top:2rem;
     width: 100%;
     height: 100%;
     background-color: #f1f1f1;
     padding: 2rem 0rem 5rem 0rem;
     color: #333;
-    z-index: 2;
-    position: relative;
 }
 
 .footerContainer a {
