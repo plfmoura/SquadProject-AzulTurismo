@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import  "./FAQ.css";
+import style from './FAQ.module.css'
 import { IoSearch } from 'react-icons/io5'
 import OffCanvas from './OffCanvas';
 import { NavBarContext } from '../../context/NavBarContext';
@@ -45,21 +45,21 @@ const index = () => {
       }/>
     }
 
-    <div className='FAQ'>
-        <section className='InfosFaq'>
+    <div className={style.FAQ}>
+        <section className={style.InfosFaq}>
             <h1>Ola! Precisando de Ajuda?</h1>
-            <div className="inputSearch">
+                  <div className={style.inputSearch}>
 
                 <input name="data" type="text" placeholder='Deixe aqui sua duvida...' onChange={HandleChange} />
                 <button type='submit' onClick={BtnSearch}><IoSearch /></button>
               
             </div>
-            <div className="call-my-offCanvas">
-              <button onClick={() => setShowOffCanvas(true)}>Show OffCanvas</button>
-            </div>
+        
         </section>
         <section className='BtnFaq'>
-
+        <div className="call-my-offCanvas">
+              <button onClick={() => setShowOffCanvas(true)}>Show OffCanvas</button>
+            </div>
         </section>
     </div>
     </>
