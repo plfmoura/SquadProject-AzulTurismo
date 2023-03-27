@@ -4,14 +4,14 @@ import { HiOutlineXMark } from "react-icons/hi2";
 import { NavBarContext } from '../../../context/NavBarContext';
 
 export default function OffCanvas({ children }) {
-    const { setShowOffCanvas } = useContext(NavBarContext);
+    const { showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
 
   return (
     <>
     <div className='OffCanvas-overlay'>
         <div className="offCanvas-container">
             <div className="offCanvas-header">
-                <label onClick={() => setShowOffCanvas(false)}>
+                <label onClick={() => {setShowOffCanvas(false)}}>
                     <HiOutlineXMark 
                         style={{
                             fontSize: 35,
