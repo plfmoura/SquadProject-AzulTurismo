@@ -111,12 +111,13 @@
     margin: 1rem 0 2rem 0;
 }
 
-.cardContainer .cardArea {
+.cardContainer {
     grid-area: c;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 5rem;
 }
 
 .cardContainer .cardArea button {
@@ -180,25 +181,18 @@
     .alignContent {
         width: 95%;
         margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 30% 30% 40%;
-        grid-template-areas: 
-            "a"
-            "b"
-            "c";
-        gap: 0rem;
+        display: flex;
+        flex-direction: column;
     }
 
     .alignContent .paymentContent {
-        grid-area: a;
+        flex: 3;
         width: 90%;
         margin: 0 auto;
     }
     
     .alignContent .cartContent {
         width: 100%;
-        grid-area: b;
         height: 100%;
         margin: 0 auto;
         position: static;
@@ -217,10 +211,9 @@
         font-size: 1rem;
     }
 
-    .cardContainer .cardArea {
+    .cardContainer {
         width: 100%;
         margin: 0 auto;
-        grid-area: c;
     }
 }
 

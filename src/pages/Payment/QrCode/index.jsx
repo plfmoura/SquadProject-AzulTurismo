@@ -17,7 +17,7 @@ export default function QrCodePayment({value, id_qrCode, purchaseName}) {
   }
 
   return (
-    <div style={{maxHeight: showArea}}>
+    <div className='qrCode-container' style={{maxHeight: showArea}}>
       <div className='qrCode-header-content'>
         <h4 onClick={ handleChange } style={{cursor: 'pointer'}}>Pagamento via QR code(PIX)</h4>
         <QrCodeAnimation />

@@ -20,3 +20,9 @@
 .cardSizeMc{
     max-height: 5rem;
 }
+
+@media screen and (max-width: 900px){
+    .cardFlag{
+        margin-right: 0;
+    }
+}
