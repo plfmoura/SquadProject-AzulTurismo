@@ -5,11 +5,13 @@ import OffCanvas from './OffCanvas';
 import { NavBarContext } from '../../context/NavBarContext';
 import axios from "axios"
 import PreLoader from '../../components/PreLoader'
+import { dataFaq } from '../../services/faq';
 
 const index = () => {
   // OVERLAY
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
-  
+  const [ getData, setGetData ] = useState(dataFaq)
+
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
@@ -23,15 +25,15 @@ const index = () => {
   const [DataBtn,setDataBtn] = useState()
   
   // REQUISIÇAO A API
-   const ConsultaApi = (URL) =>{
-    axios.get(`http://localhost:3000/${URL}`)
-    .then(function (response) {
-      setDataBtn(response.data)
-    })
-    .catch(function (error) {
-      console.log(error);
-    }),[]
-  }
+  //  const ConsultaApi = (URL) =>{
+  //   axios.get(`http://localhost:3000/${URL}`)
+  //   .then(function (response) {
+  //     setDataBtn(response.data)
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   }),[]
+  // }
 
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
@@ -135,21 +137,33 @@ const index = () => {
   const [ loading, setLoading ] = useState(true)
 
   // FUNCTION CLICK BTN
-  const ClickButton = (e) =>{
-    // colocando valor do btn para a state
-    setValueBtn(e.target.value)
+  const handleSelect = (e) =>{
+    // colocando valor do btn para a variavel
+    let getBtnValue = e.target.value
+    setValueBtn(getBtnValue)
     // carregamento até mostrar a pesquisa
     setTimeout(() => {
       setLoading(false)
     }, [2000])
     setShowOffCanvas(true)
-    // consulta o valor da state 
-    ConsultaApi(valueBtn)
+    // consulta o valor do target
+    switch (getBtnValue) {
+      case 'usuario':
+        setDataBtn(getData.user);
+        break;
+      case 'pagamento':
+        setDataBtn(getData.payment);
+        break;
+      case 'seguranca':
+        setDataBtn(getData.security);
+        break;
+      default: null;
+    }
   }
 
   useEffect(() => {
     if(DataBtn){
-      setDataFind(DataBtn.find((value) => value.titulo === valueBtn))
+      setDataFind(DataBtn.find((value) => value.title.toLowerCase() === valueBtn))
     }
   }, [ DataBtn ])
   
@@ -161,14 +175,14 @@ const index = () => {
             (<div>
              { dataFind && (
                   <div>
-                    <h1 style={{color: '#f00'}}>{dataFind.titulo}</h1>
+                    <h1 style={{color: '#f00'}}>{dataFind.title}</h1>
                   </div>
              )
              }
              { DataBtn && (
               DataBtn.map((item, key) => (
               <div key={key}>
-                <h1>{item.titulo}</h1>
+                <h1>{item.title}</h1>
               </div>
               )))}
             </div>) : (<PreLoader />)
@@ -186,14 +200,9 @@ const index = () => {
 
         </section>
         <section className={style.BtnFAQ}>
-
-          <button className="Btn" value="Usuario" onClick={ClickButton}>USER</button>
-          <button className="Btn" value="pagamento" onClick={ClickButton}>PAGAMENTO</button>
-          <button className="Btn" value="seguranca" onClick={ClickButton}>SEGURANÇA</button>
-
-
-         
-  
+          <button className="Btn" value="usuario" onClick={handleSelect}>USER</button>
+          <button className="Btn" value="pagamento" onClick={handleSelect}>PAGAMENTO</button>
+          <button className="Btn" value="seguranca" onClick={handleSelect}>SEGURANÇA</button>
         </section>
       </div>
     </>

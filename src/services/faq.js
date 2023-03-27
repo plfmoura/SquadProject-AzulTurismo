@@ -3,19 +3,19 @@ export const dataFaq = {
     [
       {
         id : 1 , 
-        title : "Usuario" ,
+        title : "usuario" ,
         question : "" ,
         response:""
       },
       {
         id : 2 , 
-        title : "Usuario" ,
+        title : "usuario" ,
         question : "" ,
         response:""
       },
       {
         id : 3 , 
-        title : "Usuario" ,
+        title : "usuario" ,
         question : "" ,
         response:""
       },
@@ -29,13 +29,13 @@ export const dataFaq = {
       },
       {
         id : 2 , 
-        title : "Pagamento" ,
+        title : "pagamento" ,
         question : "" ,
         response:"" 
       },
       {
         id : 3 , 
-        title : "Pagamento" ,
+        title : "pagamento" ,
         question : "" ,
         response:"" 
       },
