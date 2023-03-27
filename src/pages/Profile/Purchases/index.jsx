@@ -1,9 +1,18 @@
 import React from "react";
+import { useContext } from "react";
+import { useEffect } from "react";
 import Button from "../../../components/Button";
+import { NavBarContext } from "../../../context/NavBarContext";
 import "./purchases.css";
 
 export default function Purchases({ data }) {
+  const { setNewNotification } = useContext(NavBarContext);
   const today = Date.now();
+
+  useEffect(() => {
+    // Para apagar simbolo de novas notificações
+    setNewNotification(false)
+  }, [])
 
   return (
     <div className="purchases-container">

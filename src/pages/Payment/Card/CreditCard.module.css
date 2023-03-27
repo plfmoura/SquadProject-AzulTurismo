@@ -100,14 +100,15 @@ input::-webkit-inner-spin-button {
 
 .onPurchaseSuccess {
   min-height: 20rem;
-  width: 100%;
+  width: 30rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 @media screen and (min-width: 320px) {
-  .cardContainer {
+  .cardContainer,
+  .onPurchaseSuccess {
     width: 18rem;
   }
   
@@ -119,10 +120,12 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
   }
+
 }
 
 @media screen and (min-width: 480px) {
-  .cardContainer {
+  .cardContainer,
+  .onPurchaseSuccess {
     width: 25rem;
   }
 
@@ -133,10 +136,12 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
   }
+
 }
 
 @media screen and (min-width: 720px) {
-  .cardContainer {
+  .cardContainer,
+  .onPurchaseSuccess {
     width: 30rem;
   }
 

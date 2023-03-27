@@ -68,10 +68,6 @@ export default function Card({ handleCheckout, purchaseReturn }) {
                 name: "SEU NOME AQUI",
               }}
             />
-
-          
-
-
             <div>
               <form className={styles.cardForm} onSubmit={handleCheckout}>
                 <InputElement

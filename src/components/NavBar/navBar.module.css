@@ -122,10 +122,48 @@
     padding: .2rem;
 }
 
+.notificationAlign {
+    margin: auto 1.8rem auto 1rem;
+    position: relative;
+    background-color: yellow;
+    top: -1rem;
+    left: -.5rem    
+}
+
 .notificationIcon {
-    transform: scale(1.5);
+    font-size: 1.8rem;
     color: #333;
-    margin-inline: 1rem;
+    position: absolute;
+    z-index: 1;
+}
+
+.newPurchase {
+    background-color: red;
+    position: absolute;
+    z-index: 2;
+    top: -.1rem;
+    right: -2rem;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 1rem;
+    height: 1rem;
+    display: grid;
+    place-content: center;
+    border-radius: 100%;
+    color: #fff;
+    animation: newBuy 1s ease normal;
+}
+
+@keyframes newBuy {
+    from {
+        display: none;
+        transform: scale(0) translate3d(.5rem, 3rem, 15rem);
+    }
+    to {
+        transform: scale(1);
+        display: grid;
+    }
 }
 
 .menuMobile {
