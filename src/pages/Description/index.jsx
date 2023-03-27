@@ -135,7 +135,7 @@ export default function Description() {
                     userSelect: "none",
                   }}
                 >
-                  {descriptionText ? "Ver mais..." : "Ver menos."}
+                  {descriptionText ? "Ver mais..." : "Ver menos"}
                 </span>
                 {descriptionText && (
                   <hr

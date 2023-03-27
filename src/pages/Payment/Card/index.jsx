@@ -51,7 +51,7 @@ export default function Card({ handleCheckout, purchaseReturn }) {
   return (
     <>
       {!onSuccess ? (
-        <div className={styles.cardContainer} style={{ maxHeight: showArea }}>
+        <div className={styles.cardContainer} style={{ maxHeight: showArea}}>
           <div className={styles.cardPayment_header}>
             <h4 onClick={handleChange} style={{ cursor: 'pointer', marginLeft: "2.5%" }}>Pagamento com Cartão</h4>
             <CreditCardPayment />
