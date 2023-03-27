@@ -66,3 +66,9 @@
 
 
 /* SEGUNDA SECTION */
+
+.BtnFAQ{
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
