@@ -6,7 +6,22 @@ import { NavBarContext } from '../../context/NavBarContext';
 import axios from "axios"
 const index = () => {
 
-// REQUISIÇAO A API
+  //  // REQUISIÇAO A API
+
+   const ConsultaApi = (URL) =>{
+
+    axios.get(`http://localhost:3000/${URL}`)
+    .then(function (response) {
+    
+      setDataBtn(response.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    }),[]
+  }
+
+ 
+// OVERLAY
 
 
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
@@ -20,13 +35,91 @@ const index = () => {
     setPaymentFooter(false);
   }, []);
 
-  // OBJETO TESTE
+//  FUNÇAO DE CLICK do search
+const BtnSearch = () => {
+  const verificar = DataInput.data
+  if (verificar == "") {
+    alert("digite algo")
+  }
 
-  // STATE DOS MEUS BUTTONS
-  const [DataBtn,setDataBtn] = useState([])
-  console.log(DataBtn)
+  else if (verificar.includes("usuario") == true) {
+    console.log("fazendo a requisiçao a tabela de usuario")
+    setShowOffCanvas(true) 
+    ConsultaApi("Usuario")
+  }
+  else if (verificar.includes("Usuario") == true) {
+    console.log("fazendo a requisiçao a tabela de usuario")
+    setShowOffCanvas(true)
+    ConsultaApi("Usuario")
+  }
+  else if (verificar.includes("usuarios") == true) {
+    console.log("fazendo a requisiçao a tabela de usuario")
+    setShowOffCanvas(true)
+    ConsultaApi("Usuario")
+  }
+  else if (verificar.includes("Usuarios") == true) {
+    console.log("fazendo a requisiçao a tabela de usuario")
+    setShowOffCanvas(true)
+    ConsultaApi("Usuario")
+  }
+  else if (verificar.includes("pagamentos") == true) {
+    console.log("fazendo a req a tabela pagamento")
+    setShowOffCanvas(true)
+    ConsultaApi("Pagamento")
+  }
+  else if (verificar.includes("Pagamentos") == true) {
+    console.log("fazendo a req a tabela pagamento")
+    setShowOffCanvas(true)
+    ConsultaApi("Pagamento")
+  }
+  else if (verificar.includes("pagamento") == true) {
+    console.log("fazendo a req a tabela pagamento")
+    setShowOffCanvas(true)
+    ConsultaApi("Pagamento")
+  }
+  else if (verificar.includes("Pagamento") == true) {
+    console.log("fazendo a req a tabela pagamento")
+    setShowOffCanvas(true)
+    ConsultaApi("Pagamento")
+  }
+  else if (verificar.includes("Garantias") == true) {
+    console.log("fazendo a req a tabela Garantias e segurança")
+    setShowOffCanvas(true)
+    ConsultaApi("seguranca")
+  }
+  else if (verificar.includes("garantias") == true) {
+    console.log("fazendo a req a tabela Garantias e segurança")
+    setShowOffCanvas(true)
+    ConsultaApi("seguranca")
+  }
+  else if (verificar.includes("Garantia") == true) {
+    console.log("fazendo a req a tabela Garantias e segurança")
+    setShowOffCanvas(true)
+    ConsultaApi("seguranca")
+  }
+  else if (verificar.includes("garantia") == true) {
+    console.log("fazendo a req a tabela Garantias e segurança")
+    setShowOffCanvas(true)
+    ConsultaApi("seguranca")
+  }
+  else if (verificar.includes("Segurança") == true) {
+    console.log("fazendo a req a tabela Garantias e segurança")
+    setShowOffCanvas(true)
+    ConsultaApi("seguranca")
+  }
+  else if (verificar.includes("segurança") == true) {
+    console.log("fazendo a req a tabela Garantias e segurança")
+    setShowOffCanvas(true)
+    ConsultaApi("seguranca")
+  }
 
-  
+  else {
+    console.log("Nao sou capaz de responder sua pergunta!")
+  }
+
+
+
+}
 
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
@@ -39,6 +132,10 @@ const index = () => {
     setDataInput((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+    // STATE DOS MEUS BUTTONS
+    const [DataBtn,setDataBtn] = useState([])
+    console.log(DataBtn)
+  
   // FUNCTION CLICK BTN
 
   const ClickButton = (e) =>{
@@ -48,125 +145,36 @@ const index = () => {
     setShowOffCanvas(true)
 
     ConsultaApi(ValueBtn)
+
+  const result = DataBtn.find((data)=>{data.titulo === "Usuario"})
+ 
+  console.log(result)
   
   }
+
+
  
-
-  const ConsultaApi = (URL) =>{
-
-    console.log(`http://localhost:3000/${URL}`)
-    axios.get(`http://localhost:3000/${URL}`)
-    .then(function (response) {
-    
-      setDataBtn(response.data)
-    })
-    .catch(function (error) {
-      // aqui temos acesso ao erro, quando alguma coisa inesperada acontece:
-      console.log(error);
-    })
-  }
-
-  //  FUNÇAO DE CLICK do search
-  const BtnSearch = () => {
-    const verificar = DataInput.data
-    if (verificar == "") {
-      alert("digite algo")
-    }
-
-    else if (verificar.includes("usuario") == true) {
-      console.log("fazendo a requisiçao a tabela de usuario")
-      setShowOffCanvas(true) 
-      ConsultaApi("Usuario")
-    }
-    else if (verificar.includes("Usuario") == true) {
-      console.log("fazendo a requisiçao a tabela de usuario")
-      setShowOffCanvas(true)
-      ConsultaApi("Usuario")
-    }
-    else if (verificar.includes("usuarios") == true) {
-      console.log("fazendo a requisiçao a tabela de usuario")
-      setShowOffCanvas(true)
-      ConsultaApi("Usuario")
-    }
-    else if (verificar.includes("Usuarios") == true) {
-      console.log("fazendo a requisiçao a tabela de usuario")
-      setShowOffCanvas(true)
-      ConsultaApi("Usuario")
-    }
-    else if (verificar.includes("pagamentos") == true) {
-      console.log("fazendo a req a tabela pagamento")
-      setShowOffCanvas(true)
-      ConsultaApi("Pagamento")
-    }
-    else if (verificar.includes("Pagamentos") == true) {
-      console.log("fazendo a req a tabela pagamento")
-      setShowOffCanvas(true)
-      ConsultaApi("Pagamento")
-    }
-    else if (verificar.includes("pagamento") == true) {
-      console.log("fazendo a req a tabela pagamento")
-      setShowOffCanvas(true)
-      ConsultaApi("Pagamento")
-    }
-    else if (verificar.includes("Pagamento") == true) {
-      console.log("fazendo a req a tabela pagamento")
-      setShowOffCanvas(true)
-      ConsultaApi("Pagamento")
-    }
-    else if (verificar.includes("Garantias") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança")
-      setShowOffCanvas(true)
-      ConsultaApi("seguranca")
-    }
-    else if (verificar.includes("garantias") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança")
-      setShowOffCanvas(true)
-      ConsultaApi("seguranca")
-    }
-    else if (verificar.includes("Garantia") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança")
-      setShowOffCanvas(true)
-      ConsultaApi("seguranca")
-    }
-    else if (verificar.includes("garantia") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança")
-      setShowOffCanvas(true)
-      ConsultaApi("seguranca")
-    }
-    else if (verificar.includes("Segurança") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança")
-      setShowOffCanvas(true)
-      ConsultaApi("seguranca")
-    }
-    else if (verificar.includes("segurança") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança")
-      setShowOffCanvas(true)
-      ConsultaApi("seguranca")
-    }
-
-    else {
-      console.log("Nao sou capaz de responder sua pergunta!")
-    }
-
-
-
-  }
+ 
 
   return (
     <>
       {showOffCanvas &&
         <OffCanvas children={
           <div>
-            {
+          
+              
+             {
               DataBtn.map((data,key)=>{
-                // TENTANDO MAPEAR MINHA API
-                // <div key={key}>{data.titulo}</div>
+                return(
+                  <div key={key}>
+                    <h1>{data.titulo}</h1>
+                  </div>
+                )
               })
-            }
+             }
           </div>
         } />
       }
-
 
 
       <div className={style.FAQ}>
@@ -180,11 +188,13 @@ const index = () => {
           </div>
 
         </section>
-        <section className='BtnFaq'>
+        <section className={style.BtnFAQ}>
 
-          <button className="Btn" value="Usuario" onClick={ClickButton}>USER</button>
-          <button className="Btn" value="Pagamento" onClick={ClickButton}>PAGAMENTO</button>
-          <button className="Btn" value="Seguranca" onClick={ClickButton}>SEGURANÇA</button>
+          <button className="Btn" value="usuario" onClick={ClickButton}>USER</button>
+          <button className="Btn" value="pagamento" onClick={ClickButton}>PAGAMENTO</button>
+          <button className="Btn" value="seguranca" onClick={ClickButton}>SEGURANÇA</button>
+
+
          
   
         </section>
@@ -194,3 +204,5 @@ const index = () => {
 }
 
 export default index
+
+
