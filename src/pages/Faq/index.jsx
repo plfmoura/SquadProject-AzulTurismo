@@ -4,29 +4,12 @@ import { IoSearch } from 'react-icons/io5'
 import OffCanvas from './OffCanvas';
 import { NavBarContext } from '../../context/NavBarContext';
 import axios from "axios"
+import PreLoader from '../../components/PreLoader'
+
 const index = () => {
-  // STATE DOS MEUS BUTTONS
-  const [DataBtn,setDataBtn] = useState()
-  // REQUISIÇAO A API
-
-   const ConsultaApi = (URL) =>{
-
-    axios.get(`http://localhost:3000/${URL}`)
-    .then(function (response) {
-    
-      setDataBtn(response.data)
-    })
-    .catch(function (error) {
-      console.log(error);
-    }),[]
-  }
-
- 
-// OVERLAY
-
-
+  // OVERLAY
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
-
+  
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
@@ -36,91 +19,105 @@ const index = () => {
     setPaymentFooter(false);
   }, []);
 
-//  FUNÇAO DE CLICK do search
-const BtnSearch = () => {
-  const verificar = DataInput.data
-  if (verificar == "") {
-    alert("digite algo")
+  // STATE DOS MEUS BUTTONS
+  const [DataBtn,setDataBtn] = useState()
+  
+  // REQUISIÇAO A API
+   const ConsultaApi = (URL) =>{
+    axios.get(`http://localhost:3000/${URL}`)
+    .then(function (response) {
+      setDataBtn(response.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    }),[]
   }
 
-  else if (verificar.includes("usuario") == true) {
-    console.log("fazendo a requisiçao a tabela de usuario")
-    setShowOffCanvas(true) 
-    ConsultaApi("Usuario")
-  }
-  else if (verificar.includes("Usuario") == true) {
-    console.log("fazendo a requisiçao a tabela de usuario")
-    setShowOffCanvas(true)
-    ConsultaApi("Usuario")
-  }
-  else if (verificar.includes("usuarios") == true) {
-    console.log("fazendo a requisiçao a tabela de usuario")
-    setShowOffCanvas(true)
-    ConsultaApi("Usuario")
-  }
-  else if (verificar.includes("Usuarios") == true) {
-    console.log("fazendo a requisiçao a tabela de usuario")
-    setShowOffCanvas(true)
-    ConsultaApi("Usuario")
-  }
-  else if (verificar.includes("pagamentos") == true) {
-    console.log("fazendo a req a tabela pagamento")
-    setShowOffCanvas(true)
-    ConsultaApi("Pagamento")
-  }
-  else if (verificar.includes("Pagamentos") == true) {
-    console.log("fazendo a req a tabela pagamento")
-    setShowOffCanvas(true)
-    ConsultaApi("Pagamento")
-  }
-  else if (verificar.includes("pagamento") == true) {
-    console.log("fazendo a req a tabela pagamento")
-    setShowOffCanvas(true)
-    ConsultaApi("Pagamento")
-  }
-  else if (verificar.includes("Pagamento") == true) {
-    console.log("fazendo a req a tabela pagamento")
-    setShowOffCanvas(true)
-    ConsultaApi("Pagamento")
-  }
-  else if (verificar.includes("Garantias") == true) {
-    console.log("fazendo a req a tabela Garantias e segurança")
-    setShowOffCanvas(true)
-    ConsultaApi("seguranca")
-  }
-  else if (verificar.includes("garantias") == true) {
-    console.log("fazendo a req a tabela Garantias e segurança")
-    setShowOffCanvas(true)
-    ConsultaApi("seguranca")
-  }
-  else if (verificar.includes("Garantia") == true) {
-    console.log("fazendo a req a tabela Garantias e segurança")
-    setShowOffCanvas(true)
-    ConsultaApi("seguranca")
-  }
-  else if (verificar.includes("garantia") == true) {
-    console.log("fazendo a req a tabela Garantias e segurança")
-    setShowOffCanvas(true)
-    ConsultaApi("seguranca")
-  }
-  else if (verificar.includes("Segurança") == true) {
-    console.log("fazendo a req a tabela Garantias e segurança")
-    setShowOffCanvas(true)
-    ConsultaApi("seguranca")
-  }
-  else if (verificar.includes("segurança") == true) {
-    console.log("fazendo a req a tabela Garantias e segurança")
-    setShowOffCanvas(true)
-    ConsultaApi("seguranca")
-  }
+  //  FUNÇAO DE CLICK do search
+  const BtnSearch = () => {
+    const verificar = DataInput.data
+    if (verificar == "") {
+      alert("digite algo")
+    }
 
-  else {
-    console.log("Nao sou capaz de responder sua pergunta!")
+    else if (verificar.includes("usuario") == true) {
+      console.log("fazendo a requisiçao a tabela de usuario")
+      setShowOffCanvas(true) 
+      ConsultaApi("Usuario")
+    }
+    else if (verificar.includes("Usuario") == true) {
+      console.log("fazendo a requisiçao a tabela de usuario")
+      setShowOffCanvas(true)
+      ConsultaApi("Usuario")
+    }
+    else if (verificar.includes("usuarios") == true) {
+      console.log("fazendo a requisiçao a tabela de usuario")
+      setShowOffCanvas(true)
+      ConsultaApi("Usuario")
+    }
+    else if (verificar.includes("Usuarios") == true) {
+      console.log("fazendo a requisiçao a tabela de usuario")
+      setShowOffCanvas(true)
+      ConsultaApi("Usuario")
+    }
+    else if (verificar.includes("pagamentos") == true) {
+      console.log("fazendo a req a tabela pagamento")
+      setShowOffCanvas(true)
+      ConsultaApi("Pagamento")
+    }
+    else if (verificar.includes("Pagamentos") == true) {
+      console.log("fazendo a req a tabela pagamento")
+      setShowOffCanvas(true)
+      ConsultaApi("Pagamento")
+    }
+    else if (verificar.includes("pagamento") == true) {
+      console.log("fazendo a req a tabela pagamento")
+      setShowOffCanvas(true)
+      ConsultaApi("Pagamento")
+    }
+    else if (verificar.includes("Pagamento") == true) {
+      console.log("fazendo a req a tabela pagamento")
+      setShowOffCanvas(true)
+      ConsultaApi("Pagamento")
+    }
+    else if (verificar.includes("Garantias") == true) {
+      console.log("fazendo a req a tabela Garantias e segurança")
+      setShowOffCanvas(true)
+      ConsultaApi("seguranca")
+    }
+    else if (verificar.includes("garantias") == true) {
+      console.log("fazendo a req a tabela Garantias e segurança")
+      setShowOffCanvas(true)
+      ConsultaApi("seguranca")
+    }
+    else if (verificar.includes("Garantia") == true) {
+      console.log("fazendo a req a tabela Garantias e segurança")
+      setShowOffCanvas(true)
+      ConsultaApi("seguranca")
+    }
+    else if (verificar.includes("garantia") == true) {
+      console.log("fazendo a req a tabela Garantias e segurança")
+      setShowOffCanvas(true)
+      ConsultaApi("seguranca")
+    }
+    else if (verificar.includes("Segurança") == true) {
+      console.log("fazendo a req a tabela Garantias e segurança")
+      setShowOffCanvas(true)
+      ConsultaApi("seguranca")
+    }
+    else if (verificar.includes("segurança") == true) {
+      console.log("fazendo a req a tabela Garantias e segurança")
+      setShowOffCanvas(true)
+      ConsultaApi("seguranca")
+    }
+
+    else {
+      console.log("Nao sou capaz de responder sua pergunta!")
+    }
+
+
+
   }
-
-
-
-}
 
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
@@ -133,41 +130,50 @@ const BtnSearch = () => {
     setDataInput((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  
-  // FUNCTION CLICK BTN
-
-  const ClickButton = (e) =>{
-    let ValueBtn = e.target.value
-
-    // setDataBtn(e.target.value)
-    setShowOffCanvas(true)
-
-    ConsultaApi(ValueBtn)
-  }
   const [ dataFind, setDataFind ] = useState()
+  const [ valueBtn, setValueBtn ] = useState('') 
+  const [ loading, setLoading ] = useState(true)
+
+  // FUNCTION CLICK BTN
+  const ClickButton = (e) =>{
+    // colocando valor do btn para a state
+    setValueBtn(e.target.value)
+    // carregamento até mostrar a pesquisa
+    setTimeout(() => {
+      setLoading(false)
+    }, [2000])
+    setShowOffCanvas(true)
+    // consulta o valor da state 
+    ConsultaApi(valueBtn)
+  }
 
   useEffect(() => {
     if(DataBtn){
-      setDataFind(DataBtn.find((value) => value.titulo === 'Pagamento'))
+      setDataFind(DataBtn.find((value) => value.titulo === valueBtn))
     }
   }, [ DataBtn ])
   
   return (
     <>
       {showOffCanvas &&
-        <OffCanvas children={
-          <div>
-             { dataFind ? (
+        <OffCanvas children=
+          {!loading ?
+            (<div>
+             { dataFind && (
                   <div>
-                    <h1>{dataFind.titulo}</h1>
+                    <h1 style={{color: '#f00'}}>{dataFind.titulo}</h1>
                   </div>
-             ) : ('Carregando')
+             )
              }
-          </div>
-        } />
+             { DataBtn && (
+              DataBtn.map((item, key) => (
+              <div key={key}>
+                <h1>{item.titulo}</h1>
+              </div>
+              )))}
+            </div>) : (<PreLoader />)
+        }/>
       }
-
-
       <div className={style.FAQ}>
         <section className={style.InfosFaq}>
           <h1>Ola! Precisando de Ajuda?</h1>
@@ -181,7 +187,7 @@ const BtnSearch = () => {
         </section>
         <section className={style.BtnFAQ}>
 
-          <button className="Btn" value="usuario" onClick={ClickButton}>USER</button>
+          <button className="Btn" value="Usuario" onClick={ClickButton}>USER</button>
           <button className="Btn" value="pagamento" onClick={ClickButton}>PAGAMENTO</button>
           <button className="Btn" value="seguranca" onClick={ClickButton}>SEGURANÇA</button>
 
