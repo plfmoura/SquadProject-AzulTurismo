@@ -5,8 +5,9 @@ import OffCanvas from './OffCanvas';
 import { NavBarContext } from '../../context/NavBarContext';
 import axios from "axios"
 const index = () => {
-
-  //  // REQUISIÇAO A API
+  // STATE DOS MEUS BUTTONS
+  const [DataBtn,setDataBtn] = useState()
+  // REQUISIÇAO A API
 
    const ConsultaApi = (URL) =>{
 
@@ -132,9 +133,6 @@ const BtnSearch = () => {
     setDataInput((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-    // STATE DOS MEUS BUTTONS
-    const [DataBtn,setDataBtn] = useState([])
-    console.log(DataBtn)
   
   // FUNCTION CLICK BTN
 
@@ -145,32 +143,25 @@ const BtnSearch = () => {
     setShowOffCanvas(true)
 
     ConsultaApi(ValueBtn)
-
-  const result = DataBtn.find((data)=>{data.titulo === "Usuario"})
- 
-  console.log(result)
-  
   }
+  const [ dataFind, setDataFind ] = useState()
 
-
- 
- 
-
+  useEffect(() => {
+    if(DataBtn){
+      setDataFind(DataBtn.find((value) => value.titulo === 'Pagamento'))
+    }
+  }, [ DataBtn ])
+  
   return (
     <>
       {showOffCanvas &&
         <OffCanvas children={
           <div>
-          
-              
-             {
-              DataBtn.map((data,key)=>{
-                return(
-                  <div key={key}>
-                    <h1>{data.titulo}</h1>
+             { dataFind ? (
+                  <div>
+                    <h1>{dataFind.titulo}</h1>
                   </div>
-                )
-              })
+             ) : ('Carregando')
              }
           </div>
         } />
