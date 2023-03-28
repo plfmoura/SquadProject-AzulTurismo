@@ -31,6 +31,8 @@ function App() {
         }
       } catch (error) {}
     }
+
+    //Get of FAQ data to update reducer state
   }, []);
 
   return (
