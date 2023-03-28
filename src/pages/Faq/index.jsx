@@ -6,7 +6,12 @@ import { NavBarContext } from "../../context/NavBarContext";
 import axios from "axios";
 import PreLoader from "../../components/PreLoader";
 import { dataFaq } from "../../services/faq";
-import { FaUserCog, FaRegCheckSquare, FaRegCreditCard, FaRegComments } from "react-icons/fa";
+import {
+  FaUserCog,
+  FaRegCheckSquare,
+  FaRegCreditCard,
+  FaRegComments,
+} from "react-icons/fa";
 
 const index = () => {
   // OVERLAY
@@ -189,30 +194,46 @@ const index = () => {
           </div>
         </section>
         <section className={style.BtnFAQ}>
-          <button className="Btn" value="usuario" onClick={handleSelect}>
+          <div
+            className={style.btnClick}
+            value="usuario"
+            onClick={handleSelect}
+          >
             <i className={style.iconFaq}>
               <FaUserCog />
             </i>
             <span>Problemas com Úsuario</span>
-          </button>
-          <button className="Btn" value="pagamento" onClick={handleSelect}>
-             <i className={style.iconFaq}>
+          </div>
+          <div
+            className={style.btnClick}
+            value="pagamento"
+            onClick={handleSelect}
+          >
+            <i className={style.iconFaq}>
               <FaRegCheckSquare />
             </i>
             <span>Garantias e Seguranças</span>
-          </button>
-          <button className="Btn" value="seguranca" onClick={handleSelect}>
-          <i className={style.iconFaq}>
+          </div>
+          <div
+            className={style.btnClick}
+            value="seguranca"
+            onClick={handleSelect}
+          >
+            <i className={style.iconFaq}>
               <FaRegCreditCard />
             </i>
             <span>Pagamentos</span>
-          </button>
-          <button className="Btn" value="seguranca" onClick={handleSelect}>
-          <i className={style.iconFaq}>
+          </div>
+          <div
+            className={style.btnClick}
+            value="seguranca"
+            onClick={handleSelect}
+          >
+            <i className={style.iconFaq}>
               <FaRegComments />
             </i>
             <span>Suas Duvidas</span>
-          </button>
+          </div>
         </section>
       </div>
     </>

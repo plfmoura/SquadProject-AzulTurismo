@@ -65,21 +65,22 @@
     flex-wrap: wrap;
     gap: 5rem;
 }
-.BtnFAQ button{
+.btnClick{
     width: 188px;
     height: 188px;
     border: none;
     border-radius: 1.5rem;
+    color: #217be2;
     box-shadow: 0 2px 5px black ;
     background-color: #fff;
     cursor: pointer;
 }
-.BtnFAQ button:hover{
+.btnClick:hover{
     transition: all 2s ease-in-out;
     transform: scale(1.1);
     background-color: #f1f1f1;
 }
-.iconFaq{
+.iconFaq, .BtnFAQ span{
     font-size: 100px;
     color: #2e90ff;
     display: flex;
@@ -87,11 +88,16 @@
 }
 
 .BtnFAQ span{
+    text-align: center;
     font-size: 22px;
     font-weight: 600;
+    color: black;
 }
 /* Responsivo*/
 @media screen and (min-width: 320px) and (max-width: 479px){
+    .FAQ{
+        margin-bottom: 0;
+    }
     .InfosFaq h1{
         font-size: 24px;
     }
@@ -99,7 +105,10 @@
         width: 300px;
         height: 50px;
     }
-    .BtnFAQ button{
+    .BtnFAQ{
+        margin: 0 0 0 0;
+    }
+    .btnClick{
         width: 100px;
         height: 100px;
     }
@@ -119,7 +128,7 @@
         width: 400px;
         height: 50px;
     }
-    .BtnFAQ button{
+    .btnClick{
         width: 150px;
         height: 150px;
     }
@@ -140,7 +149,7 @@
         width: 450px;
         height: 60px;
     }
-    .BtnFAQ button{
+    .btnClick{
         width: 160px;
         height: 160px;
     }
@@ -164,7 +173,7 @@
         width: 600px;
         height: 70px;
     }
-    .BtnFAQ button{
+    .btnClick{
         width: 200px;
         height: 200px;
     }
