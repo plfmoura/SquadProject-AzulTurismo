@@ -3,29 +3,24 @@
 .FAQ{
     width: 100%;
     height: 100vh;
+    margin-bottom: 10rem;
 }
-
 /* DIV FILHA */
 .FAQ section{
     width: 100%;
     height: 50%;
-  
 }
-
 /* PRIMEIRA SECTION */
 .InfosFaq{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
 }
-
 .InfosFaq h1{
     font-size: 3em;
     margin-bottom: 50px;
 }
-
 .inputSearch{
     width: 35%;
     height: 60px;
@@ -33,7 +28,6 @@
     align-items: center;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.322) 0px 3px 8px;;
-
 }
 .inputSearch input{
  width: 90%;
@@ -43,7 +37,6 @@
  border-radius: 20px;
  font-size: 1em;
 }
-
 .inputSearch  button{
     width:55px;
     height: 90%;
@@ -58,11 +51,128 @@
     cursor: pointer;
     margin-right: 5px;
 }
-
 .inputSearch button:hover {
     transition: 0.4s;
     background-color: #217be2;
 }
-
-
 /* SEGUNDA SECTION */
+
+.BtnFAQ{
+    width: 100vh;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+.BtnFAQ button{
+    width: 188px;
+    height: 188px;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 5px black ;
+    background-color: #fff;
+    cursor: pointer;
+}
+.BtnFAQ button:hover{
+    transition: all 2s ease-in-out;
+    transform: scale(1.1);
+    background-color: #f1f1f1;
+}
+.iconFaq{
+    font-size: 100px;
+    color: #2e90ff;
+    display: flex;
+    justify-content: center;
+}
+
+.BtnFAQ span{
+    font-size: 22px;
+    font-weight: 600;
+}
+/* Responsivo*/
+@media screen and (min-width: 320px) and (max-width: 479px){
+    .InfosFaq h1{
+        font-size: 24px;
+    }
+    .inputSearch{
+        width: 300px;
+        height: 50px;
+    }
+    .BtnFAQ button{
+        width: 100px;
+        height: 100px;
+    }
+    .iconFaq{
+        font-size: 50px;
+    }
+    .BtnFAQ span{
+        font-size: 10px;
+        font-weight: 400;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 580px){
+    .InfosFaq h1{
+        font-size: 30px;
+    }
+    .inputSearch{
+        width: 400px;
+        height: 50px;
+    }
+    .BtnFAQ button{
+        width: 150px;
+        height: 150px;
+    }
+
+    .iconFaq{
+        font-size: 60px;
+    }
+    .BtnFAQ span{
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+@media screen and (min-width: 581px) and (max-width: 800px){
+    .InfosFaq h1{
+        font-size: 35px;
+    }
+    .inputSearch{
+        width: 450px;
+        height: 60px;
+    }
+    .BtnFAQ button{
+        width: 160px;
+        height: 160px;
+    }
+
+    .iconFaq{
+        font-size: 70px;
+    }
+    .BtnFAQ span{
+        font-size: 21px;
+        font-weight: 500;
+    }
+}
+@media screen and (min-width: 1280px) and (max-width: 2021px){
+    .FAQ{
+        margin-bottom: 0;
+    }
+    .InfosFaq h1{
+        font-size: 60px;
+    }
+    .inputSearch{
+        width: 600px;
+        height: 70px;
+    }
+    .BtnFAQ button{
+        width: 200px;
+        height: 200px;
+    }
+    .iconFaq{
+        font-size: 100px;
+    }
+    .BtnFAQ span{
+        font-size: 25px;
+    }
+}
+
