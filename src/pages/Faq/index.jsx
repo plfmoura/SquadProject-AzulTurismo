@@ -9,10 +9,11 @@ import { dataFaq } from "../../services/faq";
 import { FaUserCog, FaRegCheckSquare, FaRegCreditCard, FaRegComments } from "react-icons/fa";
 import FaqCard from "./FaqCard";
 
-const index = () => {
+export default function Faq() {
   // OVERLAY
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
   const [getData, setGetData] = useState(dataFaq);
+  const [dataBtn, setDataBtn] = useState();
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
@@ -26,18 +27,15 @@ const index = () => {
   }, []);
 
 
-  // STATE DOS MEUS BUTTONS
-  const [DataBtn, setDataBtn] = useState();
-
-   const ConsultaApi = (URL) =>{
-    axios.get(`http://localhost:3000/${URL}`)
-    .then(function (response) {
-      setDataBtn(response.data)
-    })
-    .catch(function (error) {
-      console.log(error);
-    }),[]
-  }
+  //  const ConsultaApi = (URL) =>{
+  //   axios.get(`http://localhost:3000/${URL}`)
+  //   .then(function (response) {
+  //     setDataBtn(response.data)
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   }),[]
+  // }
 
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
@@ -119,14 +117,14 @@ const index = () => {
   };
 
   useEffect(() => {
-    if (DataBtn) {
+    if (dataBtn) {
       setDataFind(
-        DataBtn.find((value) => value.title.toLowerCase() === valueBtn)
+        dataBtn.find((value) => value.title.toLowerCase() === valueBtn)
       );
     }
-  console.log(DataBtn)
+  // console.log(dataBtn)
 
-  }, [DataBtn]);
+  }, [dataBtn]);
 
   return (
     <>
@@ -140,8 +138,8 @@ const index = () => {
                     <h1 style={{ color: "#f00" }}>{dataFind.title}</h1>
                   </div>
                 )}
-                {DataBtn &&
-                  DataBtn.map((item, key) => (
+                {dataBtn &&
+                  dataBtn.map((item, key) => (
                     <div key={key}>
                       <h1>{item.title}</h1>
                     </div>
@@ -155,7 +153,7 @@ const index = () => {
       )}
       <div className={style.FAQ}>
         <section className={style.InfosFaq}>
-          <h1>Ola! Precisando de Ajuda?</h1>
+          <h1>Olá, precisando de Ajuda?</h1>
           <div className={style.inputSearch}>
             <input
               name="data"
@@ -168,38 +166,17 @@ const index = () => {
             </button>
           </div>
         </section>
-        <section className={style.BtnFAQ}>
-          {/* <FaqCard title='user'/>
-          <FaqCard title='payment'/>
-          <FaqCard title='security'/> */}
-          <button className={style.btnClick} name="usuario" onClick={handleSelect} style={{backgroundColor: 'red'}}>
-            <i className={style.iconFaq} style={{backgroundColor: 'green', pointerEvents: 'none', backgroundColor: 'green'}}>
-              <FaUserCog />
-            </i>
-            <span style={{pointerEvents: 'none'}}>Problemas com Úsuario</span>
-          </button>
-          <button className="Btn" name="seguranca" onClick={handleSelect}>
-             <i className={style.iconFaq} style={{pointerEvents: 'none'}}>
-              <FaRegCheckSquare />
-            </i>
-            <span style={{pointerEvents: 'none'}}>Garantias e Seguranças</span>
-          </button>
-          <button className="Btn" name="pagamento" onClick={handleSelect}>
-          <i className={style.iconFaq}>
-              <FaRegCreditCard />
-            </i>
-            <span>Pagamentos</span>
-          </button>
-          <button className="Btn" name="seguranca" onClick={handleSelect}>
-          <i className={style.iconFaq}>
-              <FaRegComments />
-            </i>
-            <span>Suas Duvidas</span>
-          </button>
+        <section className={style.faqBtnContainer}>
+          <div>
+            <FaqCard title='user' text='Problemas com Usuário' icon={<FaUserCog />}/>
+            <FaqCard title='payment' text='Garantia e Segurança' icon={<FaRegCheckSquare />}/>
+          </div>
+          <div>
+            <FaqCard title='security' text='Pagamentos' icon={<FaRegCreditCard />}/>
+            <FaqCard title='userQuestions' text='Suas Dúvidas' icon={<FaRegComments />}/>
+          </div>
         </section>
       </div>
     </>
   );
 };
-
-export default index;

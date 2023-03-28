@@ -1,0 +1,58 @@
+.Faq-Card-container {
+    background-color: #f1f1f1;
+    box-shadow: #33333355 0px 3px 2px 1.5px;
+    width: 13rem;
+    height: 15rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(1);
+}
+
+.Faq-Card-container:hover {
+    cursor: pointer;
+    background-color: #cfcfcf;
+    transition: all 200ms ease;
+}
+
+.faq-card-content {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.faq-card-content .faq-card-icon {
+    height: 60%;
+    font-size: 7rem;
+    color: #1C7AE9;
+}
+
+.faq-card-content span {
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 500;
+    color: #333;
+}
+
+@media screen and (min-width: 320px) {
+    .Faq-Card-container {
+        transform: scale(0.7);
+    }
+}
+
+
+@media screen and (min-width: 480px) {
+    .Faq-Card-container {
+        transform: scale(0.8);
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .Faq-Card-container {
+        transform: scale(0.9);
+    }
+}

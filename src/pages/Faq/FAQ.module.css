@@ -1,14 +1,12 @@
-
 /* DIV PRINCIPAL */
 .FAQ{
     width: 100%;
-    height: 100vh;
-    margin-bottom: 10rem;
 }
 /* DIV FILHA */
-.FAQ section{
+.FAQ section:nth-child(1){
     width: 100%;
     height: 50%;
+    margin: 8vh auto;
 }
 /* PRIMEIRA SECTION */
 .InfosFaq{
@@ -30,12 +28,12 @@
     box-shadow: rgba(0, 0, 0, 0.322) 0px 3px 8px;;
 }
 .inputSearch input{
- width: 90%;
- border: none;
- outline: none;
- padding-left: 20px;
- border-radius: 20px;
- font-size: 1em;
+    width: 90%;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    border-radius: 20px;
+    font-size: 1em;
 }
 .inputSearch  button{
     width:55px;
@@ -55,43 +53,21 @@
     transition: 0.4s;
     background-color: #217be2;
 }
-/* SEGUNDA SECTION */
-
-.BtnFAQ{
-    width: 100vh;
+.faqBtnContainer {
+    width: 60rem;
     height: 50%;
+    margin: 8vh auto;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5rem;
-}
-.btnClick{
-    width: 188px;
-    height: 188px;
-    border: none;
-    border-radius: 1.5rem;
-    color: #217be2;
-    box-shadow: 0 2px 5px black ;
-    background-color: #fff;
-    cursor: pointer;
-}
-.btnClick:hover{
-    transition: all 2s ease-in-out;
-    transform: scale(1.1);
-    background-color: #f1f1f1;
-}
-.iconFaq, .BtnFAQ span{
-    font-size: 100px;
-    color: #2e90ff;
-    display: flex;
-    justify-content: center;
+    gap: 1rem;
 }
 
-.BtnFAQ span{
-    text-align: center;
-    font-size: 22px;
-    font-weight: 600;
-    color: black;
+.faqBtnContainer div {
+    width: 50%;
+    display: flex;
+    gap: 1rem;
 }
 /* Responsivo*/
 @media screen and (min-width: 320px) and (max-width: 479px){
@@ -105,19 +81,13 @@
         width: 300px;
         height: 50px;
     }
-    .BtnFAQ{
-        margin: 0 0 0 0;
+    .faqBtnContainer {
+        width: 100%;
+        gap: 0rem;
     }
-    .btnClick{
-        width: 100px;
-        height: 100px;
-    }
-    .iconFaq{
-        font-size: 50px;
-    }
-    .BtnFAQ span{
-        font-size: 10px;
-        font-weight: 400;
+    .faqBtnContainer div {
+        width: 100%;
+        gap: 0rem;
     }
 }
 @media screen and (min-width: 480px) and (max-width: 580px){
@@ -128,17 +98,13 @@
         width: 400px;
         height: 50px;
     }
-    .btnClick{
-        width: 150px;
-        height: 150px;
+    .faqBtnContainer {
+        gap: 0rem;
+        width: 80%;
     }
-
-    .iconFaq{
-        font-size: 60px;
-    }
-    .BtnFAQ span{
-        font-size: 20px;
-        font-weight: 500;
+    .faqBtnContainer div {
+        gap: 0rem;
+        width: 100%;
     }
 }
 @media screen and (min-width: 581px) and (max-width: 800px){
@@ -149,19 +115,39 @@
         width: 450px;
         height: 60px;
     }
-    .btnClick{
-        width: 160px;
-        height: 160px;
+    .faqBtnContainer {
+        width: 70%;
+        gap: 1rem;
     }
-
-    .iconFaq{
-        font-size: 70px;
-    }
-    .BtnFAQ span{
-        font-size: 21px;
-        font-weight: 500;
+    .faqBtnContainer div {
+        width: 100%;
+        gap: 2rem;
     }
 }
+@media screen and (min-width: 801px) {
+    .faqBtnContainer {
+        width: 90%;
+        flex-wrap: nowrap;
+        gap: 0rem;
+    }
+    .faqBtnContainer div {
+        width: 50%;
+        gap: 0rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .faqBtnContainer {
+        width: 90%;
+        flex-wrap: nowrap;
+        gap: 1rem;
+    }
+    .faqBtnContainer div {
+        width: 50%;
+        gap: 1rem;
+    }
+}
+
 @media screen and (min-width: 1280px) and (max-width: 2021px){
     .FAQ{
         margin-bottom: 0;
@@ -173,15 +159,14 @@
         width: 600px;
         height: 70px;
     }
-    .btnClick{
-        width: 200px;
-        height: 200px;
+    .faqBtnContainer {
+        width: 70rem;
+        flex-wrap: nowrap;
+        gap: 1rem;
     }
-    .iconFaq{
-        font-size: 100px;
-    }
-    .BtnFAQ span{
-        font-size: 25px;
+    .faqBtnContainer div {
+        width: 50%;
+        gap: 1rem;
     }
 }
 
