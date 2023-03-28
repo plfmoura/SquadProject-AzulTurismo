@@ -30,7 +30,7 @@ const index = () => {
 
   // STATE DOS MEUS BUTTONS
   const [DataBtn, setDataBtn] = useState();
-
+  console.log(DataBtn)
   // REQUISIÇAO A API
   //  const ConsultaApi = (URL) =>{
   //   axios.get(`http://localhost:3000/${URL}`)
@@ -47,6 +47,7 @@ const index = () => {
     const verificar = DataInput.data;
     if (verificar == "") {
       alert("digite algo");
+      swi
     } else if (verificar.includes("usuario") == true) {
       console.log("fazendo a requisiçao a tabela de usuario");
       setShowOffCanvas(true);
@@ -106,18 +107,23 @@ const index = () => {
     } else {
       console.log("Nao sou capaz de responder sua pergunta!");
     }
+
+    
   };
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
     data: "",
   });
-  // FERIFICAÇAO DO VALOR DO MEU INPUT
+  // VERIFICAÇAO DO VALOR DO MEU INPUT
   const HandleChange = (e) => {
     setDataInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+
   const [dataFind, setDataFind] = useState();
   const [valueBtn, setValueBtn] = useState("");
   const [loading, setLoading] = useState(true);
+
 
   // FUNCTION CLICK BTN
   const handleSelect = (e) => {
@@ -152,6 +158,7 @@ const index = () => {
       );
     }
   }, [DataBtn]);
+
 
   return (
     <>
@@ -194,48 +201,14 @@ const index = () => {
           </div>
         </section>
         <section className={style.BtnFAQ}>
-          <div
-            className={style.btnClick}
-            value="usuario"
-            onClick={handleSelect}
-          >
-            <i className={style.iconFaq}>
-              <FaUserCog />
-            </i>
-            <span>Problemas com Úsuario</span>
-          </div>
-          <div
-            className={style.btnClick}
-            value="pagamento"
-            onClick={handleSelect}
-          >
-            <i className={style.iconFaq}>
-              <FaRegCheckSquare />
-            </i>
-            <span>Garantias e Seguranças</span>
-          </div>
-          <div
-            className={style.btnClick}
-            value="seguranca"
-            onClick={handleSelect}
-          >
-            <i className={style.iconFaq}>
-              <FaRegCreditCard />
-            </i>
-            <span>Pagamentos</span>
-          </div>
-          <div
-            className={style.btnClick}
-            value="seguranca"
-            onClick={handleSelect}
-          >
-            <i className={style.iconFaq}>
-              <FaRegComments />
-            </i>
-            <span>Suas Duvidas</span>
-          </div>
+          
+
+        <button className={style.btnClick}   onClick={handleSelect}  value="usuario"><img src="" alt="" /></button>
+        <button className={style.btnClick}  onClick={handleSelect}    value="pagamento"> Pagamento</button>
+        <button className={style.btnClick}  onClick={handleSelect} value="seguranca"> Seguranca</button>
+          
         </section>
-      </div>
+          </div>
     </>
   );
 };
