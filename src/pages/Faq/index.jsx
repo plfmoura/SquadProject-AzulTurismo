@@ -7,6 +7,7 @@ import axios from "axios";
 import PreLoader from "../../components/PreLoader";
 import { dataFaq } from "../../services/faq";
 import { FaUserCog, FaRegCheckSquare, FaRegCreditCard, FaRegComments } from "react-icons/fa";
+import FaqCard from "./FaqCard";
 
 const index = () => {
   // OVERLAY
@@ -168,7 +169,10 @@ const index = () => {
           </div>
         </section>
         <section className={style.BtnFAQ}>
-          <button className={style.btnClick}name="usuario" onClick={handleSelect} style={{backgroundColor: 'red'}}>
+          {/* <FaqCard title='user'/>
+          <FaqCard title='payment'/>
+          <FaqCard title='security'/> */}
+          <button className={style.btnClick} name="usuario" onClick={handleSelect} style={{backgroundColor: 'red'}}>
             <i className={style.iconFaq} style={{backgroundColor: 'green', pointerEvents: 'none', backgroundColor: 'green'}}>
               <FaUserCog />
             </i>
