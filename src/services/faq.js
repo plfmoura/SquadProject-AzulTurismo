@@ -4,7 +4,7 @@ export const dataFaq = {
       {
         id: 1,
         title: "usuario",
-        question: "Como recuperar  minha conta perdida?",
+        question: "Como recuperar minha conta perdida?",
         response: "Tente redefinir sua senha, vá em 'Esqueceu a senha?' e forneça o email cadastrado. Caso não consiga entre em contato através do email: azulturismo@gmail.com.br"
       },
       {
@@ -28,7 +28,7 @@ export const dataFaq = {
       {
         id: 5,
         title: "usuario",
-        question: "Como excluir  permanentemente minha  conta?",
+        question: "Como excluir permanentemente minha conta?",
         response: "Caso queira exluir permanentemente sua conta envie sua solicitação para o email: azulturismo@gmail.com.br"
       },
     ],
@@ -57,7 +57,7 @@ export const dataFaq = {
       id: 1,
       title: "seguranca",
       question: "Para onde meus Dados estão indo?",
-      response: "Todos os seus dados estão sendo armazenados e encriptografados para evitar qualquer  tipo de invasão  a sua conta, esses dados dão armazenados ao nosso banco para poder proporcionar  ao cliente(no caso voce) uma melhor navegação  dentro do nosso site."
+      response: "Todos os seus dados estão sendo armazenados e encriptografados para evitar qualquer tipo de invasão a sua conta, esses dados dão armazenados ao nosso banco para poder proporcionar ao cliente(no caso voce) uma melhor navegação dentro do nosso site."
     },
     {
       id: 2,

@@ -5,12 +5,32 @@ import "./faqCard.css";
 export default function FaqCard({ title, text, icon }) {
   const state = useSelector((state) => state);
   const faq = state.faq;
-  const [filter, setFilter] = useState();
+  const [filtered, setFiltered] = useState();
+  const [cardData, setCardData] = useState();
 
-  // useEffect(() => {
-  //     let check = faq.filter((item) => item.title === title)
-  //     setFilter(check)
-  // } ,[])
+
+  useEffect(() => {
+    let getTitle = title;
+    switch (getTitle) {
+      case "user":
+        setCardData(faq.faq.user);
+        break;
+      case "payment":
+        setCardData(faq.faq.user);
+        break;
+      case "security":
+        setCardData(faq.faq.user);
+        break;
+      default:
+        null;
+    }
+    // let check = cardData.filter((item) => item.title === title)
+    // console.log(check);
+  }, [faq]);
+
+  useEffect(() => {
+    // console.log(cardData.map(item => console.log(item)))
+  }, [cardData])
 
   return (
     <div className="Faq-Card-container">

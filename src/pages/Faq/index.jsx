@@ -3,13 +3,15 @@ import style from "./FAQ.module.css";
 import { IoSearch } from "react-icons/io5";
 import OffCanvas from "./OffCanvas";
 import { NavBarContext } from "../../context/NavBarContext";
-import axios from "axios";
 import PreLoader from "../../components/PreLoader";
 import { dataFaq } from "../../services/faq";
 import { FaUserCog, FaRegCheckSquare, FaRegCreditCard, FaRegComments } from "react-icons/fa";
 import FaqCard from "./FaqCard";
+import { useDispatch } from "react-redux";
+import { setFaq } from "../../reducer/faqReducer";
 
 export default function Faq() {
+  const dispatch = useDispatch();
   // OVERLAY
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
   const [getData, setGetData] = useState(dataFaq);
@@ -21,8 +23,8 @@ export default function Faq() {
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
-    setPaymentFooter(false);    
-
+    setPaymentFooter(false);   
+    dispatch(setFaq(dataFaq))
     setGetData(dataFaq)
   }, []);
 
