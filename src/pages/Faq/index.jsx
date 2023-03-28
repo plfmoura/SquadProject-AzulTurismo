@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import style from "./FAQ.module.css";
 import { IoSearch } from "react-icons/io5";
 import OffCanvas from "./OffCanvas";
@@ -6,17 +6,11 @@ import { NavBarContext } from "../../context/NavBarContext";
 import axios from "axios";
 import PreLoader from "../../components/PreLoader";
 import { dataFaq } from "../../services/faq";
-import {
-  FaUserCog,
-  FaRegCheckSquare,
-  FaRegCreditCard,
-  FaRegComments,
-} from "react-icons/fa";
+import { FaUserCog, FaRegCheckSquare, FaRegCreditCard, FaRegComments } from "react-icons/fa";
 
 const index = () => {
   // OVERLAY
-  const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } =
-    useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
   const [getData, setGetData] = useState(dataFaq);
 
   useEffect(() => {
@@ -25,78 +19,54 @@ const index = () => {
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
-    setPaymentFooter(false);
+    setPaymentFooter(false);    
+
+    setGetData(dataFaq)
   }, []);
+
 
   // STATE DOS MEUS BUTTONS
   const [DataBtn, setDataBtn] = useState();
-  console.log(DataBtn)
-  // REQUISIÇAO A API
-  //  const ConsultaApi = (URL) =>{
-  //   axios.get(`http://localhost:3000/${URL}`)
-  //   .then(function (response) {
-  //     setDataBtn(response.data)
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   }),[]
-  // }
+
+   const ConsultaApi = (URL) =>{
+    axios.get(`http://localhost:3000/${URL}`)
+    .then(function (response) {
+      setDataBtn(response.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    }),[]
+  }
 
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
-    const verificar = DataInput.data;
+    const verificar = DataInput.data.toLocaleLowerCase();
+    setGetData(dataFaq)
+      
     if (verificar == "") {
       alert("digite algo");
-      swi
     } else if (verificar.includes("usuario") == true) {
-      console.log("fazendo a requisiçao a tabela de usuario");
+      setValueBtn('usuario');
+      setDataBtn(getData.user);
+      setTimeout(() => {
+        setLoading(false);
+      }, [2000]);
       setShowOffCanvas(true);
-      ConsultaApi("Usuario");
-    } else if (verificar.includes("Usuario") == true) {
-      console.log("fazendo a requisiçao a tabela de usuario");
-      setShowOffCanvas(true);
-      ConsultaApi("Usuario");
     } else if (verificar.includes("usuarios") == true) {
-      console.log("fazendo a requisiçao a tabela de usuario");
-      setShowOffCanvas(true);
-      ConsultaApi("Usuario");
-    } else if (verificar.includes("Usuarios") == true) {
-      console.log("fazendo a requisiçao a tabela de usuario");
       setShowOffCanvas(true);
       ConsultaApi("Usuario");
     } else if (verificar.includes("pagamentos") == true) {
-      console.log("fazendo a req a tabela pagamento");
-      setShowOffCanvas(true);
-      ConsultaApi("Pagamento");
-    } else if (verificar.includes("Pagamentos") == true) {
-      console.log("fazendo a req a tabela pagamento");
       setShowOffCanvas(true);
       ConsultaApi("Pagamento");
     } else if (verificar.includes("pagamento") == true) {
       console.log("fazendo a req a tabela pagamento");
       setShowOffCanvas(true);
       ConsultaApi("Pagamento");
-    } else if (verificar.includes("Pagamento") == true) {
-      console.log("fazendo a req a tabela pagamento");
-      setShowOffCanvas(true);
-      ConsultaApi("Pagamento");
-    } else if (verificar.includes("Garantias") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
     } else if (verificar.includes("garantias") == true) {
       console.log("fazendo a req a tabela Garantias e segurança");
       setShowOffCanvas(true);
       ConsultaApi("seguranca");
-    } else if (verificar.includes("Garantia") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
     } else if (verificar.includes("garantia") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
-    } else if (verificar.includes("Segurança") == true) {
       console.log("fazendo a req a tabela Garantias e segurança");
       setShowOffCanvas(true);
       ConsultaApi("seguranca");
@@ -107,28 +77,24 @@ const index = () => {
     } else {
       console.log("Nao sou capaz de responder sua pergunta!");
     }
-
-    
   };
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
     data: "",
   });
-  // VERIFICAÇAO DO VALOR DO MEU INPUT
+  // FERIFICAÇAO DO VALOR DO MEU INPUT
   const HandleChange = (e) => {
     setDataInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
-
   const [dataFind, setDataFind] = useState();
   const [valueBtn, setValueBtn] = useState("");
   const [loading, setLoading] = useState(true);
 
-
   // FUNCTION CLICK BTN
   const handleSelect = (e) => {
+    setGetData(dataFaq)
     // colocando valor do btn para a variavel
-    let getBtnValue = e.target.value;
+    let getBtnValue = e.target.name;
     setValueBtn(getBtnValue);
     // carregamento até mostrar a pesquisa
     setTimeout(() => {
@@ -157,8 +123,9 @@ const index = () => {
         DataBtn.find((value) => value.title.toLowerCase() === valueBtn)
       );
     }
-  }, [DataBtn]);
+  console.log(DataBtn)
 
+  }, [DataBtn]);
 
   return (
     <>
@@ -201,14 +168,32 @@ const index = () => {
           </div>
         </section>
         <section className={style.BtnFAQ}>
-          
-
-        <button className={style.btnClick}   onClick={handleSelect}  value="usuario"><img src="" alt="" /></button>
-        <button className={style.btnClick}  onClick={handleSelect}    value="pagamento"> Pagamento</button>
-        <button className={style.btnClick}  onClick={handleSelect} value="seguranca"> Seguranca</button>
-          
+          <button className={style.btnClick}name="usuario" onClick={handleSelect} style={{backgroundColor: 'red'}}>
+            <i className={style.iconFaq} style={{backgroundColor: 'green', pointerEvents: 'none', backgroundColor: 'green'}}>
+              <FaUserCog />
+            </i>
+            <span style={{pointerEvents: 'none'}}>Problemas com Úsuario</span>
+          </button>
+          <button className="Btn" name="seguranca" onClick={handleSelect}>
+             <i className={style.iconFaq} style={{pointerEvents: 'none'}}>
+              <FaRegCheckSquare />
+            </i>
+            <span style={{pointerEvents: 'none'}}>Garantias e Seguranças</span>
+          </button>
+          <button className="Btn" name="pagamento" onClick={handleSelect}>
+          <i className={style.iconFaq}>
+              <FaRegCreditCard />
+            </i>
+            <span>Pagamentos</span>
+          </button>
+          <button className="Btn" name="seguranca" onClick={handleSelect}>
+          <i className={style.iconFaq}>
+              <FaRegComments />
+            </i>
+            <span>Suas Duvidas</span>
+          </button>
         </section>
-          </div>
+      </div>
     </>
   );
 };
