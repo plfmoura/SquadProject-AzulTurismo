@@ -29,9 +29,11 @@
     height: 60%;
     font-size: 7rem;
     color: #1C7AE9;
+    pointer-events: none;
 }
 
 .faq-card-content span {
+    pointer-events: none;
     font-size: 1.3rem;
     text-align: center;
     font-weight: 500;

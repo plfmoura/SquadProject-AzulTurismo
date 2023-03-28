@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./FAQ.module.css";
 import { IoSearch } from "react-icons/io5";
 import OffCanvas from "./OffCanvas";
@@ -170,12 +170,17 @@ export default function Faq() {
         </section>
         <section className={style.faqBtnContainer}>
           <div>
-            <FaqCard title='user' text='Problemas com Usuário' icon={<FaUserCog />}/>
+            <FaqCard 
+              title='user' 
+              text='Problemas com Usuário' 
+              name='payment' 
+              icon={<FaUserCog />}
+              />
             <FaqCard title='payment' text='Garantia e Segurança' icon={<FaRegCheckSquare />}/>
           </div>
           <div>
             <FaqCard title='security' text='Pagamentos' icon={<FaRegCreditCard />}/>
-            <FaqCard title='userQuestions' text='Suas Dúvidas' icon={<FaRegComments />}/>
+            <FaqCard title='payment' text='Suas Dúvidas' icon={<FaRegComments />}/>
           </div>
         </section>
       </div>
