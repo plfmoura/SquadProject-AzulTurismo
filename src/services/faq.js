@@ -69,7 +69,7 @@ export const dataFaq = {
       id: 3,
       title: "seguranca",
       question: "Como funciona a hospitalidade do passeio?",
-      response: ""
+      response: "Os viajantes podem desfrutar de uma experiência mais agradável e memorável, sentindo-se bem-vindos e cuidados durante todo o percurso. Nossos serviços podem incluir acomodações de qualidade, refeições saborosas e nutritivas, transporte seguro e eficiente, bem como atividades recreativas e culturais que atendam às expectativas dos visitantes."
     },
   ]
 }
