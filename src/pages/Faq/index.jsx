@@ -5,7 +5,12 @@ import OffCanvas from "./OffCanvas";
 import { NavBarContext } from "../../context/NavBarContext";
 import PreLoader from "../../components/PreLoader";
 import { dataFaq } from "../../services/faq";
-import { FaUserCog, FaRegCheckSquare, FaRegCreditCard, FaRegComments } from "react-icons/fa";
+import {
+  FaUserCog,
+  FaRegCheckSquare,
+  FaRegCreditCard,
+  FaRegComments,
+} from "react-icons/fa";
 import FaqCard from "./FaqCard";
 import { useDispatch } from "react-redux";
 import { setFaq } from "../../reducer/faqReducer";
@@ -13,7 +18,8 @@ import { setFaq } from "../../reducer/faqReducer";
 export default function Faq() {
   const dispatch = useDispatch();
   // OVERLAY
-  const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } =
+    useContext(NavBarContext);
   const [getData, setGetData] = useState(dataFaq);
   const [dataBtn, setDataBtn] = useState();
 
@@ -23,31 +29,20 @@ export default function Faq() {
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
-    setPaymentFooter(false);   
-    dispatch(setFaq(dataFaq))
-    setGetData(dataFaq)
+    setPaymentFooter(false);
+    setGetData(dataFaq);
   }, []);
-
-
-  //  const ConsultaApi = (URL) =>{
-  //   axios.get(`http://localhost:3000/${URL}`)
-  //   .then(function (response) {
-  //     setDataBtn(response.data)
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   }),[]
   // }
 
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
     const verificar = DataInput.data.toLocaleLowerCase();
-    setGetData(dataFaq)
-      
+    setGetData(dataFaq);
+
     if (verificar == "") {
       alert("digite algo");
     } else if (verificar.includes("usuario") == true) {
-      setValueBtn('usuario');
+      setValueBtn("usuario");
       setDataBtn(getData.user);
       setTimeout(() => {
         setLoading(false);
@@ -93,7 +88,7 @@ export default function Faq() {
 
   // FUNCTION CLICK BTN
   const handleSelect = (e) => {
-    setGetData(dataFaq)
+    setGetData(dataFaq);
     // colocando valor do btn para a variavel
     let getBtnValue = e.target.name;
     setValueBtn(getBtnValue);
@@ -124,8 +119,7 @@ export default function Faq() {
         dataBtn.find((value) => value.title.toLowerCase() === valueBtn)
       );
     }
-  // console.log(dataBtn)
-
+    // console.log(dataBtn)
   }, [dataBtn]);
 
   return (
@@ -170,20 +164,32 @@ export default function Faq() {
         </section>
         <section className={style.faqBtnContainer}>
           <div>
-            <FaqCard 
-              title='user' 
-              text='Problemas com Usuário' 
-              name='payment' 
+            <FaqCard
+              title="usuario"
+              text="Problemas com Usuário"
+              name="payment"
               icon={<FaUserCog />}
-              />
-            <FaqCard title='payment' text='Garantia e Segurança' icon={<FaRegCheckSquare />}/>
+            />
+            <FaqCard
+              title="seguranca"
+              text="Garantia e Segurança"
+              icon={<FaRegCheckSquare />}
+            />
           </div>
           <div>
-            <FaqCard title='security' text='Pagamentos' icon={<FaRegCreditCard />}/>
-            <FaqCard title='payment' text='Suas Dúvidas' icon={<FaRegComments />}/>
+            <FaqCard
+              title="pagamento"
+              text="Pagamentos"
+              icon={<FaRegCreditCard />}
+            />
+            <FaqCard
+              title="payment"
+              text="Suas Dúvidas"
+              icon={<FaRegComments />}
+            />
           </div>
         </section>
       </div>
     </>
   );
-};
+}
