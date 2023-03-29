@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import { updateProducts } from "./reducer/shoopingReducer";
 import Rodape from "./components/Rodape";
 import { setUser } from "./reducer/userReducer";
+import { setFaq } from "./reducer/faqReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,12 @@ function App() {
     }
 
     //Get of FAQ data to update reducer state
+    axios
+      .get("https://tourismapi.herokuapp.com/faq")
+      .then((response) => {
+        dispatch(setFaq(response.data));
+      })
+      .catch();
   }, []);
 
   return (
