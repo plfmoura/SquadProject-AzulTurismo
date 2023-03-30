@@ -11,7 +11,6 @@ export default function FaqCard({ title, text, icon, onPress }) {
     if (faq) {
       let myFaq = faq.filter((item) => item.title === title);
       setFiltered(myFaq);
-      console.log(myFaq);
     }
   }, [faq]);
 

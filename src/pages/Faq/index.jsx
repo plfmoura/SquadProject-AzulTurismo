@@ -14,6 +14,7 @@ import {
 import FaqCard from "./FaqCard";
 import { useDispatch } from "react-redux";
 import { setFaq } from "../../reducer/faqReducer";
+import { keyWorldTracker } from "../../services/keyWordTracker";
 
 export default function Faq() {
   const dispatch = useDispatch();
@@ -36,44 +37,42 @@ export default function Faq() {
 
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
+    // pega os dados do input de pesquisa e transforma em minusculas para melhor manipulação 
     const verificar = DataInput.data.toLocaleLowerCase();
+    // em toda pesquisa zera a state que será manipulada para a primeira rota por default
     setGetData(dataFaq);
-
-    if (verificar == "") {
-      alert("digite algo");
-    } else if (verificar.includes("usuario") == true) {
-      setValueBtn("usuario");
-      setDataBtn(getData.user);
+    // para abrir o OffCanvas ao final se nossa buscar encontrar um resultado no Tracker
+    const foundWord = () => {
       setTimeout(() => {
         setLoading(false);
-      }, [2000]);
-      setShowOffCanvas(true);
-    } else if (verificar.includes("usuarios") == true) {
-      setShowOffCanvas(true);
-      ConsultaApi("Usuario");
-    } else if (verificar.includes("pagamentos") == true) {
-      setShowOffCanvas(true);
-      ConsultaApi("Pagamento");
-    } else if (verificar.includes("pagamento") == true) {
-      console.log("fazendo a req a tabela pagamento");
-      setShowOffCanvas(true);
-      ConsultaApi("Pagamento");
-    } else if (verificar.includes("garantias") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
-    } else if (verificar.includes("garantia") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
-    } else if (verificar.includes("segurança") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
-    } else {
-      console.log("Nao sou capaz de responder sua pergunta!");
+        setShowOffCanvas(true);
+    }, [1000]);
     }
-  };
+    // retorno do nosso BOT Tracker
+    let filteredWord = keyWorldTracker(verificar)
+    // utilizando o retorno para filtrar a rota que irá ser manipulada dentro da state(array)
+    switch(filteredWord){
+      case 'usuarios':
+        setValueBtn('usuario');
+        setDataBtn(getData.user);
+        foundWord()
+        break;
+      case 'pagamentos':
+        setValueBtn('pagamento');
+        setDataBtn(getData.payment);
+        foundWord()
+        break;
+      case 'seguranças':
+        setValueBtn('seguranca');
+        setDataBtn(getData.security);
+        foundWord()
+        break;
+      default :
+        // caso não encontre, finaliza a função
+        return
+    }
+  }
+
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
     data: "",
@@ -119,7 +118,6 @@ export default function Faq() {
         dataBtn.find((value) => value.title.toLowerCase() === valueBtn)
       );
     }
-    // console.log(dataBtn)
   }, [dataBtn]);
 
   return (
