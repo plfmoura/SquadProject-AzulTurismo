@@ -11,6 +11,8 @@ import visa from "../../../assets/payment/flag_visa.png";
 import amex from "../../../assets/payment/flag_amex.png";
 import elo from "../../../assets/payment/flag_elo.png";
 import mastercard from "../../../assets/payment/flag_master.svg";
+import dinnerClub from "../../../assets/payment/flag_dinner.png"
+import discover from "../../../assets/payment/flag_discover.ico"
 import styles from "../CardsFlags/cardsFlags.module.css";
 
 export default function CardsFlags() {
@@ -50,6 +52,17 @@ export default function CardsFlags() {
           src={mastercard}
           style={{ width: "60px", height: "38px", objectFit: "cover" }}
         />
+        <img
+          className={styles.cardSizeMc}
+          src={dinnerClub}
+          style={{ width: "60px", height: "38px", objectFit: "cover" }}
+        />
+        <img
+          className={styles.cardSizeMc}
+          src={discover}
+          style={{ width: "60px", height: "38px", objectFit: "cover" }}
+        />
+        
       </div>
     </div>
   );
