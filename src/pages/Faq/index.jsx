@@ -167,11 +167,13 @@ export default function Faq() {
               text="Problemas com Usuário"
               name="payment"
               icon={<FaUserCog />}
+              sendData={setDataBtn}
             />
             <FaqCard
               title="seguranca"
               text="Garantia e Segurança"
               icon={<FaRegCheckSquare />}
+              sendData={setDataBtn}
             />
           </div>
           <div>
