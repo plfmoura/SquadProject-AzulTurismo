@@ -25,7 +25,7 @@ export default function Profile() {
   const dispatch = useDispatch();
   const [ticketHistory, setTicketHistory] = useState();
   const [show, setShow] = useState(false);
-  const { setBgColor, setPaymentFooter } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter, newNotification } = useContext(NavBarContext);
   const [skeleton, setSkeleton] = useState(true);
   const profession = useRef();
   const photo_profile = useRef();
@@ -250,9 +250,17 @@ export default function Profile() {
                         </p>
                       </div>
                       <Button
-                        text="Meus Passeios"
+                        text={newNotification ? 
+                          (
+                          <div style={{display: 'grid', placeContent: 'center'}}>
+                            <p>Meus Passeios</p>
+                            <label className='new-purchase-notification'>1</label>
+                          </div>)
+                          : ( 'Meus Passeios')
+                        }
                         onPress={() => setShow(!show)}
-                      />
+                        />
+                      
                     </div>
                   </div>
                 </div>

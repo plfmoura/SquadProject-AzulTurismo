@@ -15,7 +15,7 @@ export default function NavBar() {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const { show, setShow, change, setChange } = useContext(LoggedContext);
-  const { changeBgColor, changeColor, changeNotficationIcon } = useContext(NavBarContext);
+  const { changeBgColor, changeColor, changeNotficationIcon, newNotification } = useContext(NavBarContext);
   const dispatch = useDispatch();
 
   return (
@@ -52,10 +52,12 @@ export default function NavBar() {
               {user ? (
                 <>
                   <div>
-                    <Link style={{color: changeColor}} to="/profile">
+                    <Link style={{color: changeColor}} className={style.notificationAlign} to="/profile">
                       <IoNotifications 
                         className={style.notificationIcon}
-                        style={{color: changeNotficationIcon}} />
+                        style={{color: changeNotficationIcon}} 
+                      />
+                      {newNotification && <label className={style.newPurchase}>1</label>}
                     </Link>
                     <Link style={{color: changeColor}} to="/profile">
                       <img

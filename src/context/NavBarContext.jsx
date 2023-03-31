@@ -6,6 +6,7 @@ export const NavBarProvider = ({ children }) => {
   const [bgColor, setBgColor] = useState(false);
   const [paymentFooter, setPaymentFooter] = useState(false);
   const [showOffCanvas, setShowOffCanvas] = useState(false)
+  const [newNotification, setNewNotification] = useState(false)
 
   const handleScrollableCheck = ( check ) => {
     check ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'auto'
@@ -36,7 +37,9 @@ export const NavBarProvider = ({ children }) => {
         alignPaymentShotcuts,
         showOffCanvas,
         setShowOffCanvas,
-        handleScrollableCheck
+        handleScrollableCheck,
+        newNotification,
+        setNewNotification
       }}
     >
       {children}

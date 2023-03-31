@@ -17,7 +17,7 @@ export default function Payment() {
   const { user } = state.user;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { setBgColor, setPaymentFooter } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter, setNewNotification } = useContext(NavBarContext);
 
   // Estado que envia o retorno para animação renderizar e tirar o CARD
   const [onSuccess, setOnSuccess] = useState(false);
@@ -76,6 +76,9 @@ export default function Payment() {
       setTimeout(() => {
         setOnSuccess(true);
       }, [1000]);
+      setTimeout(() => {
+        setNewNotification(true)
+      }, [4000]);
     } catch (error) {
       console.error(error);
       alert("Ops, algo deu errado!");
