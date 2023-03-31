@@ -11,6 +11,7 @@ import Button from "../../components/Button";
 import { dataCustomer } from "../../services/dataCustomer";
 import { NavBarContext } from "../../context/NavBarContext";
 import { LoggedContext } from "../../context/LoggedContext";
+import MobileSearchInput from "./SearchInput/MobileSearchInput";
 
 export default function Home() {
   const state = useSelector((state) => state);
@@ -20,6 +21,7 @@ export default function Home() {
   const [myRegion, setMyRegion] = useState("Todas as Regiões")
   const [showTop, setShowTop] = useState('')
   const { show, setShow, setChange } = useContext(LoggedContext);
+  const [ searchFixed, setSearchFixed ] = useState(false)
 
   useEffect(() => {
     setFiltered(products)
@@ -44,9 +46,11 @@ export default function Home() {
     updatePosition();
     // condicional para mostrar de acordo com o valor mesmo que ele volte a 0 novamente 
     let checkBgPosition = position > 400 ? setBgColor(true) : setBgColor(false)
-
+    let checkSearchPosition = position > 530 ? setSearchFixed(true) : setSearchFixed(false)
     return () => window.removeEventListener('scroll', updatePosition);
   }, [position])
+
+   
 
   return (
     <div className="Home">
@@ -62,7 +66,8 @@ export default function Home() {
         </div>
       </header>
       <section className={style.searchInputContainer}>
-        <SearchInput setFiltered={setFiltered} setMyRegion={setMyRegion} setShowTop={setShowTop} />
+        { searchFixed ? <MobileSearchInput setFiltered={setFiltered} setMyRegion={setMyRegion} setShowTop={setShowTop} />
+        : <SearchInput setFiltered={setFiltered} setMyRegion={setMyRegion} setShowTop={setShowTop} /> }
       </section>
       <section className={style.servicesContainer}>
         <div style={{ display: `${showTop}` }}>
