@@ -12,12 +12,10 @@ import {
   FaRegComments,
 } from "react-icons/fa";
 import FaqCard from "./FaqCard";
-import { useDispatch } from "react-redux";
-import { setFaq } from "../../reducer/faqReducer";
+
 import { keyWorldTracker } from "../../services/keyWordTracker";
 
 export default function Faq() {
-  const dispatch = useDispatch();
   // OVERLAY
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } =
     useContext(NavBarContext);
@@ -33,11 +31,10 @@ export default function Faq() {
     setPaymentFooter(false);
     setGetData(dataFaq);
   }, []);
-  // }
 
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
-    // pega os dados do input de pesquisa e transforma em minusculas para melhor manipulação 
+    // pega os dados do input de pesquisa e transforma em minusculas para melhor manipulação
     const verificar = DataInput.data.toLocaleLowerCase();
     // em toda pesquisa zera a state que será manipulada para a primeira rota por default
     setGetData(dataFaq);
@@ -46,32 +43,32 @@ export default function Faq() {
       setTimeout(() => {
         setLoading(false);
         setShowOffCanvas(true);
-    }, [1000]);
-    }
+      }, [1000]);
+    };
     // retorno do nosso BOT Tracker
-    let filteredWord = keyWorldTracker(verificar)
+    let filteredWord = keyWorldTracker(verificar);
     // utilizando o retorno para filtrar a rota que irá ser manipulada dentro da state(array)
-    switch(filteredWord){
-      case 'usuarios':
-        setValueBtn('usuario');
+    switch (filteredWord) {
+      case "usuarios":
+        setValueBtn("usuario");
         setDataBtn(getData.user);
-        foundWord()
+        foundWord();
         break;
-      case 'pagamentos':
-        setValueBtn('pagamento');
+      case "pagamentos":
+        setValueBtn("pagamento");
         setDataBtn(getData.payment);
-        foundWord()
+        foundWord();
         break;
-      case 'seguranças':
-        setValueBtn('seguranca');
+      case "seguranças":
+        setValueBtn("seguranca");
         setDataBtn(getData.security);
-        foundWord()
+        foundWord();
         break;
-      default :
+      default:
         // caso não encontre, finaliza a função
-        return
+        return;
     }
-  }
+  };
 
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
@@ -127,15 +124,22 @@ export default function Faq() {
           children={
             !loading ? (
               <div>
-                {dataFind && (
+                {dataBtn && (
                   <div>
-                    <h1 style={{ color: "#f00" }}>{dataFind.title}</h1>
+                    <h1 style={{ color: "#f00" }}>
+                      Duvidas do {dataBtn[0].title}
+                    </h1>
                   </div>
                 )}
+                {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                 {dataBtn &&
                   dataBtn.map((item, key) => (
                     <div key={key}>
-                      <h1>{item.title}</h1>
+                      <p>
+                        <b>{item.question}</b>
+                      </p>
+                      <p>{item.response}</p>
+                      <br />
                     </div>
                   ))}
               </div>
@@ -167,13 +171,15 @@ export default function Faq() {
               text="Problemas com Usuário"
               name="payment"
               icon={<FaUserCog />}
-              sendData={setDataBtn}
+              setDataBtn={setDataBtn}
+              setLoading={setLoading}
             />
             <FaqCard
               title="seguranca"
               text="Garantia e Segurança"
               icon={<FaRegCheckSquare />}
-              sendData={setDataBtn}
+              setDataBtn={setDataBtn}
+              setLoading={setLoading}
             />
           </div>
           <div>
@@ -181,6 +187,8 @@ export default function Faq() {
               title="pagamento"
               text="Pagamentos"
               icon={<FaRegCreditCard />}
+              setDataBtn={setDataBtn}
+              setLoading={setLoading}
             />
             <FaqCard
               title="payment"
