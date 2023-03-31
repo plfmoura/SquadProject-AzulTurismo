@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Button";
 import "./purchases.css";
 
 export default function Purchases({ data }) {
   const today = Date.now();
+  const navigate = useNavigate()
 
   return (
     <div className="purchases-container">
@@ -86,7 +88,7 @@ export default function Purchases({ data }) {
           ))}
       </div>
       <div className="footer-content">
-        <Button text="Duvidas?" />
+        <Button text="Duvidas?" onPress={() => navigate('/faq')}/>
       </div>
     </div>
   );

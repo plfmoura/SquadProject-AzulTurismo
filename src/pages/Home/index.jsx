@@ -29,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     // Subir a página após trocar de páginas 
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
     // Estilização do footer na página de compra
     setPaymentFooter(false)
   }, [])

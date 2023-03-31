@@ -9,7 +9,6 @@ export default function MobileSearchInput({setFiltered,setMyRegion, setShowTop})
   const [ region, setRegion ] = useState([])
   const [ active, setActive ] = useState(false)
 
-
   // Filtrar os itens retornados que estão retornando triplicados, verificar... por enquanto ficou através do set()
   useEffect(() => {
     products.map(item => region.push(item.region))
