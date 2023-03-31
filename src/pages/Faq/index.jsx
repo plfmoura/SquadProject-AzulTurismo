@@ -11,6 +11,10 @@ import {
   FaRegCreditCard,
   FaRegComments,
 } from "react-icons/fa";
+import {
+  IoMdAddCircleOutline
+ 
+} from "react-icons/io";
 import FaqCard from "./FaqCard";
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
@@ -123,25 +127,35 @@ export default function Faq() {
         <OffCanvas
           children={
             !loading ? (
-              <div>
+              <div className={style.overlay}>
+                <section className={style.InfoOverlay}>
                 {dataBtn && (
                   <div>
-                    <h1 style={{ color: "#f00" }}>
-                      Duvidas do {dataBtn[0].title}
+                    <h1>
+                      {dataBtn[0].title}
                     </h1>
+                    <p>fique tranquilo, problemas assim geralmente acontecem, estamos aqui justamente para resolve-los da melhor maneira.</p>
+                    <h3>Atenciosamente Equipe </h3>
                   </div>
                 )}
-                {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
+                </section>
+                <section className={style.QuestionsOverlay}>
+                <h3>Perguntas frequentes</h3>
+                    {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                 {dataBtn &&
                   dataBtn.map((item, key) => (
                     <div key={key}>
-                      <p>
-                        <b>{item.question}</b>
-                      </p>
+                      <div className={style.CardTitulo}>
+                        <h2>{item.question}</h2> 
+                        < IoMdAddCircleOutline className={style.BtnQuestion}/>
+                      </div>
+                      
                       <p>{item.response}</p>
-                      <br />
+                        
                     </div>
                   ))}
+                </section>
+              
               </div>
             ) : (
               <PreLoader />
@@ -151,7 +165,7 @@ export default function Faq() {
       )}
       <div className={style.FAQ}>
         <section className={style.InfosFaq}>
-          <h2>Olá, precisando de Ajuda?</h2>
+          <h1>Olá, precisando de Ajuda?</h1>
           <div className={style.inputSearch}>
             <input
               name="data"

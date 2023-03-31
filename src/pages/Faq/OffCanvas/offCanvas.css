@@ -27,9 +27,22 @@
 }
 
 .offCanvas-content {
-    background-color: rgb(95, 95, 95);
+
     width: 85%;
     height: 100%;
+}
+
+.SairBtnOverlay{
+    position: relative;
+    font-size: 2em;
+    top: 60px;
+    color: #1C8EE9;
+}
+.SairBtnOverlay:hover{
+    transform: scale(1.2,1.2);
+    transition: 0.4s;
+    color: #7ab8eb;
+    cursor: pointer;
 }
 
 @keyframes translate {
