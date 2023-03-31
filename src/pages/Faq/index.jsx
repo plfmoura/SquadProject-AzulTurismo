@@ -12,12 +12,10 @@ import {
   FaRegComments,
 } from "react-icons/fa";
 import FaqCard from "./FaqCard";
-import { useDispatch } from "react-redux";
-import { setFaq } from "../../reducer/faqReducer";
+
 import { keyWorldTracker } from "../../services/keyWordTracker";
 
 export default function Faq() {
-  const dispatch = useDispatch();
   // OVERLAY
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } =
     useContext(NavBarContext);
@@ -33,7 +31,6 @@ export default function Faq() {
     setPaymentFooter(false);
     setGetData(dataFaq);
   }, []);
-  // }
 
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
@@ -127,9 +124,11 @@ export default function Faq() {
           children={
             !loading ? (
               <div>
-                {dataFind && (
+                {dataBtn && (
                   <div>
-                    <h1 style={{ color: "#f00" }}>{dataFind.title}</h1>
+                    <h1 style={{ color: "#f00" }}>
+                      Duvidas do {dataBtn[0].title}
+                    </h1>
                   </div>
                 )}
                 {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
