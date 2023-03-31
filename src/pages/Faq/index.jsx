@@ -151,7 +151,7 @@ export default function Faq() {
       )}
       <div className={style.FAQ}>
         <section className={style.InfosFaq}>
-          <h1>Olá, precisando de Ajuda?</h1>
+          <h2>Olá, precisando de Ajuda?</h2>
           <div className={style.inputSearch}>
             <input
               name="data"
