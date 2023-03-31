@@ -7,7 +7,8 @@ function SampleNextArrow({ className, onClick }) {
     <CiCircleChevLeft
       className={className}
       style={{color: "#2eaaff", transform: 'scale(2.5) rotate(180deg)'}}
-      onClick={onClick}
+        id='directional-carousel-button'
+        onClick={onClick}
     />
   );
 }
@@ -17,7 +18,8 @@ function SamplePrevArrow({className, onClick}) {
     <CiCircleChevLeft
       className={className}
       style={{color: "#2eaaff", transform: 'scale(2.5)'}}
-      onClick={onClick}
+        id='directional-carousel-button'
+        onClick={onClick}
     />
   );
 }
@@ -26,54 +28,94 @@ export default function CarouselRatings({ children, setclass }) {
   const settings = {
     className: "center",
     infinite: true,
-    slidesToShow: 3,
     swipeToSlide: true,
     autoplay: true,
+    slidesToShow: 3.1,
     speed: 2300,
+    dots: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
+          slidesToShow: 3.1,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 1340,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
         }
       },
       {
         breakpoint: 1280,
         settings: {
           slidesToShow: 2.7,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true
         }
       },
       {
         breakpoint: 1150,
         settings: {
           slidesToShow: 2.3,
-          slidesToScroll: 2,
-          initialSlide: 1
         }
       },
       {
         breakpoint: 980,
         settings: {
           slidesToShow: 2,
-          initialSlide: 3,
-          slidesToScroll: 1
+          slidesToScroll: 1,
         }
       },
       {
         breakpoint: 880,
         settings: {
-          centerPadding: 1.5,
-          initialSlide: 3,
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 2.05,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 820,
+        settings: {
+          slidesToShow: 2.1,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 740,
+        settings: {
+          slidesToShow: 1.7,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 580,
+        settings: {
+          slidesToShow: 1.4,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1.2,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1.05,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 350,
+        settings: {
+          slidesToShow: 0.95,
+          dots: false
         }
       },
     ]

@@ -338,7 +338,7 @@
   }
 
   .carouselTeam {
-    width: 60%;
+    width: 95%;
     margin: 0 auto;
   }
 }
@@ -376,7 +376,7 @@
   }
 
   .carouselTeam {
-    width: 50%;
+    width: 95%;
     height: 20rem;
     margin: 0 auto;
   }
@@ -397,7 +397,14 @@
   }
 
   .carouselTeam {
-    width: 18rem;
+    width: 30rem;
+    margin-left: 10%;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .carouselTeam {
+    width: 20rem;
     margin-left: 10%;
   }
 }

@@ -23,6 +23,7 @@ export default function CarouselServices({ children, setClass }) {
         onMouseEnter={()=>{
           setHover(true);
         }}
+        id='directional-carousel-button'
         onMouseLeave={()=>{
           setHover(false);
         }}
@@ -43,6 +44,7 @@ export default function CarouselServices({ children, setClass }) {
         onMouseEnter={()=>{
           setHover(true);
         }}
+        id='directional-carousel-button'
         onMouseLeave={()=>{
           setHover(false);
         }}
@@ -62,7 +64,7 @@ export default function CarouselServices({ children, setClass }) {
     centerPadding: "60px",
     autoplay: true,
     speed: 2300,
-    slidesToShow: 3.55,
+    slidesToShow: 3.5,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -88,7 +90,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 1280,
         settings: {
-          slidesToShow: 2.8,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -97,7 +99,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 1150,
         settings: {
-          slidesToShow: 2.4,
+          slidesToShow: 2.6,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -106,7 +108,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2.2,
+          slidesToShow: 2.3,
           slidesToScroll: 1,
           infinite: true,
           dots: true
@@ -115,7 +117,7 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 900,
         settings: {
-          slidesToShow: 2.05,
+          slidesToShow: 2.1,
           slidesToScroll: 2,
           initialSlide: 1
         }
@@ -123,38 +125,52 @@ export default function CarouselServices({ children, setClass }) {
       {
         breakpoint: 820,
         settings: {
-          slidesToShow: 1.6,
+          slidesToShow: 2.2,
           initialSlide: 2,
           slidesToScroll: 1
         }
       },
       {
-        breakpoint: 690,
+        breakpoint: 720,
         settings: {
-          initialSlide: 3,
+          slidesToShow: 2.02,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1.75,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 560,
+        settings: {
           slidesToShow: 1.5,
-        }
+          slidesToScroll: 1,
+        },
       },
       {
-        breakpoint: 610,
+        breakpoint: 480,
         settings: {
-          initialSlide: 3,
-          slidesToShow: 1.2,
-        }
+          slidesToShow: 1.3,
+          slidesToScroll: 1,
+        },
       },
       {
-        breakpoint: 490,
+        breakpoint: 400,
         settings: {
-          initialSlide: 3,
-          slidesToShow: 1,
-        }
+          slidesToShow: 1.1,
+          slidesToScroll: 1,
+        },
       },
       {
-        breakpoint: 380,
+        breakpoint: 350,
         settings: {
-          initialSlide: 1,
-          slidesToShow: 1
-        }
+          slidesToShow: 1.02,
+          slidesToScroll: 1,
+        },
       },
     ]
   };
