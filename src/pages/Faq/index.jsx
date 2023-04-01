@@ -11,10 +11,7 @@ import {
   FaRegCreditCard,
   FaRegComments,
 } from "react-icons/fa";
-import {
-  IoMdAddCircleOutline
- 
-} from "react-icons/io";
+import { IoMdAddCircleOutline } from "react-icons/io";
 import FaqCard from "./FaqCard";
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
@@ -28,10 +25,6 @@ export default function Faq() {
   const [dataBtn, setDataBtn] = useState();
   const state = useSelector((state) => state);
   const { faq } = state.faq;
-
-  useEffect(()=>{
-  setGetData(faq)
-  },[faq])
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
@@ -47,10 +40,7 @@ export default function Faq() {
     // pega os dados do input de pesquisa e transforma em minusculas para melhor manipulação
     const verificar = DataInput.data.toLocaleLowerCase();
     // em toda pesquisa zera a state que será manipulada para a primeira rota por default
-    if(faq){
-      setGetData(faq);
-    }
-   
+
     // para abrir o OffCanvas ao final se nossa buscar encontrar um resultado no Tracker
     const foundWord = () => {
       setTimeout(() => {
@@ -58,25 +48,30 @@ export default function Faq() {
         setShowOffCanvas(true);
       }, [1000]);
     };
-    
-  
+
     // retorno do nosso BOT Tracker
     let filteredWord = keyWorldTracker(verificar);
     // utilizando o retorno para filtrar a rota que irá ser manipulada dentro da state(array)
     switch (filteredWord) {
       case "usuarios":
         setValueBtn("usuario");
-        setDataBtn(getData.user);
+        //fazer o filtro pra pegar as faq correspondentes com suas palabras chaves
+        let userFaq = faq.filter((item) => item.title.includes("Usuário"));
+        setDataBtn(userFaq);
         foundWord();
         break;
       case "pagamentos":
         setValueBtn("pagamento");
-        setDataBtn(getData.payment);
+        //fazer o filtro
+        console.log(faq);
+        let pagFaq = faq.filter((item) => item.title.includes("pagamento"));
+        setDataBtn(pagFaq);
         foundWord();
         break;
       case "seguranças":
         setValueBtn("seguranca");
-        setDataBtn(getData.security);
+        let secFaq = faq.filter((item) => item.title.includes("segurança"));
+        setDataBtn(secFaq);
         foundWord();
         break;
       default:
@@ -84,7 +79,6 @@ export default function Faq() {
         return;
     }
   };
-  
 
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
@@ -98,7 +92,6 @@ export default function Faq() {
   const [valueBtn, setValueBtn] = useState("");
   const [loading, setLoading] = useState(true);
 
- 
   // // FUNCTION CLICK BTN
   // const handleSelect = (e) => {
   //   setGetData(dataFaq);
@@ -142,35 +135,38 @@ export default function Faq() {
             !loading ? (
               <div className={style.overlay}>
                 <section className={style.InfoOverlay}>
-                {dataBtn && (
-                  <div>
-                    <h1>
-                    {dataBtn[0].title}
-                    </h1>
-                    <p>fique tranquilo, problemas assim geralmente acontecem, estamos aqui justamente para resolve-los da melhor maneira.</p>
-                    <h3>Atenciosamente Equipe </h3>
-                  </div>
-                )}
+                  {dataBtn && (
+                    <div>
+                      <h1>{dataBtn[0].title}</h1>
+                      <p>
+                        fique tranquilo, problemas assim geralmente acontecem,
+                        estamos aqui justamente para resolve-los da melhor
+                        maneira.
+                      </p>
+                      <h3>Atenciosamente Equipe </h3>
+                    </div>
+                  )}
                 </section>
                 <section className={style.QuestionsOverlay}>
-                <h3>Perguntas frequentes</h3>
-                    {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
-                {dataBtn &&
-                  dataBtn.map((item, key) => (
-                    <div key={key}>
-                      <div className={style.CardTitulo}>
-                        <h2>{item.question}</h2> 
-                        <IoMdAddCircleOutline className={style.BtnQuestion} onClick={()=>{console.log("teste")}}/>
-                      </div>
-                      
-                      <p>{item.response}</p>
-                        
-                    </div>
-                  ))}
+                  <h3>Perguntas frequentes</h3>
+                  {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
+                  {dataBtn &&
+                    dataBtn.map((item, key) => (
+                      <div key={key}>
+                        <div className={style.CardTitulo}>
+                          <h2>{item.question}</h2>
+                          <IoMdAddCircleOutline
+                            className={style.BtnQuestion}
+                            onClick={() => {
+                              console.log("teste");
+                            }}
+                          />
+                        </div>
 
-                    
+                        <p>{item.response}</p>
+                      </div>
+                    ))}
                 </section>
-              
               </div>
             ) : (
               <PreLoader />
