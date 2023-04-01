@@ -18,6 +18,7 @@ import {
 import FaqCard from "./FaqCard";
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
+import { useSelector } from "react-redux";
 
 export default function Faq() {
   // OVERLAY
@@ -25,6 +26,12 @@ export default function Faq() {
     useContext(NavBarContext);
   const [getData, setGetData] = useState(dataFaq);
   const [dataBtn, setDataBtn] = useState();
+  const state = useSelector((state) => state);
+  const { faq } = state.faq;
+
+  useEffect(()=>{
+  setGetData(faq)
+  },[faq])
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
@@ -33,7 +40,6 @@ export default function Faq() {
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
     setPaymentFooter(false);
-    setGetData(dataFaq);
   }, []);
 
   //  FUNÇAO DE CLICK do search
@@ -41,7 +47,10 @@ export default function Faq() {
     // pega os dados do input de pesquisa e transforma em minusculas para melhor manipulação
     const verificar = DataInput.data.toLocaleLowerCase();
     // em toda pesquisa zera a state que será manipulada para a primeira rota por default
-    setGetData(dataFaq);
+    if(faq){
+      setGetData(faq);
+    }
+   
     // para abrir o OffCanvas ao final se nossa buscar encontrar um resultado no Tracker
     const foundWord = () => {
       setTimeout(() => {
@@ -49,6 +58,8 @@ export default function Faq() {
         setShowOffCanvas(true);
       }, [1000]);
     };
+    
+  
     // retorno do nosso BOT Tracker
     let filteredWord = keyWorldTracker(verificar);
     // utilizando o retorno para filtrar a rota que irá ser manipulada dentro da state(array)
@@ -73,6 +84,7 @@ export default function Faq() {
         return;
     }
   };
+  
 
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
@@ -87,32 +99,32 @@ export default function Faq() {
   const [loading, setLoading] = useState(true);
 
  
-  // FUNCTION CLICK BTN
-  const handleSelect = (e) => {
-    setGetData(dataFaq);
-    // colocando valor do btn para a variavel
-    let getBtnValue = e.target.name;
-    setValueBtn(getBtnValue);
-    // carregamento até mostrar a pesquisa
-    setTimeout(() => {
-      setLoading(false);
-    }, [2000]);
-    setShowOffCanvas(true);
-    // consulta o valor do target
-    switch (getBtnValue) {
-      case "usuario":
-        setDataBtn(getData.user);
-        break;
-      case "pagamento":
-        setDataBtn(getData.payment);
-        break;
-      case "seguranca":
-        setDataBtn(getData.security);
-        break;
-      default:
-        null;
-    }
-  };
+  // // FUNCTION CLICK BTN
+  // const handleSelect = (e) => {
+  //   setGetData(dataFaq);
+  //   // colocando valor do btn para a variavel
+  //   let getBtnValue = e.target.name;
+  //   setValueBtn(getBtnValue);
+  //   // carregamento até mostrar a pesquisa
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, [2000]);
+  //   setShowOffCanvas(true);
+  //   // consulta o valor do target
+  //   switch (getBtnValue) {
+  //     case "usuario":
+  //       setDataBtn(getData.user);
+  //       break;
+  //     case "pagamento":
+  //       setDataBtn(getData.payment);
+  //       break;
+  //     case "seguranca":
+  //       setDataBtn(getData.security);
+  //       break;
+  //     default:
+  //       null;
+  //   }
+  // };
 
   useEffect(() => {
     if (dataBtn) {
@@ -148,13 +160,15 @@ export default function Faq() {
                     <div key={key}>
                       <div className={style.CardTitulo}>
                         <h2>{item.question}</h2> 
-                        <IoMdAddCircleOutline className={style.BtnQuestion} />
+                        <IoMdAddCircleOutline className={style.BtnQuestion} onClick={()=>{console.log("teste")}}/>
                       </div>
                       
                       <p>{item.response}</p>
                         
                     </div>
                   ))}
+
+                    
                 </section>
               
               </div>
