@@ -20,6 +20,7 @@ export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
         setLoading(false);
       }, [500]);
       setShowOffCanvas(true);
+      // console.log(myFaq) 
     }
   };
 

@@ -86,6 +86,7 @@ export default function Faq() {
   const [valueBtn, setValueBtn] = useState("");
   const [loading, setLoading] = useState(true);
 
+ 
   // FUNCTION CLICK BTN
   const handleSelect = (e) => {
     setGetData(dataFaq);
@@ -132,7 +133,7 @@ export default function Faq() {
                 {dataBtn && (
                   <div>
                     <h1>
-                      {dataBtn[0].title}
+                    {dataBtn[0].title}
                     </h1>
                     <p>fique tranquilo, problemas assim geralmente acontecem, estamos aqui justamente para resolve-los da melhor maneira.</p>
                     <h3>Atenciosamente Equipe </h3>
@@ -147,7 +148,7 @@ export default function Faq() {
                     <div key={key}>
                       <div className={style.CardTitulo}>
                         <h2>{item.question}</h2> 
-                        < IoMdAddCircleOutline className={style.BtnQuestion}/>
+                        <IoMdAddCircleOutline className={style.BtnQuestion} />
                       </div>
                       
                       <p>{item.response}</p>
@@ -181,7 +182,7 @@ export default function Faq() {
         <section className={style.faqBtnContainer}>
           <div>
             <FaqCard
-              title="usuario"
+              title="Problemas com o Usuário?"
               text="Problemas com Usuário"
               name="payment"
               icon={<FaUserCog />}
@@ -189,7 +190,7 @@ export default function Faq() {
               setLoading={setLoading}
             />
             <FaqCard
-              title="seguranca"
+              title="Dúvidas de segurança?"
               text="Garantia e Segurança"
               icon={<FaRegCheckSquare />}
               setDataBtn={setDataBtn}
@@ -198,8 +199,8 @@ export default function Faq() {
           </div>
           <div>
             <FaqCard
-              title="pagamento"
-              text="Pagamentos"
+              title="Problemas com o pagamento?"
+              text="Problemas com o pagamento?"
               icon={<FaRegCreditCard />}
               setDataBtn={setDataBtn}
               setLoading={setLoading}
