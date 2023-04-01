@@ -17,50 +17,36 @@ import styles from "../CardsFlags/cardsFlags.module.css";
 
 export default function CardsFlags() {
   return (
-    <div>
+    <div className={styles.cardFlagContainer}>
       <span
         style={{ display: "block", marginBottom: ".2rem", fontSize: "10px" }}
       >
         A plataforma Azul conta com seguro viagem gratuíto para as bandeiras.
       </span>
-      <div
-        className={styles.cardFlag}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          backgroundColor: "#fff",
-          padding: ".5rem 1rem",
-        }}
-      >
+      <div className={styles.cardFlag}>
         <img
           className={styles.cardSizeVisa}
           src={visa}
-          style={{ width: "70px", height: "22px", objectFit: "cover" }}
         />
         <img
           className={styles.cardSizeAmex}
           src={amex}
-          style={{ width: "55px", height: "30px", objectFit: "cover" }}
         />
         <img
           className={styles.cardSizeElo}
           src={elo}
-          style={{ width: "60px", height: "33px", objectFit: "cover" }}
         />
         <img
           className={styles.cardSizeMc}
           src={mastercard}
-          style={{ width: "60px", height: "38px", objectFit: "cover" }}
         />
         <img
           className={styles.cardSizeMc}
           src={dinnerClub}
-          style={{ width: "60px", height: "38px", objectFit: "cover" }}
         />
         <img
           className={styles.cardSizeMc}
           src={discover}
-          style={{ width: "60px", height: "38px", objectFit: "cover" }}
         />
         
       </div>

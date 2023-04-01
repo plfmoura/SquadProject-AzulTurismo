@@ -5,24 +5,58 @@
     gap: 1rem;
 }
 
-.cardSizeVisa{
-    max-height: 5rem;
-}
-
-.cardSizeElo{
-    max-height: 5rem;
-}
-
-.cardSizeAmex{
-    max-height: 5rem;
-}
-
+.cardSizeVisa,
+.cardSizeElo,
+.cardSizeAmex,
 .cardSizeMc{
     max-height: 5rem;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (min-width: 320px){
     .cardFlag{
+        display: flex;
+        justify-content: center;
+        margin: 1rem auto;
         margin-right: 0;
+        gap: 1rem;
+        background-color: #fff;
+        padding: .5rem 1.5rem;
+        width: 100%;
+    }
+    .cardSizeVisa,
+    .cardSizeElo,
+    .cardSizeAmex,
+    .cardSizeMc{
+        max-height: 1.5rem;
+        max-width: 3rem;
+    }
+}
+
+@media screen and (min-width: 580px){
+    .cardFlag{
+        padding: .5rem 1.5rem;
+        margin: 1rem auto;
+    }
+    .cardSizeVisa,
+    .cardSizeElo,
+    .cardSizeAmex,
+    .cardSizeMc{
+        max-height: 2rem;
+        max-width: 4rem;
+    }
+}
+
+@media screen and (min-width: 900px){
+    .cardFlag{
+        margin: 0;
+        gap: 1rem;
+        padding: .5rem 1.5rem;
+    }
+    .cardSizeVisa,
+    .cardSizeElo,
+    .cardSizeAmex,
+    .cardSizeMc{
+        max-height: 2rem;
+        max-width: 4rem;
     }
 }

@@ -234,6 +234,16 @@
         height: 15%;
         font-size: 22px;
     }
+    .servicesContainer {
+        width: 98vw;
+    }
+    .servicesSlider {
+        width: 100%;
+    }
+    .customerContent {
+        width: 98vw;
+        margin-top: 1rem;
+    }
 }
 
 @media screen and (min-width: 580px) {
@@ -253,6 +263,12 @@
         margin: 2rem 0;
         width: 60%;
     }
+    .servicesContainer {
+        width: 98vw;
+    }
+    .servicesSlider {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 720px) {
@@ -269,6 +285,25 @@
     }
     .singInCreativeContainer {
         width: 90%;
+    }
+    .servicesContainer {
+        width: 98vw;
+    }
+    .servicesSlider {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 820px){
+    .servicesContainer {
+        width: 90vw;
+    }
+    .servicesSlider {
+        width: 90%;
+    }
+    .customerContent {
+        width: 90vw;
+        margin-top: 1rem;
     }
 }
 

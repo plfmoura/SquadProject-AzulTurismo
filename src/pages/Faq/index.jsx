@@ -11,17 +11,20 @@ import {
   FaRegCreditCard,
   FaRegComments,
 } from "react-icons/fa";
+import { IoMdAddCircleOutline } from "react-icons/io";
 import FaqCard from "./FaqCard";
-import { useDispatch } from "react-redux";
-import { setFaq } from "../../reducer/faqReducer";
+
+import { keyWorldTracker } from "../../services/keyWordTracker";
+import { useSelector } from "react-redux";
 
 export default function Faq() {
-  const dispatch = useDispatch();
   // OVERLAY
   const { setBgColor, setPaymentFooter, showOffCanvas, setShowOffCanvas } =
     useContext(NavBarContext);
   const [getData, setGetData] = useState(dataFaq);
   const [dataBtn, setDataBtn] = useState();
+  const state = useSelector((state) => state);
+  const { faq } = state.faq;
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
@@ -30,50 +33,53 @@ export default function Faq() {
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
     setPaymentFooter(false);
-    setGetData(dataFaq);
   }, []);
-  // }
 
   //  FUNÇAO DE CLICK do search
   const BtnSearch = () => {
+    // pega os dados do input de pesquisa e transforma em minusculas para melhor manipulação
     const verificar = DataInput.data.toLocaleLowerCase();
-    setGetData(dataFaq);
+    // em toda pesquisa zera a state que será manipulada para a primeira rota por default
 
-    if (verificar == "") {
-      alert("digite algo");
-    } else if (verificar.includes("usuario") == true) {
-      setValueBtn("usuario");
-      setDataBtn(getData.user);
+    // para abrir o OffCanvas ao final se nossa buscar encontrar um resultado no Tracker
+    const foundWord = () => {
       setTimeout(() => {
         setLoading(false);
-      }, [2000]);
-      setShowOffCanvas(true);
-    } else if (verificar.includes("usuarios") == true) {
-      setShowOffCanvas(true);
-      ConsultaApi("Usuario");
-    } else if (verificar.includes("pagamentos") == true) {
-      setShowOffCanvas(true);
-      ConsultaApi("Pagamento");
-    } else if (verificar.includes("pagamento") == true) {
-      console.log("fazendo a req a tabela pagamento");
-      setShowOffCanvas(true);
-      ConsultaApi("Pagamento");
-    } else if (verificar.includes("garantias") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
-    } else if (verificar.includes("garantia") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
-    } else if (verificar.includes("segurança") == true) {
-      console.log("fazendo a req a tabela Garantias e segurança");
-      setShowOffCanvas(true);
-      ConsultaApi("seguranca");
-    } else {
-      console.log("Nao sou capaz de responder sua pergunta!");
+        setShowOffCanvas(true);
+      }, [1000]);
+    };
+
+    // retorno do nosso BOT Tracker
+    let filteredWord = keyWorldTracker(verificar);
+    // utilizando o retorno para filtrar a rota que irá ser manipulada dentro da state(array)
+    switch (filteredWord) {
+      case "usuarios":
+        setValueBtn("usuario");
+        //fazer o filtro pra pegar as faq correspondentes com suas palabras chaves
+        let userFaq = faq.filter((item) => item.title.includes("Usuário"));
+        setDataBtn(userFaq);
+        foundWord();
+        break;
+      case "pagamentos":
+        setValueBtn("pagamento");
+        //fazer o filtro
+        console.log(faq);
+        let pagFaq = faq.filter((item) => item.title.includes("pagamento"));
+        setDataBtn(pagFaq);
+        foundWord();
+        break;
+      case "seguranças":
+        setValueBtn("seguranca");
+        let secFaq = faq.filter((item) => item.title.includes("segurança"));
+        setDataBtn(secFaq);
+        foundWord();
+        break;
+      default:
+        // caso não encontre, finaliza a função
+        return;
     }
   };
+
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
     data: "",
@@ -86,32 +92,32 @@ export default function Faq() {
   const [valueBtn, setValueBtn] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // FUNCTION CLICK BTN
-  const handleSelect = (e) => {
-    setGetData(dataFaq);
-    // colocando valor do btn para a variavel
-    let getBtnValue = e.target.name;
-    setValueBtn(getBtnValue);
-    // carregamento até mostrar a pesquisa
-    setTimeout(() => {
-      setLoading(false);
-    }, [2000]);
-    setShowOffCanvas(true);
-    // consulta o valor do target
-    switch (getBtnValue) {
-      case "usuario":
-        setDataBtn(getData.user);
-        break;
-      case "pagamento":
-        setDataBtn(getData.payment);
-        break;
-      case "seguranca":
-        setDataBtn(getData.security);
-        break;
-      default:
-        null;
-    }
-  };
+  // // FUNCTION CLICK BTN
+  // const handleSelect = (e) => {
+  //   setGetData(dataFaq);
+  //   // colocando valor do btn para a variavel
+  //   let getBtnValue = e.target.name;
+  //   setValueBtn(getBtnValue);
+  //   // carregamento até mostrar a pesquisa
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, [2000]);
+  //   setShowOffCanvas(true);
+  //   // consulta o valor do target
+  //   switch (getBtnValue) {
+  //     case "usuario":
+  //       setDataBtn(getData.user);
+  //       break;
+  //     case "pagamento":
+  //       setDataBtn(getData.payment);
+  //       break;
+  //     case "seguranca":
+  //       setDataBtn(getData.security);
+  //       break;
+  //     default:
+  //       null;
+  //   }
+  // };
 
   useEffect(() => {
     if (dataBtn) {
@@ -119,7 +125,6 @@ export default function Faq() {
         dataBtn.find((value) => value.title.toLowerCase() === valueBtn)
       );
     }
-    // console.log(dataBtn)
   }, [dataBtn]);
 
   return (
@@ -128,18 +133,40 @@ export default function Faq() {
         <OffCanvas
           children={
             !loading ? (
-              <div>
-                {dataFind && (
-                  <div>
-                    <h1 style={{ color: "#f00" }}>{dataFind.title}</h1>
-                  </div>
-                )}
-                {dataBtn &&
-                  dataBtn.map((item, key) => (
-                    <div key={key}>
-                      <h1>{item.title}</h1>
+              <div className={style.overlay}>
+                <section className={style.InfoOverlay}>
+                  {dataBtn && (
+                    <div>
+                      <h1>{dataBtn[0].title}</h1>
+                      <p>
+                        fique tranquilo, problemas assim geralmente acontecem,
+                        estamos aqui justamente para resolve-los da melhor
+                        maneira.
+                      </p>
+                      <h3>Atenciosamente Equipe </h3>
                     </div>
-                  ))}
+                  )}
+                </section>
+                <section className={style.QuestionsOverlay}>
+                  <h3>Perguntas frequentes</h3>
+                  {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
+                  {dataBtn &&
+                    dataBtn.map((item, key) => (
+                      <div key={key}>
+                        <div className={style.CardTitulo}>
+                          <h2>{item.question}</h2>
+                          <IoMdAddCircleOutline
+                            className={style.BtnQuestion}
+                            onClick={() => {
+                              console.log("teste");
+                            }}
+                          />
+                        </div>
+
+                        <p>{item.response}</p>
+                      </div>
+                    ))}
+                </section>
               </div>
             ) : (
               <PreLoader />
@@ -165,22 +192,28 @@ export default function Faq() {
         <section className={style.faqBtnContainer}>
           <div>
             <FaqCard
-              title="usuario"
+              title="Problemas com o Usuário?"
               text="Problemas com Usuário"
               name="payment"
               icon={<FaUserCog />}
+              setDataBtn={setDataBtn}
+              setLoading={setLoading}
             />
             <FaqCard
-              title="seguranca"
+              title="Dúvidas de segurança?"
               text="Garantia e Segurança"
               icon={<FaRegCheckSquare />}
+              setDataBtn={setDataBtn}
+              setLoading={setLoading}
             />
           </div>
           <div>
             <FaqCard
-              title="pagamento"
-              text="Pagamentos"
+              title="Problemas com o pagamento?"
+              text="Problemas com o pagamento?"
               icon={<FaRegCreditCard />}
+              setDataBtn={setDataBtn}
+              setLoading={setLoading}
             />
             <FaqCard
               title="payment"

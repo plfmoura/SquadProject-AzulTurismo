@@ -184,7 +184,7 @@ export default function SingIn({ setShow, change }) {
                   id="confirmPassword"
                   required
                 />
-                <div style={{ display: "flex", justifyContent: "left", width: '100%'}}>
+                <div style={{ display: "flex", position: 'relative', left: '-.5rem'}}>
                   <input type="checkbox" name="showPassword" onClick={() => setShowPassword(!showPassword)} style={{ width: '20px', marginRight: 5}}/>
                   <span style={{ height: "16px", fontSize: "15px", color: "#333" }}>Mostrar campos de senha</span>
                 </div>
@@ -234,7 +234,7 @@ export default function SingIn({ setShow, change }) {
               id="password_login"
               required
             />
-            <div style={{ display: "flex", justifyContent: "left", width: '100%'}}>
+            <div style={{ display: "flex", position: 'relative', left: '-3rem'}}>
               <input type="checkbox" name="showPassword" onClick={() => setShowPassword(!showPassword)} style={{ width: '20px', marginRight: 5}}/>
               <span style={{ height: "16px", fontSize: "15px", color: "#333" }}>Mostrar senha</span>
             </div>

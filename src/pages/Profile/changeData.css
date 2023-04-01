@@ -49,6 +49,34 @@
     animation: appears 400ms ease normal;
 }
 
+.new-purchase-notification {
+    background-color: red;
+    position: absolute;
+    z-index: 2;
+    top: .5rem;
+    right: 1.3rem;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 1.1rem;
+    height: 1rem;
+    display: grid;
+    place-content: center;
+    border-radius: 100%;
+    color: #fff;
+    animation: newBuy 2s ease normal;
+}
+
+@keyframes newBuy {
+    from {
+        visibility: hidden;
+    }
+    to {
+        visibility: visible;
+    }
+}
+
+
 @keyframes appears {
     from {
         opacity: 0;

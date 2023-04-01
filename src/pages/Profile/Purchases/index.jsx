@@ -1,9 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useEffect } from "react";
 import Button from "../../../components/Button";
+import { NavBarContext } from "../../../context/NavBarContext";
 import "./purchases.css";
 
 export default function Purchases({ data }) {
+  const { setNewNotification } = useContext(NavBarContext);
   const today = Date.now();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    // Para apagar simbolo de novas notificações
+    setNewNotification(false)
+  }, [])
 
   return (
     <div className="purchases-container">
@@ -86,7 +97,7 @@ export default function Purchases({ data }) {
           ))}
       </div>
       <div className="footer-content">
-        <Button text="Duvidas?" />
+        <Button text="Duvidas?" onPress={() => navigate('/faq')}/>
       </div>
     </div>
   );
