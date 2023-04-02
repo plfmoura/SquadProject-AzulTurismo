@@ -113,7 +113,9 @@
     width: 60%;
     padding: 50px;
     overflow:auto ;
-  
+}
+.overlay .QuestionsOverlay div{
+    margin-bottom: 15px;
 }
 
 
@@ -166,8 +168,20 @@ color: #1C8EE9;
 }
 
 .overlay .QuestionsOverlay p{
-   padding: 20px;
    font-size: 0.8em;
+}
+
+.Resposta{
+max-height: 0;
+overflow: hidden;
+transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+
+ .CrescerResposta{
+    padding: 10px;
+    height: auto;
+    max-height: 99999px;
+    transition: all 0.5s cubic-bezier(0,1,0,1);
 }
 
 /* Responsivo*/

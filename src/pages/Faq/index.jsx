@@ -11,7 +11,11 @@ import {
   FaRegCreditCard,
   FaRegComments,
 } from "react-icons/fa";
-import { IoMdAddCircleOutline } from "react-icons/io";
+import { 
+  IoMdAddCircleOutline ,
+  IoMdRemoveCircleOutline
+
+} from "react-icons/io";
 import FaqCard from "./FaqCard";
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
@@ -127,6 +131,21 @@ export default function Faq() {
     }
   }, [dataBtn]);
 
+  // FUNCTION CLICK DO OVERLAY
+
+  const [select,setSelect] = useState(null)
+
+  const Toggle = (i) =>{
+
+    if (select == i) {
+      return setSelect(null)
+    }  
+    setSelect(i)
+    console.log(select)
+  }
+
+
+ 
   return (
     <>
       {showOffCanvas && (
@@ -151,19 +170,16 @@ export default function Faq() {
                   <h3>Perguntas frequentes</h3>
                   {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                   {dataBtn &&
-                    dataBtn.map((item, key) => (
+                    dataBtn.map((item, key,i) => (
                       <div key={key}>
                         <div className={style.CardTitulo}>
                           <h2>{item.question}</h2>
-                          <IoMdAddCircleOutline
-                            className={style.BtnQuestion}
-                            onClick={() => {
-                              console.log("teste");
-                            }}
-                          />
+                         <span   className={style.BtnQuestion} onClick={()=>{Toggle(i)}}>
+                           {select == i ? < IoMdRemoveCircleOutline/>:< IoMdAddCircleOutline />}
+                          </span> 
                         </div>
 
-                        <p>{item.response}</p>
+                        <p className= {select == i ? style.CrescerResposta:style.Resposta}>{item.response}</p>
                       </div>
                     ))}
                 </section>
