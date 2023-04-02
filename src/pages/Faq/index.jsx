@@ -135,17 +135,14 @@ export default function Faq() {
 
   const [select,setSelect] = useState(null)
 
-  const Toggle = (i) =>{
+  const Toggle = (id_faq) =>{
 
-    if (select == i) {
+    if (select == id_faq) {
+      
       return setSelect(null)
-    }  
-    setSelect(i)
-    console.log(select)
+    }
+    setSelect(id_faq)
   }
-
-
- 
   return (
     <>
       {showOffCanvas && (
@@ -174,12 +171,15 @@ export default function Faq() {
                       <div key={key}>
                         <div className={style.CardTitulo}>
                           <h2>{item.question}</h2>
-                         <span   className={style.BtnQuestion} onClick={()=>{Toggle(i)}}>
-                           {select == i ? < IoMdRemoveCircleOutline/>:< IoMdAddCircleOutline />}
+                         <span   className={style.BtnQuestion} onClick={()=>{
+                           const IdFaq = item.id_faq
+                           Toggle(IdFaq)
+                        }}>
+                           {select == item.id_faq ? < IoMdRemoveCircleOutline/>:< IoMdAddCircleOutline />}
                           </span> 
                         </div>
 
-                        <p className= {select == i ? style.CrescerResposta:style.Resposta}>{item.response}</p>
+                        <p className= {select == item.id_faq  ? style.CrescerResposta:style.Resposta}>{item.response}</p>
                       </div>
                     ))}
                 </section>
