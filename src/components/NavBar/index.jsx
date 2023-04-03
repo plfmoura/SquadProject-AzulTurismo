@@ -10,12 +10,13 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { delUser } from "../../reducer/userReducer";
 import { NavBarContext } from "../../context/NavBarContext";
+import MobileUser from "./MobileUser";
 
 export default function NavBar() {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const { show, setShow, change, setChange } = useContext(LoggedContext);
-  const { changeBgColor, changeColor, changeNotficationIcon, newNotification } = useContext(NavBarContext);
+  const { changeBgColor, changeColor, changeNotficationIcon, changeLogoColor, newNotification } = useContext(NavBarContext);
   const dispatch = useDispatch();
 
   return (
@@ -32,7 +33,7 @@ export default function NavBar() {
               alt="Logo da empresa Azul Turismo"
               className={style.navBarLogo}
             />
-            <span>AZUL TOUR</span>
+            <span style={{color: changeLogoColor}}>AZUL TOUR</span>
           </div>
           <nav className={style.menuContainer}>
             <ul className={style.menuContent}>

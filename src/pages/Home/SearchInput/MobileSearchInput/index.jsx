@@ -34,6 +34,21 @@ export default function MobileSearchInput({setFiltered,setMyRegion, setShowTop})
     }, [200]) 
   }
 
+  // para tornar o search inativo caso o usuário role a tela
+  const [position, setPosition] = useState()
+
+  useEffect(() => {
+    function updatePosition() {
+      setPosition(window.scrollY)
+    };
+    window.addEventListener('scroll', updatePosition);
+    updatePosition();
+    setTimeout(() => {
+      setActive(false)
+    } , [400])
+  } ,[position])
+  //=========================
+
   return (
     <>
       {active ? (

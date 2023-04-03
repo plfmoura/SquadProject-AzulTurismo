@@ -23,6 +23,7 @@ export const NavBarProvider = ({ children }) => {
         backdropFilter: "blur(5px)",
       };
   let changeColor = bgColor ? "#333" : "#fff";
+  let changeLogoColor = bgColor ? "#2ea9ff" : "#fff";
   let changeNotficationIcon = bgColor ? "#333" : "#fff";
 
   return (
@@ -39,7 +40,8 @@ export const NavBarProvider = ({ children }) => {
         setShowOffCanvas,
         handleScrollableCheck,
         newNotification,
-        setNewNotification
+        setNewNotification,
+        changeLogoColor
       }}
     >
       {children}
