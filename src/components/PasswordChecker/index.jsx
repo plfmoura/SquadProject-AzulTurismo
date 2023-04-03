@@ -35,12 +35,7 @@ function PasswordChecker() {
 
   return (
     <div>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={handleChange} />
-      </label>
-      <button onClick={handleCheckPassword}>Check Password</button>
-      <p>{message}</p>
+    <input type="password" value={password} onChange={handleChange} />
     </div>
   );
 }
