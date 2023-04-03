@@ -6,6 +6,7 @@ import PreLoader from "../../components/PreLoader";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
 import RegisterDone from "./Animation/RegisterDone";
+import PasswordChecker from "../../components/PasswordChecker";
 
 export default function SingIn({ setShow, change }) {
   const [login, setLogin] = useState(change);
@@ -172,12 +173,7 @@ export default function SingIn({ setShow, change }) {
                   id="email"
                   required
                 />
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Insira uma senha"
-                  id="password"
-                  required
-                />
+                <PasswordChecker/>
                 <input
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Confirme sua senha"
