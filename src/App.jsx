@@ -8,6 +8,7 @@ import { updateProducts } from "./reducer/shoopingReducer";
 import Rodape from "./components/Rodape";
 import { setUser } from "./reducer/userReducer";
 import { setFaq } from "./reducer/faqReducer";
+import MobileUser from "./components/NavBar/MobileUser";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,12 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      {user && (
+        <MobileUser
+          userName={user.name.split(" ")[0]}
+          userPicture={user.image_profile}
+        />
+      )}
       <Outlet />
       <Rodape />
     </div>
