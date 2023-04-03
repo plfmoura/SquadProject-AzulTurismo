@@ -93,9 +93,6 @@ export default function BurgerMobileMenu({ callMenu }) {
             </>) : (
               <>
                 <li onClick={() => {handleSelected(); setTimeout(() => {setShow(true)}, [300]);}}><Link>Entrar</Link></li>
-                <div onClick={ handleSelected }>
-                  <Link to='/profile'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU' alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
-                </div>
               </>
             )
           }
