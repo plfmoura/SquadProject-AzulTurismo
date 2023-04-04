@@ -133,11 +133,12 @@ export default function Faq() {
                         maneira.
                       </p>
                       <h3>Atenciosamente Equipe </h3>
+                     
                     </div>
                   )}
                 </section>
                 <section className={style.QuestionsOverlay}>
-                  <h3>Perguntas frequentes</h3>
+                  <h3>Caso sua pergunta não esteja aqui, deixe-a em "Suas Duvidas".</h3>
                   {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                   {dataBtn &&
                     dataBtn.map((item, key,i) => (
@@ -177,6 +178,7 @@ export default function Faq() {
               <IoSearch />
             </button>
           </div>
+          <span>{ }</span>
         </section>
         <section className={style.faqBtnContainer}>
           <div>

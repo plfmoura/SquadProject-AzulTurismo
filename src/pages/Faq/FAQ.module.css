@@ -236,7 +236,7 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
     }
     .faqBtnContainer div {
         width: 100%;
-        gap: 2rem;
+        gap: 1rem;
     }
 }
 @media screen and (min-width: 801px) {
