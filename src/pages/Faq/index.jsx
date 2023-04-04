@@ -96,33 +96,6 @@ export default function Faq() {
   const [valueBtn, setValueBtn] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // // FUNCTION CLICK BTN
-  // const handleSelect = (e) => {
-  //   setGetData(dataFaq);
-  //   // colocando valor do btn para a variavel
-  //   let getBtnValue = e.target.name;
-  //   setValueBtn(getBtnValue);
-  //   // carregamento até mostrar a pesquisa
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, [2000]);
-  //   setShowOffCanvas(true);
-  //   // consulta o valor do target
-  //   switch (getBtnValue) {
-  //     case "usuario":
-  //       setDataBtn(getData.user);
-  //       break;
-  //     case "pagamento":
-  //       setDataBtn(getData.payment);
-  //       break;
-  //     case "seguranca":
-  //       setDataBtn(getData.security);
-  //       break;
-  //     default:
-  //       null;
-  //   }
-  // };
-
   useEffect(() => {
     if (dataBtn) {
       setDataFind(
