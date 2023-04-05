@@ -10,11 +10,11 @@ export default function Video360({ tourName, videoSource }) {
   const [showPlayer, setShowPlayer] = useState(false);
 
   useEffect(() => {
-    setShow360(true)
+    setShow360(true);
     setTimeout(() => {
-      setShow360(false)
-      setShowPlayer(!showPlayer)
-    }, [7000])
+      setShow360(false);
+      setShowPlayer(!showPlayer);
+    }, [7000]);
     document.body.style.overflowY = "hidden";
   }, []);
 
@@ -42,21 +42,23 @@ export default function Video360({ tourName, videoSource }) {
               tela.
             </label>
             <label style={{ fontSize: 10 }}>
-              Este video é meramente ilustrativo.
+              Este video é meramente ilustrativo. Ainda em construção!
             </label>
           </div>
         )}
         {showPlayer && (
-          <iframe
-            width="100%"
-            height="315"
-            src={videoData[2].video}
-            title="YouTube video player"
-            frameBorder="0"
-            allow=" autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="tour-video-player"
-          ></iframe>
+          <>
+            <iframe
+              width="100%"
+              height="315"
+              src={videoData[0].video}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="tour-video-player"
+            ></iframe>
+          </>
         )}
       </div>
     </>

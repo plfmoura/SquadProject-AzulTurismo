@@ -43,6 +43,22 @@
     }
 }
 
+.tour-video-player {
+    opacity: 1;
+    animation: video-player-appears 2s ease normal;
+}
+
+@keyframes video-player-appears {
+    0% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @media screen and (max-width: 720px) {
     .tour-video-title {
         font-size: 12px;

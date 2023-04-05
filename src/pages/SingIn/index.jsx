@@ -36,6 +36,15 @@ export default function SingIn({ setShow, change }) {
       return;
     }
 
+    if(email === '' || password === '' || confirmPassword === ''|| name === ''){
+      setTimeout(() => {
+        setAuthError("Os campos não podem está vazios.");
+        setTimeout(() => {
+          setAuthError("");
+        }, [5000])});
+      return
+    }
+
     const options = {
       method: "POST",
       url: "https://tourismapi.herokuapp.com/register",
@@ -163,26 +172,22 @@ export default function SingIn({ setShow, change }) {
                   type="text"
                   placeholder="Insira seu nome"
                   id="name"
-                  required
                 />
                 <input
                   type="email"
                   placeholder="Insira seu email"
                   pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
                   id="email"
-                  required
                 />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Insira uma senha"
                   id="password"
-                  required
                 />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Confirme sua senha"
                   id="confirmPassword"
-                  required
                 />
                 <div style={{ display: "flex", position: 'relative', left: '-.5rem'}}>
                   <input type="checkbox" name="showPassword" onClick={() => setShowPassword(!showPassword)} style={{ width: '20px', marginRight: 5}}/>

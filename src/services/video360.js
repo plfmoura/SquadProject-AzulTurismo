@@ -2,7 +2,7 @@ export const videoData = [
     {
         title: 'cristo redentor',
         id: 1,
-        video: 'https://www.youtube.com/embed/YG77CR48VRI?start=8'
+        video: 'https://www.youtube.com/embed/YG77CR48VRI?start=8&vq=large'
     },
     {
         title: 'pão de açucar',
