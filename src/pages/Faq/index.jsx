@@ -65,7 +65,6 @@ export default function Faq() {
       case "pagamentos":
         setValueBtn("pagamento");
         //fazer o filtro
-        console.log(faq);
         let pagFaq = faq.filter((item) => item.title.includes("pagamento"));
         setDataBtn(pagFaq);
         foundWord();
@@ -253,39 +252,36 @@ export default function Faq() {
           <span>{}</span>
         </section>
         <section className={style.faqBtnContainer}>
-      
-            <FaqCard
-              title="Problemas com o Usuário?"
-              text="Problemas com Usuário"
-              name="payment"
-              icon={<FaUserCog />}
-              setDataBtn={setDataBtn}
-              setLoading={setLoading}
-            />
-            <FaqCard
-              title="Dúvidas de segurança?"
-              text="Garantia e Segurança"
-              icon={<FaRegCheckSquare />}
-              setDataBtn={setDataBtn}
-              setLoading={setLoading}
-            />
-          
-        
-            <FaqCard
-              title="Problemas com o pagamento?"
-              text="Problemas com o pagamento?"
-              icon={<FaRegCreditCard />}
-              setDataBtn={setDataBtn}
-              setLoading={setLoading}
-            />
-            <FaqCard
-              title="Suas duvidas"
-              text="Suas Dúvidas"
-              icon={<FaRegComments />}
-              setDataBtn={setDataBtn}
-              setLoading={setLoading}
-            />
-      
+          <FaqCard
+            title="Problemas com o Usuário?"
+            text="Problemas com Usuário"
+            name="payment"
+            icon={<FaUserCog />}
+            setDataBtn={setDataBtn}
+            setLoading={setLoading}
+          />
+          <FaqCard
+            title="Dúvidas de segurança?"
+            text="Garantia e Segurança"
+            icon={<FaRegCheckSquare />}
+            setDataBtn={setDataBtn}
+            setLoading={setLoading}
+          />
+
+          <FaqCard
+            title="Problemas com o pagamento?"
+            text="Problemas com o pagamento?"
+            icon={<FaRegCreditCard />}
+            setDataBtn={setDataBtn}
+            setLoading={setLoading}
+          />
+          <FaqCard
+            title="Suas duvidas"
+            text="Suas Dúvidas"
+            icon={<FaRegComments />}
+            setDataBtn={setDataBtn}
+            setLoading={setLoading}
+          />
         </section>
       </div>
     </>
