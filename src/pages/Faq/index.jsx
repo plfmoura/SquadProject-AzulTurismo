@@ -243,7 +243,7 @@ export default function Faq() {
             <input
               name="data"
               type="text"
-              placeholder="Deixe aqui sua duvida..."
+              placeholder="Pesquise..."
               onChange={HandleChange}
             />
             <button type="submit" onClick={BtnSearch}>
@@ -253,7 +253,7 @@ export default function Faq() {
           <span>{}</span>
         </section>
         <section className={style.faqBtnContainer}>
-          <div>
+      
             <FaqCard
               title="Problemas com o Usuário?"
               text="Problemas com Usuário"
@@ -269,8 +269,8 @@ export default function Faq() {
               setDataBtn={setDataBtn}
               setLoading={setLoading}
             />
-          </div>
-          <div>
+          
+        
             <FaqCard
               title="Problemas com o pagamento?"
               text="Problemas com o pagamento?"
@@ -285,7 +285,7 @@ export default function Faq() {
               setDataBtn={setDataBtn}
               setLoading={setLoading}
             />
-          </div>
+      
         </section>
       </div>
     </>

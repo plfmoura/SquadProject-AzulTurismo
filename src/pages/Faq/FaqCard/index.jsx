@@ -33,6 +33,7 @@ export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
       }
     }
   };
+  console.log(faqUser)
 
   return (
     <div className="Faq-Card-container" onClick={handleClick}>

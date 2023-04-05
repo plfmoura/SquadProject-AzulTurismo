@@ -1,8 +1,10 @@
-.Faq-Card-container {
+
+.Faq-Card-container{
+    width: 240px;
+    height: 220px;
+    cursor: pointer;
     background-color: #f1f1f1;
     box-shadow: #33333355 0px 3px 2px 1.5px;
-    width: 13rem;
-    height: 15rem;
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -22,7 +24,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    gap: 1rem;
 }
 
 .faq-card-content .faq-card-icon {
@@ -34,7 +35,7 @@
 
 .faq-card-content span {
     pointer-events: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-align: center;
     font-weight: 500;
     color: #333;
@@ -42,6 +43,7 @@
 
 @media screen and (min-width: 320px) {
     .Faq-Card-container {
+        transition: 0.4s;
         transform: scale(0.7);
     }
 }
@@ -49,12 +51,14 @@
 
 @media screen and (min-width: 480px) {
     .Faq-Card-container {
+        transition: 0.4s;
         transform: scale(0.8);
     }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1280px) {
     .Faq-Card-container {
+        transition: 0.4s;
         transform: scale(0.9);
     }
-}
+} 
