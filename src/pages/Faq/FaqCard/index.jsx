@@ -7,20 +7,30 @@ import "./faqCard.css";
 export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
   const state = useSelector((state) => state);
   const { faq } = state.faq;
+  const { faqUser } = state.faq;
   const { setShowOffCanvas } = useContext(NavBarContext);
 
   const handleClick = () => {
     //funcão pra atualizar as faq propias das card
-    if (faq) {
-      let myFaq = faq.filter((item) => item.title === title);
-      //atualizo o state no componente pai que permite a comunicacao entre componentes
-      setDataBtn(myFaq);
-      //set do state que mostra o modal e da animação de loading
-      setTimeout(() => {
-        setLoading(false);
-      }, [500]);
-      setShowOffCanvas(true);
-  
+    if (title === "Suas duvidas") {
+      if (faqUser) {
+        setDataBtn(faqUser);
+        setTimeout(() => {
+          setLoading(false);
+        }, [500]);
+        setShowOffCanvas(true);
+      }
+    } else {
+      if (faq) {
+        let myFaq = faq.filter((item) => item.title === title);
+        //atualizo o state no componente pai que permite a comunicacao entre componentes
+        setDataBtn(myFaq);
+        //set do state que mostra o modal e da animação de loading
+        setTimeout(() => {
+          setLoading(false);
+        }, [500]);
+        setShowOffCanvas(true);
+      }
     }
   };
 
