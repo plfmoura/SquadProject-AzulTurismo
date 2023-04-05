@@ -87,7 +87,6 @@ export default function Faq() {
     let duvida = e.target.duvida.value;
     let id_user = user.user_id;
     let name_user = user.name;
-    console.log(name_user);
     let token = JSON.parse(localStorage.getItem("token"));
     let date = new Date().toLocaleDateString("pt-br").replace(/\//g, "-");
     e.target.reset();
@@ -159,9 +158,9 @@ export default function Faq() {
                 <section className={style.InfoOverlay}>
                   {dataBtn && (
                     <div>
-                      <h1>{dataBtn[0].title}</h1>
                       {dataBtn[0].title.includes("duvida do") ? (
                         <>
+                          <h1>Envie uma nova dúvida</h1>
                           <form
                             action=""
                             onSubmit={(e) => {
@@ -180,6 +179,7 @@ export default function Faq() {
                         </>
                       ) : (
                         <>
+                          <h1>{dataBtn[0].title}</h1>
                           <p>
                             fique tranquilo, problemas assim geralmente
                             acontecem, estamos aqui justamente para resolve-los
