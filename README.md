@@ -1,4 +1,6 @@
-### (em desenvolvimento)
+<div align="center">
+  <h4>Aplicação em desenvolvimento</h4>
+</div>
 <br/>
 
 <div align="center">
@@ -12,7 +14,14 @@ mais badaladas Cariocas, da Região dos Lagos até as favelas cariocas, conectan
 estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não é mais empecilho virtual para conhecer a cultura e admirar a Cidade Maravilhosa.<br/>
 <br/>
 
-Usuário Completo; email: andressa@gmail.com senha: 123
+### How to use this App.
+- Passeios disponíveis apenas no Rio de Janeiro.<br/>
+- Login para visualização de todas as funcionalidades de usuário:<br/> email: andressa@gmail.com<br/> senha: 123<br/>
+- Para compra de passeio você pode digitar um cartão aleatório na validação de checkout.
+
+Fluxo do usuário:<br/>
+- Entrar na aplicação > selecionar passeio > efetuar login/efetuar cadastro > iniciar compra > finalizar compra > visualizar compra no perfil.<br/>
+- Fotos do usuário são disponibilizadas pelos fotógrafos através da aplicação administrativa com login de Fotógrafo. <a href="https://github.com/plfmoura/SquadProject-AdminAzulTurismo">Ir para Administrativo</a> 🟢
 
 ### How to Install and Run this App.
 
