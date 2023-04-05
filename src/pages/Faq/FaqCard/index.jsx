@@ -7,18 +7,21 @@ import "./faqCard.css";
 export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
   const state = useSelector((state) => state);
   const { faq } = state.faq;
+  const { user } = state.user;
   const { faqUser } = state.faq;
   const { setShowOffCanvas } = useContext(NavBarContext);
 
   const handleClick = () => {
     //funcão pra atualizar as faq propias das card
     if (title === "Suas duvidas") {
-      if (faqUser) {
+      if (faqUser && user) {
         setDataBtn(faqUser);
         setTimeout(() => {
           setLoading(false);
         }, [500]);
         setShowOffCanvas(true);
+      } else {
+        alert("nao tem user logueado");
       }
     } else {
       if (faq) {
@@ -33,7 +36,6 @@ export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
       }
     }
   };
-  console.log(faqUser)
 
   return (
     <div className="Faq-Card-container" onClick={handleClick}>
