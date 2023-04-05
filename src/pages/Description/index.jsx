@@ -9,6 +9,9 @@ import GoogleMaps from "../../components/GoogleMaps";
 import BuyForm from "./BuyForm";
 import NextButton from "../../components/NextButton";
 import { NavBarContext } from "../../context/NavBarContext";
+import Video360 from "./Video";
+import Modal from "../../components/Modal";
+import { BsFillPlayBtnFill } from "react-icons/bs";
 
 export default function Description() {
   let id = useParams();
@@ -23,7 +26,8 @@ export default function Description() {
   const { products } = state.shopping;
   const [imagensIndex, setImagensIndex] = useState([0, 1, 2, 3]);
   const [descriptionText, setDescriptionText] = useState(true);
-
+  const [show, setShow ] = useState(false)
+  
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
@@ -67,7 +71,7 @@ export default function Description() {
   }, [tour]);
 
   // mostrar o texto completo da descrição
-  let showText = descriptionText ? "50px" : "10rem";
+  let showText = descriptionText ? "56px" : "100%";
 
   return (
     <div className={style.singleServiceContainer}>
@@ -117,6 +121,13 @@ export default function Description() {
                     </p>
                   ))}
                 </div>
+                <div className={style.imersiveVideoContainer}>
+                  <span>Tenha uma experiência imersiva com visão em 360º:</span>
+                  <BsFillPlayBtnFill 
+                    className={style.playVideoIcon}
+                    onClick={() => {setShow(true)}}
+                  />
+                </div>
                 <p
                   className={style.textDescription}
                   style={{
@@ -137,15 +148,6 @@ export default function Description() {
                 >
                   {descriptionText ? "Ver mais..." : "Ver menos"}
                 </span>
-                {descriptionText && (
-                  <hr
-                    style={{
-                      width: "90%",
-                      color: "#33333335",
-                      margin: '3rem auto 1rem'
-                    }}
-                  />
-                )}
               </div>
             </section>
             {/* Area do Formulario inicial de Compra */}
@@ -271,6 +273,9 @@ export default function Description() {
         </>
       )}
       <hr style={{ width: "80%", margin: "2rem auto", color: '#33333335' }} />
+      {show && 
+        <Modal children={tour && <Video360 tourName={tour.name}/> } setShow={setShow}/>
+      }
       {/* Google Maps  */}
       {tour && (
         <section className={style.mapsContainer}>
