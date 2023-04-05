@@ -16,13 +16,23 @@ export default function NavBar() {
   const state = useSelector((state) => state);
   const { user } = state.user;
   const { show, setShow, change, setChange } = useContext(LoggedContext);
-  const { changeBgColor, changeColor, changeNotficationIcon, changeLogoColor, newNotification } = useContext(NavBarContext);
+  const {
+    changeBgColor,
+    changeColor,
+    changeNotficationIcon,
+    changeLogoColor,
+    newNotification,
+    userNavBarBorder
+  } = useContext(NavBarContext);
   const dispatch = useDispatch();
 
   return (
     <>
       {show && (
-        <Modal setShow={setShow} children={<SingIn setShow={setShow} change={change} />} />
+        <Modal
+          setShow={setShow}
+          children={<SingIn setShow={setShow} change={change} />}
+        />
       )}
 
       <div className={style.alignContent} style={changeBgColor}>
@@ -33,18 +43,24 @@ export default function NavBar() {
               alt="Logo da empresa Azul Turismo"
               className={style.navBarLogo}
             />
-            <span style={{color: changeLogoColor}}>AZUL TOUR</span>
+            <span style={{ color: changeLogoColor }}>AZUL TOUR</span>
           </div>
           <nav className={style.menuContainer}>
             <ul className={style.menuContent}>
               <li>
-                <Link style={{color: changeColor}} to="/">Home</Link>
+                <Link style={{ color: changeColor }} to="/">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link style={{color: changeColor}} to="/services">Serviços</Link>
+                <Link style={{ color: changeColor }} to="/services">
+                  Serviços
+                </Link>
               </li>
               <li>
-                <Link style={{color: changeColor}} to="/about">Sobre nós</Link>
+                <Link style={{ color: changeColor }} to="/about">
+                  Sobre nós
+                </Link>
               </li>
             </ul>
           </nav>
@@ -52,15 +68,21 @@ export default function NavBar() {
             <ul className={style.menuContent}>
               {user ? (
                 <>
-                  <div>
-                    <Link style={{color: changeColor}} className={style.notificationAlign} to="/profile">
-                      <IoNotifications 
+                  <div style={{boxShadow: userNavBarBorder}}>
+                    <Link
+                      style={{ color: changeColor }}
+                      className={style.notificationAlign}
+                      to="/profile"
+                    >
+                      <IoNotifications
                         className={style.notificationIcon}
-                        style={{color: changeNotficationIcon}} 
+                        style={{ color: changeNotficationIcon }}
                       />
-                      {newNotification && <label className={style.newPurchase}>1</label>}
+                      {newNotification && (
+                        <label className={style.newPurchase}>1</label>
+                      )}
                     </Link>
-                    <Link style={{color: changeColor}} to="/profile">
+                    <Link style={{ color: changeColor }} to="/profile">
                       <img
                         src={user.image_profile}
                         className={style.userPicture}
@@ -73,22 +95,39 @@ export default function NavBar() {
                       localStorage.removeItem("token");
                     }}
                   >
-                    <Link style={{color: changeColor}} to="/">Sair</Link>
+                    <Link style={{ color: changeColor }} to="/">
+                      Sair
+                    </Link>
                   </li>
                 </>
               ) : (
                 <>
-                  <li onClick={() => {setShow(true); setChange(false)}}>
-                    <Link style={{color: changeColor}}>Entrar</Link>
+                  <li
+                    onClick={() => {
+                      setShow(true);
+                      setChange(false);
+                    }}
+                  >
+                    <Link style={{ color: changeColor }}>Entrar</Link>
                   </li>
-                  <div>
-                    <Link style={{color: changeColor}} to="/profile">
+                  <div style={{
+                        color: changeColor,
+                        display: "grid",
+                        placeContent: "center",
+                        background: "#fff",
+                        borderRadius: 100,
+                        display: "grid",
+                        placeContent: "center",
+                        width: "2.8rem",
+                        height: "2.8rem",
+                        cursor: user && 'pointer'
+                      }}>
+                    
                       <img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU"
                         alt="Imagem de Perfil do usuário"
                         className={style.userPicture}
                       />
-                    </Link>
                   </div>
                 </>
               )}
