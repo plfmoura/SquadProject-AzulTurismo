@@ -139,14 +139,14 @@ export default function Profile() {
         myuser ? dispatch(setUser(myuser)) : navigate("/");
       } catch (error) {}
     }
-    // para subir a pagina após carregamento
-    window.scrollTo(0, 0);
-    setTimeout(() => {
-      setSkeleton(false);
-    }, [3000]);
     setBgColor(true);
     setPaymentFooter(false);
   }, []);
+
+  useEffect(() => {
+    // para subir a pagina após carregamento
+    window.scrollTo(0, 0);
+  } , [ skeleton === true ])
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem("token"));
@@ -172,7 +172,7 @@ export default function Profile() {
 
   return (
     <>
-      {skeleton ? (
+      {!skeleton ? (
         <div
           style={{
             display: "flex",

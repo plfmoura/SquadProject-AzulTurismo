@@ -34,6 +34,12 @@ export const devTeam = [
         name: "Francisco Willian",
         office: "Desenvolvedor",
         image: "https://media.licdn.com/dms/image/D4D03AQGMEdqBvxHYVA/profile-displayphoto-shrink_800_800/0/1667755495521?e=1683763200&v=beta&t=mwtbsXGZl0_Nf3XI1nh0dCFZGcev8C3i56CFnprhUT0",
+      },
+      {
+        id: 7,
+        name: "Thiago Duarte",
+        office: "Desenvolvedor",
+        image: "https://avatars.githubusercontent.com/u/106554492?v=4",
       }
  ]
 

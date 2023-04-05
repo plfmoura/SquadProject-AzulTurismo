@@ -106,6 +106,9 @@
 /* Dentro das Divisões */
 .serviceOverView div {
     display: flex;
+    margin: 1rem 0;
+    overflow: auto;
+    height: 3rem;
 }
 
 .serviceOverView p:nth-of-type(1){
@@ -115,17 +118,60 @@
 .includedBtns {
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 3px 5px;
-    padding: .5rem 1.5rem;
-    margin: 1rem 0;
+    height: 2rem;
+    padding: 0rem 1rem;
+    margin-inline-end: .3rem;
     border-radius: 200px;
+    white-space: nowrap;
 }
 
 .includedBtns:hover {
-    transform: scale(1.1);
+    transform: scale(1.01);
     user-select: none;
     transition: all 300ms ease;
 }
 
+/* Area sobre imersão 360 */
+.imersiveVideoContainer {
+    margin: 1rem auto;
+    padding: 1rem 0;
+    border-top: 1px solid #33333350;
+    border-bottom: 1px solid #33333350;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imersiveVideoContainer span {
+    color: #555;
+    font-size: 14px;
+}
+
+.serviceOverView div:last-of-type {
+    overflow: hidden;
+}
+
+.playVideoIcon {
+    font-size: 30px;
+    color: #2ea9ff;
+    cursor: pointer;
+    animation: player-icon 3s ease infinite;
+}
+
+@keyframes player-icon {
+    0%,100% {
+        color: #2ea9ff;
+    }
+    50% {
+        color: #0077ff;
+    }
+}
+
+.playVideoIcon:hover {
+    color: #2e55ff;
+    animation: none;
+}
+
+/* descrição do serviço, texto  */
 .serviceDescription .servicePrice{
     width: 100%;
 }
@@ -296,17 +342,12 @@ main {
     .serviceOverView div:first-of-type h1 {
         font-size: 1.7rem;
     }
-    /* divisão dos inclusos no passeio */
-    .serviceOverView div:last-of-type {
-        display: flex;
-        width: 100%;
-        overflow: auto;
-        white-space: nowrap;
-        gap: .5rem;
+    /* Area sobre imersão 360 */
+    .imersiveVideoContainer span{
+       width: 80%;
     }
     /* descrição do passeio  */
     .textDescription {
-        height: 30vh;
         overflow: auto;
         margin: .5rem auto;
     }
@@ -387,7 +428,10 @@ main {
     .serviceOverView div:first-of-type span {
         font-size: 2rem;
     }
-
+    /* Area sobre imersão 360 */
+    .imersiveVideoContainer span{
+        width: 100%;
+    }
     /* Area do formulario de compra */
     .servicePrice {
         width: 100%;
@@ -449,7 +493,7 @@ main {
         margin: 1rem auto;
         display: grid;
         grid-template-columns: 70% auto;
-        grid-template-rows: 50vh 80vh;
+        grid-template-rows: 60vh 80vh;
         grid-template-areas: 
             "a b"
             "c b";

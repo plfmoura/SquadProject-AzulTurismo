@@ -50,10 +50,8 @@ export default function Home() {
     return () => window.removeEventListener('scroll', updatePosition);
   }, [position])
 
-   
-
   return (
-    <div className="Home">
+    <div className={style.HomeContainer}>
       <header className={style.background}>
         <div className={style.titleContainer}>
           <p>Conheça o</p>

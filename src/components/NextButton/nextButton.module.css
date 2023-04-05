@@ -34,9 +34,3 @@
     justify-content: center;
     transform: scale(0.5);
 }
-
-@media screen and (max-width: 580px) {
-    .buttonContainer {
-        display: none;
-    }
-}

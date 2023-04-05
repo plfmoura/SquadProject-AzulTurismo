@@ -45,6 +45,7 @@
 
 .Mobile-user-greetings-container img {
     height: 5vh;
+    width: 5vh;
     object-fit: cover;
     border-radius: 100%;
 }

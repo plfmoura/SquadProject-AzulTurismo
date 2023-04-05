@@ -5,17 +5,14 @@ import OffCanvas from "./OffCanvas";
 import { NavBarContext } from "../../context/NavBarContext";
 import PreLoader from "../../components/PreLoader";
 import { dataFaq } from "../../services/faq";
+import axios from "axios";
 import {
   FaUserCog,
   FaRegCheckSquare,
   FaRegCreditCard,
   FaRegComments,
 } from "react-icons/fa";
-import { 
-  IoMdAddCircleOutline ,
-  IoMdRemoveCircleOutline
-
-} from "react-icons/io";
+import { IoMdAddCircleOutline, IoMdRemoveCircleOutline } from "react-icons/io";
 import FaqCard from "./FaqCard";
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
@@ -29,6 +26,7 @@ export default function Faq() {
   const [dataBtn, setDataBtn] = useState();
   const state = useSelector((state) => state);
   const { faq } = state.faq;
+  const { user } = state.user;
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
@@ -84,6 +82,42 @@ export default function Faq() {
     }
   };
 
+  const submitDuvida = async (e) => {
+    e.preventDefault();
+    let duvida = e.target.duvida.value;
+    let id_user = user.user_id;
+    let name_user = user.name;
+    let token = JSON.parse(localStorage.getItem("token"));
+    let date = new Date().toLocaleDateString("pt-br").replace(/\//g, "-");
+    e.target.reset();
+    const options = {
+      method: "POST",
+      url: "https://tourismapi.herokuapp.com/duvida",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": `${token}`,
+      },
+      data: {
+        data_question: `${date}`,
+        question: `${duvida}`,
+        data_response: "",
+        response: "",
+        id_user: `${id_user}`,
+        title: `duvida do ${name_user}`,
+      },
+    };
+    //Requisiçao de post duvida
+    try {
+      let response = await axios.request(options);
+      if (response.status != "200") {
+        throw new Error("Error");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Ops, algo deu errado!");
+    }
+  };
+
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
     data: "",
@@ -96,33 +130,6 @@ export default function Faq() {
   const [valueBtn, setValueBtn] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // // FUNCTION CLICK BTN
-  // const handleSelect = (e) => {
-  //   setGetData(dataFaq);
-  //   // colocando valor do btn para a variavel
-  //   let getBtnValue = e.target.name;
-  //   setValueBtn(getBtnValue);
-  //   // carregamento até mostrar a pesquisa
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, [2000]);
-  //   setShowOffCanvas(true);
-  //   // consulta o valor do target
-  //   switch (getBtnValue) {
-  //     case "usuario":
-  //       setDataBtn(getData.user);
-  //       break;
-  //     case "pagamento":
-  //       setDataBtn(getData.payment);
-  //       break;
-  //     case "seguranca":
-  //       setDataBtn(getData.security);
-  //       break;
-  //     default:
-  //       null;
-  //   }
-  // };
-
   useEffect(() => {
     if (dataBtn) {
       setDataFind(
@@ -133,16 +140,14 @@ export default function Faq() {
 
   // FUNCTION CLICK DO OVERLAY
 
-  const [select,setSelect] = useState(null)
+  const [select, setSelect] = useState(null);
 
-  const Toggle = (id_faq) =>{
-
+  const Toggle = (id_faq) => {
     if (select == id_faq) {
-      
-      return setSelect(null)
+      return setSelect(null);
     }
-    setSelect(id_faq)
-  }
+    setSelect(id_faq);
+  };
   return (
     <>
       {showOffCanvas && (
@@ -153,33 +158,74 @@ export default function Faq() {
                 <section className={style.InfoOverlay}>
                   {dataBtn && (
                     <div>
-                      <h1>{dataBtn[0].title}</h1>
-                      <p>
-                        fique tranquilo, problemas assim geralmente acontecem,
-                        estamos aqui justamente para resolve-los da melhor
-                        maneira.
-                      </p>
-                      <h3>Atenciosamente Equipe </h3>
+                      {dataBtn[0].title.includes("duvida do") ? (
+                        <>
+                          <h1>Envie uma nova dúvida</h1>
+                          <form
+                            action=""
+                            onSubmit={(e) => {
+                              submitDuvida(e);
+                            }}
+                          >
+                            <textarea
+                              name=""
+                              id="duvida"
+                              cols="15"
+                              rows="5"
+                            ></textarea>
+                            <br />
+                            <input type="submit" value="Enviar" />
+                          </form>
+                        </>
+                      ) : (
+                        <>
+                          <h1>{dataBtn[0].title}</h1>
+                          <p>
+                            fique tranquilo, problemas assim geralmente
+                            acontecem, estamos aqui justamente para resolve-los
+                            da melhor maneira.
+                          </p>
+                          <h3>Atenciosamente Equipe </h3>
+                        </>
+                      )}
                     </div>
                   )}
                 </section>
                 <section className={style.QuestionsOverlay}>
-                  <h3>Perguntas frequentes</h3>
+                  <h3>
+                    Caso sua pergunta não esteja aqui, deixe-a em "Suas
+                    Duvidas".
+                  </h3>
                   {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                   {dataBtn &&
-                    dataBtn.map((item, key,i) => (
+                    dataBtn.map((item, key, i) => (
                       <div key={key}>
                         <div className={style.CardTitulo}>
                           <h2>{item.question}</h2>
-                         <span   className={style.BtnQuestion} onClick={()=>{
-                           const IdFaq = item.id_faq
-                           Toggle(IdFaq)
-                        }}>
-                           {select == item.id_faq ? < IoMdRemoveCircleOutline/>:< IoMdAddCircleOutline />}
-                          </span> 
+                          <span
+                            className={style.BtnQuestion}
+                            onClick={() => {
+                              const IdFaq = item.id_faq;
+                              Toggle(IdFaq);
+                            }}
+                          >
+                            {select == item.id_faq ? (
+                              <IoMdRemoveCircleOutline />
+                            ) : (
+                              <IoMdAddCircleOutline />
+                            )}
+                          </span>
                         </div>
 
-                        <p className= {select == item.id_faq  ? style.CrescerResposta:style.Resposta}>{item.response}</p>
+                        <p
+                          className={
+                            select == item.id_faq
+                              ? style.CrescerResposta
+                              : style.Resposta
+                          }
+                        >
+                          {item.response}
+                        </p>
                       </div>
                     ))}
                 </section>
@@ -204,6 +250,7 @@ export default function Faq() {
               <IoSearch />
             </button>
           </div>
+          <span>{}</span>
         </section>
         <section className={style.faqBtnContainer}>
           <div>
@@ -232,9 +279,11 @@ export default function Faq() {
               setLoading={setLoading}
             />
             <FaqCard
-              title="payment"
+              title="Suas duvidas"
               text="Suas Dúvidas"
               icon={<FaRegComments />}
+              setDataBtn={setDataBtn}
+              setLoading={setLoading}
             />
           </div>
         </section>

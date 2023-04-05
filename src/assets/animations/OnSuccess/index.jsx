@@ -23,7 +23,7 @@ export default function OnSuccessAnimation() {
             loop={true}
             animationData={OnSuccess}
             play={animation}
-            style={{ width: 400, height: 400, display:`${visible}`, position: "absolute", zIndex: "5", overflow: 'hidden'}}
+            style={{ width: 400, height: 400, display:`${visible}`, position: "relative", zIndex: "5", overflow: 'hidden'}}
             onLoopComplete={() => navigate('/profile') }
         />
     )
