@@ -11,11 +11,7 @@ import {
   FaRegCreditCard,
   FaRegComments,
 } from "react-icons/fa";
-import { 
-  IoMdAddCircleOutline ,
-  IoMdRemoveCircleOutline
-
-} from "react-icons/io";
+import { IoMdAddCircleOutline, IoMdRemoveCircleOutline } from "react-icons/io";
 import FaqCard from "./FaqCard";
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
@@ -84,6 +80,12 @@ export default function Faq() {
     }
   };
 
+  const submitDuvida = (e) => {
+    e.preventDefault();
+    let duvida = e.target.duvida.value;
+    e.target.reset();
+  };
+
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
     data: "",
@@ -106,16 +108,14 @@ export default function Faq() {
 
   // FUNCTION CLICK DO OVERLAY
 
-  const [select,setSelect] = useState(null)
+  const [select, setSelect] = useState(null);
 
-  const Toggle = (id_faq) =>{
-
+  const Toggle = (id_faq) => {
     if (select == id_faq) {
-      
-      return setSelect(null)
+      return setSelect(null);
     }
-    setSelect(id_faq)
-  }
+    setSelect(id_faq);
+  };
   return (
     <>
       {showOffCanvas && (
@@ -127,33 +127,72 @@ export default function Faq() {
                   {dataBtn && (
                     <div>
                       <h1>{dataBtn[0].title}</h1>
-                      <p>
-                        fique tranquilo, problemas assim geralmente acontecem,
-                        estamos aqui justamente para resolve-los da melhor
-                        maneira.
-                      </p>
-                      <h3>Atenciosamente Equipe </h3>
-                     
+                      {dataBtn[0].title.includes("duvida do") ? (
+                        <>
+                          <form
+                            action=""
+                            onSubmit={(e) => {
+                              submitDuvida(e);
+                            }}
+                          >
+                            <textarea
+                              name=""
+                              id="duvida"
+                              cols="15"
+                              rows="5"
+                            ></textarea>
+                            <br />
+                            <input type="submit" value="Enviar" />
+                          </form>
+                        </>
+                      ) : (
+                        <>
+                          <p>
+                            fique tranquilo, problemas assim geralmente
+                            acontecem, estamos aqui justamente para resolve-los
+                            da melhor maneira.
+                          </p>
+                          <h3>Atenciosamente Equipe </h3>
+                        </>
+                      )}
                     </div>
                   )}
                 </section>
                 <section className={style.QuestionsOverlay}>
-                  <h3>Caso sua pergunta não esteja aqui, deixe-a em "Suas Duvidas".</h3>
+                  <h3>
+                    Caso sua pergunta não esteja aqui, deixe-a em "Suas
+                    Duvidas".
+                  </h3>
                   {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                   {dataBtn &&
-                    dataBtn.map((item, key,i) => (
+                    dataBtn.map((item, key, i) => (
                       <div key={key}>
                         <div className={style.CardTitulo}>
                           <h2>{item.question}</h2>
-                         <span   className={style.BtnQuestion} onClick={()=>{
-                           const IdFaq = item.id_faq
-                           Toggle(IdFaq)
-                        }}>
-                           {select == item.id_faq ? < IoMdRemoveCircleOutline/>:< IoMdAddCircleOutline />}
-                          </span> 
+                          <span
+                            className={style.BtnQuestion}
+                            onClick={() => {
+                              const IdFaq = item.id_faq;
+                              Toggle(IdFaq);
+                            }}
+                          >
+                            {select == item.id_faq ? (
+                              <IoMdRemoveCircleOutline />
+                            ) : (
+                              <IoMdAddCircleOutline />
+                            )}
+                          </span>
                         </div>
 
-                        <p className= {select == item.id_faq  ? style.CrescerResposta:style.Resposta}>{item.response}</p>
+                        <p
+                          className={
+                            select == item.id_faq
+                              ? style.CrescerResposta
+                              : style.Resposta
+                          }
+                        >
+                          {item.response}
+                        </p>
                       </div>
                     ))}
                 </section>
@@ -178,7 +217,7 @@ export default function Faq() {
               <IoSearch />
             </button>
           </div>
-          <span>{ }</span>
+          <span>{}</span>
         </section>
         <section className={style.faqBtnContainer}>
           <div>
@@ -207,9 +246,11 @@ export default function Faq() {
               setLoading={setLoading}
             />
             <FaqCard
-              title="payment"
+              title="Suas duvidas"
               text="Suas Dúvidas"
               icon={<FaRegComments />}
+              setDataBtn={setDataBtn}
+              setLoading={setLoading}
             />
           </div>
         </section>
