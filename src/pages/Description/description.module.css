@@ -154,10 +154,21 @@
     font-size: 30px;
     color: #2ea9ff;
     cursor: pointer;
+    animation: player-icon 3s ease infinite;
+}
+
+@keyframes player-icon {
+    0%,100% {
+        color: #2ea9ff;
+    }
+    50% {
+        color: #0077ff;
+    }
 }
 
 .playVideoIcon:hover {
     color: #2e55ff;
+    animation: none;
 }
 
 /* descrição do serviço, texto  */

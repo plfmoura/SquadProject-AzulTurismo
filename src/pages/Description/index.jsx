@@ -122,7 +122,7 @@ export default function Description() {
                   ))}
                 </div>
                 <div className={style.imersiveVideoContainer}>
-                  <span>Tenha uma experiência imersiva com visão em 360º:</span>
+                  <span>Tenha uma experiência imersiva gratuita com visão em 360º:</span>
                   <BsFillPlayBtnFill 
                     className={style.playVideoIcon}
                     onClick={() => {setShow(true)}}
