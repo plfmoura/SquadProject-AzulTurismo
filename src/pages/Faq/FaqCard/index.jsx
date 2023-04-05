@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { useSelector } from "react-redux";
 import { NavBarContext } from "../../../context/NavBarContext";
+import { LoggedContext } from "../../../context/LoggedContext";
 import "./faqCard.css";
 
 export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
@@ -10,6 +11,7 @@ export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
   const { user } = state.user;
   const { faqUser } = state.faq;
   const { setShowOffCanvas } = useContext(NavBarContext);
+  const { show, setShow } = useContext(LoggedContext);
 
   const handleClick = () => {
     //funcão pra atualizar as faq propias das card
@@ -21,7 +23,9 @@ export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
         }, [500]);
         setShowOffCanvas(true);
       } else {
-        alert("nao tem user logueado");
+        setTimeout(() => {
+          setShow(!show);
+        }, [500]);
       }
     } else {
       if (faq) {
