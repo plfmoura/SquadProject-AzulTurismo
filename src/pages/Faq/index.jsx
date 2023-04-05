@@ -5,6 +5,7 @@ import OffCanvas from "./OffCanvas";
 import { NavBarContext } from "../../context/NavBarContext";
 import PreLoader from "../../components/PreLoader";
 import { dataFaq } from "../../services/faq";
+import axios from "axios";
 import {
   FaUserCog,
   FaRegCheckSquare,
@@ -25,6 +26,7 @@ export default function Faq() {
   const [dataBtn, setDataBtn] = useState();
   const state = useSelector((state) => state);
   const { faq } = state.faq;
+  const { user } = state.user;
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
@@ -80,10 +82,41 @@ export default function Faq() {
     }
   };
 
-  const submitDuvida = (e) => {
+  const submitDuvida = async (e) => {
     e.preventDefault();
     let duvida = e.target.duvida.value;
+    let id_user = user.user_id;
+    let name_user = user.name;
+    console.log(name_user);
+    let token = JSON.parse(localStorage.getItem("token"));
+    let date = new Date().toLocaleDateString("pt-br").replace(/\//g, "-");
     e.target.reset();
+    const options = {
+      method: "POST",
+      url: "https://tourismapi.herokuapp.com/duvida",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": `${token}`,
+      },
+      data: {
+        data_question: `${date}`,
+        question: `${duvida}`,
+        data_response: "",
+        response: "",
+        id_user: `${id_user}`,
+        title: `duvida do ${name_user}`,
+      },
+    };
+    //Requisiçao de post duvida
+    try {
+      let response = await axios.request(options);
+      if (response.status != "200") {
+        throw new Error("Error");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Ops, algo deu errado!");
+    }
   };
 
   // STATE DO MEU INPUT
