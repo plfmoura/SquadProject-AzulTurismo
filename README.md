@@ -12,6 +12,8 @@ mais badaladas Cariocas, da Região dos Lagos até as favelas cariocas, conectan
 estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não é mais empecilho virtual para conhecer a cultura e admirar a Cidade Maravilhosa.<br/>
 <br/>
 
+Usuário Completo; email: andressa@gmail.com senha: 123
+
 ### How to Install and Run this App.
 
 ```All steps is using -Git Bash-
