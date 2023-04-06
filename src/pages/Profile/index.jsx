@@ -25,7 +25,8 @@ export default function Profile() {
   const dispatch = useDispatch();
   const [ticketHistory, setTicketHistory] = useState();
   const [show, setShow] = useState(false);
-  const { setBgColor, setPaymentFooter, newNotification } = useContext(NavBarContext);
+  const { setBgColor, setPaymentFooter, newNotification } =
+    useContext(NavBarContext);
   const [skeleton, setSkeleton] = useState(true);
   const profession = useRef();
   const photo_profile = useRef();
@@ -146,7 +147,7 @@ export default function Profile() {
   useEffect(() => {
     // para subir a pagina após carregamento
     window.scrollTo(0, 0);
-  } , [ skeleton === true ])
+  }, [skeleton === true]);
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem("token"));
@@ -250,17 +251,25 @@ export default function Profile() {
                         </p>
                       </div>
                       <Button
-                        text={newNotification ? 
-                          (
-                          <div style={{display: 'grid', placeContent: 'center'}}>
-                            <p>Meus Passeios</p>
-                            <label className='new-purchase-notification'>1</label>
-                          </div>)
-                          : ( 'Meus Passeios')
+                        text={
+                          newNotification ? (
+                            <div
+                              style={{
+                                display: "grid",
+                                placeContent: "center",
+                              }}
+                            >
+                              <p>Meus Passeios</p>
+                              <label className="new-purchase-notification">
+                                1
+                              </label>
+                            </div>
+                          ) : (
+                            "Meus Passeios"
+                          )
                         }
                         onPress={() => setShow(!show)}
-                        />
-                      
+                      />
                     </div>
                   </div>
                 </div>
@@ -493,21 +502,45 @@ export default function Profile() {
             </main>
             <section className={style.profileFooter}>
               <h2>Galeria de {user.name}</h2>
-              {user.images[0] === '' ? (
-                <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '1rem', marginBottom: '3rem'}}>
-                  <p style={{textAlign: 'center', marginTop: '2rem'}}>Poxa, sua galeria ainda está vázia!</p>
-                  <p style={{marginBottom: '3rem'}}>Faça passeios para receber suas fotos aqui.</p>
-                  <Button text='Comprar Passeios' onPress={() => navigate("/")}/>
+              {user.images[0] === "" ? (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    gap: "1rem",
+                    marginBottom: "3rem",
+                  }}
+                >
+                  <p style={{ textAlign: "center", marginTop: "2rem" }}>
+                    Poxa, sua galeria ainda está vázia!
+                  </p>
+                  <p style={{ marginBottom: "3rem" }}>
+                    Faça passeios para receber suas fotos aqui.
+                  </p>
+                  <Button
+                    text="Comprar Passeios"
+                    onPress={() => navigate("/")}
+                  />
+                  <p style={{ marginBottom: "1rem", fontSize: 11 }}>
+                    As fotografias feitas durante os passeios são adicionados em
+                    um prazo de 3 dias úteis.
+                  </p>
                 </div>
-              ) :
-                <Carousel
-                  setClass="profile-carousel"
-                  children={
-                    user.images.map((image, key) => (
-                    <HeartAnimation image={image} key={key} />
-                  ))}
-                />
-              }
+              ) : (
+                <>
+                  <Carousel
+                    setClass="profile-carousel"
+                    children={user.images.map((image, key) => (
+                      <HeartAnimation image={image} key={key} />
+                    ))}
+                  />
+                  <p style={{ position: "relative", top: '-2rem', fontSize: 11, textAlign: 'center'}}>
+                    As fotografias feitas durante os passeios são adicionados em
+                    até 3 dias úteis.
+                  </p>
+                </>
+              )}
             </section>
           </div>
         </>
