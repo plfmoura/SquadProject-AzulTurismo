@@ -28,41 +28,40 @@ export default function SingIn({ setShow, change }) {
     let confirmPassword = registerForm.current.confirmPassword.value;
     //Aqui validamos os Campos
     if (name === "") {
-      registerForm.current.name.style.border = "1px solid #2ea9ff";
-      setAuthError("O campo nome não pode estar vazio.");
+      registerForm.current.name.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um Nome de usuário.");
       setTimeout(() => {
         setAuthError("");
-        registerForm.current.name.style.border = "1px solid #33333333";
-      }, [2000]);
+        registerForm.current.name.style.border = "2px solid #33333333";
+      }, [5000]);
       return;
     }
     if (email === "") {
-      registerForm.current.email.style.border = "1px solid #2ea9ff";
-      setAuthError("O campo email não pode estar vazio.");
+      registerForm.current.email.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um endereço de email.");
       setTimeout(() => {
         setAuthError("");
-        registerForm.current.email.style.border = "1px solid #33333333";
-      }, [2000]);
-      return;
-    }
-
-    if (confirmPassword === "") {
-      registerForm.current.confirmPassword.style.border = "1px solid #2ea9ff";
-      setAuthError("O campo password não pode estar vazio.");
-      setTimeout(() => {
-        setAuthError("");
-        registerForm.current.confirmPassword.style.border =
-          "1px solid #33333333";
-      }, [2000]);
+        registerForm.current.email.style.border = "2px solid #33333333";
+      }, [5000]);
       return;
     }
     if (password === "") {
-      registerForm.current.password.style.border = "1px solid #2ea9ff";
-      setAuthError("O campo de confirm password não pode estar vazio.");
+      registerForm.current.password.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira uma Senha.");
       setTimeout(() => {
         setAuthError("");
         registerForm.current.password.style.border = "1px solid #33333333";
-      }, [2000]);
+      }, [5000]);
+      return;
+    }
+    if (confirmPassword === "") {
+      registerForm.current.confirmPassword.style.border = "2px solid #2ea9ff";
+      setAuthError("Confirme sua Senha.");
+      setTimeout(() => {
+        setAuthError("");
+        registerForm.current.confirmPassword.style.border =
+          "2px solid #33333333";
+      }, [5000]);
       return;
     }
 
@@ -72,7 +71,7 @@ export default function SingIn({ setShow, change }) {
         setAuthError("");
         registerForm.current.password.value = "";
         registerForm.current.confirmPassword.value = "";
-      }, [2000]);
+      }, [5000]);
       return;
     }
 
