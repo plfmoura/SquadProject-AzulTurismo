@@ -55,6 +55,7 @@
 
 .modalHeader {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -64,6 +65,10 @@
     color: #333;
 }
 
+.modalFooter {
+    display: grid;
+    place-content: center;
+}
 @media screen and (min-width: 320px) {
     .modalContainer {
         min-width: 318px;

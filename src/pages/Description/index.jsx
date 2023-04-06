@@ -26,8 +26,8 @@ export default function Description() {
   const { products } = state.shopping;
   const [imagensIndex, setImagensIndex] = useState([0, 1, 2, 3]);
   const [descriptionText, setDescriptionText] = useState(true);
-  const [show, setShow ] = useState(false)
-  
+  const [show, setShow] = useState(false);
+
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
@@ -122,10 +122,14 @@ export default function Description() {
                   ))}
                 </div>
                 <div className={style.imersiveVideoContainer}>
-                  <span>Tenha uma experiência imersiva gratuita com visão em 360º:</span>
-                  <BsFillPlayBtnFill 
+                  <span>
+                    Tenha uma experiência imersiva gratuita com visão em 360º:
+                  </span>
+                  <BsFillPlayBtnFill
                     className={style.playVideoIcon}
-                    onClick={() => {setShow(true)}}
+                    onClick={() => {
+                      setShow(true);
+                    }}
                   />
                 </div>
                 <p
@@ -272,10 +276,15 @@ export default function Description() {
           </main>
         </>
       )}
-      <hr style={{ width: "80%", margin: "2rem auto", color: '#33333335' }} />
-      {show && 
-        <Modal children={tour && <Video360 tourName={tour.name}/> } setShow={setShow}/>
-      }
+      <hr style={{ width: "80%", margin: "2rem auto", color: "#33333335" }} />
+      {show && (
+        <Modal
+          children={tour && <Video360 tourName={tour.name} />}
+          setShow={setShow}
+          modalTitle={<label>{tour.name} em 360º</label>}
+          footerContent={<label style={{fontSize: 12}}>Está funcionalidade está em construção</label>}
+        />
+      )}
       {/* Google Maps  */}
       {tour && (
         <section className={style.mapsContainer}>

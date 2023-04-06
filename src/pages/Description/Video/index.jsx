@@ -4,17 +4,35 @@ import { useState } from "react";
 import "./video360.css";
 import Move360 from "../../../assets/animations/Move360";
 import MovePhone360 from "../../../assets/animations/MovePhone360";
+import MoveFullScreen from "../../../assets/animations/MoveFullScreen";
 
 export default function Video360({ tourName, videoSource }) {
   const [show360, setShow360] = useState(true);
   const [showPlayer, setShowPlayer] = useState(false);
+  const [mensagem, setMensagem] = useState('')
+  const [animation, setAnimation] = useState()
+
+  const handleInstructions = () => {
+    setMensagem('Para uma experiência imersiva utilize Óculos de Realidade Virtual e fones de ouvido.')
+    setAnimation(<Move360 />)
+    setTimeout(() => {
+      setMensagem('No dispositivo móvel você pode girar o aparelho ou arrastar a tela.')
+      setAnimation(<MovePhone360 />)
+    }, [5000])
+    setTimeout(() => {
+      setMensagem('Assista em Tela cheia para uma melhor experiência.')
+      setAnimation(<MoveFullScreen />)
+    }, [10000])
+  } 
 
   useEffect(() => {
     setShow360(true);
+    handleInstructions()
     setTimeout(() => {
       setShow360(false);
       setShowPlayer(!showPlayer);
-    }, [7000]);
+      setMensagem('')
+    }, [15000]);
     document.body.style.overflowY = "hidden";
   }, []);
 
@@ -22,39 +40,20 @@ export default function Video360({ tourName, videoSource }) {
 
   return (
     <>
-      <span className="tour-video-title">
-        {!showPlayer ? "Você irá assistir um vídeo de " + tourName : tourName}{" "}
-        em 360º
-      </span>
       <div className="tour-video-container">
         {show360 && (
           <div className="tour-video-alert">
-            <div>
-              <Move360 />
-              <MovePhone360 />
-            </div>
-            <label>
-              Para uma melhor experiência, utilize Óculos de Realidade Virtual,
-              fones de ouvido e assista em tela cheia.
-            </label>
-            <label>
-              No dispositivo móvel você pode girar o aparelho ou arrastar a
-              tela.
-            </label>
-            <label style={{ fontSize: 10 }}>
-              Este video é meramente ilustrativo. Ainda em construção!
-            </label>
+            {animation}
+            <label>{mensagem}</label>
           </div>
         )}
         {showPlayer && (
           <>
             <iframe
-              width="100%"
-              height="315"
               src={videoData[0].video}
               title="YouTube video player"
               frameBorder="0"
-              allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="autoplay"
               allowFullScreen
               className="tour-video-player"
             ></iframe>

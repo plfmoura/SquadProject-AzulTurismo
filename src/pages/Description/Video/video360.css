@@ -3,7 +3,7 @@
 }
 
 .tour-video-container {
-    width: 50vw;
+    min-width: 580px;
     min-height: 300px;
     position: relative;
     animation: video-animation-appears 5s ease normal;
@@ -29,22 +29,10 @@
     font-size: 14px;
 }
 
-.tour-video-alert div{
-    display: flex;
-    animation: video-animation-appears 1s ease normal;
-}
-
-@keyframes video-animation-appears {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 .tour-video-player {
     opacity: 1;
+    width: 100%;
+    height: 300px;
     animation: video-player-appears 2s ease normal;
 }
 
@@ -62,5 +50,18 @@
 @media screen and (max-width: 720px) {
     .tour-video-title {
         font-size: 12px;
+    }
+    .tour-video-container {
+        min-width: 320px;
+        min-height: 100%;
+    }
+    .tour-video-player {
+        height: 170px;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .tour-video-player {
+        width: 100%;
     }
 }
