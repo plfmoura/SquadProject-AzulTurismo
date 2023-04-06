@@ -39,8 +39,8 @@
 
 .ticket:hover {
     transition: all 400ms ease;
-    transform: scale(1.02);
     user-select: none;
+    cursor: pointer;
 }
 
 .ticket img {
@@ -180,7 +180,7 @@
     .purchases-container {
         width: 32rem;
     }
-
+    
     .main-content {
         max-height: 20rem;
         width: 95%;
