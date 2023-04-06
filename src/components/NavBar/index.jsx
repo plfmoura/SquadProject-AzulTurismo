@@ -120,7 +120,7 @@ export default function NavBar() {
                         placeContent: "center",
                         width: "2.8rem",
                         height: "2.8rem",
-                        cursor: user && 'pointer'
+                        border: '1px solid #33333330' 
                       }}>
                     
                       <img
