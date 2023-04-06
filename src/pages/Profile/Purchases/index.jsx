@@ -14,7 +14,11 @@ export default function Purchases({ data }) {
   useEffect(() => {
     // Para apagar simbolo de novas notificações
     setNewNotification(false)
+    // para desabilitar scroll na página
+    document.body.style.overflowY = "hidden";
   }, [])
+
+  useEffect(() => () => (document.body.style.overflowY = "auto"), []);
 
   return (
     <div className="purchases-container">

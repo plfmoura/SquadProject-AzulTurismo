@@ -12,10 +12,8 @@
 }
 
 .main-content {
-    max-height: 20rem;
     height: 20rem;
     width: 30rem;
-    background-color: #f1f1f1;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -88,9 +86,13 @@
 }
 
 @media screen and (min-width: 320px) {
+    .purchases-container {
+        width: 310px;
+    }
+
     .main-content {
         max-height: 20rem;
-        width: 130%;
+        width: 100%;
     }
 
     .ticket {
@@ -125,9 +127,13 @@
 }
 
 @media screen and (min-width: 580px) {
+    .purchases-container {
+        width: 500px;
+    }
+
     .main-content {
         max-height: 20rem;
-        width: 25rem;
+        width: 100%;
     }
 
     .ticket-name {
@@ -161,9 +167,13 @@
 }
 
 @media screen and (min-width: 1200px) {
+    .purchases-container {
+        width: 32rem;
+    }
+
     .main-content {
         max-height: 20rem;
-        width: 130%;
+        width: 100%;
     }
 
     .span-content {
