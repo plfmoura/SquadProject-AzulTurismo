@@ -492,13 +492,22 @@ export default function Profile() {
               </div>
             </main>
             <section className={style.profileFooter}>
-              <h2>Arquivos de {user.name}</h2>
-              <Carousel
-                setClass="profile-carousel"
-                children={user.images.map((image, key) => (
-                  <HeartAnimation image={image} key={key} />
-                ))}
-              />
+              <h2>Galeria de {user.name}</h2>
+              {user.images[0] === '' ? (
+                <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '1rem', marginBottom: '3rem'}}>
+                  <p style={{textAlign: 'center', marginTop: '2rem'}}>Poxa, sua galeria ainda está vázia!</p>
+                  <p style={{marginBottom: '3rem'}}>Faça passeios para receber suas fotos aqui.</p>
+                  <Button text='Comprar Passeios' onPress={() => navigate("/")}/>
+                </div>
+              ) :
+                <Carousel
+                  setClass="profile-carousel"
+                  children={
+                    user.images.map((image, key) => (
+                    <HeartAnimation image={image} key={key} />
+                  ))}
+                />
+              }
             </section>
           </div>
         </>
