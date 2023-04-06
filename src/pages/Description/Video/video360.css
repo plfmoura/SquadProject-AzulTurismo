@@ -3,7 +3,7 @@
 }
 
 .tour-video-container {
-    width: 100%;
+    width: 50vw;
     min-height: 300px;
     position: relative;
     animation: video-animation-appears 5s ease normal;

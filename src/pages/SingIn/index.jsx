@@ -103,7 +103,7 @@ export default function SingIn({ setShow, change }) {
       registerForm.current.reset();
       setTimeout(() => {
         setLogin(false);
-      }, [4300]);
+      }, [4000]);
     } catch (error) {
       showLoad();
       setAuthError("Usuário já cadastrado");
@@ -232,7 +232,7 @@ export default function SingIn({ setShow, change }) {
                     style={{ width: "20px", marginRight: 5 }}
                   />
                   <span
-                    style={{ height: "16px", fontSize: "15px", color: "#333" }}
+                    style={{ height: "16px", fontSize: "15px", color: "#333", whiteSpace: 'nowrap' }}
                   >
                     Mostrar campos de senha
                   </span>
@@ -293,7 +293,7 @@ export default function SingIn({ setShow, change }) {
                 onClick={() => setShowPassword(!showPassword)}
                 style={{ width: "20px", marginRight: 5 }}
               />
-              <span style={{ height: "16px", fontSize: "15px", color: "#333" }}>
+              <span style={{ height: "16px", fontSize: "15px", color: "#333", whiteSpace: 'nowrap' }}>
                 Mostrar senha
               </span>
             </div>
