@@ -523,7 +523,7 @@ export default function Profile() {
                     onPress={() => navigate("/")}
                   />
                   <p style={{ marginBottom: "1rem", fontSize: 11 }}>
-                    As fotografias feitas durante os passeios são adicionados em
+                    As fotografias feitas durante os passeios são adicionadas em
                     um prazo de 3 dias úteis.
                   </p>
                 </div>
@@ -536,7 +536,7 @@ export default function Profile() {
                     ))}
                   />
                   <p style={{ position: "relative", top: '-2rem', fontSize: 11, textAlign: 'center'}}>
-                    As fotografias feitas durante os passeios são adicionados em
+                    As fotografias feitas durante os passeios são adicionadas em
                     até 3 dias úteis.
                   </p>
                 </>
