@@ -32,7 +32,7 @@ export default function SingIn({ setShow, change }) {
       setAuthError("Insira um Nome de usuário.");
       setTimeout(() => {
         setAuthError("");
-        registerForm.current.name.style.border = "2px solid #33333333";
+        registerForm.current.name.style.border = "1px solid #33333333";
       }, [5000]);
       return;
     }
@@ -41,10 +41,22 @@ export default function SingIn({ setShow, change }) {
       setAuthError("Insira um endereço de email.");
       setTimeout(() => {
         setAuthError("");
-        registerForm.current.email.style.border = "2px solid #33333333";
+        registerForm.current.email.style.border = "1px solid #33333333";
       }, [5000]);
       return;
     }
+    let regexEmail =
+      /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
+    if (!regexEmail.test(email)) {
+      loginForm.current.email.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um email válido");
+      setTimeout(() => {
+        setAuthError("");
+        loginForm.current.email.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+
     if (password === "") {
       registerForm.current.password.style.border = "2px solid #2ea9ff";
       setAuthError("Insira uma Senha.");
@@ -60,17 +72,19 @@ export default function SingIn({ setShow, change }) {
       setTimeout(() => {
         setAuthError("");
         registerForm.current.confirmPassword.style.border =
-          "2px solid #33333333";
+          "1px solid #33333333";
       }, [5000]);
       return;
     }
 
     if (password != confirmPassword) {
+      registerForm.current.confirmPassword.style.border = "2px solid #2ea9ff";
       setAuthError("Confirmação de senha incorreta.");
       setTimeout(() => {
         setAuthError("");
+        registerForm.current.confirmPassword.style.border =
+          "1px solid #33333333";
         registerForm.current.password.value = "";
-        registerForm.current.confirmPassword.value = "";
       }, [5000]);
       return;
     }
@@ -137,20 +151,40 @@ export default function SingIn({ setShow, change }) {
       },
     };
     setAuthError("");
-
-    if (email === "" || password === "") {
+    if (email === "") {
+      loginForm.current.email_login.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um endereço de email.");
       setTimeout(() => {
-        setAuthError("Os campos não podem está vazios.");
-        setTimeout(() => {
-          setAuthError("");
-        }, [5000]);
-      });
+        setAuthError("");
+        loginForm.current.email_login.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+    let regexEmail =
+      /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
+    if (!regexEmail.test(email)) {
+      loginForm.current.email_login.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um email válido");
+      setTimeout(() => {
+        setAuthError("");
+        loginForm.current.email_login.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+
+    if (password === "") {
+      loginForm.current.password_login.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira uma Senha.");
+      setTimeout(() => {
+        setAuthError("");
+        loginForm.current.password_login.style.border = "1px solid #33333333";
+      }, [5000]);
       return;
     }
 
     try {
-      let response = await axios.request(options);
       showLoad();
+      let response = await axios.request(options);
       dispatch(setUser(response.data.user));
       localStorage.setItem("azul_user", JSON.stringify(response.data.user));
       localStorage.setItem("token", JSON.stringify(response.data.token));
@@ -165,8 +199,8 @@ export default function SingIn({ setShow, change }) {
         setAuthError("Email ou Senha incorretos. Tente novamente.");
         setTimeout(() => {
           setAuthError("");
-        }, [5000]);
-      }, [3000]);
+        }, [3000]);
+      }, [4000]);
     }
   };
 
@@ -202,12 +236,7 @@ export default function SingIn({ setShow, change }) {
             ) : (
               <>
                 <input type="text" placeholder="Insira seu nome" id="name" />
-                <input
-                  type="email"
-                  placeholder="Insira seu email"
-                  pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
-                  id="email"
-                />
+                <input type="email" placeholder="Insira seu email" id="email" />
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Insira uma senha"
@@ -232,7 +261,12 @@ export default function SingIn({ setShow, change }) {
                     style={{ width: "20px", marginRight: 5 }}
                   />
                   <span
-                    style={{ height: "16px", fontSize: "15px", color: "#333", whiteSpace: 'nowrap' }}
+                    style={{
+                      height: "16px",
+                      fontSize: "15px",
+                      color: "#333",
+                      whiteSpace: "nowrap",
+                    }}
                   >
                     Mostrar campos de senha
                   </span>
@@ -274,8 +308,6 @@ export default function SingIn({ setShow, change }) {
             <input
               type="email"
               placeholder="Email cadastrado"
-              pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
-              required
               id="email_login"
             />
             <input
@@ -293,7 +325,14 @@ export default function SingIn({ setShow, change }) {
                 onClick={() => setShowPassword(!showPassword)}
                 style={{ width: "20px", marginRight: 5 }}
               />
-              <span style={{ height: "16px", fontSize: "15px", color: "#333", whiteSpace: 'nowrap' }}>
+              <span
+                style={{
+                  height: "16px",
+                  fontSize: "15px",
+                  color: "#333",
+                  whiteSpace: "nowrap",
+                }}
+              >
                 Mostrar senha
               </span>
             </div>
