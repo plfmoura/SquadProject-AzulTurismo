@@ -279,8 +279,9 @@ export default function Description() {
       <hr style={{ width: "80%", margin: "2rem auto", color: "#33333335" }} />
       {show && (
         <Modal
-          children={tour && <Video360 tourName={tour.name} />}
+          children={tour && <Video360 tourName={tour.name} videoSource={tour.video}/>}
           setShow={setShow}
+          getShow={show}
           modalTitle={<label>{tour.name} em 360º</label>}
           footerContent={<label style={{fontSize: 12}}>Está funcionalidade está em construção</label>}
         />
