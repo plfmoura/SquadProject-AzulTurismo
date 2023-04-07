@@ -116,8 +116,6 @@ export default function NavBar() {
                         placeContent: "center",
                         background: "#fff",
                         borderRadius: 100,
-                        display: "grid",
-                        placeContent: "center",
                         width: "2.8rem",
                         height: "2.8rem",
                         border: '1px solid #33333330' 
