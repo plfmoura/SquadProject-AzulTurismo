@@ -535,7 +535,7 @@ export default function Profile() {
                       <HeartAnimation image={image} key={key} />
                     ))}
                   />
-                  <p style={{ position: "relative", top: '-2rem', fontSize: 11, textAlign: 'center'}}>
+                  <p style={{ position: "relative", top: '-1rem', fontSize: 11, textAlign: 'center'}}>
                     As fotografias feitas durante os passeios são adicionadas em
                     até 3 dias úteis.
                   </p>
