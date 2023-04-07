@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { delUser } from "../../reducer/userReducer";
 import { NavBarContext } from "../../context/NavBarContext";
-import MobileUser from "./MobileUser";
 
 export default function NavBar() {
   const state = useSelector((state) => state);

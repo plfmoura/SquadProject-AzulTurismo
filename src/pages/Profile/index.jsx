@@ -501,7 +501,7 @@ export default function Profile() {
               </div>
             </main>
             <section className={style.profileFooter}>
-              <h2>Galeria de {user.name}</h2>
+              <h2>Galeria de {user.name.split(" ")[0]}</h2>
               {user.images[0] === "" ? (
                 <div
                   style={{
