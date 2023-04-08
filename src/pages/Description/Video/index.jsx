@@ -44,36 +44,42 @@ export default function Video360({ videoSource, tourName }) {
 
   return (
     <>
-      {!videoSource === "" ? (
-        <div className="tour-video-container">
-          {show360 && (
-            <div className="tour-video-alert">
-              {animation}
-              <label>{mensagem}</label>
-            </div>
-          )}
-          {showPlayer && (
-            <>
-              <iframe
-                src={videoSource}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="autoplay"
-                allowFullScreen
-                className="tour-video-player"
-              ></iframe>
-            </>
-          )}
-        </div>
-      ) : (
-        <div className="tour-video-container">
-          <div className="tour-video-alert" style={{ height: "100%"}}>
-            <label style={{textAlign: 'center' }}>
-              Desculpe, ainda não foi adicionado video de {tourName}.
-            </label>
-            <label style={{textAlign: 'center' }}>Tente a experiência 360º em outro destino.</label>
+      {videoSource !== "" ? (
+        <>
+          <div className="tour-video-container">
+            {show360 && (
+              <div className="tour-video-alert">
+                {animation}
+                <label>{mensagem}</label>
+              </div>
+            )}
+            {showPlayer && (
+              <>
+                <iframe
+                  src={videoSource}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="autoplay"
+                  allowFullScreen
+                  className="tour-video-player"
+                ></iframe>
+              </>
+            )}
           </div>
-        </div>
+        </>
+      ) : (
+        <>
+          <div className="tour-video-container">
+            <div className="tour-video-alert" style={{ height: "100%" }}>
+              <label style={{ textAlign: "center" }}>
+                Desculpe, ainda não foi adicionado video de {tourName}.
+              </label>
+              <label style={{ textAlign: "center" }}>
+                Tente a experiência 360º em outro destino.
+              </label>
+            </div>
+          </div>
+        </>
       )}
     </>
   );
