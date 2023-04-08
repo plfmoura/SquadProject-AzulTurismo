@@ -106,7 +106,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <hr style={{ width: "80%", margin: "2rem auto 0 auto" }} />
+      <hr style={{ color: "#33333320",width: "80%", margin: "2rem auto 0 auto" }} />
       <section className={style.customerContainer}>
         <h2>Avaliações de Usuários</h2>
         <div className={style.customerContent}>

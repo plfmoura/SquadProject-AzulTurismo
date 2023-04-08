@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import About from './pages/About'
 import Payment from "./pages/Payment";
 import ServicePage from "./pages/servicesPage";
+import Test from './pages/test'
 
 export const router = createHashRouter([
   {
@@ -44,6 +45,10 @@ export const router = createHashRouter([
         path: "/faq",
         element: <Faq />,
       },
+      {
+        path: '/test',
+        element: <Test />
+      }
     ],
   },
 ]);
