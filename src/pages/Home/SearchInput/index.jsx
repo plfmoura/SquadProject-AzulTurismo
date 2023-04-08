@@ -21,17 +21,19 @@ export default function SearchInput({setFiltered,setMyRegion, setShowTop}) {
   // Função para o botão de pesquisa pegando os valores
   const handleSubmit = (e) => {
     e.preventDefault()
-  
-    let option_region=e.target.regiao.value;
-    let option_quantity=e.target.quantity.value;
-    let filtred=[];
-    filtred=(option_region==="all"&&option_quantity==="all")?products
-    :(option_region==="all"&&option_quantity!=="all")?products.filter((product)=>product.capacity-product.sold>=Number(option_quantity))
-    :(option_region!=="all"&&option_quantity==="all")?products.filter((product)=>product.region.match(option_region))
-    :products.filter((product)=>product.capacity-product.sold>=Number(option_quantity)&&product.region.match(option_region));
-    setFiltered(filtred);
-    setMyRegion(option_region==="all"?"Todas as Regiões":option_region);
-    setShowTop(option_region==="all"?"block":'none')
+    setTimeout(() => {
+      let option_region=e.target.regiao.value;
+      let option_quantity=e.target.quantity.value;
+      let filtred=[];
+      filtred=(option_region==="all"&&option_quantity==="all")?products
+      :(option_region==="all"&&option_quantity!=="all")?products.filter((product)=>product.capacity-product.sold>=Number(option_quantity))
+      :(option_region!=="all"&&option_quantity==="all")?products.filter((product)=>product.region.match(option_region))
+      :products.filter((product)=>product.capacity-product.sold>=Number(option_quantity)&&product.region.match(option_region));
+      setFiltered(filtred);
+      setMyRegion(option_region==="all"?"Todas as Regiões":option_region);
+      setShowTop(option_region==="all"?"block":'none')
+      window.scrollTo(0, 500);
+    } ,[500])
   }
 
   return (

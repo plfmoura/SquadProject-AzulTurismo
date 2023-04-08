@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import style from "./description.module.css";
 import { teamService } from "../../services/teamService";
 import { AiFillStar } from "react-icons/ai";
@@ -26,8 +26,8 @@ export default function Description() {
   const { products } = state.shopping;
   const [imagensIndex, setImagensIndex] = useState([0, 1, 2, 3]);
   const [descriptionText, setDescriptionText] = useState(true);
-  const [show, setShow ] = useState(false)
-  
+  const [show, setShow] = useState(false);
+
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
@@ -122,10 +122,14 @@ export default function Description() {
                   ))}
                 </div>
                 <div className={style.imersiveVideoContainer}>
-                  <span>Tenha uma experiência imersiva gratuita com visão em 360º:</span>
-                  <BsFillPlayBtnFill 
+                  <span>
+                    Tenha uma experiência imersiva gratuita com visão em 360º:
+                  </span>
+                  <BsFillPlayBtnFill
                     className={style.playVideoIcon}
-                    onClick={() => {setShow(true)}}
+                    onClick={() => {
+                      setShow(true);
+                    }}
                   />
                 </div>
                 <p
@@ -148,10 +152,19 @@ export default function Description() {
                 >
                   {descriptionText ? "Ver mais..." : "Ver menos"}
                 </span>
+                {descriptionText &&
+                    <Link
+                      to="/faq"
+                      style={{ margin: "1rem 0" }}
+                      className={style.faqLink}
+                    >
+                      Alguma dúvida? acesse aqui a página de Perguntas
+                      frequentes (FAQ).
+                    </Link>}
               </div>
             </section>
             {/* Area do Formulario inicial de Compra */}
-            <div className={style.servicePrice}>
+            <div className={style.servicePrice} style={{transition: 'all 2s ease'}}>
               {tour && (
                 <BuyForm
                   tourPrice={tour.price}
@@ -176,7 +189,7 @@ export default function Description() {
                       <img src={guide[index].picture} />
                       <div>
                         <p className={style.teamName}>
-                          Guia {guide[index].name}
+                          Guia {guide[index].name.split(" ")[0]}
                         </p>
                         <div
                           style={{ display: "flex" }}
@@ -210,7 +223,7 @@ export default function Description() {
                       <img src={auxiliary[index].picture} />
                       <div>
                         <p className={style.teamName}>
-                          Aux. {auxiliary[index].name}
+                          Aux. {auxiliary[index].name.split(" ")[0]}
                         </p>
                         <div
                           style={{ display: "flex" }}
@@ -246,7 +259,7 @@ export default function Description() {
                       <img src={photographer[index].picture} />
                       <div>
                         <p className={style.teamName}>
-                          Fotógrafa {photographer[index].name}
+                          Fotógrafa {photographer[index].name.split(" ")[0]}
                         </p>
                         <div
                           style={{ display: "flex" }}
@@ -272,10 +285,22 @@ export default function Description() {
           </main>
         </>
       )}
-      <hr style={{ width: "80%", margin: "2rem auto", color: '#33333335' }} />
-      {show && 
-        <Modal children={tour && <Video360 tourName={tour.name}/> } setShow={setShow}/>
-      }
+      <hr style={{ width: "80%", margin: "2rem auto", color: "#33333335" }} />
+      {show && (
+        <Modal
+          children={
+            tour && <Video360 tourName={tour.name} videoSource={tour.video} />
+          }
+          setShow={setShow}
+          getShow={show}
+          modalTitle={<label>{tour.name} em 360º</label>}
+          footerContent={
+            <label style={{ fontSize: 12 }}>
+              Está funcionalidade está em construção
+            </label>
+          }
+        />
+      )}
       {/* Google Maps  */}
       {tour && (
         <section className={style.mapsContainer}>

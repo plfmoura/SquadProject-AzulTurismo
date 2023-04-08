@@ -190,6 +190,20 @@
     margin-left: .2rem;
 }
 
+.faqLink {
+    display: none;
+    animation: show-link 3s ease normal;
+}
+
+@keyframes show-link {
+    0%,75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 /* segunda seção da página, TEAM  */
 .teamContainer {
     margin: 0 auto;
@@ -440,6 +454,10 @@ main {
         justify-content: center;
     }
 
+    .faqLink {
+        display: block;
+        animation: show-link 3s ease normal;
+    }
     .teamContainer {
         width: 80%;
     }

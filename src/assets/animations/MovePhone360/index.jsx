@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Lottie from "react-lottie-player";
 import phone360 from "./phone-360.json";
+import '../animationStyle.css'
 
 export default function MovePhone360() {
   const [play, setPlay] = useState(true);
@@ -11,6 +12,7 @@ export default function MovePhone360() {
       play={play}
       speed={0.8}
       style={{ width: 200, height: 200 }}
+      className="phone360-style"
     />
   );
 }

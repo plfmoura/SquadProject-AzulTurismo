@@ -25,6 +25,7 @@ export const NavBarProvider = ({ children }) => {
   let changeColor = bgColor ? "#333" : "#fff";
   let changeLogoColor = bgColor ? "#2ea9ff" : "#fff";
   let changeNotficationIcon = bgColor ? "#333" : "#fff";
+  let userNavBarBorder = bgColor ? 'rgba(0, 0, 0, 0.10) 0px 1px 1px .1rem' : 'none'
 
   return (
     <NavBarContext.Provider
@@ -41,7 +42,8 @@ export const NavBarProvider = ({ children }) => {
         handleScrollableCheck,
         newNotification,
         setNewNotification,
-        changeLogoColor
+        changeLogoColor,
+        userNavBarBorder
       }}
     >
       {children}
