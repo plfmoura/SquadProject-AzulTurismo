@@ -1,0 +1,61 @@
+.move360-style,
+.phone360-style {
+    animation: animation-appears 2s ease normal;
+}
+
+@keyframes animation-appears {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.full-screen-container {
+    margin-bottom: 2rem;
+}
+
+.full-screen-icon {
+    font-size: 5rem;
+    color: #505ae4;
+}
+
+.clickFullScreen-style {
+    position: absolute;
+    left: 12rem;
+    top: -1rem;
+    animation: click-position 1500ms ease normal;
+}
+
+@keyframes click-position {
+    0% {
+        opacity: 0;
+        transform: scale(1) translate(8rem, 2rem);
+    }
+    5% {
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1) translate(0rem, 0rem);
+    }
+}
+
+.align-fullScreen-icon {
+    width: 150px;
+    height: 150px;
+    display: grid;
+    place-content: center;
+    animation: animation-appears 3s ease infinite;
+}

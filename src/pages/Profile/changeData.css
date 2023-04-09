@@ -46,7 +46,12 @@
 .checkSquare {
     color: green;
     font-size: 1.5rem;
+    cursor: pointer;
     animation: appears 400ms ease normal;
+}
+
+.checkSquare:hover {
+    color: rgb(1, 97, 1);
 }
 
 .new-purchase-notification {

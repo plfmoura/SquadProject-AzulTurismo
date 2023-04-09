@@ -109,7 +109,6 @@
 .userContainer .menuContent div {
     display: flex;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 1px .1rem;
     border-radius: 100px;
 }
 
@@ -117,7 +116,6 @@
     width: 2.6rem;
     height: 2.6rem;
     border-radius: 100%;
-    border: .18rem solid #fff;
     object-fit: cover;
     padding: .2rem;
 }

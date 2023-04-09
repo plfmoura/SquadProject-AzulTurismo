@@ -30,7 +30,7 @@ export default function Faq() {
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
-    window.scrollTo(0, 0);
+      window.scrollTo(1, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
@@ -80,6 +80,11 @@ export default function Faq() {
         return;
     }
   };
+
+  useEffect(() => {
+    // para subir a ao topo após renderizar a página
+    window.scrollTo(0, 0);
+  } ,[showOffCanvas])
 
   const submitDuvida = async (e) => {
     e.preventDefault();

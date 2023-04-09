@@ -64,11 +64,25 @@ export default function CarouselServices({ children, setClass }) {
     centerPadding: "60px",
     autoplay: true,
     speed: 2300,
-    slidesToShow: 3.5,
+    slidesToShow: 5,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
+      {
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 4.1,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 1720,
+        settings: {
+          slidesToShow: 3.8,
+          slidesToScroll: 3,
+        }
+      },
       {
         breakpoint: 1440,
         settings: {

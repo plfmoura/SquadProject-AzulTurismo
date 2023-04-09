@@ -1,24 +1,46 @@
-import React from 'react'
-import style from './modal.module.css'
-import { IoClose } from 'react-icons/io5';
+import React, { useEffect } from "react";
+import style from "./modal.module.css";
+import { IoClose } from "react-icons/io5";
 
-export default function Modal({ children, setShow }) {
-    return (
-        <div>
-            <div className={style.modalOverlay} 
-                >
-                <div className={style.modalContainer}>
-                    <div className={style.modalContent}>
-                        <div className={style.modalHeader}>
-                            <span onClick={() => setShow(false)}><IoClose /></span>
-                        </div>
-                        {children}
-                        <div className={style.modalFooter}>
-                        </div>
-                    </div>
-                </div>
-            </div>
+export default function Modal({
+  children,
+  setShow,
+  getShow,
+  footerContent,
+  modalTitle,
+}) {
+  const overlay = document.querySelector("#overlay");
+
+  const handleCloseClick = (e) => {
+    if(e.target.id === 'overlay'){
+      setShow(false)
+    }
+  };
+
+  useEffect(() => {}, []);
+
+  return (
+    <div>
+      <div
+        className={style.modalOverlay}
+        id="overlay"
+        onClick={handleCloseClick}
+      >
+        <div
+          className={style.modalContainer}
+          id="container"
+        >
+          <div className={style.modalHeader}>
+            <span></span>
+            {modalTitle}
+            <span onClick={() => setShow(false)}>
+              <IoClose />
+            </span>
+          </div>
+          {children}
+          <div className={style.modalFooter}>{footerContent}</div>
         </div>
-
-    )
+      </div>
+    </div>
+  );
 }

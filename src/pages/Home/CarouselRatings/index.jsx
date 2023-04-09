@@ -30,12 +30,26 @@ export default function CarouselRatings({ children, setclass }) {
     infinite: true,
     swipeToSlide: true,
     autoplay: true,
-    slidesToShow: 3.1,
+    slidesToShow: 4.5,
     speed: 2300,
     dots: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
+      {
+        breakpoint: 1920,
+        settings: {
+          slidesToShow: 4.2,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 1720,
+        settings: {
+          slidesToShow: 3.5,
+          slidesToScroll: 3,
+        }
+      },
       {
         breakpoint: 1440,
         settings: {
@@ -46,14 +60,8 @@ export default function CarouselRatings({ children, setclass }) {
       {
         breakpoint: 1340,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.9,
           slidesToScroll: 2,
-        }
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 2.7,
         }
       },
       {
