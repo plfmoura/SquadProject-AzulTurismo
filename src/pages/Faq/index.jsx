@@ -166,7 +166,7 @@ export default function Faq() {
                   {dataBtn && (
                     <div>
                       {dataBtn[0].title.includes("duvida do") ? (
-                        <>
+                        <div className={style.infoDuvidas}>
                           <h1>Envie uma nova dúvida</h1>
                           <form
                             action=""
@@ -179,11 +179,12 @@ export default function Faq() {
                               id="duvida"
                               cols="15"
                               rows="5"
+                              placeholder="Digite aqui.."
                             ></textarea>
                             <br />
                             <input type="submit" value="Enviar" />
                           </form>
-                        </>
+                        </div>
                       ) : (
                         <>
                           <h1>{dataBtn[0].title}</h1>

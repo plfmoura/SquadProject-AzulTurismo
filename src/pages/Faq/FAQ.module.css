@@ -96,7 +96,24 @@ justify-content: center;
     opacity: 0.9;
 
 }
-
+.overlay .InfoOverlay div textarea{
+    width: 200px;
+    height: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    color:#FFFFFF;
+}
+.overlay .InfoOverlay div input{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #217be2;
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+}
 .overlay .QuestionsOverlay{
     width: 60%;
     padding: 50px;
@@ -178,9 +195,6 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
 /* Responsivo*/
 
 @media screen and (max-width:1280px) {
-    .InfosFaq h1{
-      
-    }
     .faqBtnContainer{
         flex-wrap: wrap;
     }
@@ -244,9 +258,10 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
       .overlay .QuestionsOverlay{
         min-width: 500px;
       }
-    .overlay .QuestionsOverlay{
 
-    }
+      .infoDuvidas form{
+        display: none;
+      }
 }
 
 @media screen and (max-width:580px) {
