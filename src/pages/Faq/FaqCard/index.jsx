@@ -40,7 +40,6 @@ export default function FaqCard({ title, text, icon, setDataBtn, setLoading }) {
       }
     }
   };
-
   return (
     <div className="Faq-Card-container" onClick={handleClick}>
       <div className="faq-card-content">

@@ -101,6 +101,7 @@ justify-content: center;
     width: 60%;
     padding: 50px;
     overflow:auto ;
+    min-width: 300px;
 }
 .overlay .QuestionsOverlay div{
     margin-bottom: 15px;
@@ -144,6 +145,7 @@ color: #1C8EE9;
     opacity: 0.7;
     margin: -10px 0px 40px -15px;
     font-size: 1em;
+    min-width: 250px;
 }
 
 .overlay .QuestionsOverlay .CardTitulo{
@@ -153,6 +155,7 @@ color: #1C8EE9;
 .overlay .QuestionsOverlay .CardTitulo h2{
     font-size: 1.2em;
     width: 80%;
+    min-width: 200px;
 }
 
 .overlay .QuestionsOverlay p{
@@ -205,9 +208,7 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
     .overlay .InfoOverlay div h3{
         font-size: 0.8em;
     }
-    .overlay .QuestionsOverlay{
-        min-width: 500px;
-         }
+    
     .overlay .QuestionsOverlay h3{
             font-size: 0.9em;
             width: 80%;
@@ -217,70 +218,49 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
 
 /* TABLET */
 
-@media screen and (max-width:801px) {
+@media screen and (max-width:898px) {
     
-    .InfosFaq h1{
-      font-size: 2.5em;
-    
-    }
-    .faqBtnContainer{
-        margin-top: -100px;
-        flex-wrap: wrap;
-    }
-  
-    .overlay .InfoOverlay div h1{
-        font-size: 1.5em;
+      .overlay{
+          flex-direction: column;
+          align-items: center;
       }
-      
-    .overlay .InfoOverlay div p{
-    font-size: 0.8em;
-    }
-    
-    .overlay .InfoOverlay div h3{
-        font-size: 0.8em;
-    }
-    .overlay .QuestionsOverlay h3{
-        font-size: 0.9em;
-        width: 80%;
-    }
+      .InfosFaq h1{
+        font-size: 2.5em;
+        
+      }
 
+      .InfoOverlay h1{
+    
+        position: relative;
+        right: 140px;
+        margin: 0;
+        top: 20px;
+        min-width: 200px;
+      }
+
+      .InfoOverlay p, .InfoOverlay h3 {
+        display: none;
+      }
+      .overlay .QuestionsOverlay{
+        min-width: 500px;
+      }
+    .overlay .QuestionsOverlay{
+
+    }
 }
 
-@media screen and (max-width:620px) {
+@media screen and (max-width:580px) {
 
     .InfosFaq h1{
       font-size: 2em;
       
     }
-    .faqBtnContainer{
-        margin-top: -100px;
-        flex-wrap: wrap;
+
+    .overlay .QuestionsOverlay{
+        min-width:400px;
     }
-    .overlay .InfoOverlay div h1{
-        font-size: 1.5em;
-      }
-
-      .overlay .InfoOverlay {
-        width: 100%;
-      }
-
-      .overlay .InfoOverlay div{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-      .overlay .InfoOverlay  div h1{
-        height: 0;
-        margin-bottom: 0;
-      }
-      .overlay .InfoOverlay div p ,   .overlay .InfoOverlay div h3{
-        display: none;
-      }
+   
     
-    .overlay{
-        flex-direction: column;
-    }
       
 }
 
@@ -296,120 +276,42 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
     .FAQ{
         height: 160vh;
     }
+
+    .overlay .QuestionsOverlay{
+        min-width:350px;
+    }
+    .overlay .QuestionsOverlay .CardTitulo h2{
+      
+        font-size: 1em;
+    }
+   
 }
-@media screen and (max-width:380px) {
+@media screen and (max-width:400px) {
     .InfosFaq h1{
       font-size: 1.3em;
       
     }
+   
     .faqBtnContainer{
         margin-top: -100px;
         flex-wrap: wrap;
     }
-}
-
-
-
-
-
-/* @media screen and (min-width: px) and (max-width: 479px){
-
+    .InfoOverlay h1{
     
-    /* .FAQ{
-        margin-bottom: 0;
-    }
-    .InfosFaq h2{
-        font-size: 24px;
-    }
-    .inputSearch{
-        width: 300px;
-        height: 50px;
-    }
-    .faqBtnContainer {
-        width: 100%;
-        gap: 0rem;
-    }
-    .faqBtnContainer div {
-        width: 100%;
-        gap: 0rem;
-    } */
+        position: relative;
+        right: 100px;
+        margin: 0;
+        top: 20px;
+        min-width: 200px;
+      }
 
-/* @media screen and () and (max-width: 580px){ */
-    /* .InfosFaq h2{
-        font-size: 30px;
-    }
-    .inputSearch{
-        width: 400px;
-        height: 50px;
-    }
-    .faqBtnContainer {
-        gap: 0rem;
-        width: 80%;
-    }
-    .faqBtnContainer div {
-      
-    } */
-
-/* @media screen and (min-width: 581px) and (max-width: 800px){
-    .InfosFaq h2{
+    .overlay .QuestionsOverlay{
+        min-width:300px;
+       overflow-x: hidden;
        
-
-    } */
-   
-    /* 
-    .inputSearch{
-        width: 450px;
-        height: 60px;
     }
-    .faqBtnContainer {
-        width: 70%;
-        gap: 1rem;
-    }
-    .faqBtnContainer div {
-        width: 100%;
-        gap: 1rem;
-    } */
-
-/* @media screen and (min-width: ) { */
-    /* .faqBtnContainer {
-        width: 90%;
-        flex-wrap: nowrap;
-        gap: 0rem;
-    }
-    .faqBtnContainer div {
+    .overlay .QuestionsOverlay .CardTitulo h2{
       
-    } */
-
-
-/* @media screen and (min-width: 1024px) { */
-    /* .faqBtnContainer {
-        width: 90%;
-        flex-wrap: nowrap;
-        gap: 1rem;
-    }
-    .faqBtnContainer div {
-   
-    } */
-
-
-/* @media screen and (min-width: 1280px) and (max-width: 2021px){ */
-    /* .FAQ{
-        margin-bottom: 0;
-    }
-    .InfosFaq h2{
-        font-size: 60px;
-    }
-    .inputSearch{
-        width: 600px;
-        height: 70px;
-    }
-    .faqBtnContainer {
-        width: 70rem;
-        flex-wrap: nowrap;
-        gap: 1rem;
-    }
-    .faqBtnContainer div {
-      
-    } */
-
-
+        font-size: 1em;
+    }  
+}

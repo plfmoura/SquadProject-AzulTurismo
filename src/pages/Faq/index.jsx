@@ -141,12 +141,15 @@ export default function Faq() {
 
   const [select, setSelect] = useState(null);
 
-  const Toggle = (id_faq) => {
-    if (select == id_faq) {
+  const Toggle = (id) => {
+  
+    if (select == id) {
       return setSelect(null);
     }
-    setSelect(id_faq);
+    setSelect(id);
+    
   };
+
   return (
     <>
       {showOffCanvas && (
@@ -205,10 +208,16 @@ export default function Faq() {
                             className={style.BtnQuestion}
                             onClick={() => {
                               const IdFaq = item.id_faq;
-                              Toggle(IdFaq);
+                              const IdDuvidas = item.id_duvida;
+                              if (IdFaq) {
+                                Toggle(IdFaq)
+                              }
+                              else if (IdDuvidas) {
+                                Toggle(IdDuvidas)
+                              }
                             }}
                           >
-                            {select == item.id_faq ? (
+                            {select == item.id_faq || select == item.id_duvida ? (
                               <IoMdRemoveCircleOutline />
                             ) : (
                               <IoMdAddCircleOutline />
@@ -218,7 +227,7 @@ export default function Faq() {
 
                         <p
                           className={
-                            select == item.id_faq
+                            select == item.id_faq 
                               ? style.CrescerResposta
                               : style.Resposta
                           }
