@@ -18,10 +18,10 @@ estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não
 - Passeios disponíveis apenas no Rio de Janeiro.<br/>
 - Login para visualização de todas as funcionalidades de usuário:<br/> email: andressa@gmail.com<br/> senha: 123<br/>
 - Para compra de passeio você pode digitar um cartão aleatório na validação de checkout.
+- Fotos do usuário são disponibilizadas pelos fotógrafos através da aplicação administrativa com login de Fotógrafo. <a href="https://github.com/plfmoura/SquadProject-AdminAzulTurismo">App Administrativo</a> 
 
 Fluxo do usuário:<br/>
 - Entrar na aplicação > selecionar passeio > efetuar login/efetuar cadastro > iniciar compra > finalizar compra > visualizar compra no perfil.<br/>
-- Fotos do usuário são disponibilizadas pelos fotógrafos através da aplicação administrativa com login de Fotógrafo. <a href="https://github.com/plfmoura/SquadProject-AdminAzulTurismo">Ir para Administrativo</a> 🟢
 
 ### Como instalar e rodar este aplicativo.
 
