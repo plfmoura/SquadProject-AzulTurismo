@@ -97,7 +97,9 @@ justify-content: center;
 
 }
 .overlay .InfoOverlay div textarea{
-    width: 200px;
+    width: 60%;
+    min-width: 200px;
+    max-width: 500px;
     height: 150px;
     padding: 10px;
     border-radius: 10px;
@@ -113,6 +115,12 @@ justify-content: center;
     color: white;
     font-weight: bold;
     margin-top: 15px;
+}
+.overlay .InfoOverlay div input:hover{
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.4s;
+  
 }
 .overlay .QuestionsOverlay{
     width: 60%;
