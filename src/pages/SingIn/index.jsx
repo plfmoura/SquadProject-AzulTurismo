@@ -238,7 +238,40 @@ export default function SingIn({ setShow, change }) {
               <>
                 <input type="text" placeholder="Insira seu nome" id="name" />
                 <input type="email" placeholder="Insira seu email" id="email" />
-               <PasswordChecker/>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Insira uma senha"
+                  id="password"
+                />
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Confirme sua senha"
+                  id="confirmPassword"
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    position: "relative",
+                    left: "-.5rem",
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    name="showPassword"
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{ width: "20px", marginRight: 5 }}
+                  />
+                  <span
+                    style={{
+                      height: "16px",
+                      fontSize: "15px",
+                      color: "#333",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Mostrar campos de senha
+                  </span>
+                </div>
                 <span
                   style={{ height: "16px", fontSize: "14px", color: "red" }}
                 >
