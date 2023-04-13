@@ -53,13 +53,13 @@ function PasswordChecker() {
 
   return (
     <div>
-      <div>
+      <center><div>
         <input type="password" id="password" value={password} onChange={handlePasswordChange} onBlur={handlePasswordBlur} placeholder="Insira sua senha"/>
         <div>{passwordMessage}</div>
       
         <input type="password" id="confirm-password" value={confirmPassword} onChange={handleConfirmChange} onBlur={handleConfirmBlur} placeholder="Confirme sua senha"/>
-        <div>{confirmPasswordMessage}</div>
-      </div>
+        <center><div>{confirmPasswordMessage}</div></center>
+      </div></center>
     </div>
   );
 }

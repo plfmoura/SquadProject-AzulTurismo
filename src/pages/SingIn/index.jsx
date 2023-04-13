@@ -174,16 +174,8 @@ export default function SingIn({ setShow, change }) {
                   required
                 />
                 <PasswordChecker/>
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Confirme sua senha"
-                  id="confirmPassword"
-                  required
-                />
-                <div style={{ display: "flex", position: 'relative', left: '-.5rem'}}>
-                  <input type="checkbox" name="showPassword" onClick={() => setShowPassword(!showPassword)} style={{ width: '20px', marginRight: 5}}/>
-                  <span style={{ height: "16px", fontSize: "15px", color: "#333" }}>Mostrar campos de senha</span>
-                </div>
+                
+                
                 <span
                   style={{ height: "16px", fontSize: "14px", color: "red" }}
                 >
