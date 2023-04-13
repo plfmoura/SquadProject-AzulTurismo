@@ -30,7 +30,7 @@ export default function Faq() {
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
-    window.scrollTo(0, 0);
+      window.scrollTo(1, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
@@ -65,7 +65,6 @@ export default function Faq() {
       case "pagamentos":
         setValueBtn("pagamento");
         //fazer o filtro
-        console.log(faq);
         let pagFaq = faq.filter((item) => item.title.includes("pagamento"));
         setDataBtn(pagFaq);
         foundWord();
@@ -81,6 +80,11 @@ export default function Faq() {
         return;
     }
   };
+
+  useEffect(() => {
+    // para subir a ao topo após renderizar a página
+    window.scrollTo(0, 0);
+  } ,[showOffCanvas])
 
   const submitDuvida = async (e) => {
     e.preventDefault();
@@ -243,7 +247,7 @@ export default function Faq() {
             <input
               name="data"
               type="text"
-              placeholder="Deixe aqui sua duvida..."
+              placeholder="Pesquise..."
               onChange={HandleChange}
             />
             <button type="submit" onClick={BtnSearch}>
@@ -253,39 +257,36 @@ export default function Faq() {
           <span>{}</span>
         </section>
         <section className={style.faqBtnContainer}>
-          <div>
-            <FaqCard
-              title="Problemas com o Usuário?"
-              text="Problemas com Usuário"
-              name="payment"
-              icon={<FaUserCog />}
-              setDataBtn={setDataBtn}
-              setLoading={setLoading}
-            />
-            <FaqCard
-              title="Dúvidas de segurança?"
-              text="Garantia e Segurança"
-              icon={<FaRegCheckSquare />}
-              setDataBtn={setDataBtn}
-              setLoading={setLoading}
-            />
-          </div>
-          <div>
-            <FaqCard
-              title="Problemas com o pagamento?"
-              text="Problemas com o pagamento?"
-              icon={<FaRegCreditCard />}
-              setDataBtn={setDataBtn}
-              setLoading={setLoading}
-            />
-            <FaqCard
-              title="Suas duvidas"
-              text="Suas Dúvidas"
-              icon={<FaRegComments />}
-              setDataBtn={setDataBtn}
-              setLoading={setLoading}
-            />
-          </div>
+          <FaqCard
+            title="Problemas com o Usuário?"
+            text="Problemas com Usuário"
+            name="payment"
+            icon={<FaUserCog />}
+            setDataBtn={setDataBtn}
+            setLoading={setLoading}
+          />
+          <FaqCard
+            title="Dúvidas de segurança?"
+            text="Garantia e Segurança"
+            icon={<FaRegCheckSquare />}
+            setDataBtn={setDataBtn}
+            setLoading={setLoading}
+          />
+
+          <FaqCard
+            title="Problemas com o pagamento?"
+            text="Problemas com o pagamento?"
+            icon={<FaRegCreditCard />}
+            setDataBtn={setDataBtn}
+            setLoading={setLoading}
+          />
+          <FaqCard
+            title="Suas duvidas"
+            text="Suas Dúvidas"
+            icon={<FaRegComments />}
+            setDataBtn={setDataBtn}
+            setLoading={setLoading}
+          />
         </section>
       </div>
     </>

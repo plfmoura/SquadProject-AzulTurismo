@@ -1,4 +1,6 @@
-### Projeto em Grupo - Módulo V
+<div align="center">
+  <h4>Aplicação em desenvolvimento</h4>
+</div>
 <br/>
 
 <div align="center">
@@ -12,25 +14,34 @@ mais badaladas Cariocas, da Região dos Lagos até as favelas cariocas, conectan
 estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não é mais empecilho virtual para conhecer a cultura e admirar a Cidade Maravilhosa.<br/>
 <br/>
 
-### How to Install and Run this App.
+### Como utilizar o aplicativo.
+- Passeios disponíveis apenas no Rio de Janeiro.<br/>
+- Login para visualização de todas as funcionalidades de usuário:<br/> email: andressa@gmail.com<br/> senha: 123<br/>
+- Para compra de passeio você pode digitar um cartão aleatório na validação de checkout.
+- Fotos do usuário são disponibilizadas pelos fotógrafos através da aplicação administrativa com login de Fotógrafo. <a href="https://github.com/plfmoura/SquadProject-AdminAzulTurismo">App Administrativo</a> 
 
-```All steps is using -Git Bash-
+Fluxo do usuário:<br/>
+- Entrar na aplicação > selecionar passeio > efetuar login/efetuar cadastro > iniciar compra > finalizar compra > visualizar compra no perfil.<br/>
+
+### Como instalar e rodar este aplicativo.
+
+```Todos os passos são utilizando o -Git Bash-
 All steps is using -Git Bash
 
-# I - CLONE THIS REPOSITORY
+# I - Faça o ClONE do repositório.
 git clone https://github.com/plfmoura/SquadProject-AzulTurismo.git
 
-# II - Navigate to Project Folder
-cd /folder-name
+# II - Navegue para a pasta raíz do projeto.
+cd /SquadProject-AzulTurismo
 
-# III - Install Node Package Manager
-Write the command "npm i" or "npm install" to install 'node_modules' into project source folder.
+# III - Faça a instalação do Node Modules.
+Através do comando "npm i" ou "npm install" para a instalação do 'node_modules' dentro da pasta raíz do aplicativo.
 
-# IV - Run this Project
-Write in your terminal "npm run dev" to run this App.
+# IV - Rode o aplicativo.
+Através do comando "npm run dev" no terminal, para rodar o aplicativo.
 
-# V - After the project is built in the previous step...
-Copy the Local Host URL result or PRESS CTRL + CLICK in URL target.
+# V - Após a montagem do aplicativo na etapa anterior...
+Copie o URL do Localhost disponibilizado no terminal ou pressione CTRL + CLICK no URL alvo.
 ```
 
 Repositório do Projeto Principal (Integração Front-End - Back-End): <a href="https://github.com/plfmoura/SquadProject-AzulTurismo">Visualizar</a> 🟢
