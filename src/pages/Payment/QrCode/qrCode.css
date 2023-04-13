@@ -1,5 +1,5 @@
 .qrCode-container {
-    width: 30rem;
+    width: 100%;
 }
 
 .qrCode-header-content {
@@ -38,23 +38,4 @@
 
 .payment-info-content span {
     margin-bottom: 1rem;
-}
-
-@media screen and (min-width: 320px) {
-    .qrCode-container {
-      width: 18rem;
-      height: 100%;
-    }
-}
-  
-@media screen and (min-width: 480px) {
-    .qrCode-container {
-        width: 25rem;
-    }
-}
-
-@media screen and (min-width: 720px) {
-    .qrCode-container {
-        width: 30rem;
-}
 }

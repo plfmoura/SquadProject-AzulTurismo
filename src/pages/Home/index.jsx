@@ -50,10 +50,8 @@ export default function Home() {
     return () => window.removeEventListener('scroll', updatePosition);
   }, [position])
 
-   
-
   return (
-    <div className="Home">
+    <div className={style.HomeContainer}>
       <header className={style.background}>
         <div className={style.titleContainer}>
           <p>Conheça o</p>
@@ -108,7 +106,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <hr style={{ width: "80%", margin: "2rem auto 0 auto" }} />
+      <hr style={{ color: "#33333320",width: "80%", margin: "2rem auto 0 auto" }} />
       <section className={style.customerContainer}>
         <h2>Avaliações de Usuários</h2>
         <div className={style.customerContent}>

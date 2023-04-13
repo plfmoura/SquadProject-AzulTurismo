@@ -7,7 +7,8 @@ import NavBar from "./components/NavBar";
 import { updateProducts } from "./reducer/shoopingReducer";
 import Rodape from "./components/Rodape";
 import { setUser } from "./reducer/userReducer";
-import { setFaq } from "./reducer/faqReducer";
+import { setFaq, setFaqUser } from "./reducer/faqReducer";
+import MobileUser from "./components/NavBar/MobileUser";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,12 +40,44 @@ function App() {
       .then((response) => {
         dispatch(setFaq(response.data));
       })
-      .catch();
+      .catch((error) => {
+        console.log(error.message);
+      });
   }, []);
+
+  //Here will get the faq of the loged user
+  useEffect(() => {
+    if (user) {
+      let id = user.user_id;
+      let token = JSON.parse(localStorage.getItem("token"));
+      const options = {
+        method: "GET",
+        url: `https://tourismapi.herokuapp.com/duvida/${id}`,
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": token,
+        },
+      };
+      axios
+        .request(options)
+        .then(function (response) {
+          dispatch(setFaqUser(response.data));
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+  }, [user]);
 
   return (
     <div className="App">
       <NavBar />
+      {user && (
+        <MobileUser
+          userName={user.name.split(" ")[0]}
+          userPicture={user.image_profile}
+        />
+      )}
       <Outlet />
       <Rodape />
     </div>

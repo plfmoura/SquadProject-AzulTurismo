@@ -9,12 +9,16 @@ import "./purchases.css";
 export default function Purchases({ data }) {
   const { setNewNotification } = useContext(NavBarContext);
   const today = Date.now();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Para apagar simbolo de novas notificações
-    setNewNotification(false)
-  }, [])
+    setNewNotification(false);
+    // para desabilitar scroll na página
+    document.body.style.overflowY = "hidden";
+  }, []);
+
+  useEffect(() => () => (document.body.style.overflowY = "auto"), []);
 
   return (
     <div className="purchases-container">
@@ -54,50 +58,67 @@ export default function Purchases({ data }) {
                   {item.name ? item.name : "Nome do Passeio"}
                 </span>
                 <div className="ticket-info">
-                  <div>
+                  <div
+                    style={{
+                      whiteSpace: "nowrap",
+                      display: "flex",
+                    }}
+                  >
                     <span className="span-title">Data da compra</span>
                     <span className="span-content">{item.data_compra}</span>
                   </div>
-                  <div>
+                  <div
+                    style={{
+                      whiteSpace: "nowrap",
+                      display: "flex",
+                    }}
+                  >
                     <span className="span-title">Data do Passeio</span>
                     <span className="span-content">{item.data_tour}</span>
                   </div>
-                  <div>
-                    <span className="span-title">Disponibilidade</span>
-                    <span
-                      className="span-content"
-                      style={
-                        today >
-                        Date.parse(
-                          new Date(
-                            Number(item.data_tour.split("-")[2]),
-                            Number(item.data_tour.split("-")[1] - 1),
-                            Number(item.data_tour.split("-")[0])
-                          )
-                        )
-                          ? { color: "#ff3333", fontWeight: "500" }
-                          : { color: "#00ff00", fontWeight: "600" }
-                      }
-                    >
-                      {today >
-                      Date.parse(
-                        new Date(
-                          Number(item.data_tour.split("-")[2]),
-                          Number(item.data_tour.split("-")[1] - 1),
-                          Number(item.data_tour.split("-")[0])
-                        )
-                      )
-                        ? "Indisponível"
-                        : "Disponível"}
-                    </span>
-                  </div>
                 </div>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span className="span-title">Disponibilidade</span>
+                <span
+                  className="span-content"
+                  style={
+                    today >
+                    Date.parse(
+                      new Date(
+                        Number(item.data_tour.split("-")[2]),
+                        Number(item.data_tour.split("-")[1] - 1),
+                        Number(item.data_tour.split("-")[0])
+                      )
+                    )
+                      ? { color: "#ff3333", fontWeight: "500" }
+                      : { color: "#00ff00", fontWeight: "600" }
+                  }
+                >
+                  {today >
+                  Date.parse(
+                    new Date(
+                      Number(item.data_tour.split("-")[2]),
+                      Number(item.data_tour.split("-")[1] - 1),
+                      Number(item.data_tour.split("-")[0])
+                    )
+                  )
+                    ? "Indisponível"
+                    : "Disponível"}
+                </span>
               </div>
             </div>
           ))}
       </div>
       <div className="footer-content">
-        <Button text="Duvidas?" onPress={() => navigate('/faq')}/>
+        <Button text="Duvidas?" onPress={() => navigate("/faq")} />
       </div>
     </div>
   );

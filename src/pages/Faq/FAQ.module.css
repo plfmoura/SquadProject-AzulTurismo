@@ -7,9 +7,9 @@
    
 }
 /* DIV FILHA */
-.FAQ section:nth-child(1){
+.FAQ section{
     width: 100%;
-    height: 50%;
+    height: 50vh;
 }
 /* PRIMEIRA SECTION */
 .InfosFaq{
@@ -24,6 +24,7 @@
 }
 .inputSearch{
     width: 35%;
+  min-width: 200px;
     height: 60px;
     display: flex;
     align-items: center;
@@ -58,21 +59,8 @@
     background-color: #217be2;
 }
 .faqBtnContainer {
-    width: 60rem;
-    height: 50%;
-    margin: 0vh auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: -100px;
-}
-
-.faqBtnContainer div {
-    width: 50%;
-    display: flex;
-    gap: 1rem;
+display: flex;
+justify-content: center;
 }
 
 .overlay{
@@ -185,8 +173,149 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
 }
 
 /* Responsivo*/
-@media screen and (min-width: 320px) and (max-width: 479px){
+
+@media screen and (max-width:1280px) {
+    .InfosFaq h1{
+      
+    }
+    .faqBtnContainer{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .InfosFaq{
+        height: 40%;
+    }
+    .InfosFaq h1{
+      font-size: 2.9em;
+     
+    }
+    .faqBtnContainer{
+        margin-top: -100px;
+        flex-wrap: wrap;
+    }
+
+    .overlay .InfoOverlay div h1{
+        font-size: 1.5em;
+      }
+    .overlay .InfoOverlay div p{
+        font-size: 0.8em;
+    }
+    .overlay .InfoOverlay div h3{
+        font-size: 0.8em;
+    }
+    .overlay .QuestionsOverlay{
+        min-width: 500px;
+         }
+    .overlay .QuestionsOverlay h3{
+            font-size: 0.9em;
+            width: 80%;
+    }
+    
+}
+
+/* TABLET */
+
+@media screen and (max-width:801px) {
+    
+    .InfosFaq h1{
+      font-size: 2.5em;
+    
+    }
+    .faqBtnContainer{
+        margin-top: -100px;
+        flex-wrap: wrap;
+    }
+  
+    .overlay .InfoOverlay div h1{
+        font-size: 1.5em;
+      }
+      
+    .overlay .InfoOverlay div p{
+    font-size: 0.8em;
+    }
+    
+    .overlay .InfoOverlay div h3{
+        font-size: 0.8em;
+    }
+    .overlay .QuestionsOverlay h3{
+        font-size: 0.9em;
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width:620px) {
+
+    .InfosFaq h1{
+      font-size: 2em;
+      
+    }
+    .faqBtnContainer{
+        margin-top: -100px;
+        flex-wrap: wrap;
+    }
+    .overlay .InfoOverlay div h1{
+        font-size: 1.5em;
+      }
+
+      .overlay .InfoOverlay {
+        width: 100%;
+      }
+
+      .overlay .InfoOverlay div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .overlay .InfoOverlay  div h1{
+        height: 0;
+        margin-bottom: 0;
+      }
+      .overlay .InfoOverlay div p ,   .overlay .InfoOverlay div h3{
+        display: none;
+      }
+    
+    .overlay{
+        flex-direction: column;
+    }
+      
+}
+
+@media screen and (max-width:480px) {
+    .InfosFaq h1{
+      font-size: 1.8em;
+      
+    }
+    .faqBtnContainer{
+        margin-top: -50px;
+        flex-wrap: wrap;
+    }
     .FAQ{
+        height: 160vh;
+    }
+}
+@media screen and (max-width:380px) {
+    .InfosFaq h1{
+      font-size: 1.3em;
+      
+    }
+    .faqBtnContainer{
+        margin-top: -100px;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+
+
+/* @media screen and (min-width: px) and (max-width: 479px){
+
+    
+    /* .FAQ{
         margin-bottom: 0;
     }
     .InfosFaq h2{
@@ -203,10 +332,10 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
     .faqBtnContainer div {
         width: 100%;
         gap: 0rem;
-    }
-}
-@media screen and (min-width: 480px) and (max-width: 580px){
-    .InfosFaq h2{
+    } */
+
+/* @media screen and () and (max-width: 580px){ */
+    /* .InfosFaq h2{
         font-size: 30px;
     }
     .inputSearch{
@@ -218,14 +347,16 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
         width: 80%;
     }
     .faqBtnContainer div {
-        gap: 0rem;
-        width: 100%;
-    }
-}
-@media screen and (min-width: 581px) and (max-width: 800px){
+      
+    } */
+
+/* @media screen and (min-width: 581px) and (max-width: 800px){
     .InfosFaq h2{
-        font-size: 35px;
-    }
+       
+
+    } */
+   
+    /* 
     .inputSearch{
         width: 450px;
         height: 60px;
@@ -236,35 +367,33 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
     }
     .faqBtnContainer div {
         width: 100%;
-        gap: 2rem;
-    }
-}
-@media screen and (min-width: 801px) {
-    .faqBtnContainer {
+        gap: 1rem;
+    } */
+
+/* @media screen and (min-width: ) { */
+    /* .faqBtnContainer {
         width: 90%;
         flex-wrap: nowrap;
         gap: 0rem;
     }
     .faqBtnContainer div {
-        width: 50%;
-        gap: 0rem;
-    }
-}
+      
+    } */
 
-@media screen and (min-width: 1024px) {
-    .faqBtnContainer {
+
+/* @media screen and (min-width: 1024px) { */
+    /* .faqBtnContainer {
         width: 90%;
         flex-wrap: nowrap;
         gap: 1rem;
     }
     .faqBtnContainer div {
-        width: 50%;
-        gap: 1rem;
-    }
-}
+   
+    } */
 
-@media screen and (min-width: 1280px) and (max-width: 2021px){
-    .FAQ{
+
+/* @media screen and (min-width: 1280px) and (max-width: 2021px){ */
+    /* .FAQ{
         margin-bottom: 0;
     }
     .InfosFaq h2{
@@ -280,8 +409,7 @@ transition: all 0.5s cubic-bezier(0,1,0,1);
         gap: 1rem;
     }
     .faqBtnContainer div {
-        width: 50%;
-        gap: 1rem;
-    }
-}
+      
+    } */
+
 

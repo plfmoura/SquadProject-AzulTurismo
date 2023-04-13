@@ -204,7 +204,7 @@
     }
 
     .titleContainer {
-        transform: scale(1);
+        transform: scale(0.9);
         color: #ffffff99;
         background-color: transparent;
         position: inherit;
@@ -237,6 +237,10 @@
     .servicesContainer {
         width: 98vw;
     }
+    .servicesContainer h3 {
+        font-size: 16px;
+        margin-left: 5%;
+    }
     .servicesSlider {
         width: 100%;
     }
@@ -265,6 +269,9 @@
     }
     .servicesContainer {
         width: 98vw;
+    }
+    .servicesContainer h3 {
+        margin-left: 11%;
     }
     .servicesSlider {
         width: 100%;

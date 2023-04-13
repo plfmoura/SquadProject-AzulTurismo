@@ -14,7 +14,7 @@ export default function SingIn({ setShow, change }) {
   const [status, setStatus] = useState(false);
   const [doneAnimation, setDoneAnimation] = useState(false);
   const [authError, setAuthError] = useState("");
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
   const loginForm = useRef();
   const registerForm = useRef();
@@ -27,13 +27,66 @@ export default function SingIn({ setShow, change }) {
     let email = registerForm.current.email.value;
     let password = registerForm.current.password.value;
     let confirmPassword = registerForm.current.confirmPassword.value;
+    //Aqui validamos os Campos
+    if (name === "") {
+      registerForm.current.name.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um Nome de usuário.");
+      setTimeout(() => {
+        setAuthError("");
+        registerForm.current.name.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+    if (email === "") {
+      registerForm.current.email.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um endereço de email.");
+      setTimeout(() => {
+        setAuthError("");
+        registerForm.current.email.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+    let regexEmail =
+      /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
+    if (!regexEmail.test(email)) {
+      loginForm.current.email.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um email válido");
+      setTimeout(() => {
+        setAuthError("");
+        loginForm.current.email.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+
+    if (password === "") {
+      registerForm.current.password.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira uma Senha.");
+      setTimeout(() => {
+        setAuthError("");
+        registerForm.current.password.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+    if (confirmPassword === "") {
+      registerForm.current.confirmPassword.style.border = "2px solid #2ea9ff";
+      setAuthError("Confirme sua Senha.");
+      setTimeout(() => {
+        setAuthError("");
+        registerForm.current.confirmPassword.style.border =
+          "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+
     if (password != confirmPassword) {
+      registerForm.current.confirmPassword.style.border = "2px solid #2ea9ff";
       setAuthError("Confirmação de senha incorreta.");
       setTimeout(() => {
         setAuthError("");
+        registerForm.current.confirmPassword.style.border =
+          "1px solid #33333333";
         registerForm.current.password.value = "";
-        registerForm.current.confirmPassword.value = "";
-      }, [3000]);
+      }, [5000]);
       return;
     }
 
@@ -52,8 +105,10 @@ export default function SingIn({ setShow, change }) {
         tel2: "",
         about: "Conte algo sobre você",
         images: ["", "", "", ""],
-        image_banner: "https://wallpapers.com/images/featured/2iuzyh711jo9bmgo.jpg",
-        image_profile: "https://icon-library.com/images/user-icon-jpg/user-icon-jpg-5.jpg",
+        image_banner:
+          "https://wallpapers.com/images/featured/2iuzyh711jo9bmgo.jpg",
+        image_profile:
+          "https://icon-library.com/images/user-icon-jpg/user-icon-jpg-5.jpg",
       },
     };
     try {
@@ -63,7 +118,7 @@ export default function SingIn({ setShow, change }) {
       registerForm.current.reset();
       setTimeout(() => {
         setLogin(false);
-      }, [4300]);
+      }, [4000]);
     } catch (error) {
       showLoad();
       setAuthError("Usuário já cadastrado");
@@ -97,19 +152,40 @@ export default function SingIn({ setShow, change }) {
       },
     };
     setAuthError("");
-
-    if(email === '' || password === ''){
+    if (email === "") {
+      loginForm.current.email_login.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um endereço de email.");
       setTimeout(() => {
-        setAuthError("Os campos não podem está vazios.");
-        setTimeout(() => {
-          setAuthError("");
-        }, [5000])});
-      return
+        setAuthError("");
+        loginForm.current.email_login.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+    let regexEmail =
+      /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
+    if (!regexEmail.test(email)) {
+      loginForm.current.email_login.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira um email válido");
+      setTimeout(() => {
+        setAuthError("");
+        loginForm.current.email_login.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
+
+    if (password === "") {
+      loginForm.current.password_login.style.border = "2px solid #2ea9ff";
+      setAuthError("Insira uma Senha.");
+      setTimeout(() => {
+        setAuthError("");
+        loginForm.current.password_login.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
     }
 
     try {
-      let response = await axios.request(options);
       showLoad();
+      let response = await axios.request(options);
       dispatch(setUser(response.data.user));
       localStorage.setItem("azul_user", JSON.stringify(response.data.user));
       localStorage.setItem("token", JSON.stringify(response.data.token));
@@ -124,15 +200,15 @@ export default function SingIn({ setShow, change }) {
         setAuthError("Email ou Senha incorretos. Tente novamente.");
         setTimeout(() => {
           setAuthError("");
-        }, [5000]);
-      }, [3000]);
+        }, [3000]);
+      }, [4000]);
     }
   };
 
   const eraseInputHistory = () => {
     registerForm.current.reset();
     loginForm.current.reset();
-  }
+  };
 
   useEffect(() => {
     setDoneAnimation(true);
@@ -160,22 +236,42 @@ export default function SingIn({ setShow, change }) {
               <RegisterDone play={doneAnimation} />
             ) : (
               <>
+                <input type="text" placeholder="Insira seu nome" id="name" />
+                <input type="email" placeholder="Insira seu email" id="email" />
                 <input
-                  type="text"
-                  placeholder="Insira seu nome"
-                  id="name"
-                  required
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Insira uma senha"
+                  id="password"
                 />
                 <input
-                  type="email"
-                  placeholder="Insira seu email"
-                  pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
-                  id="email"
-                  required
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Confirme sua senha"
+                  id="confirmPassword"
                 />
-                <PasswordChecker/>
-                
-                
+                <div
+                  style={{
+                    display: "flex",
+                    position: "relative",
+                    left: "-.5rem",
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    name="showPassword"
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{ width: "20px", marginRight: 5 }}
+                  />
+                  <span
+                    style={{
+                      height: "16px",
+                      fontSize: "15px",
+                      color: "#333",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Mostrar campos de senha
+                  </span>
+                </div>
                 <span
                   style={{ height: "16px", fontSize: "14px", color: "red" }}
                 >
@@ -190,12 +286,13 @@ export default function SingIn({ setShow, change }) {
               <span>ou</span>
               {/* <FacebookAuth /> */}
               {/* <GoogleAuth /> */}
-              <span 
+              <span
                 onClick={() => {
-                  setLogin(!login); 
+                  setLogin(!login);
                   setShowPassword(false);
-                  eraseInputHistory()
-                  }}>
+                  eraseInputHistory();
+                }}
+              >
                 Já tem uma conta? <strong>Entrar</strong>
               </span>
             </div>
@@ -212,19 +309,33 @@ export default function SingIn({ setShow, change }) {
             <input
               type="email"
               placeholder="Email cadastrado"
-              pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
-              required
               id="email_login"
             />
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               placeholder="Senha de usuário"
               id="password_login"
               required
             />
-            <div style={{ display: "flex", position: 'relative', left: '-3rem'}}>
-              <input type="checkbox" name="showPassword" onClick={() => setShowPassword(!showPassword)} style={{ width: '20px', marginRight: 5}}/>
-              <span style={{ height: "16px", fontSize: "15px", color: "#333" }}>Mostrar senha</span>
+            <div
+              style={{ display: "flex", position: "relative", left: "-3rem" }}
+            >
+              <input
+                type="checkbox"
+                name="showPassword"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ width: "20px", marginRight: 5 }}
+              />
+              <span
+                style={{
+                  height: "16px",
+                  fontSize: "15px",
+                  color: "#333",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Mostrar senha
+              </span>
             </div>
             <span style={{ height: "16px", fontSize: "14px", color: "red" }}>
               {authError}
@@ -241,11 +352,12 @@ export default function SingIn({ setShow, change }) {
                 <span>ou</span>
                 {/* <FacebookAuth /> */}
                 {/* <GoogleAuth /> */}
-                <span 
-                onClick={() => {
-                  setLogin(!login); 
-                  setShowPassword(false);
-                  }}>
+                <span
+                  onClick={() => {
+                    setLogin(!login);
+                    setShowPassword(false);
+                  }}
+                >
                   Não é cadastrado? <strong>Cadastre-se</strong>
                 </span>
               </>

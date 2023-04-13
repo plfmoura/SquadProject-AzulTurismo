@@ -45,7 +45,7 @@ export default function BurgerMobileMenu({ callMenu }) {
         setTimeout(() => {
           setDisable(false)
           burgerStop()
-        }, 1500);
+        }, 1000);
     }
 
     // exibir modal de login
@@ -62,12 +62,13 @@ export default function BurgerMobileMenu({ callMenu }) {
         loop={true}
         animationData={Burger}
         play={animation}
+        speed={1.5}
         onClick={ burgerPlay }
         style={{ pointerEvents: disableEvent }}
-        onLoopComplete={() => burgerStop() }
+        onLoopComplete={ () => burgerStop() }
         
       />
-      <nav style={{display: showMenu}} className={style.menuContainer}>
+      <nav style={{display: showMenu, pointerEvents: disableEvent}} className={style.menuContainer}>
         <ul className={style.menuContent} >
           <li onClick={ handleSelected }><Link to='/'>Home</Link></li>
           <li onClick={ handleSelected }><Link to='/services'>Serviços</Link></li>
@@ -92,9 +93,6 @@ export default function BurgerMobileMenu({ callMenu }) {
             </>) : (
               <>
                 <li onClick={() => {handleSelected(); setTimeout(() => {setShow(true)}, [300]);}}><Link>Entrar</Link></li>
-                <div onClick={ handleSelected }>
-                  <Link to='/profile'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVKTCvhbnqwyIbeN8eZAzlzb9s9d6LBnNWsw&usqp=CAU' alt="Imagem de Perfil do usuário" className={style.userPicture} /></Link>
-                </div>
               </>
             )
           }
