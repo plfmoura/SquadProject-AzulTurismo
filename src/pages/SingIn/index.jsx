@@ -8,6 +8,7 @@ import { setUser } from "../../reducer/userReducer";
 import RegisterDone from "./Animation/RegisterDone";
 import PasswordChecker from "../../components/PasswordChecker";
 import { checkRegister } from "../../services/checkregister";
+import { checkLogin } from "../../services/checklogin";
 
 export default function SingIn({ setShow, change }) {
   const [login, setLogin] = useState(change);
@@ -86,57 +87,33 @@ export default function SingIn({ setShow, change }) {
   //function login
   const handleLogin = async (e) => {
     e.preventDefault();
-    let email = loginForm.current.email_login.value;
-    let password = loginForm.current.password_login.value;
+    let check = checkLogin(e);
+    if (check != null) {
+      setAuthError(check);
+      setTimeout(() => {
+        setAuthError("");
+        e.target.email_login.style.border = "1px solid #33333333";
+        e.target.password_login.style.border = "1px solid #33333333";
+      }, [5000]);
+      return;
+    }
 
     const options = {
       method: "POST",
       url: "https://tourismapi.herokuapp.com/login",
       headers: { "Content-Type": "application/json" },
       data: {
-        email: `${email}`,
-        password: `${password}`,
+        email: `${e.target.email_login.value}`,
+        password: `${e.target.password_login.value}`,
       },
     };
-    setAuthError("");
-    if (email === "") {
-      loginForm.current.email_login.style.border = "2px solid #2ea9ff";
-      setAuthError("Insira um endereço de email.");
-      setTimeout(() => {
-        setAuthError("");
-        loginForm.current.email_login.style.border = "1px solid #33333333";
-      }, [5000]);
-      return;
-    }
-    let regexEmail =
-      /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
-    if (!regexEmail.test(email)) {
-      loginForm.current.email_login.style.border = "2px solid #2ea9ff";
-      setAuthError("Insira um email válido");
-      setTimeout(() => {
-        setAuthError("");
-        loginForm.current.email_login.style.border = "1px solid #33333333";
-      }, [5000]);
-      return;
-    }
-
-    if (password === "") {
-      loginForm.current.password_login.style.border = "2px solid #2ea9ff";
-      setAuthError("Insira uma Senha.");
-      setTimeout(() => {
-        setAuthError("");
-        loginForm.current.password_login.style.border = "1px solid #33333333";
-      }, [5000]);
-      return;
-    }
-
     try {
       showLoad();
       let response = await axios.request(options);
       dispatch(setUser(response.data.user));
       localStorage.setItem("azul_user", JSON.stringify(response.data.user));
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      loginForm.current.reset();
+      e.target.reset();
       setTimeout(() => {
         showLoad();
       }, [3000]);
@@ -242,7 +219,7 @@ export default function SingIn({ setShow, change }) {
           )}
         </form>
       ) : (
-        <form className={style.loginContainer} ref={loginForm}>
+        <form className={style.loginContainer} onSubmit={handleLogin}>
           <div className={style.formHeader}>
             <img src="azul.png" alt="Logo da Empresa Azul Turismo" />
             <span>Entre como usuário</span>
@@ -250,7 +227,7 @@ export default function SingIn({ setShow, change }) {
           </div>
           <div className={style.formMain}>
             <input
-              type="email"
+              type="text"
               placeholder="Email cadastrado"
               id="email_login"
             />
@@ -258,7 +235,6 @@ export default function SingIn({ setShow, change }) {
               type={showPassword ? "text" : "password"}
               placeholder="Senha de usuário"
               id="password_login"
-              required
             />
             <div
               style={{ display: "flex", position: "relative", left: "-3rem" }}
@@ -291,7 +267,7 @@ export default function SingIn({ setShow, change }) {
               </>
             ) : (
               <>
-                <Button onPress={handleLogin} text="Entrar como Usuário" />
+                <Button text="Entrar como Usuário" type="submit" />
                 <span>ou</span>
                 {/* <FacebookAuth /> */}
                 {/* <GoogleAuth /> */}
