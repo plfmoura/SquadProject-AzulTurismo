@@ -52,17 +52,33 @@ function PasswordChecker() {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <div style={{ textAlign: "center" }}>
-        <input type="password" id="password" value={password} onChange={handlePasswordChange} onBlur={handlePasswordBlur} placeholder="Insira sua senha" />
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={handlePasswordChange}
+          onBlur={handlePasswordBlur}
+          placeholder="Insira sua senha"
+        />
         <br></br>
-        <div style={{ display: "inline-block", marginLeft: '6rem' }}>{passwordMessage}</div>
+        <div style={{ display: "inline-block", marginLeft: "6rem" }}>
+          {passwordMessage}
+        </div>
       </div>
 
-
-
       <div style={{ textAlign: "center" }}>
-        <input type="password" id="confirm-password" value={confirmPassword} onChange={handleConfirmChange} onBlur={handleConfirmBlur} placeholder="Confirme sua senha" />
+        <input
+          type="password"
+          id="confirm-password"
+          value={confirmPassword}
+          onChange={handleConfirmChange}
+          onBlur={handleConfirmBlur}
+          placeholder="Confirme sua senha"
+        />
         <div>{confirmPasswordMessage}</div>
       </div>
     </div>

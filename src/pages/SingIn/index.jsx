@@ -157,7 +157,7 @@ export default function SingIn({ setShow, change }) {
             ) : (
               <>
                 <input type="text" placeholder="Insira seu nome" id="name" />
-                <input type="email" placeholder="Insira seu email" id="email" />
+                <input type="text" placeholder="Insira seu email" id="email" />
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Insira uma senha"
