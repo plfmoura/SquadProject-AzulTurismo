@@ -13,8 +13,8 @@ import {
   FaRegComments,
 } from "react-icons/fa";
 import FaqCard from "./FaqCard";
-import Question from "./Questions"
-import QuestionDuvidas from "./QuestionDuvidas"
+import Question from "./Questions";
+import QuestionDuvidas from "./QuestionDuvidas";
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
 import { useSelector } from "react-redux";
@@ -31,7 +31,7 @@ export default function Faq() {
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
-      window.scrollTo(1, 0);
+    window.scrollTo(1, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
@@ -85,7 +85,7 @@ export default function Faq() {
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
-  } ,[showOffCanvas])
+  }, [showOffCanvas]);
 
   const submitDuvida = async (e) => {
     e.preventDefault();
@@ -143,8 +143,6 @@ export default function Faq() {
     }
   }, [dataBtn]);
 
- 
-
   return (
     <>
       {showOffCanvas && (
@@ -196,18 +194,14 @@ export default function Faq() {
                   </h3>
                   {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                   {dataBtn &&
-                    dataBtn.map((item, key) => (
-
-                      <Question 
-                      questions={item.question} 
-                      response= {item.response}
-                      id={item.id_faq}
-                      key={key}
-                       />
-              
-                    ))
-                    
-                    }
+                    dataBtn.map((item) => (
+                      <Question
+                        questions={item.question}
+                        response={item.response}
+                        id={item.id_faq}
+                        key={item.id_faq}
+                      />
+                    ))}
                 </section>
               </div>
             ) : (

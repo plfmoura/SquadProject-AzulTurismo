@@ -1,58 +1,30 @@
-import React from 'react'
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 import style from "../FAQ.module.css";
 
 import { IoMdAddCircleOutline, IoMdRemoveCircleOutline } from "react-icons/io";
-const index = (questions,response,id,key) => {
+const index = ({ questions, response }) => {
+  const [select, setSelect] = useState(false);
 
-    // FUNCTION CLICK DO OVERLAY
+  return (
+    <div>
+      <div className={style.CardTitulo}>
+        <h2>{questions}</h2>
+        <span
+          className={style.BtnQuestion}
+          onClick={() => {
+            setSelect(!select);
+          }}
+        >
+          {select ? <IoMdRemoveCircleOutline /> : <IoMdAddCircleOutline />}
+        </span>
+      </div>
 
-    // const [select, setSelect] = useState(null);
+      <p className={select ? style.CrescerResposta : style.Resposta}>
+        {response}
+      </p>
+    </div>
+  );
+};
 
-    // const Toggle = (id) => {
-
-    //     if (select == id) {
-    //         return setSelect(null);
-    //     }
-    //     setSelect(id);
-
-    // };
-
-
-    return (
-
-          <div key={key}>
-                <div className={style.CardTitulo}>
-                    <h2>{questions}</h2>
-                    <span
-                        className={style.BtnQuestion}
-                        onClick={() => {
-                            const IdFaq = id;
-                            if (IdFaq) {
-                                Toggle(IdFaq)
-                            }
-                        }}
-                    >
-                        {select == id ? (
-                            <IoMdRemoveCircleOutline />
-                        ) : (
-                            <IoMdAddCircleOutline />
-                        )}
-                    </span>
-                </div>
-
-                <p
-                    className={
-                        select == id
-                            ? style.CrescerResposta
-                            : style.Resposta
-                    }
-                >
-                    {response}
-                </p>
-            </div> 
-      
-    )
-}
-
-export default index
+export default index;
