@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
 import RegisterDone from "./Animation/RegisterDone";
 import PasswordChecker from "../../components/PasswordChecker";
+import { checkRegister } from "../../services/checkregister";
 
 export default function SingIn({ setShow, change }) {
   const [login, setLogin] = useState(change);
@@ -23,81 +24,27 @@ export default function SingIn({ setShow, change }) {
   // Function Register
   const handleRegister = async (e) => {
     e.preventDefault();
-    let name = registerForm.current.name.value;
-    let email = registerForm.current.email.value;
-    let password = registerForm.current.password.value;
-    let confirmPassword = registerForm.current.confirmPassword.value;
     //Aqui validamos os Campos
-    if (name === "") {
-      registerForm.current.name.style.border = "2px solid #2ea9ff";
-      setAuthError("Insira um Nome de usuário.");
+    let check = checkRegister(e);
+    if (check != null) {
+      setAuthError(check);
       setTimeout(() => {
         setAuthError("");
-        registerForm.current.name.style.border = "1px solid #33333333";
+        e.target.name.style.border = "1px solid #33333333";
+        e.target.email.style.border = "1px solid #33333333";
+        e.target.password.style.border = "1px solid #33333333";
+        e.target.confirmPassword.style.border = "1px solid #33333333";
       }, [5000]);
       return;
     }
-    if (email === "") {
-      registerForm.current.email.style.border = "2px solid #2ea9ff";
-      setAuthError("Insira um endereço de email.");
-      setTimeout(() => {
-        setAuthError("");
-        registerForm.current.email.style.border = "1px solid #33333333";
-      }, [5000]);
-      return;
-    }
-    let regexEmail =
-      /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/;
-    if (!regexEmail.test(email)) {
-      loginForm.current.email.style.border = "2px solid #2ea9ff";
-      setAuthError("Insira um email válido");
-      setTimeout(() => {
-        setAuthError("");
-        loginForm.current.email.style.border = "1px solid #33333333";
-      }, [5000]);
-      return;
-    }
-
-    if (password === "") {
-      registerForm.current.password.style.border = "2px solid #2ea9ff";
-      setAuthError("Insira uma Senha.");
-      setTimeout(() => {
-        setAuthError("");
-        registerForm.current.password.style.border = "1px solid #33333333";
-      }, [5000]);
-      return;
-    }
-    if (confirmPassword === "") {
-      registerForm.current.confirmPassword.style.border = "2px solid #2ea9ff";
-      setAuthError("Confirme sua Senha.");
-      setTimeout(() => {
-        setAuthError("");
-        registerForm.current.confirmPassword.style.border =
-          "1px solid #33333333";
-      }, [5000]);
-      return;
-    }
-
-    if (password != confirmPassword) {
-      registerForm.current.confirmPassword.style.border = "2px solid #2ea9ff";
-      setAuthError("Confirmação de senha incorreta.");
-      setTimeout(() => {
-        setAuthError("");
-        registerForm.current.confirmPassword.style.border =
-          "1px solid #33333333";
-        registerForm.current.password.value = "";
-      }, [5000]);
-      return;
-    }
-
     const options = {
       method: "POST",
       url: "https://tourismapi.herokuapp.com/register",
       headers: { "Content-Type": "application/json" },
       data: {
-        name: `${name}`,
-        email: `${email}`,
-        password: `${password}`,
+        name: `${e.target.name.value}`,
+        email: `${e.target.email.value}`,
+        password: `${e.target.password.value}`,
         idioms: "Português",
         profession: "Insira sua profissão",
         located: "Insira seu Estado",
@@ -115,7 +62,7 @@ export default function SingIn({ setShow, change }) {
       await axios.request(options);
       showLoad();
       setStatus(true);
-      registerForm.current.reset();
+      e.target.reset();
       setTimeout(() => {
         setLogin(false);
       }, [4000]);
@@ -124,7 +71,7 @@ export default function SingIn({ setShow, change }) {
       setAuthError("Usuário já cadastrado");
       setTimeout(() => {
         setAuthError("");
-        registerForm.current.reset();
+        e.target.reset();
       }, [3000]);
     }
   };
@@ -221,11 +168,7 @@ export default function SingIn({ setShow, change }) {
   return (
     <div>
       {login ? (
-        <form
-          className={style.singInContainer}
-          ref={registerForm}
-          onSubmit={handleRegister}
-        >
+        <form className={style.singInContainer} onSubmit={handleRegister}>
           <div className={style.formHeader}>
             <img src="azul.png" alt="Logo da Empresa Azul Turismo" />
             <span>Cadastre-se agora</span>
@@ -271,7 +214,7 @@ export default function SingIn({ setShow, change }) {
                   >
                     Mostrar campos de senha
                   </span>
-                </div>git
+                </div>
                 <span
                   style={{ height: "16px", fontSize: "14px", color: "red" }}
                 >
