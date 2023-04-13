@@ -12,8 +12,9 @@ import {
   FaRegCreditCard,
   FaRegComments,
 } from "react-icons/fa";
-import { IoMdAddCircleOutline, IoMdRemoveCircleOutline } from "react-icons/io";
 import FaqCard from "./FaqCard";
+import Question from "./Questions"
+import QuestionDuvidas from "./QuestionDuvidas"
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
 import { useSelector } from "react-redux";
@@ -142,18 +143,7 @@ export default function Faq() {
     }
   }, [dataBtn]);
 
-  // FUNCTION CLICK DO OVERLAY
-
-  const [select, setSelect] = useState(null);
-
-  const Toggle = (id) => {
-  
-    if (select == id) {
-      return setSelect(null);
-    }
-    setSelect(id);
-    
-  };
+ 
 
   return (
     <>
@@ -206,42 +196,18 @@ export default function Faq() {
                   </h3>
                   {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                   {dataBtn &&
-                    dataBtn.map((item, key, i) => (
-                      <div key={key}>
-                        <div className={style.CardTitulo}>
-                          <h2>{item.question}</h2>
-                          <span
-                            className={style.BtnQuestion}
-                            onClick={() => {
-                              const IdFaq = item.id_faq;
-                              const IdDuvidas = item.id_duvida;
-                              if (IdFaq) {
-                                Toggle(IdFaq)
-                              }
-                              else if (IdDuvidas) {
-                                Toggle(IdDuvidas)
-                              }
-                            }}
-                          >
-                            {select == item.id_faq || select == item.id_duvida ? (
-                              <IoMdRemoveCircleOutline />
-                            ) : (
-                              <IoMdAddCircleOutline />
-                            )}
-                          </span>
-                        </div>
+                    dataBtn.map((item, key) => (
 
-                        <p
-                          className={
-                            select == item.id_faq 
-                              ? style.CrescerResposta
-                              : style.Resposta
-                          }
-                        >
-                          {item.response}
-                        </p>
-                      </div>
-                    ))}
+                      <Question 
+                      questions={item.question} 
+                      response= {item.response}
+                      id={item.id_faq}
+                      key={key}
+                       />
+              
+                    ))
+                    
+                    }
                 </section>
               </div>
             ) : (
