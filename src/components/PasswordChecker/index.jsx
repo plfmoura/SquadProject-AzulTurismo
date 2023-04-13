@@ -56,7 +56,7 @@ function PasswordChecker() {
       <div style={{ marginBottom: 15, textAlign: "center" }}>
         <input type="password" id="password" value={password} onChange={handlePasswordChange} onBlur={handlePasswordBlur} placeholder="Insira sua senha" />
         <br></br>
-        <div style={{ display: "inline-block", marginLeft: 11gi0 }}>{passwordMessage}</div>
+        <div style={{ display: "inline-block", marginLeft: 110 }}>{passwordMessage}</div>
       </div>
 
 
