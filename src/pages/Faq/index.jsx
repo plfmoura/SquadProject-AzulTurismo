@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 import FaqCard from "./FaqCard";
 import Question from "./Questions";
-import QuestionDuvidas from "./QuestionDuvidas";
+
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
 import { useSelector } from "react-redux";

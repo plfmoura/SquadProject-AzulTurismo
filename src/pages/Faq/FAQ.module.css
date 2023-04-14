@@ -100,11 +100,13 @@ justify-content: center;
     width: 60%;
     min-width: 200px;
     max-width: 500px;
-    height: 150px;
+    height: 10vw;
+    max-height: 150px;
     padding: 10px;
     border-radius: 10px;
     outline: none;
     color:#FFFFFF;
+    resize: none;
 }
 .overlay .InfoOverlay div input{
     width: 200px;
@@ -190,14 +192,15 @@ color: #1C8EE9;
 .Resposta{
 max-height: 0;
 overflow: hidden;
-transition: all 0.5s cubic-bezier(0,1,0,1);
+transition: 0.1s;
 }
 
  .CrescerResposta{
-    padding: 10px;
+    padding: 10px 10px 20px 10px;
     height: auto;
     max-height: 99999px;
-    transition: all 0.5s cubic-bezier(0,1,0,1);
+  transition: 0.3s;
+  border-bottom: 1px solid #7ab8ebae;
 }
 
 /* Responsivo*/
