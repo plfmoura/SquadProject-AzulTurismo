@@ -12,8 +12,9 @@ import {
   FaRegCreditCard,
   FaRegComments,
 } from "react-icons/fa";
-import { IoMdAddCircleOutline, IoMdRemoveCircleOutline } from "react-icons/io";
 import FaqCard from "./FaqCard";
+import Question from "./Questions";
+
 
 import { keyWorldTracker } from "../../services/keyWordTracker";
 import { useSelector } from "react-redux";
@@ -30,7 +31,7 @@ export default function Faq() {
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
-      window.scrollTo(1, 0);
+    window.scrollTo(1, 0);
     // para alterar cor do background de acordo com a página
     setBgColor(true);
     // para alterar estilização do footer caso venha direto da página de payment
@@ -84,7 +85,7 @@ export default function Faq() {
   useEffect(() => {
     // para subir a ao topo após renderizar a página
     window.scrollTo(0, 0);
-  } ,[showOffCanvas])
+  }, [showOffCanvas]);
 
   const submitDuvida = async (e) => {
     e.preventDefault();
@@ -142,16 +143,6 @@ export default function Faq() {
     }
   }, [dataBtn]);
 
-  // FUNCTION CLICK DO OVERLAY
-
-  const [select, setSelect] = useState(null);
-
-  const Toggle = (id_faq) => {
-    if (select == id_faq) {
-      return setSelect(null);
-    }
-    setSelect(id_faq);
-  };
   return (
     <>
       {showOffCanvas && (
@@ -163,7 +154,7 @@ export default function Faq() {
                   {dataBtn && (
                     <div>
                       {dataBtn[0].title.includes("duvida do") ? (
-                        <>
+                        <div className={style.infoDuvidas}>
                           <h1>Envie uma nova dúvida</h1>
                           <form
                             action=""
@@ -176,11 +167,12 @@ export default function Faq() {
                               id="duvida"
                               cols="15"
                               rows="5"
+                              placeholder="Digite aqui.."
                             ></textarea>
                             <br />
                             <input type="submit" value="Enviar" />
                           </form>
-                        </>
+                        </div>
                       ) : (
                         <>
                           <h1>{dataBtn[0].title}</h1>
@@ -202,35 +194,13 @@ export default function Faq() {
                   </h3>
                   {/* Renderizado condicional pra evitar problemas de asincronia dos valores ja atualizados no card */}
                   {dataBtn &&
-                    dataBtn.map((item, key, i) => (
-                      <div key={key}>
-                        <div className={style.CardTitulo}>
-                          <h2>{item.question}</h2>
-                          <span
-                            className={style.BtnQuestion}
-                            onClick={() => {
-                              const IdFaq = item.id_faq;
-                              Toggle(IdFaq);
-                            }}
-                          >
-                            {select == item.id_faq ? (
-                              <IoMdRemoveCircleOutline />
-                            ) : (
-                              <IoMdAddCircleOutline />
-                            )}
-                          </span>
-                        </div>
-
-                        <p
-                          className={
-                            select == item.id_faq
-                              ? style.CrescerResposta
-                              : style.Resposta
-                          }
-                        >
-                          {item.response}
-                        </p>
-                      </div>
+                    dataBtn.map((item) => (
+                      <Question
+                        questions={item.question}
+                        response={item.response}
+                        id={item.id_faq}
+                        key={item.id_faq}
+                      />
                     ))}
                 </section>
               </div>
