@@ -15,6 +15,7 @@ estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não
 <br/>
 
 ### Como utilizar o aplicativo.
+- Para uma melhor visualização utilize a resolução de 1920x1080.
 - Passeios disponíveis apenas no Rio de Janeiro.<br/>
 - Login para visualização de todas as funcionalidades de usuário:<br/> email: andressa@gmail.com<br/> senha: 123<br/>
 - Para compra de passeio você pode digitar um cartão aleatório na validação de checkout.
