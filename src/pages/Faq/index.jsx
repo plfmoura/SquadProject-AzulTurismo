@@ -28,6 +28,7 @@ export default function Faq() {
   const state = useSelector((state) => state);
   const { faq } = state.faq;
   const { user } = state.user;
+  const [pesquisa,setPesquisa] = useState("")
 
   useEffect(() => {
     // para subir a ao topo após renderizar a página
@@ -62,6 +63,7 @@ export default function Faq() {
         let userFaq = faq.filter((item) => item.title.includes("Usuário"));
         setDataBtn(userFaq);
         foundWord();
+        setPesquisa("")
         break;
       case "pagamentos":
         setValueBtn("pagamento");
@@ -69,13 +71,21 @@ export default function Faq() {
         let pagFaq = faq.filter((item) => item.title.includes("pagamento"));
         setDataBtn(pagFaq);
         foundWord();
+        setPesquisa("")
         break;
       case "seguranças":
         setValueBtn("seguranca");
         let secFaq = faq.filter((item) => item.title.includes("segurança"));
         setDataBtn(secFaq);
         foundWord();
+        setPesquisa("")
         break;
+        case "Nada":
+          setPesquisa("Por favor digite algo...")
+         break; 
+        case "Erro":
+          setPesquisa("Desculpe-nos, não conseguimos encontrar sua pergunta")
+        break; 
       default:
         // caso não encontre, finaliza a função
         return;
@@ -223,9 +233,11 @@ export default function Faq() {
             <button type="submit" onClick={BtnSearch}>
               <IoSearch />
             </button>
-          </div>
-          <span>{}</span>
+          </div> 
+          <div className={style.Pesquisa}>  <span>{pesquisa}</span></div>
+        
         </section>
+       
         <section className={style.faqBtnContainer}>
           <FaqCard
             title="Problemas com o Usuário?"

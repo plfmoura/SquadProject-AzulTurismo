@@ -1,7 +1,7 @@
 export const keyWorldTracker = (text) => {
   let result = "";
   if (text == "") {
-    return "Digite algo..";
+   result = "Nada"
   } else if (
     text.includes("usuario") ||
     text.includes("uzuario") ||
@@ -30,7 +30,7 @@ export const keyWorldTracker = (text) => {
   ) {
     result = "seguranças";
   } else {
-    return "Desculpe, nao conseguimos encontrar sua pergunta.";
+  result = "Erro"
   }
   return result;
 };
