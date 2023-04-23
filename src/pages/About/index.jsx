@@ -47,7 +47,7 @@ export default function About() {
     setBgColor(true);
     setPaymentFooter(false)
   }, []);
-  
+
   useEffect(() => {
     //to set the contact form for a loged user
     if (user) {
@@ -68,17 +68,7 @@ export default function About() {
           <article>
             <h1>Detalhes da Azul Tour</h1>
             <p>
-              A nossa empresa atua no mercado desde 2023, sendo especializada em
-              passeios turísticos em todo o Rio de Janeiro. Prezamos pela
-              praticidade e excelência na experiência do cliente, com
-              atendimento diferenciado e uma frota preparada para proporcionar a
-              melhor viagem para você, amigos e familiares. Nossa equipe tem
-              experiência internacional e realiza treinamentos constantes, o que
-              nos possibilita oferecer os mais altos padrões de atendimento,
-              segurança e qualidade, seja em Transportes, Receptivos, City
-              Tours, Transporte Executivo ou VIP. Nossa missão é conectar
-              pessoas aos seus destinos para que elas colecionem experiências
-              incríveis e belas recordações!
+              A nossa empresa atua no mercado desde 2023, sendo especializada em passeios turísticos por todo o Rio de Janeiro. Prezamos pela praticidade e excelência na experiência do cliente com atendimento diferenciado e uma frota preparada para proporcionar a melhor viagem para você. Nossa equipe tem experiência internacional e realiza treinamentos constantes, nos possibilitando oferecer os mais altos padrões de atendimento, segurança e qualidade em Transportes, Receptivos, City Tours, Transporte Executivo ou VIP. Nossa missão é conectar pessoas aos seus destinos para que elas colecionem experiências incríveis e belas recordações da Cidade Maravilhosa.
             </p>
           </article>
           <span style={{ visibility: "hidden" }}>Ver mais...</span>
@@ -155,7 +145,7 @@ export default function About() {
           onSubmit={handleSubmit}
           className={style.formContainer}
           ref={contactForm}
-          
+
         >
           <div className={style.firstdiv} id='form'>
             <input placeholder="Nome" type="text" required id="name" />
