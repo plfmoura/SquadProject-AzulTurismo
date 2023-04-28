@@ -131,7 +131,12 @@ export default function Faq() {
       console.error(error);
       alert("Ops, algo deu errado!");
     }
+
   };
+
+
+    
+//     let duvida = e.target.duvida.value;
 
   // STATE DO MEU INPUT
   const [DataInput, setDataInput] = useState({
@@ -169,7 +174,8 @@ export default function Faq() {
                           <form
                             action=""
                             onSubmit={(e) => {
-                              submitDuvida(e);
+                              submitDuvida(e);  
+                            
                             }}
                           >
                             <textarea
@@ -178,9 +184,10 @@ export default function Faq() {
                               cols="15"
                               rows="5"
                               placeholder="Digite aqui.."
+                              required
                             ></textarea>
                             <br />
-                            <input type="submit" value="Enviar" />
+                            <input type="submit" value="Enviar"  required/>
                           </form>
                         </div>
                       ) : (
