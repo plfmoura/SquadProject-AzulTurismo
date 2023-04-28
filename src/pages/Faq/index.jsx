@@ -174,8 +174,13 @@ export default function Faq() {
                           <form
                             action=""
                             onSubmit={(e) => {
-                              submitDuvida(e);  
-                            
+                              let duvida = e.target.duvida.value.length;
+                             if(duvida <= 10){
+                             submitDuvida(e)
+                             }
+                             else{
+                              alert('Perguntas ate 30 caracteres')
+                             }
                             }}
                           >
                             <textarea
