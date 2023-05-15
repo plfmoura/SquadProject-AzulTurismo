@@ -24,7 +24,7 @@ estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não
 Fluxo do usuário:<br/>
 - Entrar na aplicação > selecionar passeio > efetuar login/efetuar cadastro > iniciar compra > finalizar compra > visualizar compra no perfil.<br/>
 
-### Como instalar e rodar este aplicativo.
+### Como instalar e rodar este aplicativo...
 
 ```Todos os passos são utilizando o -Git Bash-
 All steps is using -Git Bash
