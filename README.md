@@ -14,7 +14,7 @@ mais badaladas Cariocas, da Região dos Lagos até as favelas cariocas, conectan
 estado, desburocratizando ao máximo o sistema de reservas obsoleto que já não é mais empecilho virtual para conhecer a cultura e admirar a Cidade Maravilhosa.<br/>
 <br/>
 
-### Como utilizar o aplicativo.
+### Como utilizar o aplicativo...
 - Para uma melhor visualização utilize a resolução de 1280x720.
 - Passeios disponíveis apenas no Rio de Janeiro.<br/>
 - Login para visualização de todas as funcionalidades de usuário:<br/> email: andressa@gmail.com<br/> senha: 123<br/>
