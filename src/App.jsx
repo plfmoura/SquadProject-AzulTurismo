@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     //update my products
     axios
-      .get("https://tourismapi.herokuapp.com/products")
+      .get("https://apiazultour.cyclic.app/products")
       .then((response) => {
         dispatch(updateProducts(response.data));
       })
@@ -36,7 +36,7 @@ function App() {
 
     //Get of FAQ data to update reducer state
     axios
-      .get("https://tourismapi.herokuapp.com/faq")
+      .get("https://apiazultour.cyclic.app/faq")
       .then((response) => {
         dispatch(setFaq(response.data));
       })
@@ -52,7 +52,7 @@ function App() {
       let token = JSON.parse(localStorage.getItem("token"));
       const options = {
         method: "GET",
-        url: `https://tourismapi.herokuapp.com/duvida/${id}`,
+        url: `https://apiazultour.cyclic.app/duvida/${id}`,
         headers: {
           "Content-Type": "application/json",
           "auth-token": token,
