@@ -65,7 +65,7 @@ export default function Profile() {
     let token = JSON.parse(localStorage.getItem("token"));
     const options1 = {
       method: "PATCH",
-      url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+      url: `${import.meta.env.VITE_BASE_URL}/user/${user.user_id}`,
       headers: {
         "auth-token": token,
         "Content-Type": "application/json",
@@ -111,7 +111,7 @@ export default function Profile() {
     let token = JSON.parse(localStorage.getItem("token"));
     const options1 = {
       method: "PATCH",
-      url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+      url: `${import.meta.env.VITE_BASE_URL}/user/${user.user_id}`,
       headers: {
         "auth-token": token,
         "Content-Type": "application/json",
@@ -154,7 +154,7 @@ export default function Profile() {
     let sendUser = JSON.parse(localStorage.getItem("azul_user")).user_id;
     const options = {
       method: "GET",
-      url: `https://tourismapi.herokuapp.com/history/${sendUser}`,
+      url: `${import.meta.env.VITE_BASE_URL}/history/${sendUser}`,
       headers: {
         "Content-Type": "application/json",
         "auth-token": token,
@@ -300,7 +300,7 @@ export default function Profile() {
                         let token = JSON.parse(localStorage.getItem("token"));
                         const options = {
                           method: "PATCH",
-                          url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+                          url: `${import.meta.env.VITE_BASE_URL}/user/${user.user_id}`,
                           headers: {
                             "auth-token": token,
                             "Content-Type": "application/json",
@@ -350,7 +350,7 @@ export default function Profile() {
                         let token = JSON.parse(localStorage.getItem("token"));
                         const options = {
                           method: "PATCH",
-                          url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+                          url: `${import.meta.env.VITE_BASE_URL}/user/${user.user_id}`,
                           headers: {
                             "auth-token": token,
                             "Content-Type": "application/json",
@@ -412,7 +412,7 @@ export default function Profile() {
                         let token = JSON.parse(localStorage.getItem("token"));
                         const options = {
                           method: "PATCH",
-                          url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+                          url: `${import.meta.env.VITE_BASE_URL}/user/${user.user_id}`,
                           headers: {
                             "auth-token": token,
                             "Content-Type": "application/json",
@@ -462,7 +462,7 @@ export default function Profile() {
                         let token = JSON.parse(localStorage.getItem("token"));
                         const options = {
                           method: "PATCH",
-                          url: `https://tourismapi.herokuapp.com/user/${user.user_id}`,
+                          url: `${import.meta.env.VITE_BASE_URL}/user/${user.user_id}`,
                           headers: {
                             "auth-token": token,
                             "Content-Type": "application/json",

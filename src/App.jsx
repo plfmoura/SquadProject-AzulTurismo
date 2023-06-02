@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     //update my products
     axios
-      .get("https://apiazultour.cyclic.app/products")
+      .get(`${import.meta.env.VITE_BASE_URL}/products`)
       .then((response) => {
         dispatch(updateProducts(response.data));
       })
@@ -36,7 +36,7 @@ function App() {
 
     //Get of FAQ data to update reducer state
     axios
-      .get("https://apiazultour.cyclic.app/faq")
+      .get(`${import.meta.env.VITE_BASE_URL}/faq`)
       .then((response) => {
         dispatch(setFaq(response.data));
       })
@@ -52,7 +52,7 @@ function App() {
       let token = JSON.parse(localStorage.getItem("token"));
       const options = {
         method: "GET",
-        url: `https://apiazultour.cyclic.app/duvida/${id}`,
+        url: `${import.meta.env.VITE_BASE_URL}/duvida/${id}`,
         headers: {
           "Content-Type": "application/json",
           "auth-token": token,

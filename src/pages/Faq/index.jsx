@@ -107,7 +107,7 @@ export default function Faq() {
     e.target.reset();
     const options = {
       method: "POST",
-      url: "https://tourismapi.herokuapp.com/duvida",
+      url: `${import.meta.env.VITE_BASE_URL}/duvida`,
       headers: {
         "Content-Type": "application/json",
         "auth-token": `${token}`,

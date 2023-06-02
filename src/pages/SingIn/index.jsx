@@ -91,7 +91,7 @@ export default function SingIn({ setShow, change }) {
 
     const options = {
       method: "POST",
-      url: "https://tourismapi.herokuapp.com/register",
+      url: `${import.meta.env.VITE_BASE_URL}/register`,
       headers: { "Content-Type": "application/json" },
       data: {
         name: `${name}`,
@@ -143,7 +143,7 @@ export default function SingIn({ setShow, change }) {
 
     const options = {
       method: "POST",
-      url: "https://tourismapi.herokuapp.com/login",
+      url: `${import.meta.env.VITE_BASE_URL}/login`,
       headers: { "Content-Type": "application/json" },
       data: {
         email: `${email}`,

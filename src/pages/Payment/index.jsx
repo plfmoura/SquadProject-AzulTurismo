@@ -56,7 +56,7 @@ export default function Payment() {
 
     const options = {
       method: "POST",
-      url: "https://tourismapi.herokuapp.com/comprar",
+      url: `${import.meta.env.VITE_BASE_URL}/comprar`,
       headers: {
         "Content-Type": "application/json",
         "auth-token": `${token}`,
